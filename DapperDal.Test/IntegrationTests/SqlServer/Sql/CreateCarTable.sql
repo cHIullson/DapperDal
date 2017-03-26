@@ -1,0 +1,13 @@
+﻿IF (OBJECT_ID('Car') IS NOT NULL)
+BEGIN
+    DROP TABLE Car
+END
+
+CREATE TABLE Car (
+    CarId INT IDENTITY(1,1) PRIMARY KEY,
+    CarName NVARCHAR(50) NULL,
+    BrandId INT NULL,
+    [CreateTime] [DATETIME] NULL DEFAULT (GETDATE()),
+    [UpdateTime] [DATETIME] NULL,
+    [IsActive] [BIT] NULL DEFAULT ((0))
+)

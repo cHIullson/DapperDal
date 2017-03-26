@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.4
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DapperExtensions", "DapperExtensions", "{67BA0FBF-5B1A-4BEB-98A7-FCF05B72CC89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperExtensions", "DapperExtensions\DapperExtensions.csproj", "{4C1A2C6C-A469-4C87-98D1-F1D517FA1ACF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperExtensions.Test.Entities", "DapperExtensions.Test.Entities\DapperExtensions.Test.Entities.csproj", "{DAFAEFFC-0E56-4FA5-923C-DE47E91B51D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperExtensions.Test.Maps", "DapperExtensions.Test.Maps\DapperExtensions.Test.Maps.csproj", "{87220EF9-8EE4-4EB0-829C-31C51BD7B750}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperExtensions.Test", "DapperExtensions.Test\DapperExtensions.Test.csproj", "{5CE85D4C-AAB4-4BB0-A196-11EC54D98FAB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperDal", "DapperDal\DapperDal.csproj", "{64CCA848-7660-43EE-ABAE-91EFFE765E41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperDal.Test", "DapperDal.Test\DapperDal.Test.csproj", "{8BF8684B-E2F2-43A3-B5C7-B9C49F1810C5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FF445554-FEE7-45CD-B9A8-1D1D80D9744F}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4C1A2C6C-A469-4C87-98D1-F1D517FA1ACF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C1A2C6C-A469-4C87-98D1-F1D517FA1ACF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C1A2C6C-A469-4C87-98D1-F1D517FA1ACF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C1A2C6C-A469-4C87-98D1-F1D517FA1ACF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAFAEFFC-0E56-4FA5-923C-DE47E91B51D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAFAEFFC-0E56-4FA5-923C-DE47E91B51D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAFAEFFC-0E56-4FA5-923C-DE47E91B51D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAFAEFFC-0E56-4FA5-923C-DE47E91B51D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87220EF9-8EE4-4EB0-829C-31C51BD7B750}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87220EF9-8EE4-4EB0-829C-31C51BD7B750}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87220EF9-8EE4-4EB0-829C-31C51BD7B750}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87220EF9-8EE4-4EB0-829C-31C51BD7B750}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CE85D4C-AAB4-4BB0-A196-11EC54D98FAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CE85D4C-AAB4-4BB0-A196-11EC54D98FAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CE85D4C-AAB4-4BB0-A196-11EC54D98FAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CE85D4C-AAB4-4BB0-A196-11EC54D98FAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64CCA848-7660-43EE-ABAE-91EFFE765E41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64CCA848-7660-43EE-ABAE-91EFFE765E41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64CCA848-7660-43EE-ABAE-91EFFE765E41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64CCA848-7660-43EE-ABAE-91EFFE765E41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BF8684B-E2F2-43A3-B5C7-B9C49F1810C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BF8684B-E2F2-43A3-B5C7-B9C49F1810C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BF8684B-E2F2-43A3-B5C7-B9C49F1810C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BF8684B-E2F2-43A3-B5C7-B9C49F1810C5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4C1A2C6C-A469-4C87-98D1-F1D517FA1ACF} = {67BA0FBF-5B1A-4BEB-98A7-FCF05B72CC89}
+		{DAFAEFFC-0E56-4FA5-923C-DE47E91B51D8} = {67BA0FBF-5B1A-4BEB-98A7-FCF05B72CC89}
+		{87220EF9-8EE4-4EB0-829C-31C51BD7B750} = {67BA0FBF-5B1A-4BEB-98A7-FCF05B72CC89}
+		{5CE85D4C-AAB4-4BB0-A196-11EC54D98FAB} = {67BA0FBF-5B1A-4BEB-98A7-FCF05B72CC89}
+	EndGlobalSection
+EndGlobal

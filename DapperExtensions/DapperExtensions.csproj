@@ -53,6 +53,10 @@
     <Compile Include="DapperExtensionsConfiguration.cs" />
     <Compile Include="DapperImplementor.cs" />
     <Compile Include="Database.cs" />
+    <Compile Include="Expressions\DapperEvaluator.cs" />
+    <Compile Include="Expressions\DapperExpressionExtensions.cs" />
+    <Compile Include="Expressions\DapperExpressionVisitor.cs" />
+    <Compile Include="Expressions\SortingExtensions.cs" />
     <Compile Include="GetMultiplePredicate.cs" />
     <Compile Include="GetMultipleResult.cs" />
     <Compile Include="Mapper\AutoClassMapper.cs" />
