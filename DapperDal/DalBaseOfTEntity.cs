@@ -226,6 +226,64 @@ namespace DapperDal
         }
 
         /// <summary>
+        /// 更新指定实体指定属性
+        /// </summary>
+        /// <param name="entity">实体</param>
+        /// <param name="props">更新属性名</param>
+        /// <returns>更新结果</returns>
+        public virtual bool Update(TEntity entity, IEnumerable<string> props)
+        {
+            using (Connection)
+            {
+                return Connection.Update(entity, props.ToList());
+            }
+        }
+
+        /// <summary>
+        /// 根据指定指定主键ID更新实体指定属性
+        /// （条件使用实体主键ID）
+        /// </summary>
+        /// <param name="entity">更新实体，包含主键ID与更新属性</param>
+        /// <returns>更新结果</returns>
+        public virtual bool Update(object entity)
+        {
+            using (Connection)
+            {
+                return Connection.Update<TEntity>(entity);
+            }
+        }
+
+        /// <summary>
+        /// 根据指定更新条件更新实体指定属性
+        /// （条件使用谓词或匿名对象）
+        /// </summary>
+        /// <param name="entity">更新属性</param>
+        /// <param name="predicate">更新条件，使用谓词或匿名对象</param>
+        /// <returns>更新结果</returns>
+        public virtual bool Update(object entity, object predicate)
+        {
+            using (Connection)
+            {
+                return Connection.Update<TEntity>(entity, predicate);
+            }
+        }
+
+        /// <summary>
+        /// 根据指定更新条件更新实体指定属性
+        /// （条件使用表达式）
+        /// </summary>
+        /// <param name="entity">更新属性</param>
+        /// <param name="predicate">更新条件，使用表达式</param>
+        /// <returns>更新结果</returns>
+        public virtual bool Update(object entity, Expression<Func<TEntity, bool>> predicate)
+        {
+            using (Connection)
+            {
+                return Connection.Update<TEntity>(entity, predicate.ToPredicateGroup<TEntity, TPrimaryKey>());
+            }
+        }
+
+        /// <summary>
         /// 根据实体ID（主键）获取实体
         /// </summary>
         /// <param name="id">实体ID</param>
@@ -252,7 +310,7 @@ namespace DapperDal
 
         /// <summary>
         /// 根据查询条件获取实体列表
-        /// （查询使用谓词和匿名对象）
+        /// （查询使用谓词或匿名对象）
         /// </summary>
         /// <param name="predicate">查询条件</param>
         /// <returns>实体列表</returns>

@@ -159,6 +159,242 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
                 Assert.AreEqual("Baz", p3.PersonName);
                 Assert.AreEqual(true, p3.IsActive);
             }
+
+            [Test]
+            public void UsingKey_UpdatesPartProperties()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                PersonEntity p1 = new PersonEntity
+                {
+                    PersonName = "Bar",
+                    CarId = 1,
+                    CreateTime = DateTime.Now,
+                    UpdateTime = DateTime.Now,
+                    IsActive = false
+                };
+                int id = personDal.Insert(p1);
+
+                var p2 = personDal.Get(id);
+                p2.PersonName = "Baz";
+                p2.CarId = 2;
+                p2.IsActive = true;
+
+                personDal.Update(p2, new[] { "PersonName", "CarId", "CarName" });
+
+                var p3 = personDal.Get(id);
+                Assert.AreEqual("Baz", p3.PersonName);
+                Assert.AreEqual(2, p3.CarId);
+                Assert.AreEqual(false, p3.IsActive);
+            }
+
+            [Test]
+            public void UsingObject_UpdatesPartProperties()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                PersonEntity p1 = new PersonEntity
+                {
+                    PersonName = "Bar",
+                    CarId = 1,
+                    CreateTime = DateTime.Now,
+                    UpdateTime = DateTime.Now,
+                    IsActive = false
+                };
+                int id = personDal.Insert(p1);
+
+                var p2 = personDal.Get(id);
+                p2.PersonName = "Baz";
+                p2.CarId = 2;
+                p2.IsActive = true;
+
+                personDal.Update(new { p2.PersonId, p2.PersonName, p2.CarId, CarName = "CarName" });
+
+                var p3 = personDal.Get(id);
+                Assert.AreEqual("Baz", p3.PersonName);
+                Assert.AreEqual(2, p3.CarId);
+                Assert.AreEqual(false, p3.IsActive);
+            }
+
+            [Test]
+            public void UsingObject_WherePredicateKey_UpdatesPartProperties()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                PersonEntity p1 = new PersonEntity
+                {
+                    PersonName = "Bar",
+                    CarId = 1,
+                    CreateTime = DateTime.Now,
+                    UpdateTime = DateTime.Now,
+                    IsActive = false
+                };
+                int id = personDal.Insert(p1);
+
+                var p2 = personDal.Get(id);
+                p2.PersonName = "Baz";
+                p2.CarId = 2;
+                p2.IsActive = true;
+
+                var predicate = Predicates.Field<PersonEntity>(f => f.PersonId, Operator.Eq, p2.PersonId);
+
+                personDal.Update(new { p2.PersonName, p2.CarId, CarName = "CarName" },
+                    predicate);
+
+                var p3 = personDal.Get(id);
+                Assert.AreEqual("Baz", p3.PersonName);
+                Assert.AreEqual(2, p3.CarId);
+                Assert.AreEqual(false, p3.IsActive);
+            }
+
+            [Test]
+            public void UsingObject_WherePredicateProp_UpdatesPartProperties()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                PersonEntity p1 = new PersonEntity
+                {
+                    PersonName = "Bar",
+                    CarId = 1,
+                    CreateTime = DateTime.Now,
+                    UpdateTime = DateTime.Now,
+                    IsActive = false
+                };
+                int id = personDal.Insert(p1);
+
+                var p2 = personDal.Get(id);
+                p2.PersonName = "Baz";
+                p2.CarId = 2;
+                p2.IsActive = true;
+
+                var predicate = Predicates.Field<PersonEntity>(f => f.PersonName, Operator.Eq, p1.PersonName);
+
+                personDal.Update(new { p2.PersonName, p2.CarId, CarName = "CarName" },
+                    predicate);
+
+                var p3 = personDal.Get(id);
+                Assert.AreEqual("Baz", p3.PersonName);
+                Assert.AreEqual(2, p3.CarId);
+                Assert.AreEqual(false, p3.IsActive);
+            }
+
+            [Test]
+            public void UsingObject_WhereObjectKey_UpdatesPartProperties()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                PersonEntity p1 = new PersonEntity
+                {
+                    PersonName = "Bar",
+                    CarId = 1,
+                    CreateTime = DateTime.Now,
+                    UpdateTime = DateTime.Now,
+                    IsActive = false
+                };
+                int id = personDal.Insert(p1);
+
+                var p2 = personDal.Get(id);
+                p2.PersonName = "Baz";
+                p2.CarId = 2;
+                p2.IsActive = true;
+
+                personDal.Update(new { p2.PersonName, p2.CarId, CarName = "CarName" },
+                    new { p2.PersonId });
+
+                var p3 = personDal.Get(id);
+                Assert.AreEqual("Baz", p3.PersonName);
+                Assert.AreEqual(2, p3.CarId);
+                Assert.AreEqual(false, p3.IsActive);
+            }
+
+            [Test]
+            public void UsingObject_WhereObjectProp_UpdatesPartProperties()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                PersonEntity p1 = new PersonEntity
+                {
+                    PersonName = "Bar",
+                    CarId = 1,
+                    CreateTime = DateTime.Now,
+                    UpdateTime = DateTime.Now,
+                    IsActive = false
+                };
+                int id = personDal.Insert(p1);
+
+                var p2 = personDal.Get(id);
+                p2.PersonName = "Baz";
+                p2.CarId = 2;
+                p2.IsActive = true;
+
+                personDal.Update(new { p2.PersonName, p2.CarId, CarName = "CarName" },
+                    new { p1.PersonName });
+
+                var p3 = personDal.Get(id);
+                Assert.AreEqual("Baz", p3.PersonName);
+                Assert.AreEqual(2, p3.CarId);
+                Assert.AreEqual(false, p3.IsActive);
+            }
+
+            [Test]
+            public void UsingObject_WhereExpressionKey_UpdatesPartProperties()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                PersonEntity p1 = new PersonEntity
+                {
+                    PersonName = "Bar",
+                    CarId = 1,
+                    CreateTime = DateTime.Now,
+                    UpdateTime = DateTime.Now,
+                    IsActive = false
+                };
+                int id = personDal.Insert(p1);
+
+                var p2 = personDal.Get(id);
+                p2.PersonName = "Baz";
+                p2.CarId = 2;
+                p2.IsActive = true;
+
+                Expression<Func<PersonEntity, bool>> predicate = p => p.PersonId == p2.PersonId;
+                personDal.Update(new { p2.PersonName, p2.CarId, CarName = "CarName" },
+                    predicate);
+
+                var p3 = personDal.Get(id);
+                Assert.AreEqual("Baz", p3.PersonName);
+                Assert.AreEqual(2, p3.CarId);
+                Assert.AreEqual(false, p3.IsActive);
+            }
+
+            [Test]
+            public void UsingObject_WhereExpressionProp_UpdatesPartProperties()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                PersonEntity p1 = new PersonEntity
+                {
+                    PersonName = "Bar",
+                    CarId = 1,
+                    CreateTime = DateTime.Now,
+                    UpdateTime = DateTime.Now,
+                    IsActive = false
+                };
+                int id = personDal.Insert(p1);
+
+                var p2 = personDal.Get(id);
+                p2.PersonName = "Baz";
+                p2.CarId = 2;
+                p2.IsActive = true;
+
+                Expression<Func<PersonEntity, bool>> predicate = p => p.PersonName == p1.PersonName;
+                personDal.Update(new { p2.PersonName, p2.CarId, CarName = "CarName" },
+                    predicate);
+
+                var p3 = personDal.Get(id);
+                Assert.AreEqual("Baz", p3.PersonName);
+                Assert.AreEqual(2, p3.CarId);
+                Assert.AreEqual(false, p3.IsActive);
+            }
         }
 
         [TestFixture]

@@ -16,7 +16,7 @@ namespace DapperExtensions
         private static Func<IDapperExtensionsConfiguration, IDapperImplementor> _instanceFactory;
         private static IDapperImplementor _instance;
         private static IDapperExtensionsConfiguration _configuration;
-        
+
         /// <summary>
         /// Gets or sets the default class mapper to use when generating class maps. If not specified, AutoClassMapper<T> is used.
         /// DapperExtensions.Configure(Type, IList<Assembly>, ISqlDialect) can be used instead to set all values at once
@@ -50,7 +50,7 @@ namespace DapperExtensions
                 Configure(_configuration.DefaultMapper, _configuration.MappingAssemblies, value);
             }
         }
-        
+
         /// <summary>
         /// Get or sets the Dapper Extensions Implementation Factory.
         /// </summary>
@@ -165,6 +165,30 @@ namespace DapperExtensions
         public static bool Update<T>(this IDbConnection connection, T entity, IDbTransaction transaction = null, int? commandTimeout = null) where T : class
         {
             return Instance.Update<T>(connection, entity, transaction, commandTimeout);
+        }
+
+        /// <summary>
+        /// Executes an update query for the specified entity.
+        /// </summary>
+        public static bool Update<T>(this IDbConnection connection, T entity, IEnumerable<string> props, IDbTransaction transaction = null, int? commandTimeout = null) where T : class
+        {
+            return Instance.Update<T>(connection, entity, props.ToList(), transaction, commandTimeout);
+        }
+
+        /// <summary>
+        /// Executes an update query for the specified entity.
+        /// </summary>
+        public static bool Update<T>(this IDbConnection connection, object entity, IDbTransaction transaction = null, int? commandTimeout = null) where T : class
+        {
+            return Instance.Update<T>(connection, entity, transaction, commandTimeout);
+        }
+
+        /// <summary>
+        /// Executes an update query for the specified entity and predicate.
+        /// </summary>
+        public static bool Update<T>(this IDbConnection connection, object entity, object predicate, IDbTransaction transaction = null, int? commandTimeout = null) where T : class
+        {
+            return Instance.Update<T>(connection, entity, predicate, transaction, commandTimeout);
         }
 
         /// <summary>

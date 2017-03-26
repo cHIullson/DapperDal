@@ -63,12 +63,12 @@ namespace DapperExtensions.Test.IntegrationTests.SqlServer
             public void UsingKey_ReturnsEntity()
             {
                 Person p1 = new Person
-                                {
-                                    Active = true,
-                                    FirstName = "Foo",
-                                    LastName = "Bar",
-                                    DateCreated = DateTime.UtcNow
-                                };
+                {
+                    Active = true,
+                    FirstName = "Foo",
+                    LastName = "Bar",
+                    DateCreated = DateTime.UtcNow
+                };
                 int id = Db.Insert(p1);
 
                 Person p2 = Db.Get<Person>(id);
@@ -97,12 +97,12 @@ namespace DapperExtensions.Test.IntegrationTests.SqlServer
             public void UsingKey_DeletesFromDatabase()
             {
                 Person p1 = new Person
-                                {
-                                    Active = true,
-                                    FirstName = "Foo",
-                                    LastName = "Bar",
-                                    DateCreated = DateTime.UtcNow
-                                };
+                {
+                    Active = true,
+                    FirstName = "Foo",
+                    LastName = "Bar",
+                    DateCreated = DateTime.UtcNow
+                };
                 int id = Db.Insert(p1);
 
                 Person p2 = Db.Get<Person>(id);
@@ -155,7 +155,7 @@ namespace DapperExtensions.Test.IntegrationTests.SqlServer
                 var list = Db.GetList<Person>();
                 Assert.AreEqual(3, list.Count());
 
-                var result = Db.Delete<Person>(new { LastName = "Bar"} );
+                var result = Db.Delete<Person>(new { LastName = "Bar" });
                 Assert.IsTrue(result);
 
                 list = Db.GetList<Person>();
@@ -170,12 +170,12 @@ namespace DapperExtensions.Test.IntegrationTests.SqlServer
             public void UsingKey_UpdatesEntity()
             {
                 Person p1 = new Person
-                                {
-                                    Active = true,
-                                    FirstName = "Foo",
-                                    LastName = "Bar",
-                                    DateCreated = DateTime.UtcNow
-                                };
+                {
+                    Active = true,
+                    FirstName = "Foo",
+                    LastName = "Bar",
+                    DateCreated = DateTime.UtcNow
+                };
                 int id = Db.Insert(p1);
 
                 var p2 = Db.Get<Person>(id);
@@ -205,6 +205,158 @@ namespace DapperExtensions.Test.IntegrationTests.SqlServer
                 Assert.AreEqual(1, m3.Key1);
                 Assert.AreEqual("key", m3.Key2);
                 Assert.AreEqual("barz", m3.Value);
+            }
+
+            [Test]
+            public void UsingKey_UpdatesPartProperties()
+            {
+                Person p1 = new Person
+                {
+                    Active = true,
+                    FirstName = "Foo",
+                    LastName = "Bar",
+                    DateCreated = DateTime.UtcNow
+                };
+                int id = Db.Insert(p1);
+
+                var p2 = Db.Get<Person>(id);
+                p2.FirstName = "Baz";
+                p2.LastName = "Foo";
+                p2.Active = false;
+
+                Db.Update(p2, new[] { "FirstName", "LastName" });
+
+                var p3 = Db.Get<Person>(id);
+                Assert.AreEqual("Baz", p3.FirstName);
+                Assert.AreEqual("Foo", p3.LastName);
+                Assert.AreEqual(true, p3.Active);
+            }
+
+            [Test]
+            public void UsingObject_UpdatesPartProperties()
+            {
+                Person p1 = new Person
+                {
+                    Active = true,
+                    FirstName = "Foo",
+                    LastName = "Bar",
+                    DateCreated = DateTime.UtcNow
+                };
+                int id = Db.Insert(p1);
+
+                var p2 = Db.Get<Person>(id);
+                p2.FirstName = "Baz";
+                p2.LastName = "Foo";
+                p2.Active = false;
+
+                Db.Update<Person>(new { p2.Id, p2.FirstName, p2.LastName });
+
+                var p3 = Db.Get<Person>(id);
+                Assert.AreEqual("Baz", p3.FirstName);
+                Assert.AreEqual("Foo", p3.LastName);
+                Assert.AreEqual(true, p3.Active);
+            }
+
+            [Test]
+            public void UsingObject_WherePredicateKey_UpdatesPartProperties()
+            {
+                Person p1 = new Person
+                {
+                    Active = true,
+                    FirstName = "Foo",
+                    LastName = "Bar",
+                    DateCreated = DateTime.UtcNow
+                };
+                int id = Db.Insert(p1);
+
+                var p2 = Db.Get<Person>(id);
+                p2.FirstName = "Baz";
+                p2.LastName = "Foo";
+                p2.Active = false;
+
+                var predicate = Predicates.Field<Person>(f => f.Id, Operator.Eq, p2.Id);
+                Db.Update<Person>(new { p2.FirstName, p2.LastName }, predicate);
+
+                var p3 = Db.Get<Person>(id);
+                Assert.AreEqual("Baz", p3.FirstName);
+                Assert.AreEqual("Foo", p3.LastName);
+                Assert.AreEqual(true, p3.Active);
+            }
+
+            [Test]
+            public void UsingObject_WherePredicateProp_UpdatesPartProperties()
+            {
+                Person p1 = new Person
+                {
+                    Active = true,
+                    FirstName = "Foo",
+                    LastName = "Bar",
+                    DateCreated = DateTime.UtcNow
+                };
+                int id = Db.Insert(p1);
+
+                var p2 = Db.Get<Person>(id);
+                p2.FirstName = "Baz";
+                p2.LastName = "Foo";
+                p2.Active = false;
+
+                var predicate = Predicates.Field<Person>(f => f.FirstName, Operator.Eq, p1.FirstName);
+                Db.Update<Person>(new { p2.FirstName, p2.LastName }, predicate);
+
+                var p3 = Db.Get<Person>(id);
+                Assert.AreEqual("Baz", p3.FirstName);
+                Assert.AreEqual("Foo", p3.LastName);
+                Assert.AreEqual(true, p3.Active);
+            }
+
+            [Test]
+            public void UsingObject_WhereObjectKey_UpdatesPartProperties()
+            {
+                Person p1 = new Person
+                {
+                    Active = true,
+                    FirstName = "Foo",
+                    LastName = "Bar",
+                    DateCreated = DateTime.UtcNow
+                };
+                int id = Db.Insert(p1);
+
+                var p2 = Db.Get<Person>(id);
+                p2.FirstName = "Baz";
+                p2.LastName = "Foo";
+                p2.Active = false;
+
+                Db.Update<Person>(new { p2.FirstName, p2.LastName }, new { p2.Id });
+
+                var p3 = Db.Get<Person>(id);
+                Assert.AreEqual("Baz", p3.FirstName);
+                Assert.AreEqual("Foo", p3.LastName);
+                Assert.AreEqual(true, p3.Active);
+            }
+
+            [Test]
+            public void UsingObject_WhereObjectProp_UpdatesPartProperties()
+            {
+                Person p1 = new Person
+                {
+                    Active = true,
+                    FirstName = "Foo",
+                    LastName = "Bar",
+                    DateCreated = DateTime.UtcNow
+                };
+                int id = Db.Insert(p1);
+
+                var p2 = Db.Get<Person>(id);
+                p2.FirstName = "Baz";
+                p2.LastName = "Foo";
+                p2.Active = false;
+
+                Db.Update<Person>(new { p2.FirstName, p2.LastName }, new { p1.FirstName });
+
+                var p3 = Db.Get<Person>(id);
+                Assert.AreEqual("Baz", p3.FirstName);
+                Assert.AreEqual("Foo", p3.LastName);
+                Assert.AreEqual(true, p3.Active);
             }
         }
 
