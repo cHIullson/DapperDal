@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata schemaVersion="2">
     <id>DapperDal</id>
-    <version>1.5.2.3</version>
+    <version>1.5.3</version>
     <title>DapperDal</title>
     <authors>arbing</authors>
     <owners>arbing</owners>
@@ -13,12 +13,14 @@
     <description>用 Dapper、Dapper-Extensions、Abp.Dapper 封装的数据访问层</description>
     <summary>用 Dapper、Dapper-Extensions、Abp.Dapper 封装的数据访问层</summary>
     <releaseNotes>
+      ### 1.5.3
+      * 添加支持多个实体查询的 Query 方法
       ### 1.5.2
       * 添加更新部分属性的 Update 方法（来自vilix13/Dapper-Extensions）
       * 添加使用谓词、匿名对象或 lambda 表达式作条件的 Update 方法
       ### 1.5.1
       * 整合 Abp.Dapper，为 Dapper-Extensions 添加 lambda 表达式功能（来自Abp.Dapper）
-  </releaseNotes>
+    </releaseNotes>
     <tags>Dapper orm sql micro-orm Data DAL Dapper-Extensions Abp.Dapper</tags>
   <dependencies>
       <dependency id="Dapper" version="1.50.2" />
