@@ -3,6 +3,7 @@
   <metadata schemaVersion="2">
     <id>DapperDal</id>
     <version>1.5.2.3</version>
+    <title>DapperDal</title>
     <authors>arbing</authors>
     <owners>arbing</owners>
     <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
@@ -10,6 +11,7 @@
     <!--<iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>-->
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>用 Dapper、Dapper-Extensions、Abp.Dapper 封装的数据访问层</description>
+    <summary>用 Dapper、Dapper-Extensions、Abp.Dapper 封装的数据访问层</summary>
     <releaseNotes>
       ### 1.5.2
       * 添加更新部分属性的 Update 方法（来自vilix13/Dapper-Extensions）
