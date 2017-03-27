@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata schemaVersion="2">
     <id>DapperDal</id>
-    <version>1.5.2</version>
+    <version>1.5.2.1</version>
     <authors>arbing</authors>
     <owners>arbing</owners>
     <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
@@ -16,9 +16,9 @@
       * 添加使用谓词、匿名对象或 lambda 表达式作条件的 Update 方法
       ### 1.5.1
       * 整合 Abp.Dapper，为 Dapper-Extensions 添加 lambda 表达式功能（来自Abp.Dapper）
-	</releaseNotes>
+  </releaseNotes>
     <tags>Dapper orm sql micro-orm Data DAL Dapper-Extensions Abp.Dapper</tags>
-	<dependencies>
+  <dependencies>
       <dependency id="Dapper" version="1.50.2" />
     </dependencies>
     <frameworkAssemblies>
@@ -29,9 +29,9 @@
     </frameworkAssemblies>
   </metadata>
   <files>
-  	<file src="bin\Release\DapperExtensions.dll" target="lib\net40" />
+    <file src="bin\Release\DapperExtensions.dll" target="lib\net40" />
     <file src="bin\Release\DapperExtensions.pdb" target="lib\net40" />
-  	<file src="bin\Release\DapperDal.dll" target="lib\net40" />
+    <file src="bin\Release\DapperDal.dll" target="lib\net40" />
     <file src="bin\Release\DapperDal.pdb" target="lib\net40" />
     <file src="bin\Release\DapperDal.xml" target="lib\net40" />
   </files>  
