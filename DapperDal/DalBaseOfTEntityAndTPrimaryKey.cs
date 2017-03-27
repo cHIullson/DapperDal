@@ -660,6 +660,7 @@ namespace DapperDal
         /// <summary>
         /// 使用SQL语句获取指定实体集合
         /// </summary>
+        /// <typeparam name="TAny">返回实体类型</typeparam>
         /// <param name="query">SQL语句</param>
         /// <returns>实体集合</returns>
         public virtual IEnumerable<TAny> Query<TAny>(string query)
@@ -673,6 +674,7 @@ namespace DapperDal
         /// <summary>
         /// 使用SQL语句获取指定实体集合
         /// </summary>
+        /// <typeparam name="TAny">返回实体类型</typeparam>
         /// <param name="query">SQL语句</param>
         /// <param name="parameters">SQL参数</param>
         /// <returns>实体集合</returns>
@@ -687,6 +689,7 @@ namespace DapperDal
         /// <summary>
         /// 使用SQL语句获取指定实体集合
         /// </summary>
+        /// <typeparam name="TAny">返回实体类型</typeparam>
         /// <param name="query">SQL语句</param>
         /// <param name="parameters">SQL参数</param>
         /// <param name="commandType">SQL语句命令类型</param>
@@ -698,5 +701,216 @@ namespace DapperDal
                 return Connection.Query<TAny>(query, parameters, commandType: commandType);
             }
         }
+
+        #region 使用SQL语句获取多个指定实体集合
+
+        /// <summary>
+        /// 使用SQL语句获取多个指定实体集合
+        /// </summary>
+        /// <typeparam name="TFirst">第一个实体类型</typeparam>
+        /// <typeparam name="TSecond">第二个实体类型</typeparam>
+        /// <param name="query">SQL语句</param>
+        /// <returns>多个实体集合</returns>
+        public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>>
+            Query<TFirst, TSecond>(string query)
+        {
+            using (Connection)
+            {
+                using (var gridReader = Connection.QueryMultiple(query))
+                {
+                    return Tuple.Create((IEnumerable<TFirst>)gridReader.Read<TFirst>().ToList(),
+                        (IEnumerable<TSecond>)gridReader.Read<TSecond>().ToList());
+                }
+            }
+        }
+
+        /// <summary>
+        /// 使用SQL语句获取多个指定实体集合
+        /// </summary>
+        /// <typeparam name="TFirst">第一个实体类型</typeparam>
+        /// <typeparam name="TSecond">第二个实体类型</typeparam>
+        /// <param name="query">SQL语句</param>
+        /// <param name="parameters">SQL参数</param>
+        /// <returns>多个实体集合</returns>
+        public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>>
+            Query<TFirst, TSecond>(string query, object parameters)
+        {
+            using (Connection)
+            {
+                using (var gridReader = Connection.QueryMultiple(query, parameters))
+                {
+                    return Tuple.Create((IEnumerable<TFirst>)gridReader.Read<TFirst>().ToList(),
+                        (IEnumerable<TSecond>)gridReader.Read<TSecond>().ToList());
+                }
+            }
+        }
+
+        /// <summary>
+        /// 使用SQL语句获取多个指定实体集合
+        /// </summary>
+        /// <typeparam name="TFirst">第一个实体类型</typeparam>
+        /// <typeparam name="TSecond">第二个实体类型</typeparam>
+        /// <param name="query">SQL语句</param>
+        /// <param name="parameters">SQL参数</param>
+        /// <param name="commandType">SQL语句命令类型</param>
+        /// <returns>多个实体集合</returns>
+        public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>>
+            Query<TFirst, TSecond>(string query, object parameters, CommandType commandType)
+        {
+            using (Connection)
+            {
+                using (var gridReader = Connection.QueryMultiple(query, parameters, commandType: commandType))
+                {
+                    return Tuple.Create((IEnumerable<TFirst>)gridReader.Read<TFirst>().ToList(),
+                        (IEnumerable<TSecond>)gridReader.Read<TSecond>().ToList());
+                }
+            }
+        }
+
+        /// <summary>
+        /// 使用SQL语句获取多个指定实体集合
+        /// </summary>
+        /// <typeparam name="TFirst">第一个实体类型</typeparam>
+        /// <typeparam name="TSecond">第二个实体类型</typeparam>
+        /// <typeparam name="TThird">第三个实体类型</typeparam>
+        /// <param name="query">SQL语句</param>
+        /// <returns>多个实体集合</returns>
+        public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>, IEnumerable<TThird>>
+            Query<TFirst, TSecond, TThird>(string query)
+        {
+            using (Connection)
+            {
+                using (var gridReader = Connection.QueryMultiple(query))
+                {
+                    return Tuple.Create((IEnumerable<TFirst>)gridReader.Read<TFirst>().ToList(),
+                        (IEnumerable<TSecond>)gridReader.Read<TSecond>().ToList(),
+                        (IEnumerable<TThird>)gridReader.Read<TThird>().ToList());
+                }
+            }
+        }
+
+        /// <summary>
+        /// 使用SQL语句获取多个指定实体集合
+        /// </summary>
+        /// <typeparam name="TFirst">第一个实体类型</typeparam>
+        /// <typeparam name="TSecond">第二个实体类型</typeparam>
+        /// <typeparam name="TThird">第三个实体类型</typeparam>
+        /// <param name="query">SQL语句</param>
+        /// <param name="parameters">SQL参数</param>
+        /// <returns>多个实体集合</returns>
+        public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>, IEnumerable<TThird>>
+            Query<TFirst, TSecond, TThird>(string query, object parameters)
+        {
+            using (Connection)
+            {
+                using (var gridReader = Connection.QueryMultiple(query, parameters))
+                {
+                    return Tuple.Create((IEnumerable<TFirst>)gridReader.Read<TFirst>().ToList(),
+                        (IEnumerable<TSecond>)gridReader.Read<TSecond>().ToList(),
+                        (IEnumerable<TThird>)gridReader.Read<TThird>().ToList());
+                }
+            }
+        }
+
+        /// <summary>
+        /// 使用SQL语句获取多个指定实体集合
+        /// </summary>
+        /// <typeparam name="TFirst">第一个实体类型</typeparam>
+        /// <typeparam name="TSecond">第二个实体类型</typeparam>
+        /// <typeparam name="TThird">第三个实体类型</typeparam>
+        /// <param name="query">SQL语句</param>
+        /// <param name="parameters">SQL参数</param>
+        /// <param name="commandType">SQL语句命令类型</param>
+        /// <returns>多个实体集合</returns>
+        public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>, IEnumerable<TThird>>
+            Query<TFirst, TSecond, TThird>(string query, object parameters, CommandType commandType)
+        {
+            using (Connection)
+            {
+                using (var gridReader = Connection.QueryMultiple(query, parameters, commandType: commandType))
+                {
+                    return Tuple.Create((IEnumerable<TFirst>)gridReader.Read<TFirst>().ToList(),
+                        (IEnumerable<TSecond>)gridReader.Read<TSecond>().ToList(),
+                        (IEnumerable<TThird>)gridReader.Read<TThird>().ToList());
+                }
+            }
+        }
+
+        /// <summary>
+        /// 使用SQL语句获取多个指定实体集合
+        /// </summary>
+        /// <typeparam name="TFirst">第一个实体类型</typeparam>
+        /// <typeparam name="TSecond">第二个实体类型</typeparam>
+        /// <typeparam name="TThird">第三个实体类型</typeparam>
+        /// <typeparam name="TFourth">第四个实体类型</typeparam>
+        /// <param name="query">SQL语句</param>
+        /// <returns>多个实体集合</returns>
+        public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>, IEnumerable<TThird>, IEnumerable<TFourth>>
+            Query<TFirst, TSecond, TThird, TFourth>(string query)
+        {
+            using (Connection)
+            {
+                using (var gridReader = Connection.QueryMultiple(query))
+                {
+                    return Tuple.Create((IEnumerable<TFirst>)gridReader.Read<TFirst>().ToList(),
+                        (IEnumerable<TSecond>)gridReader.Read<TSecond>().ToList(),
+                        (IEnumerable<TThird>)gridReader.Read<TThird>().ToList(),
+                        (IEnumerable<TFourth>)gridReader.Read<TFourth>().ToList());
+                }
+            }
+        }
+
+        /// <summary>
+        /// 使用SQL语句获取多个指定实体集合
+        /// </summary>
+        /// <typeparam name="TFirst">第一个实体类型</typeparam>
+        /// <typeparam name="TSecond">第二个实体类型</typeparam>
+        /// <typeparam name="TThird">第三个实体类型</typeparam>
+        /// <typeparam name="TFourth">第四个实体类型</typeparam>
+        /// <param name="query">SQL语句</param>
+        /// <param name="parameters">SQL参数</param>
+        /// <returns>多个实体集合</returns>
+        public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>, IEnumerable<TThird>, IEnumerable<TFourth>>
+            Query<TFirst, TSecond, TThird, TFourth>(string query, object parameters)
+        {
+            using (Connection)
+            {
+                using (var gridReader = Connection.QueryMultiple(query, parameters))
+                {
+                    return Tuple.Create((IEnumerable<TFirst>)gridReader.Read<TFirst>().ToList(),
+                        (IEnumerable<TSecond>)gridReader.Read<TSecond>().ToList(),
+                        (IEnumerable<TThird>)gridReader.Read<TThird>().ToList(),
+                        (IEnumerable<TFourth>)gridReader.Read<TFourth>().ToList());
+                }
+            }
+        }
+
+        /// <summary>
+        /// 使用SQL语句获取多个指定实体集合
+        /// </summary>
+        /// <typeparam name="TFirst">第一个实体类型</typeparam>
+        /// <typeparam name="TSecond">第二个实体类型</typeparam>
+        /// <typeparam name="TThird">第三个实体类型</typeparam>
+        /// <typeparam name="TFourth">第四个实体类型</typeparam>
+        /// <param name="query">SQL语句</param>
+        /// <param name="parameters">SQL参数</param>
+        /// <param name="commandType">SQL语句命令类型</param>
+        /// <returns>多个实体集合</returns>
+        public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>, IEnumerable<TThird>, IEnumerable<TFourth>>
+            Query<TFirst, TSecond, TThird, TFourth>(string query, object parameters, CommandType commandType)
+        {
+            using (Connection)
+            {
+                using (var gridReader = Connection.QueryMultiple(query, parameters, commandType: commandType))
+                {
+                    return Tuple.Create((IEnumerable<TFirst>)gridReader.Read<TFirst>().ToList(),
+                        (IEnumerable<TSecond>)gridReader.Read<TSecond>().ToList(),
+                        (IEnumerable<TThird>)gridReader.Read<TThird>().ToList(),
+                        (IEnumerable<TFourth>)gridReader.Read<TFourth>().ToList());
+                }
+            }
+        }
+
+        #endregion
     }
 }
