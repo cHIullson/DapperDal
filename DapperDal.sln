@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DapperExtensions", "DapperExtensions", "{67BA0FBF-5B1A-4BEB-98A7-FCF05B72CC89}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperExtensions", "DapperExtensions\DapperExtensions.csproj", "{4C1A2C6C-A469-4C87-98D1-F1D517FA1ACF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperExtensions.Test.Entities", "DapperExtensions.Test.Entities\DapperExtensions.Test.Entities.csproj", "{DAFAEFFC-0E56-4FA5-923C-DE47E91B51D8}"
@@ -23,6 +21,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		DapperDal\DapperDal.nuspec = DapperDal\DapperDal.nuspec
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{2AD48036-181F-4A7F-BEF8-33951AC23342}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,9 +59,9 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{4C1A2C6C-A469-4C87-98D1-F1D517FA1ACF} = {67BA0FBF-5B1A-4BEB-98A7-FCF05B72CC89}
-		{DAFAEFFC-0E56-4FA5-923C-DE47E91B51D8} = {67BA0FBF-5B1A-4BEB-98A7-FCF05B72CC89}
-		{87220EF9-8EE4-4EB0-829C-31C51BD7B750} = {67BA0FBF-5B1A-4BEB-98A7-FCF05B72CC89}
-		{5CE85D4C-AAB4-4BB0-A196-11EC54D98FAB} = {67BA0FBF-5B1A-4BEB-98A7-FCF05B72CC89}
+		{DAFAEFFC-0E56-4FA5-923C-DE47E91B51D8} = {2AD48036-181F-4A7F-BEF8-33951AC23342}
+		{87220EF9-8EE4-4EB0-829C-31C51BD7B750} = {2AD48036-181F-4A7F-BEF8-33951AC23342}
+		{5CE85D4C-AAB4-4BB0-A196-11EC54D98FAB} = {2AD48036-181F-4A7F-BEF8-33951AC23342}
+		{8BF8684B-E2F2-43A3-B5C7-B9C49F1810C5} = {2AD48036-181F-4A7F-BEF8-33951AC23342}
 	EndGlobalSection
 EndGlobal
