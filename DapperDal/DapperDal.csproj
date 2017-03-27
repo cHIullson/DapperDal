@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DalBaseOfTEntityAndTPrimaryKey.cs" />
     <Compile Include="DalBaseOfTEntity.cs" />
     <Compile Include="Mapper\AutoEntityMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
