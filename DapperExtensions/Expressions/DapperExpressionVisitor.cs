@@ -205,7 +205,8 @@ namespace DapperExtensions.Expressions
 
         protected override Expression VisitUnary(UnaryExpression node)
         {
-            if (node.NodeType != ExpressionType.Not)
+            if (node.NodeType != ExpressionType.Not
+                && node.NodeType != ExpressionType.Convert) // 排除类型转换操作
             {
                 throw new NotSupportedException($"The unary operator '{node.NodeType}' is not supported");
             }
