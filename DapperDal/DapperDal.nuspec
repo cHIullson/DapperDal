@@ -31,6 +31,7 @@
   <files>
     <file src="bin\Release\DapperExtensions.dll" target="lib\net40" />
     <file src="bin\Release\DapperExtensions.pdb" target="lib\net40" />
+    <file src="bin\Release\DapperExtensions.xml" target="lib\net40" />
     <file src="bin\Release\DapperDal.dll" target="lib\net40" />
     <file src="bin\Release\DapperDal.pdb" target="lib\net40" />
     <file src="bin\Release\DapperDal.xml" target="lib\net40" />
