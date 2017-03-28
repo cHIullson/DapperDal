@@ -1,9 +1,10 @@
-﻿using System.Text;
+﻿using DapperExtensions.Expressions;
+using DapperExtensions.Test.Data;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using DapperExtensions.Test.Data;
-using NUnit.Framework;
+using System.Linq.Expressions;
 
 namespace DapperExtensions.Test.IntegrationTests.SqlServer
 {
@@ -401,6 +402,58 @@ namespace DapperExtensions.Test.IntegrationTests.SqlServer
                 IEnumerable<Person> list = Db.GetList<Person>(predicate, null);
                 Assert.AreEqual(1, list.Count());
                 Assert.IsTrue(list.All(p => p.FirstName == "c"));
+            }
+
+            [Test]
+            public void UsingExpressions_ReturnsMatching()
+            {
+                Db.Insert(new Person { Active = true, FirstName = "a", LastName = "a1", DateCreated = DateTime.UtcNow });
+                Db.Insert(new Person { Active = false, FirstName = "b", LastName = "b1", DateCreated = DateTime.UtcNow });
+                Db.Insert(new Person { Active = true, FirstName = "c", LastName = "c1", DateCreated = DateTime.UtcNow });
+                Db.Insert(new Person { Active = false, FirstName = "d", LastName = "d1", DateCreated = DateTime.UtcNow });
+
+                // Case 1 : OK
+                Expression<Func<Person, bool>> expression = p => p.Id == 1 && p.Active == true && p.FirstName == "a";
+                var predicate = expression.ToPredicateGroup<Person, int>();
+                IEnumerable<Person> list = Db.GetList<Person>(predicate, null);
+                Assert.AreEqual(1, list.Count());
+                Assert.IsTrue(list.All(p => p.Id == 1 && p.Active == true && p.FirstName == "a"));
+
+                //// Case 2 : NG
+                //expression = p => (p.Id == 1 && p.Active == true) || p.FirstName == "a";
+                //predicate = expression.ToPredicateGroup<Person, int>();
+                //list = Db.GetList<Person>(predicate, null);
+                //Assert.AreEqual(1, list.Count());
+                //Assert.IsTrue(list.All(p => (p.Id == 1 && p.Active == true) || p.FirstName == "a"));
+
+                // Case 3 : OK
+                expression = p => p.Id == 1 && (p.Active == true || p.FirstName == "a");
+                predicate = expression.ToPredicateGroup<Person, int>();
+                list = Db.GetList<Person>(predicate, null);
+                Assert.AreEqual(1, list.Count());
+                Assert.IsTrue(list.All(p => p.Id == 1 && (p.Active == true || p.FirstName == "a")));
+
+                //// Case 4 : NG
+                //expression = p => p.Id == 1 || p.Active == true || p.FirstName == "a";
+                //predicate = expression.ToPredicateGroup<Person, int>();
+                //list = Db.GetList<Person>(predicate, null);
+                //Assert.AreEqual(2, list.Count());
+                //Assert.IsTrue(list.All(p => p.Id == 1 || p.Active == true || p.FirstName == "a"));
+
+                // Case 5 : OK
+                expression = p => p.Id == 1 || (p.Active == true || p.FirstName == "a");
+                predicate = expression.ToPredicateGroup<Person, int>();
+                list = Db.GetList<Person>(predicate, null);
+                Assert.AreEqual(2, list.Count());
+                Assert.IsTrue(list.All(p => p.Id == 1 || (p.Active == true || p.FirstName == "a")));
+
+                // Case 6 : OK
+                expression = p => p.Id == 1 || p.Active == true && p.FirstName == "a";
+                predicate = expression.ToPredicateGroup<Person, int>();
+                list = Db.GetList<Person>(predicate, null);
+                Assert.AreEqual(1, list.Count());
+                Assert.IsTrue(list.All(p => p.Id == 1 || p.Active == true && p.FirstName == "a"));
+
             }
         }
 

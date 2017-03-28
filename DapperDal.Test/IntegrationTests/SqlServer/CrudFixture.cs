@@ -615,6 +615,18 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
                 list = personDal.GetList(p => p.PersonName != "b");
                 Assert.AreEqual(3, list.Count());
                 Assert.IsTrue(list.All(p => p.PersonName != "b"));
+
+                list = personDal.GetList(p => p.IsActive == true && p.PersonName == "c" && p.CarId == 3);
+                Assert.AreEqual(1, list.Count());
+                Assert.IsTrue(list.All(p => p.PersonName == "c"));
+
+                //list = personDal.GetList(p => p.IsActive == true && p.PersonName == "c" || p.CarId == 3);
+                //Assert.AreEqual(1, list.Count());
+                //Assert.IsTrue(list.All(p => p.PersonName == "c"));
+
+                //list = personDal.GetList(p => p.IsActive == true && (p.PersonName == "c" || p.CarId == 3));
+                //Assert.AreEqual(1, list.Count());
+                //Assert.IsTrue(list.All(p => p.PersonName == "c"));
             }
 
             [Test]
