@@ -58,6 +58,8 @@
     <Compile Include="Expressions\DapperEvaluator.cs" />
     <Compile Include="Expressions\DapperExpressionExtensions.cs" />
     <Compile Include="Expressions\DapperExpressionVisitor.cs" />
+    <Compile Include="Expressions\QueryBuilder.cs" />
+    <Compile Include="Expressions\QueryFunctions.cs" />
     <Compile Include="Expressions\SortingExtensions.cs" />
     <Compile Include="GetMultiplePredicate.cs" />
     <Compile Include="GetMultipleResult.cs" />

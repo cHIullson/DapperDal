@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq.Expressions;
+using Dapper.Extensions.Linq.Builder;
 
 namespace DapperExtensions.Expressions
 {
@@ -13,8 +14,10 @@ namespace DapperExtensions.Expressions
                 return null;
             }
 
-            var dev = new DapperExpressionVisitor<TEntity, TPrimaryKey>();
-            IPredicate pg = dev.Process(expression);
+            //var dev = new DapperExpressionVisitor<TEntity, TPrimaryKey>();
+            //IPredicate pg = dev.Process(expression);
+
+            IPredicate pg = QueryBuilder<TEntity>.FromExpression(expression);
 
             return pg;
         }
