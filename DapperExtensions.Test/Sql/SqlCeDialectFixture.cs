@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using DapperExtensions.Sql;
+﻿using DapperExtensions.Sql;
 using NUnit.Framework;
+using System;
+using System.Globalization;
+using System.Threading;
 
 namespace DapperExtensions.Test.Sql
 {
@@ -15,6 +15,8 @@ namespace DapperExtensions.Test.Sql
             [SetUp]
             public void Setup()
             {
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-us");
+
                 Dialect = new SqlCeDialect();
             }
         }

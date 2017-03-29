@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Threading;
 using DapperExtensions.Mapper;
 using DapperExtensions.Sql;
 using Moq;
@@ -22,6 +24,8 @@ namespace DapperExtensions.Test.Sql
             [SetUp]
             public void Setup()
             {
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-us");
+
                 Configuration = new Mock<IDapperExtensionsConfiguration>();
                 Dialect = new Mock<ISqlDialect>();
                 ClassMap = new Mock<IClassMapper>();
@@ -404,7 +408,7 @@ namespace DapperExtensions.Test.Sql
                 property1.Verify();
                 property1.VerifyGet(p => p.Name, Times.Never());
                 property2.Verify();
-                
+
                 Generator.Verify();
                 Generator.Verify(g => g.GetColumnName(ClassMap.Object, property1.Object, false), Times.Never());
             }
@@ -527,7 +531,7 @@ namespace DapperExtensions.Test.Sql
                 property1.Verify();
                 property2.Verify();
             }
-            
+
             [Test]
             public void DoesNotGenerateIdentityColumns()
             {
@@ -554,7 +558,7 @@ namespace DapperExtensions.Test.Sql
                 Mock<IPredicate> predicate = new Mock<IPredicate>();
                 Dictionary<string, object> parameters = new Dictionary<string, object>();
                 predicate.Setup(p => p.GetSql(Generator.Object, parameters)).Returns("Predicate").Verifiable();
-                
+
                 var result = Generator.Object.Update(ClassMap.Object, predicate.Object, parameters);
 
                 Assert.AreEqual("UPDATE TableName SET Column = @Name WHERE Predicate", result);
