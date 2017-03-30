@@ -20,6 +20,13 @@ namespace DapperExtensions.Sql
         string GetSetSql(string sql, int firstResult, int maxResults, IDictionary<string, object> parameters);
         bool IsQuoted(string value);
         string QuoteString(string value);
+
+        /// <summary>
+        /// SQL语句添加 WITH (NOLOCK)
+        /// </summary>
+        /// <param name="sql">SQL语句</param>
+        /// <returns>添加后SQL语句</returns>
+        string SetNolock(string sql);
     }
 
     public abstract class SqlDialectBase : ISqlDialect
@@ -131,6 +138,12 @@ namespace DapperExtensions.Sql
         public virtual string UnQuoteString(string value)
         {
             return IsQuoted(value) ? value.Substring(1, value.Length - 2) : value;
+        }
+
+        /// <inheritdoc />
+        public virtual string SetNolock(string sql)
+        {
+            throw new NotSupportedException();
         }
     }
 }

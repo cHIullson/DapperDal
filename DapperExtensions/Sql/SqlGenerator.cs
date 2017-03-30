@@ -57,7 +57,13 @@ namespace DapperExtensions.Sql
                     .Append(sort.Select(s => GetColumnName(classMap, s.PropertyName, false) + (s.Ascending ? " ASC" : " DESC")).AppendStrings());
             }
 
-            return sql.ToString();
+            var outSql = sql.ToString();
+            if (Configuration.Nolock)
+            {
+                outSql = Configuration.Dialect.SetNolock(outSql);
+            }
+
+            return outSql;
         }
 
         public virtual string SelectPaged(IClassMapper classMap, IPredicate predicate, IList<ISort> sort, int page, int resultsPerPage, IDictionary<string, object> parameters)
@@ -85,7 +91,14 @@ namespace DapperExtensions.Sql
             innerSql.Append(" ORDER BY " + orderBy);
 
             string sql = Configuration.Dialect.GetPagingSql(innerSql.ToString(), page, resultsPerPage, parameters);
-            return sql;
+
+            var outSql = sql;
+            if (Configuration.Nolock)
+            {
+                outSql = Configuration.Dialect.SetNolock(outSql);
+            }
+
+            return outSql;
         }
 
         public virtual string SelectSet(IClassMapper classMap, IPredicate predicate, IList<ISort> sort, int firstResult, int maxResults, IDictionary<string, object> parameters)
@@ -113,7 +126,14 @@ namespace DapperExtensions.Sql
             innerSql.Append(" ORDER BY " + orderBy);
 
             string sql = Configuration.Dialect.GetSetSql(innerSql.ToString(), firstResult, maxResults, parameters);
-            return sql;
+
+            var outSql = sql;
+            if (Configuration.Nolock)
+            {
+                outSql = Configuration.Dialect.SetNolock(outSql);
+            }
+
+            return outSql;
         }
 
 
@@ -134,7 +154,13 @@ namespace DapperExtensions.Sql
                     .Append(predicate.GetSql(this, parameters));
             }
 
-            return sql.ToString();
+            var outSql = sql.ToString();
+            if (Configuration.Nolock)
+            {
+                outSql = Configuration.Dialect.SetNolock(outSql);
+            }
+
+            return outSql;
         }
 
         public virtual string Insert(IClassMapper classMap)
@@ -190,10 +216,12 @@ namespace DapperExtensions.Sql
                     string.Format(
                         "{0} = {1}{2}", GetColumnName(classMap, p, false), Configuration.Dialect.ParameterPrefix, p.Name));
 
-            return string.Format("UPDATE {0} SET {1} WHERE {2}",
+            var sql = string.Format("UPDATE {0} SET {1} WHERE {2}",
                 GetTableName(classMap),
                 setSql.AppendStrings(),
                 predicate.GetSql(this, parameters));
+
+            return sql;
         }
 
         public virtual string Delete(IClassMapper classMap, IPredicate predicate, IDictionary<string, object> parameters)

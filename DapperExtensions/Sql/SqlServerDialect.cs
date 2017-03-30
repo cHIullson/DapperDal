@@ -142,5 +142,24 @@ namespace DapperExtensions.Sql
 
             return result;
         }
+
+        /// <inheritdoc />
+        public override string SetNolock(string sql)
+        {
+            if (sql.Contains(" WITH (NOLOCK)"))
+            {
+                return sql;
+            }
+            else
+            {
+                if (sql.Contains(" WHERE "))
+                    return sql.Insert(sql.IndexOf(" WHERE ", StringComparison.OrdinalIgnoreCase), @" WITH (NOLOCK)");
+
+                if (sql.Contains(" ORDER BY "))
+                    return sql.Insert(sql.IndexOf(" ORDER BY ", StringComparison.OrdinalIgnoreCase), @" WITH (NOLOCK)");
+
+                return string.Concat(sql, " WITH (NOLOCK)");
+            }
+        }
     }
 }
