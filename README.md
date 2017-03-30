@@ -6,6 +6,9 @@ NuGet: [![NuGet Badge](https://buildstats.info/nuget/DapperDal)](https://www.nug
 
 Release Notes
 -------------
+### 1.5.4
+* 表达式转换用 `QueryBuilder` 替换 `ExpressionVisitor` 实现，以支持多个查询条件
+
 ### 1.5.3
 * 添加支持多个实体查询的 `Query` 方法
 

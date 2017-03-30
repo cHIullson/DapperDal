@@ -101,11 +101,35 @@ namespace DapperExtensions.Test.Expressions
             }
 
             [Test]
+            public void NotGtOperator_ReturnsFieldPredicate()
+            {
+                Expression<Func<Person, bool>> expression = p => !(p.Id > 1);
+                IFieldPredicate actual = (IFieldPredicate)expression.ToPredicateGroup<Person, int>();
+                IFieldPredicate expected = Predicates.Field<Person>(p => p.Id, Operator.Gt, 1, not: true);
+                Assert.AreEqual(expected.PropertyName, actual.PropertyName);
+                Assert.AreEqual(expected.Operator, actual.Operator);
+                Assert.AreEqual(expected.Not, actual.Not);
+                Assert.AreEqual(expected.Value, actual.Value);
+            }
+
+            [Test]
             public void GeOperator_ReturnsFieldPredicate()
             {
                 Expression<Func<Person, bool>> expression = p => p.Id >= 1;
                 IFieldPredicate actual = (IFieldPredicate)expression.ToPredicateGroup<Person, int>();
                 IFieldPredicate expected = Predicates.Field<Person>(p => p.Id, Operator.Ge, 1);
+                Assert.AreEqual(expected.PropertyName, actual.PropertyName);
+                Assert.AreEqual(expected.Operator, actual.Operator);
+                Assert.AreEqual(expected.Not, actual.Not);
+                Assert.AreEqual(expected.Value, actual.Value);
+            }
+
+            [Test]
+            public void NotGeOperator_ReturnsFieldPredicate()
+            {
+                Expression<Func<Person, bool>> expression = p => !(p.Id >= 1);
+                IFieldPredicate actual = (IFieldPredicate)expression.ToPredicateGroup<Person, int>();
+                IFieldPredicate expected = Predicates.Field<Person>(p => p.Id, Operator.Ge, 1, not: true);
                 Assert.AreEqual(expected.PropertyName, actual.PropertyName);
                 Assert.AreEqual(expected.Operator, actual.Operator);
                 Assert.AreEqual(expected.Not, actual.Not);
@@ -125,6 +149,18 @@ namespace DapperExtensions.Test.Expressions
             }
 
             [Test]
+            public void NotLtOperator_ReturnsFieldPredicate()
+            {
+                Expression<Func<Person, bool>> expression = p => !(p.Id < 1);
+                IFieldPredicate actual = (IFieldPredicate)expression.ToPredicateGroup<Person, int>();
+                IFieldPredicate expected = Predicates.Field<Person>(p => p.Id, Operator.Lt, 1, not: true);
+                Assert.AreEqual(expected.PropertyName, actual.PropertyName);
+                Assert.AreEqual(expected.Operator, actual.Operator);
+                Assert.AreEqual(expected.Not, actual.Not);
+                Assert.AreEqual(expected.Value, actual.Value);
+            }
+
+            [Test]
             public void LeOperator_ReturnsFieldPredicate()
             {
                 Expression<Func<Person, bool>> expression = p => p.Id <= 1;
@@ -135,6 +171,19 @@ namespace DapperExtensions.Test.Expressions
                 Assert.AreEqual(expected.Not, actual.Not);
                 Assert.AreEqual(expected.Value, actual.Value);
             }
+
+            [Test]
+            public void NotLeOperator_ReturnsFieldPredicate()
+            {
+                Expression<Func<Person, bool>> expression = p => !(p.Id <= 1);
+                IFieldPredicate actual = (IFieldPredicate)expression.ToPredicateGroup<Person, int>();
+                IFieldPredicate expected = Predicates.Field<Person>(p => p.Id, Operator.Le, 1, not: true);
+                Assert.AreEqual(expected.PropertyName, actual.PropertyName);
+                Assert.AreEqual(expected.Operator, actual.Operator);
+                Assert.AreEqual(expected.Not, actual.Not);
+                Assert.AreEqual(expected.Value, actual.Value);
+            }
+
 
             [Test]
             public void LikeOperator_ReturnsFieldPredicate()
@@ -497,5 +546,43 @@ namespace DapperExtensions.Test.Expressions
             }
         }
 
+        [TestFixture]
+        public class FourExpression
+        {
+            [Test]
+            public void EqOperator_ReturnsAndPredicateGroup()
+            {
+                Expression<Func<Person, bool>> expression = p => p.Id == 1 && (p.Active == true && p.FirstName == "Foo") && p.LastName == "Bar";
+                IPredicateGroup actual = (IPredicateGroup)expression.ToPredicateGroup<Person, int>();
+                var actualJson = JsonConvert.SerializeObject(actual, formatting: Formatting.Indented);
+
+                IFieldPredicate first = Predicates.Field<Person>(p => p.Id, Operator.Eq, 1);
+                IFieldPredicate second = Predicates.Field<Person>(p => p.Active, Operator.Eq, true);
+                IFieldPredicate third = Predicates.Field<Person>(p => p.FirstName, Operator.Eq, "Foo");
+                IFieldPredicate fourth = Predicates.Field<Person>(p => p.LastName, Operator.Eq, "Bar");
+                IPredicateGroup expected = Predicates.Group(GroupOperator.And, first, second, third, fourth);
+                var expectedJson = JsonConvert.SerializeObject(expected, formatting: Formatting.Indented);
+
+                Assert.AreEqual(expectedJson, actualJson);
+            }
+
+            [Test]
+            public void EqOperator_ReturnsOrPredicateGroup()
+            {
+                Expression<Func<Person, bool>> expression = p => p.Id == 1 || (p.Active == true || p.FirstName == "Foo") || p.LastName == "Bar";
+                IPredicateGroup actual = (IPredicateGroup)expression.ToPredicateGroup<Person, int>();
+                var actualJson = JsonConvert.SerializeObject(actual, formatting: Formatting.Indented);
+
+                IFieldPredicate first = Predicates.Field<Person>(p => p.Id, Operator.Eq, 1);
+                IFieldPredicate second = Predicates.Field<Person>(p => p.Active, Operator.Eq, true);
+                IFieldPredicate third = Predicates.Field<Person>(p => p.FirstName, Operator.Eq, "Foo");
+                IFieldPredicate fourth = Predicates.Field<Person>(p => p.LastName, Operator.Eq, "Bar");
+                IPredicateGroup expected = Predicates.Group(GroupOperator.Or, first, second, third, fourth);
+                var expectedJson = JsonConvert.SerializeObject(expected, formatting: Formatting.Indented);
+
+                Assert.AreEqual(expectedJson, actualJson);
+            }
+
+        }
     }
 }
