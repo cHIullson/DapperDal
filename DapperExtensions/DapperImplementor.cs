@@ -19,6 +19,7 @@ namespace DapperExtensions
         dynamic Insert<T>(IDbConnection connection, T entity, IDbTransaction transaction, int? commandTimeout) where T : class;
         bool Update<T>(IDbConnection connection, T entity, IDbTransaction transaction, int? commandTimeout) where T : class;
         bool Update<T>(IDbConnection connection, T entity, IList<string> props, IDbTransaction transaction, int? commandTimeout) where T : class;
+        bool Update<T>(IDbConnection connection, T entity, object props, IDbTransaction transaction, int? commandTimeout) where T : class;
         bool Update<T>(IDbConnection connection, object entity, IDbTransaction transaction, int? commandTimeout) where T : class;
         bool Update<T>(IDbConnection connection, object entity, object predicate, IDbTransaction transaction, int? commandTimeout) where T : class;
         bool Delete<T>(IDbConnection connection, T entity, IDbTransaction transaction, int? commandTimeout) where T : class;
@@ -206,6 +207,30 @@ namespace DapperExtensions
 
             var columns = classMap.Properties.Where(p => (props == null || props.Count == 0 || props.Contains(p.Name)) && !(p.Ignored || p.IsReadOnly || p.KeyType == KeyType.Identity || p.KeyType == KeyType.Assigned));
             foreach (var property in ReflectionHelper.GetObjectValues(entity).Where(property => columns.Any(c => c.Name == property.Key)))
+            {
+                dynamicParameters.Add(property.Key, property.Value);
+            }
+
+            foreach (var parameter in parameters)
+            {
+                dynamicParameters.Add(parameter.Key, parameter.Value);
+            }
+
+            return connection.Execute(sql, dynamicParameters, transaction, commandTimeout, CommandType.Text) > 0;
+        }
+
+        public bool Update<T>(IDbConnection connection, T entity, object props, IDbTransaction transaction, int? commandTimeout) where T : class
+        {
+            IClassMapper classMap = SqlGenerator.Configuration.GetMap<T>();
+            IPredicate predicate = GetKeyPredicate<T>(classMap, entity);
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            var propValues = ReflectionHelper.GetObjectValues(props);
+            var keys = propValues.Keys.ToList();
+            string sql = SqlGenerator.Update(classMap, predicate, parameters, keys);
+            DynamicParameters dynamicParameters = new DynamicParameters();
+
+            var columns = classMap.Properties.Where(p => (keys == null || keys.Count == 0 || keys.Contains(p.Name)) && !(p.Ignored || p.IsReadOnly || p.KeyType == KeyType.Identity || p.KeyType == KeyType.Assigned));
+            foreach (var property in propValues.Where(property => columns.Any(c => c.Name == property.Key)))
             {
                 dynamicParameters.Add(property.Key, property.Value);
             }

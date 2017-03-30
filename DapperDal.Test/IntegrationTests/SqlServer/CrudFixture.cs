@@ -133,10 +133,106 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
         }
 
         [TestFixture]
+        public class SoftDeleteMethod : SqlServerBaseFixture
+        {
+            [Test]
+            public void UsingKey_SoftDeletesRows()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                PersonEntity p1 = new PersonEntity
+                {
+                    PersonName = "Bar",
+                    CreateTime = DateTime.Now,
+                    UpdateTime = DateTime.Now,
+                    IsActive = true
+                };
+                int id = personDal.Insert(p1);
+
+                PersonEntity p2 = personDal.Get(id);
+                personDal.SoftDelete(p2);
+
+                var p3 = personDal.Get(id);
+                Assert.AreEqual(false, p3.IsActive);
+            }
+
+            [Test]
+            public void UsingPredicate_SoftDeletesRows()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                PersonEntity p1 = new PersonEntity { PersonName = "Bar", CreateTime = DateTime.Now, UpdateTime = DateTime.Now, IsActive = true };
+                PersonEntity p2 = new PersonEntity { PersonName = "Bar", CreateTime = DateTime.Now, UpdateTime = DateTime.Now, IsActive = true };
+                PersonEntity p3 = new PersonEntity { PersonName = "Barz", CreateTime = DateTime.Now, UpdateTime = DateTime.Now, IsActive = true };
+                personDal.Insert(p1);
+                personDal.Insert(p2);
+                personDal.Insert(p3);
+
+                var list = personDal.GetList();
+                Assert.AreEqual(3, list.Count());
+
+                IPredicate pred = Predicates.Field<PersonEntity>(p => p.PersonName, Operator.Eq, "Bar");
+                var result = personDal.SoftDelete(pred);
+                Assert.IsTrue(result);
+
+                list = personDal.GetList();
+                Assert.AreEqual(3, list.Count());
+                Assert.AreEqual(2, list.Count(d => d.IsActive == false));
+            }
+
+            [Test]
+            public void UsingObject_SoftDeletesRows()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                PersonEntity p1 = new PersonEntity { PersonName = "Bar", CreateTime = DateTime.Now, UpdateTime = DateTime.Now, IsActive = true };
+                PersonEntity p2 = new PersonEntity { PersonName = "Bar", CreateTime = DateTime.Now, UpdateTime = DateTime.Now, IsActive = true };
+                PersonEntity p3 = new PersonEntity { PersonName = "Barz", CreateTime = DateTime.Now, UpdateTime = DateTime.Now, IsActive = true };
+                personDal.Insert(p1);
+                personDal.Insert(p2);
+                personDal.Insert(p3);
+
+                var list = personDal.GetList();
+                Assert.AreEqual(3, list.Count());
+
+                var result = personDal.SoftDelete(new { PersonName = "Bar" });
+                Assert.IsTrue(result);
+
+                list = personDal.GetList();
+                Assert.AreEqual(3, list.Count());
+                Assert.AreEqual(2, list.Count(d => d.IsActive == false));
+            }
+
+            [Test]
+            public void UsingExpression_SoftDeletesRows()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                PersonEntity p1 = new PersonEntity { PersonName = "Bar", CreateTime = DateTime.Now, UpdateTime = DateTime.Now, IsActive = true };
+                PersonEntity p2 = new PersonEntity { PersonName = "Bar", CreateTime = DateTime.Now, UpdateTime = DateTime.Now, IsActive = true };
+                PersonEntity p3 = new PersonEntity { PersonName = "Barz", CreateTime = DateTime.Now, UpdateTime = DateTime.Now, IsActive = true };
+                personDal.Insert(p1);
+                personDal.Insert(p2);
+                personDal.Insert(p3);
+
+                var list = personDal.GetList();
+                Assert.AreEqual(3, list.Count());
+
+                var result = personDal.SoftDelete(p => p.PersonName == "Bar");
+                Assert.IsTrue(result);
+
+                list = personDal.GetList();
+                Assert.AreEqual(3, list.Count());
+                Assert.AreEqual(2, list.Count(d => d.IsActive == false));
+            }
+
+        }
+
+        [TestFixture]
         public class UpdateMethod : SqlServerBaseFixture
         {
             [Test]
-            public void UsingKey_UpdatesEntity()
+            public void UsingEntity_UpdatesEntity()
             {
                 var personDal = new DalBase<PersonEntity>();
 
@@ -161,7 +257,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             }
 
             [Test]
-            public void UsingKey_UpdatesPartProperties()
+            public void UsingEntity_UpdatesPartProperties()
             {
                 var personDal = new DalBase<PersonEntity>();
 
@@ -181,6 +277,34 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
                 p2.IsActive = true;
 
                 personDal.Update(p2, new[] { "PersonName", "CarId", "CarName" });
+
+                var p3 = personDal.Get(id);
+                Assert.AreEqual("Baz", p3.PersonName);
+                Assert.AreEqual(2, p3.CarId);
+                Assert.AreEqual(false, p3.IsActive);
+            }
+
+            [Test]
+            public void UsingEntityProperties_UpdatesPartProperties()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                PersonEntity p1 = new PersonEntity
+                {
+                    PersonName = "Bar",
+                    CarId = 1,
+                    CreateTime = DateTime.Now,
+                    UpdateTime = DateTime.Now,
+                    IsActive = false
+                };
+                int id = personDal.Insert(p1);
+
+                var p2 = personDal.Get(id);
+                p2.PersonName = "Baz";
+                p2.CarId = 2;
+                p2.IsActive = true;
+
+                personDal.Update(p2, new { PersonName = "Baz", CarId = 2 });
 
                 var p3 = personDal.Get(id);
                 Assert.AreEqual("Baz", p3.PersonName);

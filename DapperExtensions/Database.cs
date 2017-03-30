@@ -27,6 +27,8 @@ namespace DapperExtensions
         bool Update<T>(T entity, int? commandTimeout = null) where T : class;
         bool Update<T>(T entity, IEnumerable<string> props, IDbTransaction transaction, int? commandTimeout = null) where T : class;
         bool Update<T>(T entity, IEnumerable<string> props, int? commandTimeout = null) where T : class;
+        bool Update<T>(T entity, object props, IDbTransaction transaction, int? commandTimeout = null) where T : class;
+        bool Update<T>(T entity, object props, int? commandTimeout = null) where T : class;
         bool Update<T>(object entity, IDbTransaction transaction, int? commandTimeout = null) where T : class;
         bool Update<T>(object entity, int? commandTimeout = null) where T : class;
         bool Update<T>(object entity, object predicate, IDbTransaction transaction, int? commandTimeout = null) where T : class;
@@ -194,6 +196,16 @@ namespace DapperExtensions
         public bool Update<T>(T entity, IEnumerable<string> props, int? commandTimeout) where T : class
         {
             return _dapper.Update<T>(Connection, entity, props.ToList(), _transaction, commandTimeout);
+        }
+
+        public bool Update<T>(T entity, object props, IDbTransaction transaction, int? commandTimeout) where T : class
+        {
+            return _dapper.Update<T>(Connection, entity, props, transaction, commandTimeout);
+        }
+
+        public bool Update<T>(T entity, object props, int? commandTimeout) where T : class
+        {
+            return _dapper.Update<T>(Connection, entity, props, _transaction, commandTimeout);
         }
 
         public bool Update<T>(object entity, IDbTransaction transaction, int? commandTimeout) where T : class

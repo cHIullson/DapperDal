@@ -209,7 +209,7 @@ namespace DapperExtensions.Test.IntegrationTests.SqlServer
             }
 
             [Test]
-            public void UsingKey_UpdatesPartProperties()
+            public void UsingEntity_UpdatesPartProperties()
             {
                 Person p1 = new Person
                 {
@@ -226,6 +226,31 @@ namespace DapperExtensions.Test.IntegrationTests.SqlServer
                 p2.Active = false;
 
                 Db.Update(p2, new[] { "FirstName", "LastName" });
+
+                var p3 = Db.Get<Person>(id);
+                Assert.AreEqual("Baz", p3.FirstName);
+                Assert.AreEqual("Foo", p3.LastName);
+                Assert.AreEqual(true, p3.Active);
+            }
+
+            [Test]
+            public void UsingEntityProperties_UpdatesPartProperties()
+            {
+                Person p1 = new Person
+                {
+                    Active = true,
+                    FirstName = "Foo",
+                    LastName = "Bar",
+                    DateCreated = DateTime.UtcNow
+                };
+                int id = Db.Insert(p1);
+
+                var p2 = Db.Get<Person>(id);
+                p2.FirstName = "Baz";
+                p2.LastName = "Foo";
+                p2.Active = false;
+
+                Db.Update(p2, new { FirstName = "Baz", LastName = "Foo" });
 
                 var p3 = Db.Get<Person>(id);
                 Assert.AreEqual("Baz", p3.FirstName);
