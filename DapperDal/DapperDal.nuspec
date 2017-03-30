@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata schemaVersion="2">
     <id>DapperDal</id>
-    <version>1.5.4</version>
+    <version>1.5.5</version>
     <title>DapperDal</title>
     <authors>arbing</authors>
     <owners>arbing</owners>
@@ -13,6 +13,8 @@
     <description>用 Dapper、Dapper-Extensions、Abp.Dapper 封装的数据访问层</description>
     <summary>用 Dapper、Dapper-Extensions、Abp.Dapper 封装的数据访问层</summary>
     <releaseNotes>
+      ### 1.5.5
+      * 添加逻辑删除方法 SoftDelete
       ### 1.5.4
       * 表达式转换用 QueryBuilder 替换 ExpressionVisitor 实现，以支持多个查询条件
       ### 1.5.3
