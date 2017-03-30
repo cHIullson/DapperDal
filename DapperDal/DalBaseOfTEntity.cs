@@ -1,29 +1,117 @@
-ï»¿using System;
+using Dapper;
+using DapperDal.Mapper;
+using DapperExtensions;
+using DapperExtensions.Expressions;
+using DapperExtensions.Sql;
+using System;
+using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Reflection;
 
 namespace DapperDal
 {
     /// <summary>
-    /// å®ä½“æ•°æ®è®¿é—®å±‚åŸºç±»
+    /// ÊµÌåÊı¾İ·ÃÎÊ²ã»ùÀà
     /// </summary>
-    /// <typeparam name="TEntity">å®ä½“ç±»å‹</typeparam>
+    /// <typeparam name="TEntity">ÊµÌåÀàĞÍ</typeparam>
     public class DalBase<TEntity> : DalBase<TEntity, int> where TEntity : class
     {
         /// <summary>
-        /// é»˜è®¤åˆå§‹åŒ– DAL æ–°å®ä¾‹
+        /// Ä¬ÈÏ³õÊ¼»¯ DAL ĞÂÊµÀı
         /// </summary>
         public DalBase() : this("Default")
         {
         }
 
         /// <summary>
-        /// ç”¨é…ç½®èŠ‚ç‚¹ååˆå§‹åŒ– DAL æ–°å®ä¾‹
+        /// ÓÃÅäÖÃ½ÚµãÃû³õÊ¼»¯ DAL ĞÂÊµÀı
         /// </summary>
-        /// <param name="connectionName">DBè¿æ¥å­—ç¬¦ä¸²é…ç½®èŠ‚ç‚¹å</param>
-        /// <exception cref="ArgumentNullException">å‚æ•°ä¸ºç©º</exception>
-        /// <exception cref="ConfigurationErrorsException">æ‰¾ä¸åˆ°é…ç½®èŠ‚ç‚¹</exception>
+        /// <param name="connectionName">DBÁ¬½Ó×Ö·û´®ÅäÖÃ½ÚµãÃû</param>
+        /// <exception cref="ArgumentNullException">²ÎÊıÎª¿Õ</exception>
+        /// <exception cref="ConfigurationErrorsException">ÕÒ²»µ½ÅäÖÃ½Úµã</exception>
         public DalBase(string connectionName) : base(connectionName)
         {
+        }
+    }
+
+    /// <summary>
+    /// ÊµÌåÊı¾İ·ÃÎÊ²ã»ùÀà
+    /// </summary>
+    /// <typeparam name="TEntity">ÊµÌåÀàĞÍ</typeparam>
+    /// <typeparam name="TPrimaryKey">ÊµÌåID£¨Ö÷¼ü£©ÀàĞÍ</typeparam>
+    public partial class DalBase<TEntity, TPrimaryKey> where TEntity : class
+    {
+        static DalBase()
+        {
+            DapperExtensions.DapperExtensions.Configure(
+                typeof(AutoEntityMapper<>), new List<Assembly>(), new SqlServerDialect());
+        }
+
+        /// <summary>
+        /// Ä¬ÈÏ³õÊ¼»¯ DAL ĞÂÊµÀı
+        /// </summary>
+        public DalBase() : this("Default")
+        {
+        }
+
+        /// <summary>
+        /// ÓÃÅäÖÃ½ÚµãÃû³õÊ¼»¯ DAL ĞÂÊµÀı
+        /// </summary>
+        /// <param name="connNameOrConnStr">DBÁ¬½Ó×Ö·û´®ÅäÖÃ½ÚµãÃû</param>
+        /// <exception cref="ArgumentNullException">²ÎÊıÎª¿Õ</exception>
+        /// <exception cref="ConfigurationErrorsException">ÕÒ²»µ½ÅäÖÃ½Úµã</exception>
+        public DalBase(string connNameOrConnStr)
+        {
+            if (string.IsNullOrEmpty(connNameOrConnStr))
+            {
+                throw new ArgumentNullException("connNameOrConnStr");
+            }
+
+            if (connNameOrConnStr.Contains("=") || connNameOrConnStr.Contains(";"))
+            {
+                ConnectionString = connNameOrConnStr;
+            }
+            else
+            {
+                var conStr = ConfigurationManager.ConnectionStrings[connNameOrConnStr];
+                if (conStr == null)
+                {
+                    throw new ConfigurationErrorsException(
+                        string.Format("Failed to find connection string named '{0}' in app/web.config.", connNameOrConnStr));
+                }
+
+                ConnectionString = conStr.ConnectionString;
+            }
+        }
+
+        /// <summary>
+        /// DBÁ¬½Ó×Ö·û´®
+        /// </summary>
+        public string ConnectionString { get; private set; }
+
+        /// <summary>
+        /// ´ò¿ªDBÁ¬½Ó
+        /// </summary>
+        /// <returns>DBÁ¬½Ó</returns>
+        protected virtual IDbConnection OpenConnection()
+        {
+            if (string.IsNullOrEmpty(ConnectionString))
+            {
+                throw new ArgumentNullException("connectionString");
+            }
+
+            var connection = new SqlConnection(ConnectionString);
+            if (connection == null)
+                throw new ConfigurationErrorsException(
+                    string.Format("Failed to create a connection using the connection string '{0}'.", ConnectionString));
+
+            connection.Open();
+
+            return connection;
         }
     }
 }

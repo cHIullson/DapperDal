@@ -46,8 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DalBaseOfTEntityAndTPrimaryKey.cs" />
+    <Compile Include="DalBaseOfTEntity.Get.cs" />
     <Compile Include="DalBaseOfTEntity.cs" />
+    <Compile Include="DalBaseOfTEntity.Count.cs" />
+    <Compile Include="DalBaseOfTEntity.Delete.cs" />
+    <Compile Include="DalBaseOfTEntity.Insert.cs" />
+    <Compile Include="DalBaseOfTEntity.Update.cs" />
+    <Compile Include="DalBaseOfTEntity.GetSet.cs" />
+    <Compile Include="DalBaseOfTEntity.GetListPaged.cs" />
+    <Compile Include="DalBaseOfTEntity.GetList.cs" />
+    <Compile Include="DalBaseOfTEntity.Query.cs" />
+    <Compile Include="DalBaseOfTEntity.QueryMultiple.cs" />
     <Compile Include="Mapper\AutoEntityMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
