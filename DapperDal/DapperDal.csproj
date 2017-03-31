@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DalBaseOfTEntity.SoftDelete.cs" />
     <Compile Include="DalBaseOfTEntity.Get.cs" />
     <Compile Include="DalBaseOfTEntity.cs" />
     <Compile Include="DalBaseOfTEntity.Count.cs" />
