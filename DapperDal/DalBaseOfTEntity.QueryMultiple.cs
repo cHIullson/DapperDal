@@ -17,7 +17,7 @@ namespace DapperDal
         /// <param name="query">SQL语句</param>
         /// <returns>多个实体集合</returns>
         public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>>
-            Query<TFirst, TSecond>(string query)
+            QueryMultiple<TFirst, TSecond>(string query)
         {
             using (var connection = OpenConnection())
             {
@@ -38,7 +38,7 @@ namespace DapperDal
         /// <param name="parameters">SQL参数</param>
         /// <returns>多个实体集合</returns>
         public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>>
-            Query<TFirst, TSecond>(string query, object parameters)
+            QueryMultiple<TFirst, TSecond>(string query, object parameters)
         {
             using (var connection = OpenConnection())
             {
@@ -60,7 +60,7 @@ namespace DapperDal
         /// <param name="commandType">SQL语句命令类型</param>
         /// <returns>多个实体集合</returns>
         public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>>
-            Query<TFirst, TSecond>(string query, object parameters, CommandType commandType)
+            QueryMultiple<TFirst, TSecond>(string query, object parameters, CommandType commandType)
         {
             using (var connection = OpenConnection())
             {
@@ -81,7 +81,7 @@ namespace DapperDal
         /// <param name="query">SQL语句</param>
         /// <returns>多个实体集合</returns>
         public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>, IEnumerable<TThird>>
-            Query<TFirst, TSecond, TThird>(string query)
+            QueryMultiple<TFirst, TSecond, TThird>(string query)
         {
             using (var connection = OpenConnection())
             {
@@ -104,7 +104,7 @@ namespace DapperDal
         /// <param name="parameters">SQL参数</param>
         /// <returns>多个实体集合</returns>
         public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>, IEnumerable<TThird>>
-            Query<TFirst, TSecond, TThird>(string query, object parameters)
+            QueryMultiple<TFirst, TSecond, TThird>(string query, object parameters)
         {
             using (var connection = OpenConnection())
             {
@@ -128,7 +128,7 @@ namespace DapperDal
         /// <param name="commandType">SQL语句命令类型</param>
         /// <returns>多个实体集合</returns>
         public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>, IEnumerable<TThird>>
-            Query<TFirst, TSecond, TThird>(string query, object parameters, CommandType commandType)
+            QueryMultiple<TFirst, TSecond, TThird>(string query, object parameters, CommandType commandType)
         {
             using (var connection = OpenConnection())
             {
@@ -151,7 +151,7 @@ namespace DapperDal
         /// <param name="query">SQL语句</param>
         /// <returns>多个实体集合</returns>
         public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>, IEnumerable<TThird>, IEnumerable<TFourth>>
-            Query<TFirst, TSecond, TThird, TFourth>(string query)
+            QueryMultiple<TFirst, TSecond, TThird, TFourth>(string query)
         {
             using (var connection = OpenConnection())
             {
@@ -176,7 +176,7 @@ namespace DapperDal
         /// <param name="parameters">SQL参数</param>
         /// <returns>多个实体集合</returns>
         public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>, IEnumerable<TThird>, IEnumerable<TFourth>>
-            Query<TFirst, TSecond, TThird, TFourth>(string query, object parameters)
+            QueryMultiple<TFirst, TSecond, TThird, TFourth>(string query, object parameters)
         {
             using (var connection = OpenConnection())
             {
@@ -202,7 +202,7 @@ namespace DapperDal
         /// <param name="commandType">SQL语句命令类型</param>
         /// <returns>多个实体集合</returns>
         public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>, IEnumerable<TThird>, IEnumerable<TFourth>>
-            Query<TFirst, TSecond, TThird, TFourth>(string query, object parameters, CommandType commandType)
+            QueryMultiple<TFirst, TSecond, TThird, TFourth>(string query, object parameters, CommandType commandType)
         {
             using (var connection = OpenConnection())
             {
@@ -227,7 +227,7 @@ namespace DapperDal
         /// <param name="query">SQL语句</param>
         /// <returns>多个实体集合</returns>
         public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>, IEnumerable<TThird>, IEnumerable<TFourth>, IEnumerable<TFifth>>
-            Query<TFirst, TSecond, TThird, TFourth, TFifth>(string query)
+            QueryMultiple<TFirst, TSecond, TThird, TFourth, TFifth>(string query)
         {
             using (var connection = OpenConnection())
             {
@@ -254,7 +254,7 @@ namespace DapperDal
         /// <param name="parameters">SQL参数</param>
         /// <returns>多个实体集合</returns>
         public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>, IEnumerable<TThird>, IEnumerable<TFourth>, IEnumerable<TFifth>>
-            Query<TFirst, TSecond, TThird, TFourth, TFifth>(string query, object parameters)
+            QueryMultiple<TFirst, TSecond, TThird, TFourth, TFifth>(string query, object parameters)
         {
             using (var connection = OpenConnection())
             {
@@ -282,7 +282,7 @@ namespace DapperDal
         /// <param name="commandType">SQL语句命令类型</param>
         /// <returns>多个实体集合</returns>
         public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>, IEnumerable<TThird>, IEnumerable<TFourth>, IEnumerable<TFifth>>
-            Query<TFirst, TSecond, TThird, TFourth, TFifth>(string query, object parameters, CommandType commandType)
+            QueryMultiple<TFirst, TSecond, TThird, TFourth, TFifth>(string query, object parameters, CommandType commandType)
         {
             using (var connection = OpenConnection())
             {
@@ -309,7 +309,7 @@ namespace DapperDal
         /// <param name="query">SQL语句</param>
         /// <returns>多个实体集合</returns>
         public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>, IEnumerable<TThird>, IEnumerable<TFourth>, IEnumerable<TFifth>, IEnumerable<TSixth>>
-            Query<TFirst, TSecond, TThird, TFourth, TFifth, TSixth>(string query)
+            QueryMultiple<TFirst, TSecond, TThird, TFourth, TFifth, TSixth>(string query)
         {
             using (var connection = OpenConnection())
             {
@@ -338,7 +338,7 @@ namespace DapperDal
         /// <param name="parameters">SQL参数</param>
         /// <returns>多个实体集合</returns>
         public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>, IEnumerable<TThird>, IEnumerable<TFourth>, IEnumerable<TFifth>, IEnumerable<TSixth>>
-            Query<TFirst, TSecond, TThird, TFourth, TFifth, TSixth>(string query, object parameters)
+            QueryMultiple<TFirst, TSecond, TThird, TFourth, TFifth, TSixth>(string query, object parameters)
         {
             using (var connection = OpenConnection())
             {
@@ -368,7 +368,7 @@ namespace DapperDal
         /// <param name="commandType">SQL语句命令类型</param>
         /// <returns>多个实体集合</returns>
         public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>, IEnumerable<TThird>, IEnumerable<TFourth>, IEnumerable<TFifth>, IEnumerable<TSixth>>
-            Query<TFirst, TSecond, TThird, TFourth, TFifth, TSixth>(string query, object parameters, CommandType commandType)
+            QueryMultiple<TFirst, TSecond, TThird, TFourth, TFifth, TSixth>(string query, object parameters, CommandType commandType)
         {
             using (var connection = OpenConnection())
             {
@@ -397,7 +397,7 @@ namespace DapperDal
         /// <param name="query">SQL语句</param>
         /// <returns>多个实体集合</returns>
         public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>, IEnumerable<TThird>, IEnumerable<TFourth>, IEnumerable<TFifth>, IEnumerable<TSixth>, IEnumerable<TSeventh>>
-            Query<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh>(string query)
+            QueryMultiple<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh>(string query)
         {
             using (var connection = OpenConnection())
             {
@@ -428,7 +428,7 @@ namespace DapperDal
         /// <param name="parameters">SQL参数</param>
         /// <returns>多个实体集合</returns>
         public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>, IEnumerable<TThird>, IEnumerable<TFourth>, IEnumerable<TFifth>, IEnumerable<TSixth>, IEnumerable<TSeventh>>
-            Query<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh>(string query, object parameters)
+            QueryMultiple<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh>(string query, object parameters)
         {
             using (var connection = OpenConnection())
             {
@@ -460,7 +460,7 @@ namespace DapperDal
         /// <param name="commandType">SQL语句命令类型</param>
         /// <returns>多个实体集合</returns>
         public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>, IEnumerable<TThird>, IEnumerable<TFourth>, IEnumerable<TFifth>, IEnumerable<TSixth>, IEnumerable<TSeventh>>
-            Query<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh>(string query, object parameters, CommandType commandType)
+            QueryMultiple<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh>(string query, object parameters, CommandType commandType)
         {
             using (var connection = OpenConnection())
             {
@@ -491,7 +491,7 @@ namespace DapperDal
         /// <param name="query">SQL语句</param>
         /// <returns>多个实体集合</returns>
         public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>, IEnumerable<TThird>, IEnumerable<TFourth>, IEnumerable<TFifth>, IEnumerable<TSixth>, IEnumerable<TSeventh>, Tuple<IEnumerable<TEighth>>>
-            Query<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TEighth>(string query)
+            QueryMultiple<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TEighth>(string query)
         {
             using (var connection = OpenConnection())
             {
@@ -524,7 +524,7 @@ namespace DapperDal
         /// <param name="parameters">SQL参数</param>
         /// <returns>多个实体集合</returns>
         public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>, IEnumerable<TThird>, IEnumerable<TFourth>, IEnumerable<TFifth>, IEnumerable<TSixth>, IEnumerable<TSeventh>, Tuple<IEnumerable<TEighth>>>
-            Query<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TEighth>(string query, object parameters)
+            QueryMultiple<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TEighth>(string query, object parameters)
         {
             using (var connection = OpenConnection())
             {
@@ -558,7 +558,7 @@ namespace DapperDal
         /// <param name="commandType">SQL语句命令类型</param>
         /// <returns>多个实体集合</returns>
         public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>, IEnumerable<TThird>, IEnumerable<TFourth>, IEnumerable<TFifth>, IEnumerable<TSixth>, IEnumerable<TSeventh>, Tuple<IEnumerable<TEighth>>>
-            Query<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TEighth>(string query, object parameters, CommandType commandType)
+            QueryMultiple<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TEighth>(string query, object parameters, CommandType commandType)
         {
             using (var connection = OpenConnection())
             {
