@@ -6,6 +6,10 @@ NuGet: [![NuGet Badge](https://buildstats.info/nuget/DapperDal)](https://www.nug
 
 Release Notes
 -------------
+### 1.5.6
+* 生成查询 SQL 时，添加 `WITH (NOLOCK)`
+* 添加设置项：SQL 输出方法
+
 ### 1.5.5
 * 添加逻辑删除方法 `SoftDelete` 
 
