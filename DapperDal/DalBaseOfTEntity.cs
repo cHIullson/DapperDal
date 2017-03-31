@@ -48,7 +48,10 @@ namespace DapperDal
         static DalBase()
         {
             DapperExtensions.DapperExtensions.Configure(
-                typeof(AutoEntityMapper<>), new List<Assembly>(), new SqlServerDialect());
+                configuration =>
+                {
+                    configuration.DefaultMapper = typeof(AutoEntityMapper<>);
+                });
         }
 
         /// <summary>

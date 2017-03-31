@@ -63,6 +63,11 @@ namespace DapperExtensions.Sql
                 outSql = Configuration.Dialect.SetNolock(outSql);
             }
 
+            if (Configuration.OutputSql != null)
+            {
+                Configuration.OutputSql(outSql);
+            }
+
             return outSql;
         }
 
@@ -90,12 +95,18 @@ namespace DapperExtensions.Sql
             string orderBy = sort.Select(s => GetColumnName(classMap, s.PropertyName, false) + (s.Ascending ? " ASC" : " DESC")).AppendStrings();
             innerSql.Append(" ORDER BY " + orderBy);
 
-            string sql = Configuration.Dialect.GetPagingSql(innerSql.ToString(), page, resultsPerPage, parameters);
+            var sql = innerSql.ToString();
 
-            var outSql = sql;
             if (Configuration.Nolock)
             {
-                outSql = Configuration.Dialect.SetNolock(outSql);
+                sql = Configuration.Dialect.SetNolock(sql);
+            }
+
+            string outSql = Configuration.Dialect.GetPagingSql(sql, page, resultsPerPage, parameters);
+
+            if (Configuration.OutputSql != null)
+            {
+                Configuration.OutputSql(outSql);
             }
 
             return outSql;
@@ -125,12 +136,18 @@ namespace DapperExtensions.Sql
             string orderBy = sort.Select(s => GetColumnName(classMap, s.PropertyName, false) + (s.Ascending ? " ASC" : " DESC")).AppendStrings();
             innerSql.Append(" ORDER BY " + orderBy);
 
-            string sql = Configuration.Dialect.GetSetSql(innerSql.ToString(), firstResult, maxResults, parameters);
+            var sql = innerSql.ToString();
 
-            var outSql = sql;
             if (Configuration.Nolock)
             {
-                outSql = Configuration.Dialect.SetNolock(outSql);
+                sql = Configuration.Dialect.SetNolock(sql);
+            }
+
+            string outSql = Configuration.Dialect.GetSetSql(sql, firstResult, maxResults, parameters);
+
+            if (Configuration.OutputSql != null)
+            {
+                Configuration.OutputSql(outSql);
             }
 
             return outSql;
@@ -160,6 +177,11 @@ namespace DapperExtensions.Sql
                 outSql = Configuration.Dialect.SetNolock(outSql);
             }
 
+            if (Configuration.OutputSql != null)
+            {
+                Configuration.OutputSql(outSql);
+            }
+
             return outSql;
         }
 
@@ -187,6 +209,11 @@ namespace DapperExtensions.Sql
                     throw new ArgumentException("TriggerIdentity generator cannot be used with multi-column keys");
 
                 sql += string.Format(" RETURNING {0} INTO {1}IdOutParam", triggerIdentityColumn.Select(p => GetColumnName(classMap, p, false)).First(), Configuration.Dialect.ParameterPrefix);
+            }
+
+            if (Configuration.OutputSql != null)
+            {
+                Configuration.OutputSql(sql);
             }
 
             return sql;
@@ -221,6 +248,11 @@ namespace DapperExtensions.Sql
                 setSql.AppendStrings(),
                 predicate.GetSql(this, parameters));
 
+            if (Configuration.OutputSql != null)
+            {
+                Configuration.OutputSql(sql);
+            }
+
             return sql;
         }
 
@@ -238,7 +270,15 @@ namespace DapperExtensions.Sql
 
             StringBuilder sql = new StringBuilder(string.Format("DELETE FROM {0}", GetTableName(classMap)));
             sql.Append(" WHERE ").Append(predicate.GetSql(this, parameters));
-            return sql.ToString();
+
+            var outSql = sql.ToString();
+
+            if (Configuration.OutputSql != null)
+            {
+                Configuration.OutputSql(outSql);
+            }
+
+            return outSql;
         }
 
         public virtual string IdentitySql(IClassMapper classMap)

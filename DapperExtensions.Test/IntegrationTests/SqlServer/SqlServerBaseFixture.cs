@@ -22,6 +22,7 @@ namespace DapperExtensions.Test.IntegrationTests.SqlServer
             //var connection = new SqlConnection("Data Source=.;Initial Catalog=dapperTest;Integrated security=True;");
             var connection = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=dapperTest;Integrated security=True;");
             var config = new DapperExtensionsConfiguration(typeof(AutoClassMapper<>), new List<Assembly>(), new SqlServerDialect());
+            config.OutputSql = Console.WriteLine;
             var sqlGenerator = new SqlGeneratorImpl(config);
             Db = new Database(connection, sqlGenerator);
             var files = new List<string>

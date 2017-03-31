@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.IO;
@@ -26,6 +27,11 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             {
                 connection.Execute(setupFile);
             }
+
+            DapperExtensions.DapperExtensions.Configure(configuration =>
+            {
+                configuration.OutputSql = Console.WriteLine;
+            });
         }
 
         public string ReadScriptFile(string name)

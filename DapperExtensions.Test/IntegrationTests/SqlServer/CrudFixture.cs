@@ -567,6 +567,90 @@ namespace DapperExtensions.Test.IntegrationTests.SqlServer
         }
 
         [TestFixture]
+        public class GetSetMethod : SqlServerBaseFixture
+        {
+            [Test]
+            public void UsingNullPredicate_ReturnsMatching()
+            {
+                var id1 = Db.Insert(new Person { Active = true, FirstName = "Sigma", LastName = "Alpha", DateCreated = DateTime.UtcNow });
+                var id2 = Db.Insert(new Person { Active = false, FirstName = "Delta", LastName = "Alpha", DateCreated = DateTime.UtcNow });
+                var id3 = Db.Insert(new Person { Active = true, FirstName = "Theta", LastName = "Gamma", DateCreated = DateTime.UtcNow });
+                var id4 = Db.Insert(new Person { Active = false, FirstName = "Iota", LastName = "Beta", DateCreated = DateTime.UtcNow });
+
+                IList<ISort> sort = new List<ISort>
+                                    {
+                                        Predicates.Sort<Person>(p => p.LastName),
+                                        Predicates.Sort<Person>(p => p.FirstName)
+                                    };
+
+                IEnumerable<Person> list = Db.GetSet<Person>(null, sort, 0, 2, null, true);
+                Assert.AreEqual(2, list.Count());
+                Assert.AreEqual(id2, list.First().Id);
+                Assert.AreEqual(id1, list.Skip(1).First().Id);
+            }
+
+            [Test]
+            public void UsingPredicate_ReturnsMatching()
+            {
+                var id1 = Db.Insert(new Person { Active = true, FirstName = "Sigma", LastName = "Alpha", DateCreated = DateTime.UtcNow });
+                var id2 = Db.Insert(new Person { Active = false, FirstName = "Delta", LastName = "Alpha", DateCreated = DateTime.UtcNow });
+                var id3 = Db.Insert(new Person { Active = true, FirstName = "Theta", LastName = "Gamma", DateCreated = DateTime.UtcNow });
+                var id4 = Db.Insert(new Person { Active = false, FirstName = "Iota", LastName = "Beta", DateCreated = DateTime.UtcNow });
+
+                var predicate = Predicates.Field<Person>(f => f.Active, Operator.Eq, true);
+                IList<ISort> sort = new List<ISort>
+                                    {
+                                        Predicates.Sort<Person>(p => p.LastName),
+                                        Predicates.Sort<Person>(p => p.FirstName)
+                                    };
+
+                IEnumerable<Person> list = Db.GetSet<Person>(predicate, sort, 0, 3, null, true);
+                Assert.AreEqual(2, list.Count());
+                Assert.IsTrue(list.All(p => p.FirstName == "Sigma" || p.FirstName == "Theta"));
+            }
+
+            [Test]
+            public void NotFirstPage_Returns_NextResults()
+            {
+                var id1 = Db.Insert(new Person { Active = true, FirstName = "Sigma", LastName = "Alpha", DateCreated = DateTime.UtcNow });
+                var id2 = Db.Insert(new Person { Active = false, FirstName = "Delta", LastName = "Alpha", DateCreated = DateTime.UtcNow });
+                var id3 = Db.Insert(new Person { Active = true, FirstName = "Theta", LastName = "Gamma", DateCreated = DateTime.UtcNow });
+                var id4 = Db.Insert(new Person { Active = false, FirstName = "Iota", LastName = "Beta", DateCreated = DateTime.UtcNow });
+
+                IList<ISort> sort = new List<ISort>
+                                    {
+                                        Predicates.Sort<Person>(p => p.LastName),
+                                        Predicates.Sort<Person>(p => p.FirstName)
+                                    };
+
+                IEnumerable<Person> list = Db.GetSet<Person>(null, sort, 3, 2, null, true);
+                Assert.AreEqual(2, list.Count());
+                Assert.AreEqual(id4, list.First().Id);
+                Assert.AreEqual(id3, list.Skip(1).First().Id);
+            }
+
+            [Test]
+            public void UsingObject_ReturnsMatching()
+            {
+                var id1 = Db.Insert(new Person { Active = true, FirstName = "Sigma", LastName = "Alpha", DateCreated = DateTime.UtcNow });
+                var id2 = Db.Insert(new Person { Active = false, FirstName = "Delta", LastName = "Alpha", DateCreated = DateTime.UtcNow });
+                var id3 = Db.Insert(new Person { Active = true, FirstName = "Theta", LastName = "Gamma", DateCreated = DateTime.UtcNow });
+                var id4 = Db.Insert(new Person { Active = false, FirstName = "Iota", LastName = "Beta", DateCreated = DateTime.UtcNow });
+
+                var predicate = new { Active = true };
+                IList<ISort> sort = new List<ISort>
+                                    {
+                                        Predicates.Sort<Person>(p => p.LastName),
+                                        Predicates.Sort<Person>(p => p.FirstName)
+                                    };
+
+                IEnumerable<Person> list = Db.GetSet<Person>(predicate, sort, 0, 3, null, true);
+                Assert.AreEqual(2, list.Count());
+                Assert.IsTrue(list.All(p => p.FirstName == "Sigma" || p.FirstName == "Theta"));
+            }
+        }
+
+        [TestFixture]
         public class CountMethod : SqlServerBaseFixture
         {
             [Test]

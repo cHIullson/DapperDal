@@ -11,7 +11,7 @@ namespace DapperExtensions
 {
     public static class DapperExtensions
     {
-        private readonly static object _lock = new object();
+        private static readonly object _lock = new object();
 
         private static Func<IDapperExtensionsConfiguration, IDapperImplementor> _instanceFactory;
         private static IDapperImplementor _instance;
@@ -27,11 +27,6 @@ namespace DapperExtensions
             {
                 return _configuration.DefaultMapper;
             }
-
-            set
-            {
-                Configure(value, _configuration.MappingAssemblies, _configuration.Dialect);
-            }
         }
 
         /// <summary>
@@ -43,11 +38,6 @@ namespace DapperExtensions
             get
             {
                 return _configuration.Dialect;
-            }
-
-            set
-            {
-                Configure(_configuration.DefaultMapper, _configuration.MappingAssemblies, value);
             }
         }
 
@@ -64,11 +54,6 @@ namespace DapperExtensions
                 }
 
                 return _instanceFactory;
-            }
-            set
-            {
-                _instanceFactory = value;
-                Configure(_configuration.DefaultMapper, _configuration.MappingAssemblies, _configuration.Dialect);
             }
         }
 
@@ -96,7 +81,8 @@ namespace DapperExtensions
 
         static DapperExtensions()
         {
-            Configure(typeof(AutoClassMapper<>), new List<Assembly>(), new SqlServerDialect());
+            Configure(new DapperExtensionsConfiguration(typeof(AutoClassMapper<>), new List<Assembly>(),
+                new SqlServerDialect()));
         }
 
         /// <summary>
@@ -114,7 +100,7 @@ namespace DapperExtensions
         /// <param name="defaultMapper"></param>
         /// <param name="mappingAssemblies"></param>
         /// <param name="sqlDialect"></param>
-        public static void Configure(IDapperExtensionsConfiguration configuration)
+        private static void Configure(IDapperExtensionsConfiguration configuration)
         {
             _instance = null;
             _configuration = configuration;
@@ -126,10 +112,23 @@ namespace DapperExtensions
         /// <param name="defaultMapper"></param>
         /// <param name="mappingAssemblies"></param>
         /// <param name="sqlDialect"></param>
-        public static void Configure(Type defaultMapper, IList<Assembly> mappingAssemblies, ISqlDialect sqlDialect)
+        private static void Configure(Type defaultMapper, IList<Assembly> mappingAssemblies, ISqlDialect sqlDialect)
         {
             Configure(new DapperExtensionsConfiguration(defaultMapper, mappingAssemblies, sqlDialect));
         }
+
+        /// <summary>
+        /// 配置 DapperExtensionsConfiguration
+        /// </summary>
+        /// <param name="configure">配置方法</param>
+        public static void Configure(Action<IDapperExtensionsConfiguration> configure)
+        {
+            if (configure != null && _configuration != null)
+            {
+                configure(_configuration);
+            }
+        }
+
 
         /// <summary>
         /// Executes a query for the specified id, returning the data typed as per T

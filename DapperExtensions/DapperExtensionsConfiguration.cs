@@ -11,14 +11,19 @@ namespace DapperExtensions
 {
     public interface IDapperExtensionsConfiguration
     {
-        Type DefaultMapper { get; }
-        IList<Assembly> MappingAssemblies { get; }
-        ISqlDialect Dialect { get; }
+        Type DefaultMapper { get; set; }
+        IList<Assembly> MappingAssemblies { get; set; }
+        ISqlDialect Dialect { get; set; }
 
         /// <summary>
         /// 生成SQL时，是否添加 WITH (NOLOCK)
         /// </summary>
-        bool Nolock { get; }
+        bool Nolock { get; set; }
+
+        /// <summary>
+        /// SQL输出方法
+        /// </summary>
+        Action<string> OutputSql { get; set; }
 
         IClassMapper GetMap(Type entityType);
         IClassMapper GetMap<T>() where T : class;
@@ -44,12 +49,15 @@ namespace DapperExtensions
             Nolock = true;
         }
 
-        public Type DefaultMapper { get; private set; }
-        public IList<Assembly> MappingAssemblies { get; private set; }
-        public ISqlDialect Dialect { get; private set; }
+        public Type DefaultMapper { get; set; }
+        public IList<Assembly> MappingAssemblies { get; set; }
+        public ISqlDialect Dialect { get; set; }
 
         /// <inheritdoc />
-        public bool Nolock { get; private set; }
+        public bool Nolock { get; set; }
+
+        /// <inheritdoc />
+        public Action<string> OutputSql { get; set; }
 
         public IClassMapper GetMap(Type entityType)
         {
