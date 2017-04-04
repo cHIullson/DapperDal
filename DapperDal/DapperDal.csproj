@@ -46,8 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DalBaseOfTEntity.ExecuteScalar.cs" />
     <Compile Include="DalBaseOfTEntity.GetFirst.cs" />
     <Compile Include="DalBaseOfTEntity.GetTop.cs" />
+    <Compile Include="DalBaseOfTEntity.Execute.cs" />
     <Compile Include="DalBaseOfTEntity.SoftDelete.cs" />
     <Compile Include="DalBaseOfTEntity.Get.cs" />
     <Compile Include="DalBaseOfTEntity.cs" />

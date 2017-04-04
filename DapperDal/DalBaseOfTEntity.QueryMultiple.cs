@@ -14,14 +14,14 @@ namespace DapperDal
         /// </summary>
         /// <typeparam name="TFirst">第一个实体类型</typeparam>
         /// <typeparam name="TSecond">第二个实体类型</typeparam>
-        /// <param name="query">SQL语句</param>
+        /// <param name="sql">SQL语句</param>
         /// <returns>多个实体集合</returns>
         public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>>
-            QueryMultiple<TFirst, TSecond>(string query)
+            QueryMultiple<TFirst, TSecond>(string sql)
         {
             using (var connection = OpenConnection())
             {
-                using (var gridReader = connection.QueryMultiple(query))
+                using (var gridReader = connection.QueryMultiple(sql))
                 {
                     return Tuple.Create((IEnumerable<TFirst>)gridReader.Read<TFirst>().ToList(),
                         (IEnumerable<TSecond>)gridReader.Read<TSecond>().ToList());
@@ -34,15 +34,15 @@ namespace DapperDal
         /// </summary>
         /// <typeparam name="TFirst">第一个实体类型</typeparam>
         /// <typeparam name="TSecond">第二个实体类型</typeparam>
-        /// <param name="query">SQL语句</param>
+        /// <param name="sql">SQL语句</param>
         /// <param name="parameters">SQL参数</param>
         /// <returns>多个实体集合</returns>
         public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>>
-            QueryMultiple<TFirst, TSecond>(string query, object parameters)
+            QueryMultiple<TFirst, TSecond>(string sql, object parameters)
         {
             using (var connection = OpenConnection())
             {
-                using (var gridReader = connection.QueryMultiple(query, parameters))
+                using (var gridReader = connection.QueryMultiple(sql, parameters))
                 {
                     return Tuple.Create((IEnumerable<TFirst>)gridReader.Read<TFirst>().ToList(),
                         (IEnumerable<TSecond>)gridReader.Read<TSecond>().ToList());
@@ -55,16 +55,16 @@ namespace DapperDal
         /// </summary>
         /// <typeparam name="TFirst">第一个实体类型</typeparam>
         /// <typeparam name="TSecond">第二个实体类型</typeparam>
-        /// <param name="query">SQL语句</param>
+        /// <param name="sql">SQL语句</param>
         /// <param name="parameters">SQL参数</param>
         /// <param name="commandType">SQL语句命令类型</param>
         /// <returns>多个实体集合</returns>
         public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>>
-            QueryMultiple<TFirst, TSecond>(string query, object parameters, CommandType commandType)
+            QueryMultiple<TFirst, TSecond>(string sql, object parameters, CommandType commandType)
         {
             using (var connection = OpenConnection())
             {
-                using (var gridReader = connection.QueryMultiple(query, parameters, commandType: commandType))
+                using (var gridReader = connection.QueryMultiple(sql, parameters, commandType: commandType))
                 {
                     return Tuple.Create((IEnumerable<TFirst>)gridReader.Read<TFirst>().ToList(),
                         (IEnumerable<TSecond>)gridReader.Read<TSecond>().ToList());
@@ -78,14 +78,14 @@ namespace DapperDal
         /// <typeparam name="TFirst">第一个实体类型</typeparam>
         /// <typeparam name="TSecond">第二个实体类型</typeparam>
         /// <typeparam name="TThird">第三个实体类型</typeparam>
-        /// <param name="query">SQL语句</param>
+        /// <param name="sql">SQL语句</param>
         /// <returns>多个实体集合</returns>
         public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>, IEnumerable<TThird>>
-            QueryMultiple<TFirst, TSecond, TThird>(string query)
+            QueryMultiple<TFirst, TSecond, TThird>(string sql)
         {
             using (var connection = OpenConnection())
             {
-                using (var gridReader = connection.QueryMultiple(query))
+                using (var gridReader = connection.QueryMultiple(sql))
                 {
                     return Tuple.Create((IEnumerable<TFirst>)gridReader.Read<TFirst>().ToList(),
                         (IEnumerable<TSecond>)gridReader.Read<TSecond>().ToList(),
@@ -100,15 +100,15 @@ namespace DapperDal
         /// <typeparam name="TFirst">第一个实体类型</typeparam>
         /// <typeparam name="TSecond">第二个实体类型</typeparam>
         /// <typeparam name="TThird">第三个实体类型</typeparam>
-        /// <param name="query">SQL语句</param>
+        /// <param name="sql">SQL语句</param>
         /// <param name="parameters">SQL参数</param>
         /// <returns>多个实体集合</returns>
         public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>, IEnumerable<TThird>>
-            QueryMultiple<TFirst, TSecond, TThird>(string query, object parameters)
+            QueryMultiple<TFirst, TSecond, TThird>(string sql, object parameters)
         {
             using (var connection = OpenConnection())
             {
-                using (var gridReader = connection.QueryMultiple(query, parameters))
+                using (var gridReader = connection.QueryMultiple(sql, parameters))
                 {
                     return Tuple.Create((IEnumerable<TFirst>)gridReader.Read<TFirst>().ToList(),
                         (IEnumerable<TSecond>)gridReader.Read<TSecond>().ToList(),
@@ -123,16 +123,16 @@ namespace DapperDal
         /// <typeparam name="TFirst">第一个实体类型</typeparam>
         /// <typeparam name="TSecond">第二个实体类型</typeparam>
         /// <typeparam name="TThird">第三个实体类型</typeparam>
-        /// <param name="query">SQL语句</param>
+        /// <param name="sql">SQL语句</param>
         /// <param name="parameters">SQL参数</param>
         /// <param name="commandType">SQL语句命令类型</param>
         /// <returns>多个实体集合</returns>
         public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>, IEnumerable<TThird>>
-            QueryMultiple<TFirst, TSecond, TThird>(string query, object parameters, CommandType commandType)
+            QueryMultiple<TFirst, TSecond, TThird>(string sql, object parameters, CommandType commandType)
         {
             using (var connection = OpenConnection())
             {
-                using (var gridReader = connection.QueryMultiple(query, parameters, commandType: commandType))
+                using (var gridReader = connection.QueryMultiple(sql, parameters, commandType: commandType))
                 {
                     return Tuple.Create((IEnumerable<TFirst>)gridReader.Read<TFirst>().ToList(),
                         (IEnumerable<TSecond>)gridReader.Read<TSecond>().ToList(),
@@ -148,14 +148,14 @@ namespace DapperDal
         /// <typeparam name="TSecond">第二个实体类型</typeparam>
         /// <typeparam name="TThird">第三个实体类型</typeparam>
         /// <typeparam name="TFourth">第四个实体类型</typeparam>
-        /// <param name="query">SQL语句</param>
+        /// <param name="sql">SQL语句</param>
         /// <returns>多个实体集合</returns>
         public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>, IEnumerable<TThird>, IEnumerable<TFourth>>
-            QueryMultiple<TFirst, TSecond, TThird, TFourth>(string query)
+            QueryMultiple<TFirst, TSecond, TThird, TFourth>(string sql)
         {
             using (var connection = OpenConnection())
             {
-                using (var gridReader = connection.QueryMultiple(query))
+                using (var gridReader = connection.QueryMultiple(sql))
                 {
                     return Tuple.Create((IEnumerable<TFirst>)gridReader.Read<TFirst>().ToList(),
                         (IEnumerable<TSecond>)gridReader.Read<TSecond>().ToList(),
@@ -172,15 +172,15 @@ namespace DapperDal
         /// <typeparam name="TSecond">第二个实体类型</typeparam>
         /// <typeparam name="TThird">第三个实体类型</typeparam>
         /// <typeparam name="TFourth">第四个实体类型</typeparam>
-        /// <param name="query">SQL语句</param>
+        /// <param name="sql">SQL语句</param>
         /// <param name="parameters">SQL参数</param>
         /// <returns>多个实体集合</returns>
         public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>, IEnumerable<TThird>, IEnumerable<TFourth>>
-            QueryMultiple<TFirst, TSecond, TThird, TFourth>(string query, object parameters)
+            QueryMultiple<TFirst, TSecond, TThird, TFourth>(string sql, object parameters)
         {
             using (var connection = OpenConnection())
             {
-                using (var gridReader = connection.QueryMultiple(query, parameters))
+                using (var gridReader = connection.QueryMultiple(sql, parameters))
                 {
                     return Tuple.Create((IEnumerable<TFirst>)gridReader.Read<TFirst>().ToList(),
                         (IEnumerable<TSecond>)gridReader.Read<TSecond>().ToList(),
@@ -197,16 +197,16 @@ namespace DapperDal
         /// <typeparam name="TSecond">第二个实体类型</typeparam>
         /// <typeparam name="TThird">第三个实体类型</typeparam>
         /// <typeparam name="TFourth">第四个实体类型</typeparam>
-        /// <param name="query">SQL语句</param>
+        /// <param name="sql">SQL语句</param>
         /// <param name="parameters">SQL参数</param>
         /// <param name="commandType">SQL语句命令类型</param>
         /// <returns>多个实体集合</returns>
         public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>, IEnumerable<TThird>, IEnumerable<TFourth>>
-            QueryMultiple<TFirst, TSecond, TThird, TFourth>(string query, object parameters, CommandType commandType)
+            QueryMultiple<TFirst, TSecond, TThird, TFourth>(string sql, object parameters, CommandType commandType)
         {
             using (var connection = OpenConnection())
             {
-                using (var gridReader = connection.QueryMultiple(query, parameters, commandType: commandType))
+                using (var gridReader = connection.QueryMultiple(sql, parameters, commandType: commandType))
                 {
                     return Tuple.Create((IEnumerable<TFirst>)gridReader.Read<TFirst>().ToList(),
                         (IEnumerable<TSecond>)gridReader.Read<TSecond>().ToList(),
@@ -224,14 +224,14 @@ namespace DapperDal
         /// <typeparam name="TThird">第三个实体类型</typeparam>
         /// <typeparam name="TFourth">第四个实体类型</typeparam>
         /// <typeparam name="TFifth">第五个实体类型</typeparam>
-        /// <param name="query">SQL语句</param>
+        /// <param name="sql">SQL语句</param>
         /// <returns>多个实体集合</returns>
         public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>, IEnumerable<TThird>, IEnumerable<TFourth>, IEnumerable<TFifth>>
-            QueryMultiple<TFirst, TSecond, TThird, TFourth, TFifth>(string query)
+            QueryMultiple<TFirst, TSecond, TThird, TFourth, TFifth>(string sql)
         {
             using (var connection = OpenConnection())
             {
-                using (var gridReader = connection.QueryMultiple(query))
+                using (var gridReader = connection.QueryMultiple(sql))
                 {
                     return Tuple.Create((IEnumerable<TFirst>)gridReader.Read<TFirst>().ToList(),
                         (IEnumerable<TSecond>)gridReader.Read<TSecond>().ToList(),
@@ -250,15 +250,15 @@ namespace DapperDal
         /// <typeparam name="TThird">第三个实体类型</typeparam>
         /// <typeparam name="TFourth">第四个实体类型</typeparam>
         /// <typeparam name="TFifth">第五个实体类型</typeparam>
-        /// <param name="query">SQL语句</param>
+        /// <param name="sql">SQL语句</param>
         /// <param name="parameters">SQL参数</param>
         /// <returns>多个实体集合</returns>
         public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>, IEnumerable<TThird>, IEnumerable<TFourth>, IEnumerable<TFifth>>
-            QueryMultiple<TFirst, TSecond, TThird, TFourth, TFifth>(string query, object parameters)
+            QueryMultiple<TFirst, TSecond, TThird, TFourth, TFifth>(string sql, object parameters)
         {
             using (var connection = OpenConnection())
             {
-                using (var gridReader = connection.QueryMultiple(query, parameters))
+                using (var gridReader = connection.QueryMultiple(sql, parameters))
                 {
                     return Tuple.Create((IEnumerable<TFirst>)gridReader.Read<TFirst>().ToList(),
                         (IEnumerable<TSecond>)gridReader.Read<TSecond>().ToList(),
@@ -277,16 +277,16 @@ namespace DapperDal
         /// <typeparam name="TThird">第三个实体类型</typeparam>
         /// <typeparam name="TFourth">第四个实体类型</typeparam>
         /// <typeparam name="TFifth">第五个实体类型</typeparam>
-        /// <param name="query">SQL语句</param>
+        /// <param name="sql">SQL语句</param>
         /// <param name="parameters">SQL参数</param>
         /// <param name="commandType">SQL语句命令类型</param>
         /// <returns>多个实体集合</returns>
         public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>, IEnumerable<TThird>, IEnumerable<TFourth>, IEnumerable<TFifth>>
-            QueryMultiple<TFirst, TSecond, TThird, TFourth, TFifth>(string query, object parameters, CommandType commandType)
+            QueryMultiple<TFirst, TSecond, TThird, TFourth, TFifth>(string sql, object parameters, CommandType commandType)
         {
             using (var connection = OpenConnection())
             {
-                using (var gridReader = connection.QueryMultiple(query, parameters, commandType: commandType))
+                using (var gridReader = connection.QueryMultiple(sql, parameters, commandType: commandType))
                 {
                     return Tuple.Create((IEnumerable<TFirst>)gridReader.Read<TFirst>().ToList(),
                         (IEnumerable<TSecond>)gridReader.Read<TSecond>().ToList(),
@@ -306,14 +306,14 @@ namespace DapperDal
         /// <typeparam name="TFourth">第四个实体类型</typeparam>
         /// <typeparam name="TFifth">第五个实体类型</typeparam>
         /// <typeparam name="TSixth">第六个实体类型</typeparam>
-        /// <param name="query">SQL语句</param>
+        /// <param name="sql">SQL语句</param>
         /// <returns>多个实体集合</returns>
         public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>, IEnumerable<TThird>, IEnumerable<TFourth>, IEnumerable<TFifth>, IEnumerable<TSixth>>
-            QueryMultiple<TFirst, TSecond, TThird, TFourth, TFifth, TSixth>(string query)
+            QueryMultiple<TFirst, TSecond, TThird, TFourth, TFifth, TSixth>(string sql)
         {
             using (var connection = OpenConnection())
             {
-                using (var gridReader = connection.QueryMultiple(query))
+                using (var gridReader = connection.QueryMultiple(sql))
                 {
                     return Tuple.Create((IEnumerable<TFirst>)gridReader.Read<TFirst>().ToList(),
                         (IEnumerable<TSecond>)gridReader.Read<TSecond>().ToList(),
@@ -334,15 +334,15 @@ namespace DapperDal
         /// <typeparam name="TFourth">第四个实体类型</typeparam>
         /// <typeparam name="TFifth">第五个实体类型</typeparam>
         /// <typeparam name="TSixth">第六个实体类型</typeparam>
-        /// <param name="query">SQL语句</param>
+        /// <param name="sql">SQL语句</param>
         /// <param name="parameters">SQL参数</param>
         /// <returns>多个实体集合</returns>
         public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>, IEnumerable<TThird>, IEnumerable<TFourth>, IEnumerable<TFifth>, IEnumerable<TSixth>>
-            QueryMultiple<TFirst, TSecond, TThird, TFourth, TFifth, TSixth>(string query, object parameters)
+            QueryMultiple<TFirst, TSecond, TThird, TFourth, TFifth, TSixth>(string sql, object parameters)
         {
             using (var connection = OpenConnection())
             {
-                using (var gridReader = connection.QueryMultiple(query, parameters))
+                using (var gridReader = connection.QueryMultiple(sql, parameters))
                 {
                     return Tuple.Create((IEnumerable<TFirst>)gridReader.Read<TFirst>().ToList(),
                         (IEnumerable<TSecond>)gridReader.Read<TSecond>().ToList(),
@@ -363,16 +363,16 @@ namespace DapperDal
         /// <typeparam name="TFourth">第四个实体类型</typeparam>
         /// <typeparam name="TFifth">第五个实体类型</typeparam>
         /// <typeparam name="TSixth">第六个实体类型</typeparam>
-        /// <param name="query">SQL语句</param>
+        /// <param name="sql">SQL语句</param>
         /// <param name="parameters">SQL参数</param>
         /// <param name="commandType">SQL语句命令类型</param>
         /// <returns>多个实体集合</returns>
         public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>, IEnumerable<TThird>, IEnumerable<TFourth>, IEnumerable<TFifth>, IEnumerable<TSixth>>
-            QueryMultiple<TFirst, TSecond, TThird, TFourth, TFifth, TSixth>(string query, object parameters, CommandType commandType)
+            QueryMultiple<TFirst, TSecond, TThird, TFourth, TFifth, TSixth>(string sql, object parameters, CommandType commandType)
         {
             using (var connection = OpenConnection())
             {
-                using (var gridReader = connection.QueryMultiple(query, parameters, commandType: commandType))
+                using (var gridReader = connection.QueryMultiple(sql, parameters, commandType: commandType))
                 {
                     return Tuple.Create((IEnumerable<TFirst>)gridReader.Read<TFirst>().ToList(),
                         (IEnumerable<TSecond>)gridReader.Read<TSecond>().ToList(),
@@ -394,14 +394,14 @@ namespace DapperDal
         /// <typeparam name="TFifth">第五个实体类型</typeparam>
         /// <typeparam name="TSixth">第六个实体类型</typeparam>
         /// <typeparam name="TSeventh">第七个实体类型</typeparam>
-        /// <param name="query">SQL语句</param>
+        /// <param name="sql">SQL语句</param>
         /// <returns>多个实体集合</returns>
         public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>, IEnumerable<TThird>, IEnumerable<TFourth>, IEnumerable<TFifth>, IEnumerable<TSixth>, IEnumerable<TSeventh>>
-            QueryMultiple<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh>(string query)
+            QueryMultiple<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh>(string sql)
         {
             using (var connection = OpenConnection())
             {
-                using (var gridReader = connection.QueryMultiple(query))
+                using (var gridReader = connection.QueryMultiple(sql))
                 {
                     return Tuple.Create((IEnumerable<TFirst>)gridReader.Read<TFirst>().ToList(),
                         (IEnumerable<TSecond>)gridReader.Read<TSecond>().ToList(),
@@ -424,15 +424,15 @@ namespace DapperDal
         /// <typeparam name="TFifth">第五个实体类型</typeparam>
         /// <typeparam name="TSixth">第六个实体类型</typeparam>
         /// <typeparam name="TSeventh">第七个实体类型</typeparam>
-        /// <param name="query">SQL语句</param>
+        /// <param name="sql">SQL语句</param>
         /// <param name="parameters">SQL参数</param>
         /// <returns>多个实体集合</returns>
         public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>, IEnumerable<TThird>, IEnumerable<TFourth>, IEnumerable<TFifth>, IEnumerable<TSixth>, IEnumerable<TSeventh>>
-            QueryMultiple<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh>(string query, object parameters)
+            QueryMultiple<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh>(string sql, object parameters)
         {
             using (var connection = OpenConnection())
             {
-                using (var gridReader = connection.QueryMultiple(query, parameters))
+                using (var gridReader = connection.QueryMultiple(sql, parameters))
                 {
                     return Tuple.Create((IEnumerable<TFirst>)gridReader.Read<TFirst>().ToList(),
                         (IEnumerable<TSecond>)gridReader.Read<TSecond>().ToList(),
@@ -455,16 +455,16 @@ namespace DapperDal
         /// <typeparam name="TFifth">第五个实体类型</typeparam>
         /// <typeparam name="TSixth">第六个实体类型</typeparam>
         /// <typeparam name="TSeventh">第七个实体类型</typeparam>
-        /// <param name="query">SQL语句</param>
+        /// <param name="sql">SQL语句</param>
         /// <param name="parameters">SQL参数</param>
         /// <param name="commandType">SQL语句命令类型</param>
         /// <returns>多个实体集合</returns>
         public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>, IEnumerable<TThird>, IEnumerable<TFourth>, IEnumerable<TFifth>, IEnumerable<TSixth>, IEnumerable<TSeventh>>
-            QueryMultiple<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh>(string query, object parameters, CommandType commandType)
+            QueryMultiple<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh>(string sql, object parameters, CommandType commandType)
         {
             using (var connection = OpenConnection())
             {
-                using (var gridReader = connection.QueryMultiple(query, parameters, commandType: commandType))
+                using (var gridReader = connection.QueryMultiple(sql, parameters, commandType: commandType))
                 {
                     return Tuple.Create((IEnumerable<TFirst>)gridReader.Read<TFirst>().ToList(),
                         (IEnumerable<TSecond>)gridReader.Read<TSecond>().ToList(),
@@ -488,14 +488,14 @@ namespace DapperDal
         /// <typeparam name="TSixth">第六个实体类型</typeparam>
         /// <typeparam name="TSeventh">第七个实体类型</typeparam>
         /// <typeparam name="TEighth">第八个实体类型</typeparam>
-        /// <param name="query">SQL语句</param>
+        /// <param name="sql">SQL语句</param>
         /// <returns>多个实体集合</returns>
         public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>, IEnumerable<TThird>, IEnumerable<TFourth>, IEnumerable<TFifth>, IEnumerable<TSixth>, IEnumerable<TSeventh>, Tuple<IEnumerable<TEighth>>>
-            QueryMultiple<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TEighth>(string query)
+            QueryMultiple<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TEighth>(string sql)
         {
             using (var connection = OpenConnection())
             {
-                using (var gridReader = connection.QueryMultiple(query))
+                using (var gridReader = connection.QueryMultiple(sql))
                 {
                     return Tuple.Create((IEnumerable<TFirst>)gridReader.Read<TFirst>().ToList(),
                         (IEnumerable<TSecond>)gridReader.Read<TSecond>().ToList(),
@@ -520,15 +520,15 @@ namespace DapperDal
         /// <typeparam name="TSixth">第六个实体类型</typeparam>
         /// <typeparam name="TSeventh">第七个实体类型</typeparam>
         /// <typeparam name="TEighth">第八个实体类型</typeparam>
-        /// <param name="query">SQL语句</param>
+        /// <param name="sql">SQL语句</param>
         /// <param name="parameters">SQL参数</param>
         /// <returns>多个实体集合</returns>
         public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>, IEnumerable<TThird>, IEnumerable<TFourth>, IEnumerable<TFifth>, IEnumerable<TSixth>, IEnumerable<TSeventh>, Tuple<IEnumerable<TEighth>>>
-            QueryMultiple<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TEighth>(string query, object parameters)
+            QueryMultiple<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TEighth>(string sql, object parameters)
         {
             using (var connection = OpenConnection())
             {
-                using (var gridReader = connection.QueryMultiple(query, parameters))
+                using (var gridReader = connection.QueryMultiple(sql, parameters))
                 {
                     return Tuple.Create((IEnumerable<TFirst>)gridReader.Read<TFirst>().ToList(),
                         (IEnumerable<TSecond>)gridReader.Read<TSecond>().ToList(),
@@ -553,16 +553,16 @@ namespace DapperDal
         /// <typeparam name="TSixth">第六个实体类型</typeparam>
         /// <typeparam name="TSeventh">第七个实体类型</typeparam>
         /// <typeparam name="TEighth">第八个实体类型</typeparam>
-        /// <param name="query">SQL语句</param>
+        /// <param name="sql">SQL语句</param>
         /// <param name="parameters">SQL参数</param>
         /// <param name="commandType">SQL语句命令类型</param>
         /// <returns>多个实体集合</returns>
         public virtual Tuple<IEnumerable<TFirst>, IEnumerable<TSecond>, IEnumerable<TThird>, IEnumerable<TFourth>, IEnumerable<TFifth>, IEnumerable<TSixth>, IEnumerable<TSeventh>, Tuple<IEnumerable<TEighth>>>
-            QueryMultiple<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TEighth>(string query, object parameters, CommandType commandType)
+            QueryMultiple<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TEighth>(string sql, object parameters, CommandType commandType)
         {
             using (var connection = OpenConnection())
             {
-                using (var gridReader = connection.QueryMultiple(query, parameters, commandType: commandType))
+                using (var gridReader = connection.QueryMultiple(sql, parameters, commandType: commandType))
                 {
                     return Tuple.Create((IEnumerable<TFirst>)gridReader.Read<TFirst>().ToList(),
                         (IEnumerable<TSecond>)gridReader.Read<TSecond>().ToList(),

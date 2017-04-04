@@ -12,42 +12,42 @@ namespace DapperDal
         /// <summary>
         /// 使用SQL语句获取实体集合
         /// </summary>
-        /// <param name="query">SQL语句</param>
+        /// <param name="sql">SQL语句</param>
         /// <returns>实体集合</returns>
-        public virtual IEnumerable<TEntity> Query(string query)
+        public virtual IEnumerable<TEntity> Query(string sql)
         {
             using (var connection = OpenConnection())
             {
-                return connection.Query<TEntity>(query);
+                return connection.Query<TEntity>(sql);
             }
         }
 
         /// <summary>
         /// 使用SQL语句获取实体集合
         /// </summary>
-        /// <param name="query">SQL语句</param>
+        /// <param name="sql">SQL语句</param>
         /// <param name="parameters">SQL参数</param>
         /// <returns>实体集合</returns>
-        public virtual IEnumerable<TEntity> Query(string query, object parameters)
+        public virtual IEnumerable<TEntity> Query(string sql, object parameters)
         {
             using (var connection = OpenConnection())
             {
-                return connection.Query<TEntity>(query, parameters);
+                return connection.Query<TEntity>(sql, parameters);
             }
         }
 
         /// <summary>
         /// 使用SQL语句获取实体集合
         /// </summary>
-        /// <param name="query">SQL语句</param>
+        /// <param name="sql">SQL语句</param>
         /// <param name="parameters">SQL参数</param>
         /// <param name="commandType">SQL语句命令类型</param>
         /// <returns>实体集合</returns>
-        public virtual IEnumerable<TEntity> Query(string query, object parameters, CommandType commandType)
+        public virtual IEnumerable<TEntity> Query(string sql, object parameters, CommandType commandType)
         {
             using (var connection = OpenConnection())
             {
-                return connection.Query<TEntity>(query, parameters, commandType: commandType);
+                return connection.Query<TEntity>(sql, parameters, commandType: commandType);
             }
         }
 
@@ -55,13 +55,13 @@ namespace DapperDal
         /// 使用SQL语句获取指定实体集合
         /// </summary>
         /// <typeparam name="TAny">返回实体类型</typeparam>
-        /// <param name="query">SQL语句</param>
+        /// <param name="sql">SQL语句</param>
         /// <returns>实体集合</returns>
-        public virtual IEnumerable<TAny> Query<TAny>(string query)
+        public virtual IEnumerable<TAny> Query<TAny>(string sql)
         {
             using (var connection = OpenConnection())
             {
-                return connection.Query<TAny>(query);
+                return connection.Query<TAny>(sql);
             }
         }
 
@@ -69,14 +69,14 @@ namespace DapperDal
         /// 使用SQL语句获取指定实体集合
         /// </summary>
         /// <typeparam name="TAny">返回实体类型</typeparam>
-        /// <param name="query">SQL语句</param>
+        /// <param name="sql">SQL语句</param>
         /// <param name="parameters">SQL参数</param>
         /// <returns>实体集合</returns>
-        public virtual IEnumerable<TAny> Query<TAny>(string query, object parameters)
+        public virtual IEnumerable<TAny> Query<TAny>(string sql, object parameters)
         {
             using (var connection = OpenConnection())
             {
-                return connection.Query<TAny>(query, parameters);
+                return connection.Query<TAny>(sql, parameters);
             }
         }
 
@@ -84,15 +84,15 @@ namespace DapperDal
         /// 使用SQL语句获取指定实体集合
         /// </summary>
         /// <typeparam name="TAny">返回实体类型</typeparam>
-        /// <param name="query">SQL语句</param>
+        /// <param name="sql">SQL语句</param>
         /// <param name="parameters">SQL参数</param>
         /// <param name="commandType">SQL语句命令类型</param>
         /// <returns>实体集合</returns>
-        public virtual IEnumerable<TAny> Query<TAny>(string query, object parameters, CommandType commandType)
+        public virtual IEnumerable<TAny> Query<TAny>(string sql, object parameters, CommandType commandType)
         {
             using (var connection = OpenConnection())
             {
-                return connection.Query<TAny>(query, parameters, commandType: commandType);
+                return connection.Query<TAny>(sql, parameters, commandType: commandType);
             }
         }
     }
