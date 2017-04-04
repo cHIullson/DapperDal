@@ -53,6 +53,7 @@ namespace DapperDal
                     configuration.DefaultMapper = typeof(AutoEntityMapper<>);
                     configuration.Nolock = true;
                     configuration.SoftDeletePropsFactory = () => new { IsActive = 0 };
+                    configuration.Buffered = true;
                 });
         }
 

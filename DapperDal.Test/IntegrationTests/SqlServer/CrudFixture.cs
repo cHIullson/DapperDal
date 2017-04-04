@@ -546,6 +546,254 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
         }
 
         [TestFixture]
+        public class GetFirstMethod : SqlServerBaseFixture
+        {
+            [Test]
+            public void UsingNullPredicate_ReturnsFirst()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                PersonEntity p2 = personDal.GetFirst();
+                Assert.AreEqual(1, p2.CarId);
+            }
+
+            [Test]
+            public void UsingNullPredicate_ByExpression_ReturnsOrderedFirst()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                Expression<Func<PersonEntity, object>> sort = p => p.CarId;
+
+                PersonEntity p2 = personDal.GetFirst(SortDirection.Descending, sort);
+
+                Assert.AreEqual(3, p2.CarId);
+            }
+
+            [Test]
+            public void UsingPredicate_ReturnsMatching()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                var predicate = Predicates.Field<PersonEntity>(f => f.IsActive, Operator.Eq, 1);
+                PersonEntity p2 = personDal.GetFirst(predicate);
+
+                Assert.AreEqual(1, p2.CarId);
+            }
+
+            [Test]
+            public void UsingNullPredicate_BySort_ReturnsOrderedFirst()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                var sort = new List<Sort>() { new Sort { PropertyName = "CarId", Ascending = false } };
+                PersonEntity p2 = personDal.GetFirst((object)null, sort);
+
+                Assert.AreEqual(3, p2.CarId);
+            }
+
+            [Test]
+            public void UsingPredicate_BySort_ReturnsMatchingOrdered()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                var predicate = Predicates.Field<PersonEntity>(f => f.IsActive, Operator.Eq, 1);
+                var sort = new List<Sort>() { new Sort { PropertyName = "CarId", Ascending = false } };
+
+                PersonEntity p2 = personDal.GetFirst(predicate, sort);
+
+                Assert.AreEqual(3, p2.CarId);
+            }
+
+            [Test]
+            public void UsingPredicate_ByExpression_ReturnsMatchingOrdered()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                var predicate = Predicates.Field<PersonEntity>(f => f.IsActive, Operator.Eq, 1);
+                Expression<Func<PersonEntity, object>> sort = p => p.CarId;
+
+                PersonEntity p2 = personDal.GetFirst(predicate, SortDirection.Descending, sort);
+                Assert.AreEqual(3, p2.CarId);
+            }
+
+
+            [Test]
+            public void UsingObject_ReturnsMatching()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                var predicate = new { IsActive = 1 };
+                PersonEntity p2 = personDal.GetFirst(predicate);
+                Assert.AreEqual(1, p2.CarId);
+            }
+
+            [Test]
+            public void UsingNullPredicate_ByObject_ReturnsOrdered()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                var sort = new { CarId = SortDirection.Descending };
+                PersonEntity p2 = personDal.GetFirst((object)null, sort);
+                Assert.AreEqual(3, p2.CarId);
+            }
+
+            [Test]
+            public void UsingObject_ByObject_ReturnsMatchingOrdered()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                var predicate = new { IsActive = 1 };
+                var sort = new { CarId = SortDirection.Descending };
+                PersonEntity p2 = personDal.GetFirst(predicate, sort);
+                Assert.AreEqual(3, p2.CarId);
+            }
+
+            [Test]
+            public void UsingObject_ByExpression_ReturnsMatchingOrdered()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                var predicate = new { IsActive = 1 };
+                Expression<Func<PersonEntity, object>> sort = p => p.CarId;
+
+                PersonEntity p2 = personDal.GetFirst(predicate, SortDirection.Descending, sort);
+                Assert.AreEqual(3, p2.CarId);
+            }
+
+            [Test]
+            public void UsingExpression_ReturnsMatching()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                PersonEntity p2 = personDal.GetFirst(p => p.IsActive == 1);
+                Assert.AreEqual(1, p2.CarId);
+            }
+
+            [Test]
+            public void UsingNullPredicate_ByExpression_ReturnsOrdered()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                Expression<Func<PersonEntity, bool>> predicate = null;
+                Expression<Func<PersonEntity, object>> sort = p => p.CarId;
+
+                PersonEntity p2 = personDal.GetFirst(predicate, SortDirection.Descending, sort);
+                Assert.AreEqual(3, p2.CarId);
+            }
+
+            [Test]
+            public void UsingExpression_BySort_ReturnsMatchingOrdered()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                Expression<Func<PersonEntity, bool>> predicate = p => p.IsActive == 1;
+                var sort = new List<Sort>() { new Sort { PropertyName = "CarId", Ascending = false } };
+
+                PersonEntity p2 = personDal.GetFirst(predicate, sort);
+                Assert.AreEqual(3, p2.CarId);
+            }
+
+            [Test]
+            public void UsingExpression_ByObject_ReturnsMatchingOrdered()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                Expression<Func<PersonEntity, bool>> predicate = p => p.IsActive == 1;
+                var sort = new { CarId = SortDirection.Descending };
+                PersonEntity p2 = personDal.GetFirst(predicate, sort);
+                Assert.AreEqual(3, p2.CarId);
+            }
+
+            [Test]
+            public void UsingExpression_ByExpression_ReturnsMatchingOrdered()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                Expression<Func<PersonEntity, bool>> predicate = p => p.IsActive == 1;
+                Expression<Func<PersonEntity, object>> sort = p => p.CarId;
+
+                PersonEntity p2 = personDal.GetFirst(predicate, SortDirection.Descending, sort);
+                Assert.AreEqual(3, p2.CarId);
+            }
+
+        }
+
+        [TestFixture]
         public class GetListMethod : SqlServerBaseFixture
         {
             [Test]
@@ -591,7 +839,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
                 personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
 
-                var predicate = Predicates.Field<PersonEntity>(f => f.IsActive, Operator.Eq, true);
+                var predicate = Predicates.Field<PersonEntity>(f => f.IsActive, Operator.Eq, 1);
                 IEnumerable<PersonEntity> list = personDal.GetList(predicate);
                 Assert.AreEqual(2, list.Count());
                 Assert.IsTrue(list.All(p => p.PersonName == "a" || p.PersonName == "c"));
@@ -624,7 +872,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
                 personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
 
-                var predicate = Predicates.Field<PersonEntity>(f => f.IsActive, Operator.Eq, true);
+                var predicate = Predicates.Field<PersonEntity>(f => f.IsActive, Operator.Eq, 1);
                 var sort = new List<Sort>() { new Sort { PropertyName = "CarId", Ascending = false } };
 
                 IEnumerable<PersonEntity> list = personDal.GetList(predicate, sort).ToList();
@@ -642,7 +890,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
                 personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
 
-                var predicate = Predicates.Field<PersonEntity>(f => f.IsActive, Operator.Eq, true);
+                var predicate = Predicates.Field<PersonEntity>(f => f.IsActive, Operator.Eq, 1);
                 Expression<Func<PersonEntity, object>> sort = p => p.CarId;
 
                 IEnumerable<PersonEntity> list = personDal.GetList(predicate, SortDirection.Descending, sort).ToList();
@@ -842,7 +1090,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
                 personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
 
-                var predicate = Predicates.Field<PersonEntity>(f => f.IsActive, Operator.Eq, true);
+                var predicate = Predicates.Field<PersonEntity>(f => f.IsActive, Operator.Eq, 1);
                 var sort = new List<Sort>() { new Sort { PropertyName = "CarId", Ascending = false } };
 
                 Assert.AreEqual(4, personDal.GetListPaged(predicate, sort, 1, 2).ToList().First().CarId);
@@ -861,7 +1109,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
                 personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
 
-                var predicate = Predicates.Field<PersonEntity>(f => f.IsActive, Operator.Eq, true);
+                var predicate = Predicates.Field<PersonEntity>(f => f.IsActive, Operator.Eq, 1);
                 Expression<Func<PersonEntity, object>> sort = p => p.CarId;
 
                 Assert.AreEqual(4, personDal.GetListPaged(predicate, 1, 2, SortDirection.Descending, sort).ToList().First().CarId);
@@ -961,7 +1209,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
                 personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
 
-                var predicate = Predicates.Field<PersonEntity>(f => f.IsActive, Operator.Eq, true);
+                var predicate = Predicates.Field<PersonEntity>(f => f.IsActive, Operator.Eq, 1);
                 var sort = new List<Sort>() { new Sort { PropertyName = "CarId", Ascending = false } };
 
                 Assert.AreEqual(4, personDal.GetSet(predicate, sort, 1, 2).ToList().First().CarId);
@@ -980,7 +1228,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
                 personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
 
-                var predicate = Predicates.Field<PersonEntity>(f => f.IsActive, Operator.Eq, true);
+                var predicate = Predicates.Field<PersonEntity>(f => f.IsActive, Operator.Eq, 1);
                 Expression<Func<PersonEntity, object>> sort = p => p.CarId;
 
                 Assert.AreEqual(4, personDal.GetSet(predicate, 1, 2, SortDirection.Descending, sort).ToList().First().CarId);
@@ -1066,6 +1314,279 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
         }
 
         [TestFixture]
+        public class GetTopMethod : SqlServerBaseFixture
+        {
+            [Test]
+            public void UsingNullPredicate_ReturnsLimit()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                IEnumerable<PersonEntity> list = personDal.GetTop(3);
+                Assert.AreEqual(3, list.Count());
+            }
+
+            [Test]
+            public void UsingNullPredicate_ByExpression_ReturnsLimitOrdered()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                Expression<Func<PersonEntity, object>> sort = p => p.CarId;
+
+                IEnumerable<PersonEntity> list = personDal.GetTop(3, SortDirection.Descending, sort);
+
+                Assert.AreEqual(3, list.Count());
+                Assert.AreEqual(3, list.First().CarId);
+                Assert.AreEqual(2, list.Last().CarId);
+            }
+
+            [Test]
+            public void UsingPredicate_ReturnsMatching()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                var predicate = Predicates.Field<PersonEntity>(f => f.IsActive, Operator.Eq, 1);
+                IEnumerable<PersonEntity> list = personDal.GetTop(2, predicate);
+                Assert.AreEqual(2, list.Count());
+                Assert.IsTrue(list.All(p => p.IsActive == 1));
+            }
+
+            [Test]
+            public void UsingNullPredicate_BySort_ReturnsOrdered()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                var sort = new List<Sort>() { new Sort { PropertyName = "CarId", Ascending = false } };
+                IEnumerable<PersonEntity> list = personDal.GetTop(3, (object)null, sort).ToList();
+
+                Assert.AreEqual(3, list.Count());
+                Assert.AreEqual(3, list.First().CarId);
+                Assert.AreEqual(2, list.Last().CarId);
+            }
+
+            [Test]
+            public void UsingPredicate_BySort_ReturnsMatchingOrdered()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                var predicate = Predicates.Field<PersonEntity>(f => f.IsActive, Operator.Eq, 1);
+                var sort = new List<Sort>() { new Sort { PropertyName = "CarId", Ascending = false } };
+
+                IEnumerable<PersonEntity> list = personDal.GetTop(2, predicate, sort).ToList();
+                Assert.AreEqual(2, list.Count());
+                Assert.AreEqual(3, list.First().CarId);
+                Assert.AreEqual(2, list.Last().CarId);
+            }
+
+            [Test]
+            public void UsingPredicate_ByExpression_ReturnsMatchingOrdered()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                var predicate = Predicates.Field<PersonEntity>(f => f.IsActive, Operator.Eq, 1);
+                Expression<Func<PersonEntity, object>> sort = p => p.CarId;
+
+                IEnumerable<PersonEntity> list = personDal.GetTop(2, predicate, SortDirection.Descending, sort).ToList();
+                Assert.AreEqual(2, list.Count());
+                Assert.AreEqual(3, list.First().CarId);
+                Assert.AreEqual(2, list.Last().CarId);
+            }
+
+
+            [Test]
+            public void UsingObject_ReturnsMatching()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                var predicate = new { IsActive = 1 };
+                IEnumerable<PersonEntity> list = personDal.GetTop(2, predicate);
+                Assert.AreEqual(2, list.Count());
+                Assert.IsTrue(list.All(p => p.IsActive == 1));
+            }
+
+            [Test]
+            public void UsingNullPredicate_ByObject_ReturnsOrdered()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                var sort = new { CarId = SortDirection.Descending };
+                IEnumerable<PersonEntity> list = personDal.GetTop(3, (object)null, sort).ToList();
+                Assert.AreEqual(3, list.Count());
+                Assert.AreEqual(3, list.First().CarId);
+                Assert.AreEqual(2, list.Last().CarId);
+            }
+
+            [Test]
+            public void UsingObject_ByObject_ReturnsMatchingOrdered()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                var predicate = new { IsActive = 1 };
+                var sort = new { CarId = SortDirection.Descending };
+                IEnumerable<PersonEntity> list = personDal.GetTop(2, predicate, sort).ToList();
+                Assert.AreEqual(2, list.Count());
+                Assert.AreEqual(3, list.First().CarId);
+                Assert.AreEqual(2, list.Last().CarId);
+            }
+
+            [Test]
+            public void UsingObject_ByExpression_ReturnsMatchingOrdered()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                var predicate = new { IsActive = 1 };
+                Expression<Func<PersonEntity, object>> sort = p => p.CarId;
+
+                IEnumerable<PersonEntity> list = personDal.GetTop(2, predicate, SortDirection.Descending, sort).ToList();
+                Assert.AreEqual(2, list.Count());
+                Assert.AreEqual(3, list.First().CarId);
+                Assert.AreEqual(2, list.Last().CarId);
+            }
+
+            [Test]
+            public void UsingExpression_ReturnsMatching()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                IEnumerable<PersonEntity> list = personDal.GetTop(2, p => p.IsActive == 1);
+                Assert.AreEqual(2, list.Count());
+                Assert.AreEqual(1, list.First().CarId);
+                Assert.AreEqual(3, list.Last().CarId);
+            }
+
+            [Test]
+            public void UsingNullPredicate_ByExpression_ReturnsOrdered()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                Expression<Func<PersonEntity, bool>> predicate = null;
+                Expression<Func<PersonEntity, object>> sort = p => p.CarId;
+
+                IEnumerable<PersonEntity> list = personDal.GetTop(3, predicate, SortDirection.Descending, sort).ToList();
+
+                Assert.AreEqual(3, list.Count());
+                Assert.AreEqual(3, list.First().CarId);
+                Assert.AreEqual(2, list.Last().CarId);
+            }
+
+            [Test]
+            public void UsingExpression_BySort_ReturnsMatchingOrdered()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                Expression<Func<PersonEntity, bool>> predicate = p => p.IsActive == 1;
+                var sort = new List<Sort>() { new Sort { PropertyName = "CarId", Ascending = false } };
+
+                IEnumerable<PersonEntity> list = personDal.GetTop(2, predicate, sort).ToList();
+                Assert.AreEqual(2, list.Count());
+                Assert.AreEqual(3, list.First().CarId);
+                Assert.AreEqual(2, list.Last().CarId);
+            }
+
+            [Test]
+            public void UsingExpression_ByObject_ReturnsMatchingOrdered()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                Expression<Func<PersonEntity, bool>> predicate = p => p.IsActive == 1;
+                var sort = new { CarId = SortDirection.Descending };
+                IEnumerable<PersonEntity> list = personDal.GetTop(2, predicate, sort).ToList();
+                Assert.AreEqual(2, list.Count());
+                Assert.AreEqual(3, list.First().CarId);
+                Assert.AreEqual(2, list.Last().CarId);
+            }
+
+            [Test]
+            public void UsingExpression_ByExpression_ReturnsMatchingOrdered()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                Expression<Func<PersonEntity, bool>> predicate = p => p.IsActive == 1;
+                Expression<Func<PersonEntity, object>> sort = p => p.CarId;
+
+                IEnumerable<PersonEntity> list = personDal.GetTop(2, predicate, SortDirection.Descending, sort).ToList();
+                Assert.AreEqual(2, list.Count());
+                Assert.AreEqual(3, list.First().CarId);
+                Assert.AreEqual(2, list.Last().CarId);
+            }
+
+        }
+
+        [TestFixture]
         public class CountMethod : SqlServerBaseFixture
         {
             [Test]
@@ -1079,7 +1600,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
                 personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
 
                 Assert.AreEqual(4, personDal.Count(null));
-                var predicate = Predicates.Field<PersonEntity>(f => f.IsActive, Operator.Eq, true);
+                var predicate = Predicates.Field<PersonEntity>(f => f.IsActive, Operator.Eq, 1);
                 Assert.AreEqual(2, personDal.Count(predicate));
             }
 

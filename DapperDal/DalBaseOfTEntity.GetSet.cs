@@ -25,7 +25,7 @@ namespace DapperDal
             using (var connection = OpenConnection())
             {
                 return connection.GetSet<TEntity>(predicate, sort.ToSortable(),
-                    firstResult, maxResults).ToList();
+                    firstResult, maxResults);
             }
         }
 
@@ -48,7 +48,7 @@ namespace DapperDal
             {
                 return connection.GetSet<TEntity>(predicate,
                     sortingExpression.ToSortable(ascending),
-                    firstResult, maxResults).ToList();
+                    firstResult, maxResults);
             }
         }
 
@@ -69,7 +69,7 @@ namespace DapperDal
                 return connection.GetSet<TEntity>(
                     predicate.ToPredicateGroup<TEntity, TPrimaryKey>(),
                     sort.ToSortable(),
-                    firstResult, maxResults).ToList();
+                    firstResult, maxResults);
             }
         }
 
@@ -92,7 +92,7 @@ namespace DapperDal
             {
                 return connection.GetSet<TEntity>(predicate.ToPredicateGroup<TEntity, TPrimaryKey>(),
                     sortingExpression.ToSortable(ascending),
-                    firstResult, maxResults).ToList();
+                    firstResult, maxResults);
             }
         }
     }

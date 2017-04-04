@@ -30,6 +30,11 @@ namespace DapperExtensions
         /// </summary>
         Func<object> SoftDeletePropsFactory { get; set; }
 
+        /// <summary>
+        /// 实体集合返回前是否要缓冲（ToList）
+        /// </summary>
+        bool Buffered { get; set; }
+
         IClassMapper GetMap(Type entityType);
         IClassMapper GetMap<T>() where T : class;
         void ClearCache();
@@ -65,6 +70,9 @@ namespace DapperExtensions
 
         /// <inheritdoc />
         public Func<object> SoftDeletePropsFactory { get; set; }
+
+        /// <inheritdoc />
+        public bool Buffered { get; set; }
 
         public IClassMapper GetMap(Type entityType)
         {

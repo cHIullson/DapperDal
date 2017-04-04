@@ -25,7 +25,7 @@ namespace DapperDal
             using (var connection = OpenConnection())
             {
                 return connection.GetPage<TEntity>(predicate,
-                    sort.ToSortable(), pageNumber - 1, itemsPerPage).ToList();
+                    sort.ToSortable(), pageNumber - 1, itemsPerPage);
             }
         }
 
@@ -48,7 +48,7 @@ namespace DapperDal
             {
                 return connection.GetPage<TEntity>(predicate,
                     sortingExpression.ToSortable(ascending),
-                    pageNumber - 1, itemsPerPage).ToList();
+                    pageNumber - 1, itemsPerPage);
             }
         }
 
@@ -70,7 +70,7 @@ namespace DapperDal
                     predicate.ToPredicateGroup<TEntity, TPrimaryKey>(),
                     sort.ToSortable(),
                     pageNumber - 1,
-                    itemsPerPage).ToList();
+                    itemsPerPage);
             }
         }
 
@@ -93,7 +93,7 @@ namespace DapperDal
             {
                 return connection.GetPage<TEntity>(predicate.ToPredicateGroup<TEntity, TPrimaryKey>(),
                     sortingExpression.ToSortable(ascending),
-                    pageNumber - 1, itemsPerPage).ToList();
+                    pageNumber - 1, itemsPerPage);
             }
         }
     }

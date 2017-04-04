@@ -10,7 +10,7 @@ namespace DapperExtensions.Sql
     {
         IDapperExtensionsConfiguration Configuration { get; }
 
-        string Select(IClassMapper classMap, IPredicate predicate, IList<ISort> sort, IDictionary<string, object> parameters);
+        string Select(IClassMapper classMap, IPredicate predicate, IList<ISort> sort, IDictionary<string, object> parameters, int limit = 0);
         string SelectPaged(IClassMapper classMap, IPredicate predicate, IList<ISort> sort, int page, int resultsPerPage, IDictionary<string, object> parameters);
         string SelectSet(IClassMapper classMap, IPredicate predicate, IList<ISort> sort, int firstResult, int maxResults, IDictionary<string, object> parameters);
         string Count(IClassMapper classMap, IPredicate predicate, IDictionary<string, object> parameters);
@@ -35,7 +35,7 @@ namespace DapperExtensions.Sql
 
         public IDapperExtensionsConfiguration Configuration { get; private set; }
 
-        public virtual string Select(IClassMapper classMap, IPredicate predicate, IList<ISort> sort, IDictionary<string, object> parameters)
+        public virtual string Select(IClassMapper classMap, IPredicate predicate, IList<ISort> sort, IDictionary<string, object> parameters, int limit = 0)
         {
             if (parameters == null)
             {
@@ -58,6 +58,11 @@ namespace DapperExtensions.Sql
             }
 
             var outSql = sql.ToString();
+            if (limit > 0)
+            {
+                outSql = Configuration.Dialect.SelectLimit(outSql, limit);
+            }
+
             if (Configuration.Nolock)
             {
                 outSql = Configuration.Dialect.SetNolock(outSql);

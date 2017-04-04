@@ -11,128 +11,128 @@ namespace DapperDal
     public partial class DalBase<TEntity, TPrimaryKey> where TEntity : class
     {
         /// <summary>
-        /// 获取所有实体列表
+        /// 获取所有实体列表的第一条
         /// </summary>
         /// <returns>实体列表</returns>
-        public virtual IEnumerable<TEntity> GetList()
+        public virtual TEntity GetFirst()
         {
             using (var connection = OpenConnection())
             {
-                return connection.GetList<TEntity>();
+                return connection.GetTop<TEntity>(1).FirstOrDefault();
             }
         }
 
         /// <summary>
-        /// 根据查询条件获取实体列表
+        /// 根据查询条件获取实体列表的第一条
         /// （查询使用谓词或匿名对象）
         /// </summary>
         /// <param name="predicate">查询条件</param>
         /// <returns>实体列表</returns>
-        public virtual IEnumerable<TEntity> GetList(object predicate)
+        public virtual TEntity GetFirst(object predicate)
         {
             using (var connection = OpenConnection())
             {
-                return connection.GetList<TEntity>(predicate);
+                return connection.GetTop<TEntity>(1, predicate).FirstOrDefault();
             }
         }
 
         /// <summary>
-        /// 根据排序条件获取所有实体列表
+        /// 根据排序条件获取所有实体列表的第一条
         /// （排序使用表达式）
         /// </summary>
         /// <param name="ascending">排序方向</param>
         /// <param name="sortingExpression">排序字段</param>
         /// <returns>实体列表</returns>
-        public virtual IEnumerable<TEntity> GetList(SortDirection ascending,
+        public virtual TEntity GetFirst(SortDirection ascending,
             params Expression<Func<TEntity, object>>[] sortingExpression)
         {
             using (var connection = OpenConnection())
             {
-                return connection.GetList<TEntity>(null,
-                    sortingExpression.ToSortable(ascending));
+                return connection.GetTop<TEntity>(1, null,
+                    sortingExpression.ToSortable(ascending)).FirstOrDefault();
             }
         }
 
         /// <summary>
-        /// 根据查询条件和排序条件获取实体列表
+        /// 根据查询条件和排序条件获取实体列表的第一条
         /// （查询使用谓词或匿名对象，排序使用Sort或匿名对象）
         /// </summary>
         /// <param name="predicate">查询条件</param>
         /// <param name="sort">排序条件</param>
         /// <returns>实体列表</returns>
-        public virtual IEnumerable<TEntity> GetList(object predicate, object sort)
+        public virtual TEntity GetFirst(object predicate, object sort)
         {
             using (var connection = OpenConnection())
             {
-                return connection.GetList<TEntity>(predicate, sort.ToSortable());
+                return connection.GetTop<TEntity>(1, predicate, sort.ToSortable()).FirstOrDefault();
             }
         }
 
         /// <summary>
-        /// 根据查询条件和排序条件获取实体列表
+        /// 根据查询条件和排序条件获取实体列表的第一条
         /// （查询使用谓词或匿名对象，排序使用表达式）
         /// </summary>
         /// <param name="predicate">查询条件</param>
         /// <param name="ascending">排序方向</param>
         /// <param name="sortingExpression">排序字段</param>
         /// <returns>实体列表</returns>
-        public virtual IEnumerable<TEntity> GetList(object predicate,
+        public virtual TEntity GetFirst(object predicate,
             SortDirection ascending,
             params Expression<Func<TEntity, object>>[] sortingExpression)
         {
             using (var connection = OpenConnection())
             {
-                return connection.GetList<TEntity>(predicate,
-                    sortingExpression.ToSortable(ascending));
+                return connection.GetTop<TEntity>(1, predicate,
+                    sortingExpression.ToSortable(ascending)).FirstOrDefault();
             }
         }
 
         /// <summary>
-        /// 根据查询条件获取实体列表
+        /// 根据查询条件获取实体列表的第一条
         /// （查询使用表达式）
         /// </summary>
         /// <param name="predicate">查询条件</param>
         /// <returns>实体列表</returns>
-        public virtual IEnumerable<TEntity> GetList(Expression<Func<TEntity, bool>> predicate)
+        public virtual TEntity GetFirst(Expression<Func<TEntity, bool>> predicate)
         {
             using (var connection = OpenConnection())
             {
-                return connection.GetList<TEntity>(predicate.ToPredicateGroup<TEntity, TPrimaryKey>());
+                return connection.GetTop<TEntity>(1, predicate.ToPredicateGroup<TEntity, TPrimaryKey>()).FirstOrDefault();
             }
         }
 
         /// <summary>
-        /// 根据查询条件和排序条件获取实体列表
+        /// 根据查询条件和排序条件获取实体列表的第一条
         /// （查询使用表达式，排序使用Sort或匿名对象）
         /// </summary>
         /// <param name="predicate">查询条件</param>
         /// <param name="sort">排序条件</param>
         /// <returns>实体列表</returns>
-        public virtual IEnumerable<TEntity> GetList(Expression<Func<TEntity, bool>> predicate, object sort)
+        public virtual TEntity GetFirst(Expression<Func<TEntity, bool>> predicate, object sort)
         {
             using (var connection = OpenConnection())
             {
-                return connection.GetList<TEntity>(predicate.ToPredicateGroup<TEntity, TPrimaryKey>(),
-                    sort.ToSortable());
+                return connection.GetTop<TEntity>(1, predicate.ToPredicateGroup<TEntity, TPrimaryKey>(),
+                    sort.ToSortable()).FirstOrDefault();
             }
         }
 
         /// <summary>
-        /// 根据查询条件和排序条件获取实体列表
+        /// 根据查询条件和排序条件获取实体列表的第一条
         /// （查询使用表达式，排序使用表达式）
         /// </summary>
         /// <param name="predicate">查询条件</param>
         /// <param name="ascending">排序方向</param>
         /// <param name="sortingExpression">排序字段</param>
         /// <returns>实体列表</returns>
-        public virtual IEnumerable<TEntity> GetList(Expression<Func<TEntity, bool>> predicate,
+        public virtual TEntity GetFirst(Expression<Func<TEntity, bool>> predicate,
             SortDirection ascending,
             params Expression<Func<TEntity, object>>[] sortingExpression)
         {
             using (var connection = OpenConnection())
             {
-                return connection.GetList<TEntity>(predicate.ToPredicateGroup<TEntity, TPrimaryKey>(),
-                    sortingExpression.ToSortable(ascending));
+                return connection.GetTop<TEntity>(1, predicate.ToPredicateGroup<TEntity, TPrimaryKey>(),
+                    sortingExpression.ToSortable(ascending)).FirstOrDefault();
             }
         }
     }

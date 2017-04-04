@@ -29,10 +29,10 @@ namespace DapperExtensions
         bool Update<T>(T entity, IEnumerable<string> props, int? commandTimeout = null) where T : class;
         bool Update<T>(T entity, object props, IDbTransaction transaction, int? commandTimeout = null) where T : class;
         bool Update<T>(T entity, object props, int? commandTimeout = null) where T : class;
-        bool Update<T>(object entity, IDbTransaction transaction, int? commandTimeout = null) where T : class;
-        bool Update<T>(object entity, int? commandTimeout = null) where T : class;
-        bool Update<T>(object entity, object predicate, IDbTransaction transaction, int? commandTimeout = null) where T : class;
-        bool Update<T>(object entity, object predicate, int? commandTimeout = null) where T : class;
+        bool Update<T>(object keyAndProps, IDbTransaction transaction, int? commandTimeout = null) where T : class;
+        bool Update<T>(object keyAndProps, int? commandTimeout = null) where T : class;
+        bool Update<T>(object props, object predicate, IDbTransaction transaction, int? commandTimeout = null) where T : class;
+        bool Update<T>(object props, object predicate, int? commandTimeout = null) where T : class;
         bool SoftDelete<T>(T entity, object props, IDbTransaction transaction, int? commandTimeout = null) where T : class;
         bool SoftDelete<T>(T entity, object props, int? commandTimeout = null) where T : class;
         bool SoftDelete<T>(object predicate, object props, IDbTransaction transaction, int? commandTimeout = null) where T : class;
@@ -212,24 +212,24 @@ namespace DapperExtensions
             return _dapper.Update<T>(Connection, entity, props, _transaction, commandTimeout);
         }
 
-        public bool Update<T>(object entity, IDbTransaction transaction, int? commandTimeout) where T : class
+        public bool Update<T>(object keyAndProps, IDbTransaction transaction, int? commandTimeout) where T : class
         {
-            return _dapper.Update<T>(Connection, entity, transaction, commandTimeout);
+            return _dapper.Update<T>(Connection, keyAndProps, transaction, commandTimeout);
         }
 
-        public bool Update<T>(object entity, int? commandTimeout) where T : class
+        public bool Update<T>(object keyAndProps, int? commandTimeout) where T : class
         {
-            return _dapper.Update<T>(Connection, entity, _transaction, commandTimeout);
+            return _dapper.Update<T>(Connection, keyAndProps, _transaction, commandTimeout);
         }
 
-        public bool Update<T>(object entity, object predicate, IDbTransaction transaction, int? commandTimeout) where T : class
+        public bool Update<T>(object props, object predicate, IDbTransaction transaction, int? commandTimeout) where T : class
         {
-            return _dapper.Update<T>(Connection, entity, predicate, transaction, commandTimeout);
+            return _dapper.Update<T>(Connection, props, predicate, transaction, commandTimeout);
         }
 
-        public bool Update<T>(object entity, object predicate, int? commandTimeout) where T : class
+        public bool Update<T>(object props, object predicate, int? commandTimeout) where T : class
         {
-            return _dapper.Update<T>(Connection, entity, predicate, _transaction, commandTimeout);
+            return _dapper.Update<T>(Connection, props, predicate, _transaction, commandTimeout);
         }
 
         public bool SoftDelete<T>(T entity, object props, IDbTransaction transaction, int? commandTimeout) where T : class

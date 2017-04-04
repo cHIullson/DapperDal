@@ -22,6 +22,14 @@ namespace DapperExtensions.Sql
         string QuoteString(string value);
 
         /// <summary>
+        /// 获取前N条的SQL
+        /// </summary>
+        /// <param name="sql">原SQL</param>
+        /// <param name="limit">指定前几条</param>
+        /// <returns>新SQL</returns>
+        string SelectLimit(string sql, int limit);
+
+        /// <summary>
         /// SQL语句添加 WITH (NOLOCK)
         /// </summary>
         /// <param name="sql">SQL语句</param>
@@ -53,18 +61,12 @@ namespace DapperExtensions.Sql
 
         public virtual char ParameterPrefix
         {
-            get
-            {
-                return '@';
-            }
+            get { return '@'; }
         }
 
         public string EmptyExpression
         {
-            get
-            {
-                return "1=1";
-            }
+            get { return "1=1"; }
         }
 
         public virtual string GetTableName(string schemaName, string tableName, string alias)
@@ -113,8 +115,12 @@ namespace DapperExtensions.Sql
         }
 
         public abstract string GetIdentitySql(string tableName);
-        public abstract string GetPagingSql(string sql, int page, int resultsPerPage, IDictionary<string, object> parameters);
-        public abstract string GetSetSql(string sql, int firstResult, int maxResults, IDictionary<string, object> parameters);
+
+        public abstract string GetPagingSql(string sql, int page, int resultsPerPage,
+            IDictionary<string, object> parameters);
+
+        public abstract string GetSetSql(string sql, int firstResult, int maxResults,
+            IDictionary<string, object> parameters);
 
         public virtual bool IsQuoted(string value)
         {
@@ -138,6 +144,12 @@ namespace DapperExtensions.Sql
         public virtual string UnQuoteString(string value)
         {
             return IsQuoted(value) ? value.Substring(1, value.Length - 2) : value;
+        }
+
+        /// <inheritdoc />
+        public virtual string SelectLimit(string sql, int limit)
+        {
+            throw new NotSupportedException();
         }
 
         /// <inheritdoc />

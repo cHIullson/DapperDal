@@ -144,22 +144,41 @@ namespace DapperExtensions.Sql
         }
 
         /// <inheritdoc />
-        public override string SetNolock(string sql)
+        public override string SelectLimit(string sql, int limit)
         {
-            if (sql.Contains(" WITH (NOLOCK)"))
+            const string searchFor = "SELECT ";
+            if (sql.Contains("TOP ("))
             {
                 return sql;
             }
-            else
+
+            return sql.Insert(sql.IndexOf(searchFor, StringComparison.OrdinalIgnoreCase) + searchFor.Length,
+                string.Format("TOP ({0}) ", limit));
+        }
+
+        /// <inheritdoc />
+        public override string SetNolock(string sql)
+        {
+            const string withNolock = " WITH (NOLOCK)";
+            const string where = " WHERE ";
+            const string orderby = " ORDER BY ";
+
+            if (sql.Contains(withNolock))
             {
-                if (sql.Contains(" WHERE "))
-                    return sql.Insert(sql.IndexOf(" WHERE ", StringComparison.OrdinalIgnoreCase), @" WITH (NOLOCK)");
-
-                if (sql.Contains(" ORDER BY "))
-                    return sql.Insert(sql.IndexOf(" ORDER BY ", StringComparison.OrdinalIgnoreCase), @" WITH (NOLOCK)");
-
-                return string.Concat(sql, " WITH (NOLOCK)");
+                return sql;
             }
+
+            if (sql.Contains(where))
+            {
+                return sql.Insert(sql.IndexOf(where, StringComparison.OrdinalIgnoreCase), withNolock);
+            }
+
+            if (sql.Contains(orderby))
+            {
+                return sql.Insert(sql.IndexOf(orderby, StringComparison.OrdinalIgnoreCase), withNolock);
+            }
+
+            return string.Concat(sql, withNolock);
         }
     }
 }
