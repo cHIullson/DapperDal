@@ -51,7 +51,6 @@ namespace DapperExtensions
             DefaultMapper = defaultMapper;
             MappingAssemblies = mappingAssemblies ?? new List<Assembly>();
             Dialect = sqlDialect;
-            Nolock = true;
         }
 
         public Type DefaultMapper { get; set; }
