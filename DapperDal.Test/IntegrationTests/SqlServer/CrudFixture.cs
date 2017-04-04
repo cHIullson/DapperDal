@@ -1,9 +1,11 @@
-﻿using DapperDal.Test.Entities;
+﻿using Dapper;
+using DapperDal.Test.Entities;
 using DapperExtensions;
 using DapperExtensions.Expressions;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Linq.Expressions;
 
@@ -1649,6 +1651,14 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
 
         }
 
+        class PersonModel
+        {
+            public string Name { get; set; }
+
+            public int CarId { get; set; }
+        }
+
+
         [TestFixture]
         public class QueryMethod : SqlServerBaseFixture
         {
@@ -1666,6 +1676,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
                     "select * from Person where CarId = 3");
 
                 Assert.AreEqual(2, list.Count());
+                Assert.IsTrue(list.All(d => d.CarId == 3));
             }
 
             [Test]
@@ -1682,6 +1693,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
                     "select * from Person where CarId = @CarId", new { CarId = 3 });
 
                 Assert.AreEqual(2, list.Count());
+                Assert.IsTrue(list.All(d => d.CarId == 3));
             }
 
             [Test]
@@ -1698,13 +1710,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
                     "P_GetPersonsByCarId", new { CarId = 3 }, System.Data.CommandType.StoredProcedure);
 
                 Assert.AreEqual(2, list.Count());
-            }
-
-            class PersonModel
-            {
-                public string Name { get; set; }
-
-                public string CarId { get; set; }
+                Assert.IsTrue(list.All(d => d.CarId == 3));
             }
 
             [Test]
@@ -1721,6 +1727,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
                     "select PersonName as Name, CarId from Person where CarId = 3");
 
                 Assert.AreEqual(2, list.Count());
+                Assert.IsTrue(list.All(d => d.CarId == 3));
             }
 
             [Test]
@@ -1737,6 +1744,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
                     "select PersonName as Name, CarId from Person where CarId = @CarId", new { CarId = 3 });
 
                 Assert.AreEqual(2, list.Count());
+                Assert.IsTrue(list.All(d => d.CarId == 3));
             }
 
             [Test]
@@ -1750,12 +1758,128 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
                 personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
 
                 IEnumerable<PersonModel> list = personDal.Query<PersonModel>(
-                    "P_GetPersonModelsByCarId",
+                    "dbo.P_GetPersonModelsByCarId",
                     new { CarId = 3 }, System.Data.CommandType.StoredProcedure);
 
                 Assert.AreEqual(2, list.Count());
+                Assert.IsTrue(list.All(d => d.CarId == 3));
             }
 
+            [Test]
+            public void UsingDynamicParameter_WithProcedure_ReturnsModels_OutputCount()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                var parameters = new DynamicParameters(new { CarId = 3 });
+                parameters.Add("TotalCount", dbType: System.Data.DbType.Int32, direction: System.Data.ParameterDirection.Output);
+
+                IEnumerable<PersonModel> list = personDal.Query<PersonModel>(
+                    "dbo.P_GetPersonModelsByCarId_OutputCount",
+                    parameters, System.Data.CommandType.StoredProcedure);
+
+                Assert.AreEqual(2, list.Count());
+                Assert.AreEqual(2, parameters.Get<int>("TotalCount"));
+                Assert.AreEqual(2, parameters.Get<object>("TotalCount"));
+                Assert.IsTrue(list.All(d => d.CarId == 3));
+            }
+
+            class PersonParam
+            {
+                public int CarId { get; set; }
+                public int TotalCount { get; set; }
+
+            }
+
+            [Test]
+            public void UsingTypeParameter_WithProcedure_ReturnsModels_OutputCount()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                var p = new PersonParam { CarId = 3, TotalCount = 0 };
+                var parameters = new DynamicParameters(p)
+                    .Output(p, d => d.TotalCount, dbType: System.Data.DbType.Int32);
+                IEnumerable<PersonModel> list = personDal.Query<PersonModel>(
+                    "dbo.P_GetPersonModelsByCarId_OutputCount",
+                    parameters, System.Data.CommandType.StoredProcedure);
+
+                Assert.AreEqual(2, list.Count());
+                Assert.AreEqual(2, parameters.Get<int>("TotalCount"));
+                Assert.AreEqual(2, parameters.Get<object>("TotalCount"));
+                Assert.AreEqual(2, p.TotalCount);
+                Assert.IsTrue(list.All(d => d.CarId == 3));
+            }
+        }
+
+        [TestFixture]
+        public class QueryMultipleMethod : SqlServerBaseFixture
+        {
+            [Test]
+            public void UsingNone_ReturnsMultiples()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                var tuple = personDal.QueryMultiple<PersonEntity, PersonModel>(
+                    "select * from Person where CarId = 3;select PersonName AS [Name], CarId from Person where CarId = 3");
+
+                Assert.AreEqual(2, tuple.Item1.Count());
+                Assert.IsTrue(tuple.Item1.All(d => d.CarId == 3));
+                Assert.AreEqual(2, tuple.Item2.Count());
+                Assert.IsTrue(tuple.Item2.All(d => d.CarId == 3));
+            }
+
+            [Test]
+            public void UsingParameter_ReturnsMultiples()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                var tuple = personDal.QueryMultiple<PersonEntity, PersonModel>(
+                    "select * from Person where CarId = @CarId;select PersonName AS [Name], CarId from Person where CarId = @CarId",
+                    new { CarId = 3 });
+
+                Assert.AreEqual(2, tuple.Item1.Count());
+                Assert.IsTrue(tuple.Item1.All(d => d.CarId == 3));
+                Assert.AreEqual(2, tuple.Item2.Count());
+                Assert.IsTrue(tuple.Item2.All(d => d.CarId == 3));
+            }
+
+            [Test]
+            public void UsingParameter_WithProcedure_ReturnsMultiples()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                var tuple = personDal.QueryMultiple<PersonEntity, PersonModel>(
+                    "P_GetPersonMultipleModelsByCarId", new { CarId = 3 }, System.Data.CommandType.StoredProcedure);
+
+                Assert.AreEqual(2, tuple.Item1.Count());
+                Assert.IsTrue(tuple.Item1.All(d => d.CarId == 3));
+                Assert.AreEqual(2, tuple.Item2.Count());
+                Assert.IsTrue(tuple.Item2.All(d => d.CarId == 3));
+            }
         }
     }
 }
