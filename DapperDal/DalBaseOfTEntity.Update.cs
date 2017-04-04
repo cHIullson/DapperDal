@@ -55,13 +55,13 @@ namespace DapperDal
         /// 根据指定指定主键ID更新实体指定属性
         /// （条件使用实体主键ID）
         /// </summary>
-        /// <param name="entity">更新实体，包含主键ID与更新属性</param>
+        /// <param name="keyAndProps">更新实体，包含主键ID、更新属性及值</param>
         /// <returns>更新结果</returns>
-        public virtual bool Update(object entity)
+        public virtual bool Update(object keyAndProps)
         {
             using (var connection = OpenConnection())
             {
-                return connection.Update<TEntity>(entity);
+                return connection.Update<TEntity>(keyAndProps);
             }
         }
 
@@ -69,14 +69,14 @@ namespace DapperDal
         /// 根据指定更新条件更新实体指定属性
         /// （条件使用谓词或匿名对象）
         /// </summary>
-        /// <param name="entity">更新属性</param>
+        /// <param name="props">更新属性及值</param>
         /// <param name="predicate">更新条件，使用谓词或匿名对象</param>
         /// <returns>更新结果</returns>
-        public virtual bool Update(object entity, object predicate)
+        public virtual bool Update(object props, object predicate)
         {
             using (var connection = OpenConnection())
             {
-                return connection.Update<TEntity>(entity, predicate);
+                return connection.Update<TEntity>(props, predicate);
             }
         }
 
@@ -84,14 +84,14 @@ namespace DapperDal
         /// 根据指定更新条件更新实体指定属性
         /// （条件使用表达式）
         /// </summary>
-        /// <param name="entity">更新属性</param>
+        /// <param name="props">更新属性及值</param>
         /// <param name="predicate">更新条件，使用表达式</param>
         /// <returns>更新结果</returns>
-        public virtual bool Update(object entity, Expression<Func<TEntity, bool>> predicate)
+        public virtual bool Update(object props, Expression<Func<TEntity, bool>> predicate)
         {
             using (var connection = OpenConnection())
             {
-                return connection.Update<TEntity>(entity, predicate.ToPredicateGroup<TEntity, TPrimaryKey>());
+                return connection.Update<TEntity>(props, predicate.ToPredicateGroup<TEntity, TPrimaryKey>());
             }
         }
     }

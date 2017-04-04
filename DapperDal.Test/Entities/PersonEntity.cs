@@ -16,7 +16,7 @@ namespace DapperDal.Test.Entities
 
         public DateTime UpdateTime { get; set; }
 
-        public bool IsActive { get; set; }
+        public short IsActive { get; set; }
     }
 
 }

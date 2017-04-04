@@ -9,5 +9,5 @@ CREATE TABLE Person (
     CarId INT NULL,
     [CreateTime] [DATETIME] NULL DEFAULT (GETDATE()),
     [UpdateTime] [DATETIME] NULL,
-    [IsActive] [BIT] NULL DEFAULT ((0))
+    [IsActive] [SMALLINT] NULL DEFAULT ((0))
 )

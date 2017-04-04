@@ -185,17 +185,43 @@ namespace DapperExtensions
         /// <summary>
         /// Executes an update query for the specified entity.
         /// </summary>
-        public static bool Update<T>(this IDbConnection connection, object entity, IDbTransaction transaction = null, int? commandTimeout = null) where T : class
+        public static bool Update<T>(this IDbConnection connection, object keyAndProps, IDbTransaction transaction = null, int? commandTimeout = null) where T : class
         {
-            return Instance.Update<T>(connection, entity, transaction, commandTimeout);
+            return Instance.Update<T>(connection, keyAndProps, transaction, commandTimeout);
         }
 
         /// <summary>
         /// Executes an update query for the specified entity and predicate.
         /// </summary>
-        public static bool Update<T>(this IDbConnection connection, object entity, object predicate, IDbTransaction transaction = null, int? commandTimeout = null) where T : class
+        public static bool Update<T>(this IDbConnection connection, object props, object predicate, IDbTransaction transaction = null, int? commandTimeout = null) where T : class
         {
-            return Instance.Update<T>(connection, entity, predicate, transaction, commandTimeout);
+            return Instance.Update<T>(connection, props, predicate, transaction, commandTimeout);
+        }
+
+        /// <summary>
+        /// 逻辑删除指定实体
+        /// </summary>
+        public static bool SoftDelete<T>(this IDbConnection connection, T entity, object props, IDbTransaction transaction = null, int? commandTimeout = null) where T : class
+        {
+            if (props == null && _configuration.SoftDeletePropsFactory != null)
+            {
+                props = _configuration.SoftDeletePropsFactory();
+            }
+
+            return Instance.Update<T>(connection, entity, props, transaction, commandTimeout);
+        }
+
+        /// <summary>
+        /// 根据条件逻辑删除实体
+        /// </summary>
+        public static bool SoftDelete<T>(this IDbConnection connection, object predicate, object props, IDbTransaction transaction = null, int? commandTimeout = null) where T : class
+        {
+            if (props == null && _configuration.SoftDeletePropsFactory != null)
+            {
+                props = _configuration.SoftDeletePropsFactory();
+            }
+
+            return Instance.Update<T>(connection, props, predicate, transaction, commandTimeout);
         }
 
         /// <summary>

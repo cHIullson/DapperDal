@@ -33,6 +33,10 @@ namespace DapperExtensions
         bool Update<T>(object entity, int? commandTimeout = null) where T : class;
         bool Update<T>(object entity, object predicate, IDbTransaction transaction, int? commandTimeout = null) where T : class;
         bool Update<T>(object entity, object predicate, int? commandTimeout = null) where T : class;
+        bool SoftDelete<T>(T entity, object props, IDbTransaction transaction, int? commandTimeout = null) where T : class;
+        bool SoftDelete<T>(T entity, object props, int? commandTimeout = null) where T : class;
+        bool SoftDelete<T>(object predicate, object props, IDbTransaction transaction, int? commandTimeout = null) where T : class;
+        bool SoftDelete<T>(object predicate, object props, int? commandTimeout = null) where T : class;
         bool Delete<T>(T entity, IDbTransaction transaction, int? commandTimeout = null) where T : class;
         bool Delete<T>(T entity, int? commandTimeout = null) where T : class;
         bool Delete<T>(object predicate, IDbTransaction transaction, int? commandTimeout = null) where T : class;
@@ -226,6 +230,46 @@ namespace DapperExtensions
         public bool Update<T>(object entity, object predicate, int? commandTimeout) where T : class
         {
             return _dapper.Update<T>(Connection, entity, predicate, _transaction, commandTimeout);
+        }
+
+        public bool SoftDelete<T>(T entity, object props, IDbTransaction transaction, int? commandTimeout) where T : class
+        {
+            if (props == null && _dapper.SqlGenerator.Configuration.SoftDeletePropsFactory != null)
+            {
+                props = _dapper.SqlGenerator.Configuration.SoftDeletePropsFactory();
+            }
+
+            return _dapper.Update<T>(Connection, entity, props, transaction, commandTimeout);
+        }
+
+        public bool SoftDelete<T>(T entity, object props, int? commandTimeout) where T : class
+        {
+            if (props == null && _dapper.SqlGenerator.Configuration.SoftDeletePropsFactory != null)
+            {
+                props = _dapper.SqlGenerator.Configuration.SoftDeletePropsFactory();
+            }
+
+            return _dapper.Update<T>(Connection, entity, props, _transaction, commandTimeout);
+        }
+
+        public bool SoftDelete<T>(object predicate, object props, IDbTransaction transaction, int? commandTimeout) where T : class
+        {
+            if (props == null && _dapper.SqlGenerator.Configuration.SoftDeletePropsFactory != null)
+            {
+                props = _dapper.SqlGenerator.Configuration.SoftDeletePropsFactory();
+            }
+
+            return _dapper.Update<T>(Connection, props, predicate, transaction, commandTimeout);
+        }
+
+        public bool SoftDelete<T>(object predicate, object props, int? commandTimeout) where T : class
+        {
+            if (props == null && _dapper.SqlGenerator.Configuration.SoftDeletePropsFactory != null)
+            {
+                props = _dapper.SqlGenerator.Configuration.SoftDeletePropsFactory();
+            }
+
+            return _dapper.Update<T>(Connection, props, predicate, _transaction, commandTimeout);
         }
 
         public bool Delete<T>(T entity, IDbTransaction transaction, int? commandTimeout) where T : class

@@ -18,41 +18,38 @@ namespace DapperDal
         /// <returns>逻辑删除结果</returns>
         public virtual bool SoftDelete(TEntity entity, object props = null)
         {
-            if (props == null)
+            using (var connection = OpenConnection())
             {
-                props = new { IsActive = 0 };
+                return connection.SoftDelete(entity, props);
             }
-            return Update(entity, props);
         }
 
         /// <summary>
         /// 根据条件逻辑删除实体
         /// </summary>
         /// <param name="predicate">删除条件</param>
-        /// <param name="entity">逻辑删除属性名及更新值，默认 IsActive=0</param>
+        /// <param name="props">逻辑删除属性名及更新值，默认 IsActive=0</param>
         /// <returns>逻辑删除结果</returns>
-        public virtual bool SoftDelete(object predicate, object entity = null)
+        public virtual bool SoftDelete(object predicate, object props = null)
         {
-            if (entity == null)
+            using (var connection = OpenConnection())
             {
-                entity = new { IsActive = 0 };
+                return connection.SoftDelete<TEntity>(predicate, props);
             }
-            return Update(entity, predicate);
         }
 
         /// <summary>
         /// 根据条件逻辑删除实体
         /// </summary>
         /// <param name="predicate">删除条件</param>
-        /// <param name="entity">逻辑删除属性名及更新值，默认 IsActive=0 }</param>
+        /// <param name="props">逻辑删除属性名及更新值，默认 IsActive=0 }</param>
         /// <returns>逻辑删除结果</returns>
-        public virtual bool SoftDelete(Expression<Func<TEntity, bool>> predicate, object entity = null)
+        public virtual bool SoftDelete(Expression<Func<TEntity, bool>> predicate, object props = null)
         {
-            if (entity == null)
+            using (var connection = OpenConnection())
             {
-                entity = new { IsActive = 0 };
+                return connection.SoftDelete<TEntity>(predicate.ToPredicateGroup<TEntity, TPrimaryKey>(), props);
             }
-            return Update(entity, predicate.ToPredicateGroup<TEntity, TPrimaryKey>());
         }
 
     }

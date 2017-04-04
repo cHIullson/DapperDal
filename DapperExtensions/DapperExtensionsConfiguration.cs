@@ -25,6 +25,11 @@ namespace DapperExtensions
         /// </summary>
         Action<string> OutputSql { get; set; }
 
+        /// <summary>
+        /// 逻辑删除时更新属性和值的构造器
+        /// </summary>
+        Func<object> SoftDeletePropsFactory { get; set; }
+
         IClassMapper GetMap(Type entityType);
         IClassMapper GetMap<T>() where T : class;
         void ClearCache();
@@ -58,6 +63,9 @@ namespace DapperExtensions
 
         /// <inheritdoc />
         public Action<string> OutputSql { get; set; }
+
+        /// <inheritdoc />
+        public Func<object> SoftDeletePropsFactory { get; set; }
 
         public IClassMapper GetMap(Type entityType)
         {
