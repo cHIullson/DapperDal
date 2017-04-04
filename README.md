@@ -6,6 +6,9 @@ NuGet: [![NuGet Badge](https://buildstats.info/nuget/DapperDal)](https://www.nug
 
 Release Notes
 -------------
+### 1.5.8
+* 添加SQL执行方法：`Execute` 、`ExecuteScalar`
+
 ### 1.5.7
 * 添加实体查询方法：`GetFirst` 、`GetTop`
 * 优化实体查询方法，添加实体集合返回前是否要缓冲的设置点
