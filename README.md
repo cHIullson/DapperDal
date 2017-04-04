@@ -6,6 +6,11 @@ NuGet: [![NuGet Badge](https://buildstats.info/nuget/DapperDal)](https://www.nug
 
 Release Notes
 -------------
+### 1.5.7
+* 添加实体查询方法：`GetFirst` 、`GetTop`
+* 优化实体查询方法，添加实体集合返回前是否要缓冲的设置点
+* 优化逻辑删除，添加更新属性及值的设置点
+
 ### 1.5.6
 * 生成查询 SQL 时，添加 `WITH (NOLOCK)`
 * 添加设置项：SQL 输出方法
