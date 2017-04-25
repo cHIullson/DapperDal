@@ -53,6 +53,12 @@ namespace DapperExtensions.Expressions
                 return null;
             }
 
+            var isortList = sort as IList<ISort>;
+            if (isortList != null)
+            {
+                return isortList;
+            }
+
             var sortList = sort as IList<Sort>;
             if (sortList != null)
             {

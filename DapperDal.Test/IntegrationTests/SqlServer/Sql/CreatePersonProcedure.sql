@@ -1,5 +1,8 @@
 ﻿declare @sqlCmd nvarchar = '
-IF (OBJECT_ID(''P_GetPersonsByCarId'') IS NOT NULL)
+IF EXISTS ( SELECT  *
+            FROM    sys.objects
+            WHERE   object_id = OBJECT_ID(N''P_GetPersonsByCarId'')
+                    AND type IN (N''P'', N''PC'') )
 BEGIN
     DROP PROCEDURE dbo.P_GetPersonsByCarId
 END
@@ -11,8 +14,12 @@ AS
         FROM    Person
         WHERE   CarId = @CarId;
     END;
+GO
 
-IF (OBJECT_ID(''P_GetPersonModelsByCarId'') IS NOT NULL)
+IF EXISTS ( SELECT  *
+            FROM    sys.objects
+            WHERE   object_id = OBJECT_ID(N''P_GetPersonModelsByCarId'')
+                    AND type IN (N''P'', N''PC'') )
 BEGIN
     DROP PROCEDURE dbo.P_GetPersonModelsByCarId
 END
@@ -25,8 +32,12 @@ AS
         FROM    Person
         WHERE   CarId = @CarId;
     END;
+GO
 
-IF (OBJECT_ID(''P_GetPersonMultipleModelsByCarId'') IS NOT NULL)
+IF EXISTS ( SELECT  *
+            FROM    sys.objects
+            WHERE   object_id = OBJECT_ID(N''P_GetPersonMultipleModelsByCarId'')
+                    AND type IN (N''P'', N''PC'') )
 BEGIN
     DROP PROCEDURE dbo.P_GetPersonMultipleModelsByCarId
 END
@@ -43,8 +54,12 @@ AS
         FROM    Person
         WHERE   CarId = @CarId;
     END;
+GO
 
-IF (OBJECT_ID(''P_GetPersonModelsByCarId_OutputCount'') IS NOT NULL)
+IF EXISTS ( SELECT  *
+            FROM    sys.objects
+            WHERE   object_id = OBJECT_ID(N''P_GetPersonModelsByCarId_OutputCount'')
+                    AND type IN (N''P'', N''PC'') )
 BEGIN
     DROP PROCEDURE dbo.P_GetPersonModelsByCarId_OutputCount
 END
@@ -61,6 +76,7 @@ AS
         FROM    Person
         WHERE   CarId = @CarId;
     END;
+GO
 '
 
 EXECUTE (N'USE [dapperTest]; EXEC sp_executesql N'''+@sqlCmd+'''')
