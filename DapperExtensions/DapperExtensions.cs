@@ -212,6 +212,22 @@ namespace DapperExtensions
         }
 
         /// <summary>
+        /// 根据实体主键ID逻辑删除指定实体
+        /// </summary>
+        public static bool SoftDeleteById<T>(this IDbConnection connection, object id, object props, IDbTransaction transaction = null, int? commandTimeout = null) where T : class
+        {
+            if (props == null && _configuration.SoftDeletePropsFactory != null)
+            {
+                props = _configuration.SoftDeletePropsFactory();
+            }
+
+            IClassMapper classMap = Instance.SqlGenerator.Configuration.GetMap<T>();
+            IPredicate predicate = Instance.GetIdPredicate(classMap, id);
+
+            return Instance.Update<T>(connection, props, predicate, transaction, commandTimeout);
+        }
+
+        /// <summary>
         /// 根据条件逻辑删除实体
         /// </summary>
         public static bool SoftDelete<T>(this IDbConnection connection, object predicate, object props, IDbTransaction transaction = null, int? commandTimeout = null) where T : class

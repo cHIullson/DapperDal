@@ -30,6 +30,7 @@ namespace DapperExtensions
         IEnumerable<T> GetSet<T>(IDbConnection connection, object predicate, IList<ISort> sort, int firstResult, int maxResults, IDbTransaction transaction, int? commandTimeout, bool buffered) where T : class;
         int Count<T>(IDbConnection connection, object predicate, IDbTransaction transaction, int? commandTimeout) where T : class;
         IMultipleResultReader GetMultiple(IDbConnection connection, GetMultiplePredicate predicate, IDbTransaction transaction, int? commandTimeout);
+        IPredicate GetIdPredicate(IClassMapper classMap, object id);
     }
 
     public class DapperImplementor : IDapperImplementor
@@ -427,7 +428,7 @@ namespace DapperExtensions
             return wherePredicate;
         }
 
-        protected IPredicate GetIdPredicate(IClassMapper classMap, object id)
+        public IPredicate GetIdPredicate(IClassMapper classMap, object id)
         {
             bool isSimpleType = ReflectionHelper.IsSimpleType(id.GetType());
             var keys = classMap.Properties.Where(p => p.KeyType != KeyType.NotAKey);

@@ -140,6 +140,28 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingKey_SoftDeletesRows()
             {
+                var personDal = new DalBase<PersonEntity, long>();
+
+                PersonEntity p1 = new PersonEntity
+                {
+                    PersonName = "Bar",
+                    CreateTime = DateTime.Now,
+                    UpdateTime = DateTime.Now,
+                    IsActive = 1
+                };
+                long id = personDal.Insert(p1);
+
+                PersonEntity p2 = personDal.Get(id);
+                personDal.SoftDeleteById(p2.PersonId);
+
+                var p3 = personDal.Get(id);
+                Assert.AreEqual(0, p3.IsActive);
+            }
+
+
+            [Test]
+            public void UsingEntity_SoftDeletesRows()
+            {
                 var personDal = new DalBase<PersonEntity>();
 
                 PersonEntity p1 = new PersonEntity

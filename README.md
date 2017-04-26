@@ -6,6 +6,9 @@ NuGet: [![NuGet Badge](https://buildstats.info/nuget/DapperDal)](https://www.nug
 
 Release Notes
 -------------
+### 1.5.10
+* 添加逻辑删除方法 `SoftDeleteById` 
+
 ### 1.5.9
 * 添加实体查询方法：`GetFirstOrDefault` 、`QueryFirstOrDefault` 、`QueryFirst`
 

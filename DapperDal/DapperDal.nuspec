@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata schemaVersion="2">
     <id>DapperDal</id>
-    <version>1.5.9</version>
+    <version>1.5.10</version>
     <title>DapperDal</title>
     <authors>arbing</authors>
     <owners>arbing</owners>
@@ -13,6 +13,8 @@
     <description>用 Dapper、Dapper-Extensions、Abp.Dapper 封装的数据访问层</description>
     <summary>用 Dapper、Dapper-Extensions、Abp.Dapper 封装的数据访问层</summary>
     <releaseNotes>
+      ### 1.5.10
+      * 添加逻辑删除方法 SoftDeleteById
       ### 1.5.9
       * 添加实体查询方法：GetFirstOrDefault 、QueryFirstOrDefault 、QueryFirst
       ### 1.5.8
