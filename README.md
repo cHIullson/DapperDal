@@ -6,8 +6,12 @@ NuGet: [![NuGet Badge](https://buildstats.info/nuget/DapperDal)](https://www.nug
 
 Release Notes
 -------------
+### 1.5.11
+* 优化更新方法，支持传递小写字段名
+* 添加判断实体是否存在方法：`Exsit` 
+
 ### 1.5.10
-* 添加逻辑删除方法 `SoftDeleteById` 
+* 添加逻辑删除方法：`SoftDeleteById` 
 
 ### 1.5.9
 * 添加实体查询方法：`GetFirstOrDefault` 、`QueryFirstOrDefault` 、`QueryFirst`

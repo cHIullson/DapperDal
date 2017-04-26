@@ -300,7 +300,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
                 p2.CarId = 2;
                 p2.IsActive = 1;
 
-                personDal.Update(p2, new[] { "PersonName", "CarId", "CarName" });
+                personDal.Update(p2, new[] { "personName", "CarId", "CarName" });
 
                 var p3 = personDal.Get(id);
                 Assert.AreEqual("Baz", p3.PersonName);
@@ -328,7 +328,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
                 p2.CarId = 2;
                 p2.IsActive = 1;
 
-                personDal.Update(p2, new { PersonName = "Baz", CarId = 2 });
+                personDal.Update(p2, new { personName = "Baz", CarId = 2 });
 
                 var p3 = personDal.Get(id);
                 Assert.AreEqual("Baz", p3.PersonName);
@@ -356,7 +356,8 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
                 p2.CarId = 2;
                 p2.IsActive = 1;
 
-                personDal.Update(new { p2.PersonId, p2.PersonName, p2.CarId, CarName = "CarName" });
+                var personName = p2.PersonName;
+                personDal.Update(new { p2.PersonId, personName, p2.CarId, CarName = "CarName" });
 
                 var p3 = personDal.Get(id);
                 Assert.AreEqual("Baz", p3.PersonName);
@@ -386,7 +387,8 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
 
                 var predicate = Predicates.Field<PersonEntity>(f => f.PersonId, Operator.Eq, p2.PersonId);
 
-                personDal.Update(new { p2.PersonName, p2.CarId, CarName = "CarName" },
+                var personName = p2.PersonName;
+                personDal.Update(new { personName, p2.CarId, CarName = "CarName" },
                     predicate);
 
                 var p3 = personDal.Get(id);
@@ -417,7 +419,8 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
 
                 var predicate = Predicates.Field<PersonEntity>(f => f.PersonName, Operator.Eq, p1.PersonName);
 
-                personDal.Update(new { p2.PersonName, p2.CarId, CarName = "CarName" },
+                var personName = p2.PersonName;
+                personDal.Update(new { personName, p2.CarId, CarName = "CarName" },
                     predicate);
 
                 var p3 = personDal.Get(id);
@@ -446,7 +449,8 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
                 p2.CarId = 2;
                 p2.IsActive = 1;
 
-                personDal.Update(new { p2.PersonName, p2.CarId, CarName = "CarName" },
+                var personName = p2.PersonName;
+                personDal.Update(new { personName, p2.CarId, CarName = "CarName" },
                     new { p2.PersonId });
 
                 var p3 = personDal.Get(id);
@@ -475,7 +479,8 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
                 p2.CarId = 2;
                 p2.IsActive = 1;
 
-                personDal.Update(new { p2.PersonName, p2.CarId, CarName = "CarName" },
+                var personName = p2.PersonName;
+                personDal.Update(new { personName, p2.CarId, CarName = "CarName" },
                     new { p1.PersonName });
 
                 var p3 = personDal.Get(id);
@@ -505,7 +510,8 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
                 p2.IsActive = 1;
 
                 Expression<Func<PersonEntity, bool>> predicate = p => p.PersonId == p2.PersonId;
-                personDal.Update(new { p2.PersonName, p2.CarId, CarName = "CarName" },
+                var personName = p2.PersonName;
+                personDal.Update(new { personName, p2.CarId, CarName = "CarName" },
                     predicate);
 
                 var p3 = personDal.Get(id);
@@ -535,7 +541,8 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
                 p2.IsActive = 1;
 
                 Expression<Func<PersonEntity, bool>> predicate = p => p.PersonName == p1.PersonName;
-                personDal.Update(new { p2.PersonName, p2.CarId, CarName = "CarName" },
+                var personName = p2.PersonName;
+                personDal.Update(new { personName, p2.CarId, CarName = "CarName" },
                     predicate);
 
                 var p3 = personDal.Get(id);

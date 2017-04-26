@@ -199,8 +199,11 @@ namespace DapperExtensions
             string sql = SqlGenerator.Update(classMap, predicate, parameters, props);
             DynamicParameters dynamicParameters = new DynamicParameters();
 
-            var columns = classMap.Properties.Where(p => (props == null || props.Count == 0 || props.Contains(p.Name)) && !(p.Ignored || p.IsReadOnly || p.KeyType == KeyType.Identity || p.KeyType == KeyType.Assigned));
-            foreach (var property in ReflectionHelper.GetObjectValues(entity).Where(property => columns.Any(c => c.Name == property.Key)))
+            var propKeys = props;
+            var columns = classMap.Properties.Where(
+                p => (propKeys == null || propKeys.Count == 0 || propKeys.Contains(p.Name, StringComparer.OrdinalIgnoreCase)) &&
+                     !(p.Ignored || p.IsReadOnly || p.KeyType == KeyType.Identity || p.KeyType == KeyType.Assigned));
+            foreach (var property in ReflectionHelper.GetObjectValues(entity).Where(property => columns.Any(c => c.Name.Equals(property.Key, StringComparison.OrdinalIgnoreCase))))
             {
                 dynamicParameters.Add(property.Key, property.Value);
             }
@@ -217,14 +220,17 @@ namespace DapperExtensions
         {
             IClassMapper classMap = SqlGenerator.Configuration.GetMap<T>();
             IPredicate predicate = GetKeyPredicate<T>(classMap, entity);
+
             Dictionary<string, object> parameters = new Dictionary<string, object>();
             var propValues = ReflectionHelper.GetObjectValues(props);
-            var keys = propValues.Keys.ToList();
-            string sql = SqlGenerator.Update(classMap, predicate, parameters, keys);
+            var propKeys = propValues.Keys.ToList();
+            string sql = SqlGenerator.Update(classMap, predicate, parameters, propKeys);
             DynamicParameters dynamicParameters = new DynamicParameters();
 
-            var columns = classMap.Properties.Where(p => (keys == null || keys.Count == 0 || keys.Contains(p.Name)) && !(p.Ignored || p.IsReadOnly || p.KeyType == KeyType.Identity || p.KeyType == KeyType.Assigned));
-            foreach (var property in propValues.Where(property => columns.Any(c => c.Name == property.Key)))
+            var columns = classMap.Properties.Where(
+                p => (propKeys.Count == 0 || propKeys.Contains(p.Name, StringComparer.OrdinalIgnoreCase)) &&
+                     !(p.Ignored || p.IsReadOnly || p.KeyType == KeyType.Identity || p.KeyType == KeyType.Assigned));
+            foreach (var property in propValues.Where(property => columns.Any(c => c.Name.Equals(property.Key, StringComparison.OrdinalIgnoreCase))))
             {
                 dynamicParameters.Add(property.Key, property.Value);
             }
@@ -241,14 +247,18 @@ namespace DapperExtensions
         {
             IClassMapper classMap = SqlGenerator.Configuration.GetMap<T>();
             IPredicate predicate = GetKeyPredicate<T>(classMap, keyAndProps);
+
             Dictionary<string, object> parameters = new Dictionary<string, object>();
             var propValues = ReflectionHelper.GetObjectValues(keyAndProps);
-            var props = propValues.Keys.ToList();
-            string sql = SqlGenerator.Update(classMap, predicate, parameters, props);
-            DynamicParameters dynamicParameters = new DynamicParameters();
+            var propKeys = propValues.Keys.ToList();
+            string sql = SqlGenerator.Update(classMap, predicate, parameters, propKeys);
 
-            var columns = classMap.Properties.Where(p => (props == null || props.Count == 0 || props.Contains(p.Name)) && !(p.Ignored || p.IsReadOnly || p.KeyType == KeyType.Identity || p.KeyType == KeyType.Assigned));
-            foreach (var property in propValues.Where(property => columns.Any(c => c.Name == property.Key)))
+            var columns = classMap.Properties.Where(
+                p => (propKeys.Count == 0 || propKeys.Contains(p.Name, StringComparer.OrdinalIgnoreCase)) &&
+                     !(p.Ignored || p.IsReadOnly || p.KeyType == KeyType.Identity || p.KeyType == KeyType.Assigned));
+
+            DynamicParameters dynamicParameters = new DynamicParameters();
+            foreach (var property in propValues.Where(property => columns.Any(c => c.Name.Equals(property.Key, StringComparison.OrdinalIgnoreCase))))
             {
                 dynamicParameters.Add(property.Key, property.Value);
             }
@@ -269,10 +279,13 @@ namespace DapperExtensions
             var propValues = ReflectionHelper.GetObjectValues(props);
             var propKeys = propValues.Keys.ToList();
             string sql = SqlGenerator.Update(classMap, wherePredicate, parameters, propKeys);
-            DynamicParameters dynamicParameters = new DynamicParameters();
 
-            var columns = classMap.Properties.Where(p => (props == null || propKeys.Count == 0 || propKeys.Contains(p.Name)) && !(p.Ignored || p.IsReadOnly || p.KeyType == KeyType.Identity || p.KeyType == KeyType.Assigned));
-            foreach (var property in propValues.Where(property => columns.Any(c => c.Name == property.Key)))
+            var columns = classMap.Properties.Where(
+                p => (propKeys.Count == 0 || propKeys.Contains(p.Name, StringComparer.OrdinalIgnoreCase)) &&
+                     !(p.Ignored || p.IsReadOnly || p.KeyType == KeyType.Identity || p.KeyType == KeyType.Assigned));
+
+            DynamicParameters dynamicParameters = new DynamicParameters();
+            foreach (var property in propValues.Where(property => columns.Any(c => c.Name.Equals(property.Key, StringComparison.OrdinalIgnoreCase))))
             {
                 dynamicParameters.Add(property.Key, property.Value);
             }
