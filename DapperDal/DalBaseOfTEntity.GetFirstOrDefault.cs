@@ -14,11 +14,11 @@ namespace DapperDal
         /// 获取所有实体列表的第一条
         /// </summary>
         /// <returns>实体列表</returns>
-        public virtual TEntity GetFirst()
+        public virtual TEntity GetFirstOrDefault()
         {
             using (var connection = OpenConnection())
             {
-                return connection.GetTop<TEntity>(1).First();
+                return connection.GetTop<TEntity>(1).FirstOrDefault();
             }
         }
 
@@ -28,11 +28,11 @@ namespace DapperDal
         /// </summary>
         /// <param name="predicate">查询条件</param>
         /// <returns>实体列表</returns>
-        public virtual TEntity GetFirst(object predicate)
+        public virtual TEntity GetFirstOrDefault(object predicate)
         {
             using (var connection = OpenConnection())
             {
-                return connection.GetTop<TEntity>(1, predicate).First();
+                return connection.GetTop<TEntity>(1, predicate).FirstOrDefault();
             }
         }
 
@@ -43,13 +43,13 @@ namespace DapperDal
         /// <param name="ascending">排序方向</param>
         /// <param name="sortingExpression">排序字段</param>
         /// <returns>实体列表</returns>
-        public virtual TEntity GetFirst(SortDirection ascending,
+        public virtual TEntity GetFirstOrDefault(SortDirection ascending,
             params Expression<Func<TEntity, object>>[] sortingExpression)
         {
             using (var connection = OpenConnection())
             {
                 return connection.GetTop<TEntity>(1, null,
-                    sortingExpression.ToSortable(ascending)).First();
+                    sortingExpression.ToSortable(ascending)).FirstOrDefault();
             }
         }
 
@@ -60,11 +60,11 @@ namespace DapperDal
         /// <param name="predicate">查询条件</param>
         /// <param name="sort">排序条件</param>
         /// <returns>实体列表</returns>
-        public virtual TEntity GetFirst(object predicate, object sort)
+        public virtual TEntity GetFirstOrDefault(object predicate, object sort)
         {
             using (var connection = OpenConnection())
             {
-                return connection.GetTop<TEntity>(1, predicate, sort.ToSortable()).First();
+                return connection.GetTop<TEntity>(1, predicate, sort.ToSortable()).FirstOrDefault();
             }
         }
 
@@ -76,14 +76,14 @@ namespace DapperDal
         /// <param name="ascending">排序方向</param>
         /// <param name="sortingExpression">排序字段</param>
         /// <returns>实体列表</returns>
-        public virtual TEntity GetFirst(object predicate,
+        public virtual TEntity GetFirstOrDefault(object predicate,
             SortDirection ascending,
             params Expression<Func<TEntity, object>>[] sortingExpression)
         {
             using (var connection = OpenConnection())
             {
                 return connection.GetTop<TEntity>(1, predicate,
-                    sortingExpression.ToSortable(ascending)).First();
+                    sortingExpression.ToSortable(ascending)).FirstOrDefault();
             }
         }
 
@@ -93,11 +93,11 @@ namespace DapperDal
         /// </summary>
         /// <param name="predicate">查询条件</param>
         /// <returns>实体列表</returns>
-        public virtual TEntity GetFirst(Expression<Func<TEntity, bool>> predicate)
+        public virtual TEntity GetFirstOrDefault(Expression<Func<TEntity, bool>> predicate)
         {
             using (var connection = OpenConnection())
             {
-                return connection.GetTop<TEntity>(1, predicate.ToPredicateGroup<TEntity, TPrimaryKey>()).First();
+                return connection.GetTop<TEntity>(1, predicate.ToPredicateGroup<TEntity, TPrimaryKey>()).FirstOrDefault();
             }
         }
 
@@ -108,12 +108,12 @@ namespace DapperDal
         /// <param name="predicate">查询条件</param>
         /// <param name="sort">排序条件</param>
         /// <returns>实体列表</returns>
-        public virtual TEntity GetFirst(Expression<Func<TEntity, bool>> predicate, object sort)
+        public virtual TEntity GetFirstOrDefault(Expression<Func<TEntity, bool>> predicate, object sort)
         {
             using (var connection = OpenConnection())
             {
                 return connection.GetTop<TEntity>(1, predicate.ToPredicateGroup<TEntity, TPrimaryKey>(),
-                    sort.ToSortable()).First();
+                    sort.ToSortable()).FirstOrDefault();
             }
         }
 
@@ -125,14 +125,14 @@ namespace DapperDal
         /// <param name="ascending">排序方向</param>
         /// <param name="sortingExpression">排序字段</param>
         /// <returns>实体列表</returns>
-        public virtual TEntity GetFirst(Expression<Func<TEntity, bool>> predicate,
+        public virtual TEntity GetFirstOrDefault(Expression<Func<TEntity, bool>> predicate,
             SortDirection ascending,
             params Expression<Func<TEntity, object>>[] sortingExpression)
         {
             using (var connection = OpenConnection())
             {
                 return connection.GetTop<TEntity>(1, predicate.ToPredicateGroup<TEntity, TPrimaryKey>(),
-                    sortingExpression.ToSortable(ascending)).First();
+                    sortingExpression.ToSortable(ascending)).FirstOrDefault();
             }
         }
     }
