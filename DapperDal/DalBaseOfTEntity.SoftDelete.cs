@@ -5,6 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using DapperExtensions;
 using DapperExtensions.Expressions;
+using DapperExtensions.Mapper;
 
 namespace DapperDal
 {
@@ -27,14 +28,16 @@ namespace DapperDal
         /// <summary>
         /// 根据实体主键ID逻辑删除指定实体
         /// </summary>
-        /// <param name="id">实体</param>
+        /// <param name="id">实体主键ID</param>
         /// <param name="props">逻辑删除属性名及更新值，默认 IsActive=0</param>
         /// <returns>逻辑删除结果</returns>
         public virtual bool SoftDeleteById(TPrimaryKey id, object props = null)
         {
             using (var connection = OpenConnection())
             {
-                return connection.SoftDeleteById<TEntity>(id, props);
+                IPredicate predicate = PredicateExtensions.GetIdPredicate<TEntity>(id);
+
+                return connection.SoftDelete<TEntity>(predicate, props);
             }
         }
 

@@ -11,6 +11,18 @@ namespace DapperDal
     public partial class DalBase<TEntity, TPrimaryKey> where TEntity : class
     {
         /// <summary>
+        /// 获取实体条数
+        /// </summary>
+        /// <returns>实体条数</returns>
+        public virtual int Count()
+        {
+            using (var connection = OpenConnection())
+            {
+                return connection.Count<TEntity>(null);
+            }
+        }
+
+        /// <summary>
         /// 根据条件获取实体条数
         /// （条件使用谓词或匿名对象）
         /// </summary>

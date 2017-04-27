@@ -67,6 +67,7 @@
     <Compile Include="Mapper\ClassMapper.cs" />
     <Compile Include="DapperExtensions.cs" />
     <Compile Include="Mapper\PluralizedAutoClassMapper.cs" />
+    <Compile Include="PredicateExtensions.cs" />
     <Compile Include="Predicates.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Mapper\PropertyMap.cs" />

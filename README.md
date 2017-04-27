@@ -6,6 +6,9 @@ NuGet: [![NuGet Badge](https://buildstats.info/nuget/DapperDal)](https://www.nug
 
 Release Notes
 -------------
+### 1.5.12
+* 优化 `Exsit` 、`Count` 方法
+
 ### 1.5.11
 * 优化更新方法，支持传递小写字段名
 * 添加判断实体是否存在方法：`Exsit` 

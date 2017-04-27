@@ -23,10 +23,7 @@ namespace DapperExtensions
         /// </summary>
         public static Type DefaultMapper
         {
-            get
-            {
-                return _configuration.DefaultMapper;
-            }
+            get { return _configuration.DefaultMapper; }
         }
 
         /// <summary>
@@ -35,10 +32,7 @@ namespace DapperExtensions
         /// </summary>
         public static ISqlDialect SqlDialect
         {
-            get
-            {
-                return _configuration.Dialect;
-            }
+            get { return _configuration.Dialect; }
         }
 
         /// <summary>
@@ -60,7 +54,7 @@ namespace DapperExtensions
         /// <summary>
         /// Gets the Dapper Extensions Implementation
         /// </summary>
-        private static IDapperImplementor Instance
+        internal static IDapperImplementor Instance
         {
             get
             {
@@ -133,7 +127,8 @@ namespace DapperExtensions
         /// <summary>
         /// Executes a query for the specified id, returning the data typed as per T
         /// </summary>
-        public static T Get<T>(this IDbConnection connection, dynamic id, IDbTransaction transaction = null, int? commandTimeout = null) where T : class
+        public static T Get<T>(this IDbConnection connection, dynamic id, IDbTransaction transaction = null,
+            int? commandTimeout = null) where T : class
         {
             var result = Instance.Get<T>(connection, id, transaction, commandTimeout);
             return (T)result;
@@ -142,7 +137,8 @@ namespace DapperExtensions
         /// <summary>
         /// Executes an insert query for the specified entity.
         /// </summary>
-        public static void Insert<T>(this IDbConnection connection, IEnumerable<T> entities, IDbTransaction transaction = null, int? commandTimeout = null) where T : class
+        public static void Insert<T>(this IDbConnection connection, IEnumerable<T> entities,
+            IDbTransaction transaction = null, int? commandTimeout = null) where T : class
         {
             Instance.Insert<T>(connection, entities, transaction, commandTimeout);
         }
@@ -153,7 +149,8 @@ namespace DapperExtensions
         /// If the entity has a composite key, an IDictionary&lt;string, object&gt; is returned with the key values.
         /// The key value for the entity will also be updated if the KeyType is a Guid or Identity.
         /// </summary>
-        public static dynamic Insert<T>(this IDbConnection connection, T entity, IDbTransaction transaction = null, int? commandTimeout = null) where T : class
+        public static dynamic Insert<T>(this IDbConnection connection, T entity, IDbTransaction transaction = null,
+            int? commandTimeout = null) where T : class
         {
             return Instance.Insert<T>(connection, entity, transaction, commandTimeout);
         }
@@ -161,7 +158,8 @@ namespace DapperExtensions
         /// <summary>
         /// Executes an update query for the specified entity.
         /// </summary>
-        public static bool Update<T>(this IDbConnection connection, T entity, IDbTransaction transaction = null, int? commandTimeout = null) where T : class
+        public static bool Update<T>(this IDbConnection connection, T entity, IDbTransaction transaction = null,
+            int? commandTimeout = null) where T : class
         {
             return Instance.Update<T>(connection, entity, transaction, commandTimeout);
         }
@@ -169,7 +167,8 @@ namespace DapperExtensions
         /// <summary>
         /// Executes an update query for the specified entity.
         /// </summary>
-        public static bool Update<T>(this IDbConnection connection, T entity, IEnumerable<string> props, IDbTransaction transaction = null, int? commandTimeout = null) where T : class
+        public static bool Update<T>(this IDbConnection connection, T entity, IEnumerable<string> props,
+            IDbTransaction transaction = null, int? commandTimeout = null) where T : class
         {
             return Instance.Update<T>(connection, entity, props.ToList(), transaction, commandTimeout);
         }
@@ -177,7 +176,8 @@ namespace DapperExtensions
         /// <summary>
         /// Executes an update query for the specified entity.
         /// </summary>
-        public static bool Update<T>(this IDbConnection connection, T entity, object props, IDbTransaction transaction = null, int? commandTimeout = null) where T : class
+        public static bool Update<T>(this IDbConnection connection, T entity, object props,
+            IDbTransaction transaction = null, int? commandTimeout = null) where T : class
         {
             return Instance.Update<T>(connection, entity, props, transaction, commandTimeout);
         }
@@ -185,7 +185,8 @@ namespace DapperExtensions
         /// <summary>
         /// Executes an update query for the specified entity.
         /// </summary>
-        public static bool Update<T>(this IDbConnection connection, object keyAndProps, IDbTransaction transaction = null, int? commandTimeout = null) where T : class
+        public static bool Update<T>(this IDbConnection connection, object keyAndProps,
+            IDbTransaction transaction = null, int? commandTimeout = null) where T : class
         {
             return Instance.Update<T>(connection, keyAndProps, transaction, commandTimeout);
         }
@@ -193,7 +194,8 @@ namespace DapperExtensions
         /// <summary>
         /// Executes an update query for the specified entity and predicate.
         /// </summary>
-        public static bool Update<T>(this IDbConnection connection, object props, object predicate, IDbTransaction transaction = null, int? commandTimeout = null) where T : class
+        public static bool Update<T>(this IDbConnection connection, object props, object predicate,
+            IDbTransaction transaction = null, int? commandTimeout = null) where T : class
         {
             return Instance.Update<T>(connection, props, predicate, transaction, commandTimeout);
         }
@@ -201,7 +203,8 @@ namespace DapperExtensions
         /// <summary>
         /// 逻辑删除指定实体
         /// </summary>
-        public static bool SoftDelete<T>(this IDbConnection connection, T entity, object props, IDbTransaction transaction = null, int? commandTimeout = null) where T : class
+        public static bool SoftDelete<T>(this IDbConnection connection, T entity, object props,
+            IDbTransaction transaction = null, int? commandTimeout = null) where T : class
         {
             if (props == null && _configuration.SoftDeletePropsFactory != null)
             {
@@ -212,25 +215,10 @@ namespace DapperExtensions
         }
 
         /// <summary>
-        /// 根据实体主键ID逻辑删除指定实体
-        /// </summary>
-        public static bool SoftDeleteById<T>(this IDbConnection connection, object id, object props, IDbTransaction transaction = null, int? commandTimeout = null) where T : class
-        {
-            if (props == null && _configuration.SoftDeletePropsFactory != null)
-            {
-                props = _configuration.SoftDeletePropsFactory();
-            }
-
-            IClassMapper classMap = Instance.SqlGenerator.Configuration.GetMap<T>();
-            IPredicate predicate = Instance.GetIdPredicate(classMap, id);
-
-            return Instance.Update<T>(connection, props, predicate, transaction, commandTimeout);
-        }
-
-        /// <summary>
         /// 根据条件逻辑删除实体
         /// </summary>
-        public static bool SoftDelete<T>(this IDbConnection connection, object predicate, object props, IDbTransaction transaction = null, int? commandTimeout = null) where T : class
+        public static bool SoftDelete<T>(this IDbConnection connection, object predicate, object props,
+            IDbTransaction transaction = null, int? commandTimeout = null) where T : class
         {
             if (props == null && _configuration.SoftDeletePropsFactory != null)
             {
@@ -243,7 +231,8 @@ namespace DapperExtensions
         /// <summary>
         /// Executes a delete query for the specified entity.
         /// </summary>
-        public static bool Delete<T>(this IDbConnection connection, T entity, IDbTransaction transaction = null, int? commandTimeout = null) where T : class
+        public static bool Delete<T>(this IDbConnection connection, T entity, IDbTransaction transaction = null,
+            int? commandTimeout = null) where T : class
         {
             return Instance.Delete<T>(connection, entity, transaction, commandTimeout);
         }
@@ -251,46 +240,60 @@ namespace DapperExtensions
         /// <summary>
         /// Executes a delete query using the specified predicate.
         /// </summary>
-        public static bool Delete<T>(this IDbConnection connection, object predicate, IDbTransaction transaction = null, int? commandTimeout = null) where T : class
+        public static bool Delete<T>(this IDbConnection connection, object predicate, IDbTransaction transaction = null,
+            int? commandTimeout = null) where T : class
         {
             return Instance.Delete<T>(connection, predicate, transaction, commandTimeout);
         }
 
-        public static IEnumerable<T> GetTop<T>(this IDbConnection connection, int limit, object predicate = null, IList<ISort> sort = null, IDbTransaction transaction = null, int? commandTimeout = null, bool? buffered = null) where T : class
+        public static IEnumerable<T> GetTop<T>(this IDbConnection connection, int limit, object predicate = null,
+            IList<ISort> sort = null, IDbTransaction transaction = null, int? commandTimeout = null,
+            bool? buffered = null) where T : class
         {
-            return Instance.GetTop<T>(connection, limit, predicate, sort, transaction, commandTimeout, buffered ?? _configuration.Buffered);
+            return Instance.GetTop<T>(connection, limit, predicate, sort, transaction, commandTimeout,
+                buffered ?? _configuration.Buffered);
         }
 
         /// <summary>
         /// Executes a select query using the specified predicate, returning an IEnumerable data typed as per T.
         /// </summary>
-        public static IEnumerable<T> GetList<T>(this IDbConnection connection, object predicate = null, IList<ISort> sort = null, IDbTransaction transaction = null, int? commandTimeout = null, bool? buffered = null) where T : class
+        public static IEnumerable<T> GetList<T>(this IDbConnection connection, object predicate = null,
+            IList<ISort> sort = null, IDbTransaction transaction = null, int? commandTimeout = null,
+            bool? buffered = null) where T : class
         {
-            return Instance.GetList<T>(connection, predicate, sort, transaction, commandTimeout, buffered ?? _configuration.Buffered);
+            return Instance.GetList<T>(connection, predicate, sort, transaction, commandTimeout,
+                buffered ?? _configuration.Buffered);
         }
 
         /// <summary>
         /// Executes a select query using the specified predicate, returning an IEnumerable data typed as per T.
         /// Data returned is dependent upon the specified page and resultsPerPage.
         /// </summary>
-        public static IEnumerable<T> GetPage<T>(this IDbConnection connection, object predicate, IList<ISort> sort, int page, int resultsPerPage, IDbTransaction transaction = null, int? commandTimeout = null, bool? buffered = null) where T : class
+        public static IEnumerable<T> GetPage<T>(this IDbConnection connection, object predicate, IList<ISort> sort,
+            int page, int resultsPerPage, IDbTransaction transaction = null, int? commandTimeout = null,
+            bool? buffered = null) where T : class
         {
-            return Instance.GetPage<T>(connection, predicate, sort, page, resultsPerPage, transaction, commandTimeout, buffered ?? _configuration.Buffered);
+            return Instance.GetPage<T>(connection, predicate, sort, page, resultsPerPage, transaction, commandTimeout,
+                buffered ?? _configuration.Buffered);
         }
 
         /// <summary>
         /// Executes a select query using the specified predicate, returning an IEnumerable data typed as per T.
         /// Data returned is dependent upon the specified firstResult and maxResults.
         /// </summary>
-        public static IEnumerable<T> GetSet<T>(this IDbConnection connection, object predicate, IList<ISort> sort, int firstResult, int maxResults, IDbTransaction transaction = null, int? commandTimeout = null, bool? buffered = null) where T : class
+        public static IEnumerable<T> GetSet<T>(this IDbConnection connection, object predicate, IList<ISort> sort,
+            int firstResult, int maxResults, IDbTransaction transaction = null, int? commandTimeout = null,
+            bool? buffered = null) where T : class
         {
-            return Instance.GetSet<T>(connection, predicate, sort, firstResult, maxResults, transaction, commandTimeout, buffered ?? _configuration.Buffered);
+            return Instance.GetSet<T>(connection, predicate, sort, firstResult, maxResults, transaction, commandTimeout,
+                buffered ?? _configuration.Buffered);
         }
 
         /// <summary>
         /// Executes a query using the specified predicate, returning an integer that represents the number of rows that match the query.
         /// </summary>
-        public static int Count<T>(this IDbConnection connection, object predicate, IDbTransaction transaction = null, int? commandTimeout = null) where T : class
+        public static int Count<T>(this IDbConnection connection, object predicate, IDbTransaction transaction = null,
+            int? commandTimeout = null) where T : class
         {
             return Instance.Count<T>(connection, predicate, transaction, commandTimeout);
         }
@@ -298,7 +301,8 @@ namespace DapperExtensions
         /// <summary>
         /// Executes a select query for multiple objects, returning IMultipleResultReader for each predicate.
         /// </summary>
-        public static IMultipleResultReader GetMultiple(this IDbConnection connection, GetMultiplePredicate predicate, IDbTransaction transaction = null, int? commandTimeout = null)
+        public static IMultipleResultReader GetMultiple(this IDbConnection connection, GetMultiplePredicate predicate,
+            IDbTransaction transaction = null, int? commandTimeout = null)
         {
             return Instance.GetMultiple(connection, predicate, transaction, commandTimeout);
         }

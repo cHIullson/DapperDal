@@ -1621,6 +1621,28 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
         public class CountMethod : SqlServerBaseFixture
         {
             [Test]
+            public void UsingNull_Returns_NoCount()
+            {
+                var personDal = new DalBase<PersonEntity>();
+                Assert.AreEqual(0, personDal.Count(null));
+                Assert.AreEqual(0, personDal.Count());
+            }
+
+            [Test]
+            public void UsingNull_Returns_Count()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                Assert.AreEqual(4, personDal.Count(null));
+                Assert.AreEqual(4, personDal.Count());
+            }
+
+            [Test]
             public void UsingPredicate_Returns_Count()
             {
                 var personDal = new DalBase<PersonEntity>();
@@ -1676,6 +1698,108 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
 
                 Expression<Func<PersonEntity, bool>> predicate = p => p.IsActive == 1;
                 Assert.AreEqual(2, personDal.Count(predicate));
+            }
+
+        }
+
+        [TestFixture]
+        public class ExsitMethod : SqlServerBaseFixture
+        {
+            [Test]
+            public void UsingNull_Returns_Exsit()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                Assert.AreEqual(true, personDal.Exsit());
+                var id = 1;
+                Assert.AreEqual(true, personDal.Exsit(id));
+            }
+
+            [Test]
+            public void UsingNull_Returns_NotExsit()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+
+                Assert.AreEqual(false, personDal.Exsit());
+                var id = 1;
+                Assert.AreEqual(false, personDal.Exsit(id));
+            }
+
+
+            [Test]
+            public void UsingId_Returns_Exsit()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                Assert.AreEqual(true, personDal.Exsit(null));
+                var id = 1;
+                Assert.AreEqual(true, personDal.Exsit(id));
+            }
+
+            [Test]
+            public void UsingPredicate_Returns_Exsit()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                Assert.AreEqual(true, personDal.Exsit(null));
+                var predicate = Predicates.Field<PersonEntity>(f => f.IsActive, Operator.Eq, 1);
+                Assert.AreEqual(true, personDal.Exsit(predicate));
+            }
+
+            [Test]
+            public void UsingObject_Returns_Exsit()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                var predicate = new { IsActive = 1 };
+                Assert.AreEqual(true, personDal.Exsit(predicate));
+            }
+
+            [Test]
+            public void UsingNullExpression_Returns_Exsit()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                Expression<Func<PersonEntity, bool>> predicate = null;
+                Assert.AreEqual(true, personDal.Exsit(predicate));
+            }
+
+
+            [Test]
+            public void UsingExpression_Returns_Exsit()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                Expression<Func<PersonEntity, bool>> predicate = p => p.IsActive == 1;
+                Assert.AreEqual(true, personDal.Exsit(predicate));
             }
 
         }
