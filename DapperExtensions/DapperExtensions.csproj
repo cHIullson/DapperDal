@@ -55,9 +55,10 @@
     <Compile Include="DapperExtensionsConfiguration.cs" />
     <Compile Include="DapperImplementor.cs" />
     <Compile Include="Database.cs" />
-    <Compile Include="Expressions\DapperEvaluator.cs" />
     <Compile Include="Expressions\DapperExpressionExtensions.cs" />
-    <Compile Include="Expressions\DapperExpressionVisitor.cs" />
+    <Compile Include="Expressions\ExpressionExtensions.cs" />
+    <Compile Include="Expressions\ExpressionUtility.cs" />
+    <Compile Include="Expressions\PredicateBuilder.cs" />
     <Compile Include="Expressions\QueryBuilder.cs" />
     <Compile Include="Expressions\QueryFunctions.cs" />
     <Compile Include="Expressions\SortingExtensions.cs" />

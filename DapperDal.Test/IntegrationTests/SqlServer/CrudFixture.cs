@@ -1,13 +1,12 @@
-﻿using Dapper;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+using Dapper;
 using DapperDal.Test.Entities;
 using DapperExtensions;
 using DapperExtensions.Expressions;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Dynamic;
-using System.Linq;
-using System.Linq.Expressions;
 
 namespace DapperDal.Test.IntegrationTests.SqlServer
 {
@@ -1007,30 +1006,109 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
                 personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
 
-                IEnumerable<PersonEntity> list = personDal.GetList(p => p.IsActive == 1 && p.PersonName == "c");
-                Assert.AreEqual(1, list.Count());
-                Assert.IsTrue(list.All(p => p.PersonName == "c"));
+                Expression<Func<PersonEntity, bool>> predicate = p => true;
+                IEnumerable<PersonEntity> list = personDal.GetList(predicate);
+                Assert.AreEqual(4, list.Count());
+                Assert.IsTrue(list.All(predicate.Compile()));
 
-                list = personDal.GetList(p => p.IsActive != 1 && p.PersonName == "b");
+                predicate = p => p.IsActive == 1 && p.PersonName == "c";
+                list = personDal.GetList(predicate);
                 Assert.AreEqual(1, list.Count());
-                Assert.IsTrue(list.All(p => p.PersonName == "b"));
+                Assert.IsTrue(list.All(predicate.Compile()));
 
+                predicate = p => p.IsActive != 1 && p.PersonName == "b";
+                list = personDal.GetList(predicate);
+                Assert.AreEqual(1, list.Count());
+                Assert.IsTrue(list.All(predicate.Compile()));
+
+                predicate = p => p.PersonName != "b";
                 list = personDal.GetList(p => p.PersonName != "b");
+                Assert.AreEqual(3, list.Count());
+                Assert.IsTrue(list.All(predicate.Compile()));
+
+                predicate = p => p.IsActive == 1 && p.PersonName == "c" && p.CarId == 3;
+                list = personDal.GetList(predicate);
+                Assert.AreEqual(1, list.Count());
+                Assert.IsTrue(list.All(predicate.Compile()));
+
+                predicate = p => p.IsActive == 1 && p.PersonName == "c" || p.CarId == 3;
+                list = personDal.GetList(predicate);
+                Assert.AreEqual(2, list.Count());
+                Assert.IsTrue(list.All(predicate.Compile()));
+
+                predicate = p => p.IsActive == 1 && (p.PersonName == "c" || p.CarId == 3);
+                list = personDal.GetList(predicate);
+                Assert.AreEqual(1, list.Count());
+                Assert.IsTrue(list.All(predicate.Compile()));
+            }
+
+            [Test]
+            public void UsingCombineExpression_ReturnsMatching()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                Expression<Func<PersonEntity, bool>> predicate = p => true;
+                predicate = PredicateBuilder.True<PersonEntity>();
+                IEnumerable<PersonEntity> list = personDal.GetList(predicate);
+                Assert.AreEqual(4, list.Count());
+                Assert.IsTrue(list.All(p => true));
+
+                predicate = p => p.IsActive == 1 && p.PersonName == "c";
+                predicate = PredicateBuilder.True<PersonEntity>();
+                predicate = predicate.And(p => p.IsActive == 1);
+                predicate = predicate.And(p => p.PersonName == "c");
+                list = personDal.GetList(predicate);
+                Assert.AreEqual(1, list.Count());
+                Assert.IsTrue(list.All(p => p.IsActive == 1 && p.PersonName == "c"));
+
+                predicate = p => p.IsActive != 1 && p.PersonName == "b";
+                predicate = PredicateBuilder.True<PersonEntity>();
+                predicate = predicate.And(p => p.IsActive != 1);
+                predicate = predicate.And(p => p.PersonName == "b");
+                list = personDal.GetList(predicate);
+                Assert.AreEqual(1, list.Count());
+                Assert.IsTrue(list.All(p => p.IsActive != 1 && p.PersonName == "b"));
+
+                predicate = p => p.PersonName != "b";
+                predicate = PredicateBuilder.True<PersonEntity>();
+                predicate = predicate.And(p => p.PersonName != "b");
+                list = personDal.GetList(predicate);
                 Assert.AreEqual(3, list.Count());
                 Assert.IsTrue(list.All(p => p.PersonName != "b"));
 
-                list = personDal.GetList(p => p.IsActive == 1 && p.PersonName == "c" && p.CarId == 3);
+                predicate = p => p.IsActive == 1 && p.PersonName == "c" && p.CarId == 3;
+                predicate = PredicateBuilder.True<PersonEntity>();
+                predicate = predicate.And(p => p.IsActive == 1);
+                predicate = predicate.And(p => p.PersonName == "c");
+                predicate = predicate.And(p => p.CarId == 3);
+                list = personDal.GetList(predicate);
                 Assert.AreEqual(1, list.Count());
-                Assert.IsTrue(list.All(p => p.PersonName == "c"));
+                Assert.IsTrue(list.All(p => p.IsActive == 1 && p.PersonName == "c" && p.CarId == 3));
 
-                //list = personDal.GetList(p => p.IsActive == 1 && p.PersonName == "c" || p.CarId == 3);
-                //Assert.AreEqual(1, list.Count());
-                //Assert.IsTrue(list.All(p => p.PersonName == "c"));
+                predicate = p => p.IsActive == 1 && p.PersonName == "c" || p.CarId == 3;
+                predicate = PredicateBuilder.True<PersonEntity>();
+                predicate = predicate.And(p => p.IsActive == 1);
+                predicate = predicate.And(p => p.PersonName == "c");
+                predicate = predicate.Or(p => p.CarId == 3);
+                list = personDal.GetList(predicate);
+                Assert.AreEqual(2, list.Count());
+                Assert.IsTrue(list.All(p => p.IsActive == 1 && p.PersonName == "c" || p.CarId == 3));
 
-                //list = personDal.GetList(p => p.IsActive == 1 && (p.PersonName == "c" || p.CarId == 3));
-                //Assert.AreEqual(1, list.Count());
-                //Assert.IsTrue(list.All(p => p.PersonName == "c"));
+                predicate = p => p.IsActive == 1 && (p.PersonName == "c" || p.CarId == 3);
+                predicate = PredicateBuilder.True<PersonEntity>();
+                predicate = predicate.And(p => p.IsActive == 1);
+                var predicate2 = PredicateBuilder.False<PersonEntity>().Or(p => p.PersonName == "c").Or(p => p.CarId == 3);
+                predicate = predicate.And(predicate2);
+                list = personDal.GetList(predicate);
+                Assert.AreEqual(1, list.Count());
+                Assert.IsTrue(list.All(p => p.IsActive == 1 && (p.PersonName == "c" || p.CarId == 3)));
             }
+
 
             [Test]
             public void UsingNullPredicate_ByExpression_ReturnsOrdered()

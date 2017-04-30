@@ -22,8 +22,18 @@ namespace DapperExtensions.Expressions
         Descending
     }
 
+    /// <summary>
+    /// 排序条件转换扩展
+    /// </summary>
     public static class SortingExtensions
     {
+        /// <summary>
+        /// 排序条件表达式转换为排序组的扩展方法
+        /// </summary>
+        /// <typeparam name="T">实体类型</typeparam>
+        /// <param name="sortingExpression">排序条件表达式</param>
+        /// <param name="ascending">排序方向</param>
+        /// <returns>排序组</returns>
         public static IList<ISort> ToSortable<T>(this Expression<Func<T, object>>[] sortingExpression,
             SortDirection ascending = SortDirection.Ascending)
         {
@@ -46,6 +56,11 @@ namespace DapperExtensions.Expressions
             return sortList;
         }
 
+        /// <summary>
+        /// 匿名排序对象转换为排序组的扩展方法
+        /// </summary>
+        /// <param name="sort">匿名排序对象，如new { CarId = SortDirection.Descending }</param>
+        /// <returns>排序组</returns>
         public static IList<ISort> ToSortable(this object sort)
         {
             if (sort == null)

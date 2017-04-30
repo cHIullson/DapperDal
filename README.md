@@ -6,6 +6,9 @@ NuGet: [![NuGet Badge](https://buildstats.info/nuget/DapperDal)](https://www.nug
 
 Release Notes
 -------------
+### 1.5.13
+* 添加谓词表达式组合扩展方法（来自[alexfoxgill/ExpressionTools](https://github.com/alexfoxgill/ExpressionTools)）
+
 ### 1.5.12
 * 优化 `Exsit` 、`Count` 方法
 
