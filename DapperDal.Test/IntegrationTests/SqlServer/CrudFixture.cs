@@ -65,6 +65,30 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             }
 
             [Test]
+            public void UsingId_DeletesRows()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                PersonEntity p1 = new PersonEntity { PersonName = "Bar", CreateTime = DateTime.Now, UpdateTime = DateTime.Now };
+                PersonEntity p2 = new PersonEntity { PersonName = "Bar", CreateTime = DateTime.Now, UpdateTime = DateTime.Now };
+                PersonEntity p3 = new PersonEntity { PersonName = "Barz", CreateTime = DateTime.Now, UpdateTime = DateTime.Now };
+                personDal.Insert(p1);
+                personDal.Insert(p2);
+                personDal.Insert(p3);
+
+                var list = personDal.GetList();
+                Assert.AreEqual(3, list.Count());
+
+                var result = personDal.Delete(1);
+                Assert.IsTrue(result);
+                result = personDal.Delete(2);
+                Assert.IsTrue(result);
+
+                list = personDal.GetList();
+                Assert.AreEqual(1, list.Count());
+            }
+
+            [Test]
             public void UsingPredicate_DeletesRows()
             {
                 var personDal = new DalBase<PersonEntity>();
@@ -134,6 +158,158 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
         }
 
         [TestFixture]
+        public class SwitchActiveMethod : SqlServerBaseFixture
+        {
+            [Test]
+            public void UsingKey_SoftDeletesRows()
+            {
+                var personDal = new DalBase<PersonEntity, long>();
+
+                PersonEntity p1 = new PersonEntity
+                {
+                    PersonName = "Bar",
+                    CreateTime = DateTime.Now,
+                    UpdateTime = DateTime.Now,
+                    IsActive = 1
+                };
+                long id = personDal.Insert(p1);
+
+                PersonEntity p2 = personDal.Get(id);
+                personDal.SwitchActive(p2.PersonId, false);
+
+                var p3 = personDal.Get(id);
+                Assert.AreEqual(0, p3.IsActive);
+
+                p2 = personDal.Get(id);
+                personDal.SwitchActive(p2.PersonId, true);
+
+                p3 = personDal.Get(id);
+                Assert.AreEqual(1, p3.IsActive);
+            }
+
+
+            [Test]
+            public void UsingEntity_SoftDeletesRows()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                PersonEntity p1 = new PersonEntity
+                {
+                    PersonName = "Bar",
+                    CreateTime = DateTime.Now,
+                    UpdateTime = DateTime.Now,
+                    IsActive = 1
+                };
+                int id = personDal.Insert(p1);
+
+                PersonEntity p2 = personDal.Get(id);
+                personDal.SwitchActive(p2, false);
+
+                var p3 = personDal.Get(id);
+                Assert.AreEqual(0, p3.IsActive);
+
+                p2 = personDal.Get(id);
+                personDal.SwitchActive(p2, true);
+
+                p3 = personDal.Get(id);
+                Assert.AreEqual(1, p3.IsActive);
+            }
+
+            [Test]
+            public void UsingPredicate_SoftDeletesRows()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                PersonEntity p1 = new PersonEntity { PersonName = "Bar", CreateTime = DateTime.Now, UpdateTime = DateTime.Now, IsActive = 1 };
+                PersonEntity p2 = new PersonEntity { PersonName = "Bar", CreateTime = DateTime.Now, UpdateTime = DateTime.Now, IsActive = 1 };
+                PersonEntity p3 = new PersonEntity { PersonName = "Barz", CreateTime = DateTime.Now, UpdateTime = DateTime.Now, IsActive = 1 };
+                personDal.Insert(p1);
+                personDal.Insert(p2);
+                personDal.Insert(p3);
+
+                var list = personDal.GetList();
+                Assert.AreEqual(3, list.Count());
+
+                IPredicate pred = Predicates.Field<PersonEntity>(p => p.PersonName, Operator.Eq, "Bar");
+                var result = personDal.SwitchActive(pred, false);
+                Assert.IsTrue(result);
+
+                list = personDal.GetList();
+                Assert.AreEqual(3, list.Count());
+                Assert.AreEqual(2, list.Count(d => d.IsActive == 0));
+
+                pred = Predicates.Field<PersonEntity>(p => p.PersonName, Operator.Eq, "Bar");
+                result = personDal.SwitchActive(pred, true);
+                Assert.IsTrue(result);
+
+                list = personDal.GetList();
+                Assert.AreEqual(3, list.Count());
+                Assert.AreEqual(3, list.Count(d => d.IsActive == 1));
+            }
+
+            [Test]
+            public void UsingObject_SoftDeletesRows()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                PersonEntity p1 = new PersonEntity { PersonName = "Bar", CreateTime = DateTime.Now, UpdateTime = DateTime.Now, IsActive = 1 };
+                PersonEntity p2 = new PersonEntity { PersonName = "Bar", CreateTime = DateTime.Now, UpdateTime = DateTime.Now, IsActive = 1 };
+                PersonEntity p3 = new PersonEntity { PersonName = "Barz", CreateTime = DateTime.Now, UpdateTime = DateTime.Now, IsActive = 1 };
+                personDal.Insert(p1);
+                personDal.Insert(p2);
+                personDal.Insert(p3);
+
+                var list = personDal.GetList();
+                Assert.AreEqual(3, list.Count());
+
+                var result = personDal.SwitchActive(new { PersonName = "Bar" }, false);
+                Assert.IsTrue(result);
+
+                list = personDal.GetList();
+                Assert.AreEqual(3, list.Count());
+                Assert.AreEqual(2, list.Count(d => d.IsActive == 0));
+
+                result = personDal.SwitchActive(new { PersonName = "Bar" }, true);
+                Assert.IsTrue(result);
+
+                list = personDal.GetList();
+                Assert.AreEqual(3, list.Count());
+                Assert.AreEqual(3, list.Count(d => d.IsActive == 1));
+            }
+
+            [Test]
+            public void UsingExpression_SoftDeletesRows()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                PersonEntity p1 = new PersonEntity { PersonName = "Bar", CreateTime = DateTime.Now, UpdateTime = DateTime.Now, IsActive = 1 };
+                PersonEntity p2 = new PersonEntity { PersonName = "Bar", CreateTime = DateTime.Now, UpdateTime = DateTime.Now, IsActive = 1 };
+                PersonEntity p3 = new PersonEntity { PersonName = "Barz", CreateTime = DateTime.Now, UpdateTime = DateTime.Now, IsActive = 1 };
+                personDal.Insert(p1);
+                personDal.Insert(p2);
+                personDal.Insert(p3);
+
+                var list = personDal.GetList();
+                Assert.AreEqual(3, list.Count());
+
+                var result = personDal.SwitchActive(p => p.PersonName == "Bar", false);
+                Assert.IsTrue(result);
+
+                list = personDal.GetList();
+                Assert.AreEqual(3, list.Count());
+                Assert.AreEqual(2, list.Count(d => d.IsActive == 0));
+
+                result = personDal.SwitchActive(p => p.PersonName == "Bar", true);
+                Assert.IsTrue(result);
+
+                list = personDal.GetList();
+                Assert.AreEqual(3, list.Count());
+                Assert.AreEqual(3, list.Count(d => d.IsActive == 1));
+            }
+
+        }
+
+        [TestFixture]
         public class SoftDeleteMethod : SqlServerBaseFixture
         {
             [Test]
@@ -151,7 +327,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
                 long id = personDal.Insert(p1);
 
                 PersonEntity p2 = personDal.Get(id);
-                personDal.SoftDeleteById(p2.PersonId);
+                personDal.SoftDelete(p2.PersonId);
 
                 var p3 = personDal.Get(id);
                 Assert.AreEqual(0, p3.IsActive);
@@ -334,6 +510,35 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
                 Assert.AreEqual(2, p3.CarId);
                 Assert.AreEqual(0, p3.IsActive);
             }
+
+            [Test]
+            public void UsingId_UpdatesPartProperties()
+            {
+                var personDal = new DalBase<PersonEntity, long>();
+
+                PersonEntity p1 = new PersonEntity
+                {
+                    PersonName = "Bar",
+                    CarId = 1,
+                    CreateTime = DateTime.Now,
+                    UpdateTime = DateTime.Now,
+                    IsActive = 0
+                };
+                long id = personDal.Insert(p1);
+
+                var p2 = personDal.Get(id);
+                p2.PersonName = "Baz";
+                p2.CarId = 2;
+                p2.IsActive = 1;
+
+                personDal.Update(p2.PersonId, new { personName = "Baz", CarId = 2 });
+
+                var p3 = personDal.Get(id);
+                Assert.AreEqual("Baz", p3.PersonName);
+                Assert.AreEqual(2, p3.CarId);
+                Assert.AreEqual(0, p3.IsActive);
+            }
+
 
             [Test]
             public void UsingObject_UpdatesPartProperties()
@@ -2017,6 +2222,129 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
                 Assert.AreEqual(2, parameters.Get<int>("TotalCount"));
                 Assert.AreEqual(2, parameters.Get<object>("TotalCount"));
                 Assert.IsTrue(list.All(d => d.CarId == 3));
+            }
+
+            class PersonParam
+            {
+                public int CarId { get; set; }
+                public int TotalCount { get; set; }
+
+            }
+
+            [Test]
+            public void UsingTypeParameter_WithProcedure_ReturnsModels_OutputCount()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                var p = new PersonParam { CarId = 3, TotalCount = 0 };
+                var parameters = new DynamicParameters(p)
+                    .Output(p, d => d.TotalCount, dbType: System.Data.DbType.Int32);
+                IEnumerable<PersonModel> list = personDal.Query<PersonModel>(
+                    "dbo.P_GetPersonModelsByCarId_OutputCount",
+                    parameters, System.Data.CommandType.StoredProcedure);
+
+                Assert.AreEqual(2, list.Count());
+                Assert.AreEqual(2, parameters.Get<int>("TotalCount"));
+                Assert.AreEqual(2, parameters.Get<object>("TotalCount"));
+                Assert.AreEqual(2, p.TotalCount);
+                Assert.IsTrue(list.All(d => d.CarId == 3));
+            }
+        }
+
+        [TestFixture]
+        public class ExecuteMethod : SqlServerBaseFixture
+        {
+            [Test]
+            public void UsingNone()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                personDal.Execute("update Person set IsActive = 1 where CarId = 3");
+
+                IEnumerable<PersonEntity> list = personDal.Query(
+                    "select * from Person where CarId = 3");
+
+                Assert.AreEqual(2, list.Count());
+                Assert.IsTrue(list.All(d => d.IsActive == 1));
+            }
+
+            [Test]
+            public void UsingParameter()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                personDal.Execute("update Person set IsActive = 1 where CarId = @CarId", new { CarId = 3 });
+
+                IEnumerable<PersonEntity> list = personDal.Query(
+                    "select * from Person where CarId = @CarId", new { CarId = 3 });
+
+                Assert.AreEqual(2, list.Count());
+                Assert.IsTrue(list.All(d => d.IsActive == 1));
+            }
+
+            [Test]
+            public void UsingParameter_WithProcedure()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                personDal.Execute("P_SetPersonsByCarId", new { CarId = 3 }, System.Data.CommandType.StoredProcedure);
+
+                IEnumerable<PersonEntity> list = personDal.Query(
+                    "P_GetPersonsByCarId", new { CarId = 3 }, System.Data.CommandType.StoredProcedure);
+
+                Assert.AreEqual(2, list.Count());
+                Assert.IsTrue(list.All(d => d.CarId == 3));
+            }
+
+            [Test]
+            public void UsingDynamicParameter_WithProcedure_OutputCount()
+            {
+                var personDal = new DalBase<PersonEntity>();
+
+                personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "c", CarId = 3, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+                personDal.Insert(new PersonEntity { PersonName = "d", CarId = 2, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
+
+                var parameters = new DynamicParameters(new { CarId = 3 });
+                parameters.Add("TotalCount", dbType: System.Data.DbType.Int32, direction: System.Data.ParameterDirection.Output);
+
+                personDal.Execute("P_SetPersonsByCarId_OutputCount", parameters, System.Data.CommandType.StoredProcedure);
+
+                Assert.AreEqual(2, parameters.Get<int>("TotalCount"));
+                Assert.AreEqual(2, parameters.Get<object>("TotalCount"));
+
+                parameters = new DynamicParameters(new { CarId = 3 });
+                parameters.Add("TotalCount", dbType: System.Data.DbType.Int32, direction: System.Data.ParameterDirection.Output);
+
+                IEnumerable<PersonModel> list = personDal.Query<PersonModel>(
+                    "dbo.P_GetPersonModelsByCarId_OutputCount",
+                    parameters, System.Data.CommandType.StoredProcedure);
+
+                Assert.AreEqual(2, list.Count());
+                Assert.AreEqual(2, parameters.Get<int>("TotalCount"));
+                Assert.AreEqual(2, parameters.Get<object>("TotalCount"));
+                Assert.IsTrue(list.All(d => d.Name == "b" || d.Name == "c"));
             }
 
             class PersonParam

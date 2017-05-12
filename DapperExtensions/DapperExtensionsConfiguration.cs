@@ -26,11 +26,6 @@ namespace DapperExtensions
         Action<string> OutputSql { get; set; }
 
         /// <summary>
-        /// 逻辑删除时更新属性和值的构造器
-        /// </summary>
-        Func<object> SoftDeletePropsFactory { get; set; }
-
-        /// <summary>
         /// 实体集合返回前是否要缓冲（ToList）
         /// </summary>
         bool Buffered { get; set; }
@@ -67,9 +62,6 @@ namespace DapperExtensions
 
         /// <inheritdoc />
         public Action<string> OutputSql { get; set; }
-
-        /// <inheritdoc />
-        public Func<object> SoftDeletePropsFactory { get; set; }
 
         /// <inheritdoc />
         public bool Buffered { get; set; }

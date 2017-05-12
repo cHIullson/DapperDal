@@ -35,5 +35,20 @@ namespace DapperDal
                 return connection.Execute(sql, parameters);
             }
         }
+
+        /// <summary>
+        /// 执行参数化SQL语句
+        /// </summary>
+        /// <param name="sql">SQL语句</param>
+        /// <param name="parameters">SQL参数</param>
+        /// <param name="commandType">SQL语句命令类型</param>
+        /// <returns>影响行数</returns>
+        public virtual int Execute(string sql, object parameters, CommandType commandType)
+        {
+            using (var connection = OpenConnection())
+            {
+                return connection.Execute(sql, parameters, commandType: commandType);
+            }
+        }
     }
 }

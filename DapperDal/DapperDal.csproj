@@ -49,11 +49,11 @@
     <Compile Include="DalBaseOfTEntity.Exsit.cs" />
     <Compile Include="DalBaseOfTEntity.ExecuteScalar.cs" />
     <Compile Include="DalBaseOfTEntity.GetFirst.cs" />
-    <Compile Include="DalBaseOfTEntity.GetFirstOrDefault.cs" />
     <Compile Include="DalBaseOfTEntity.GetTop.cs" />
     <Compile Include="DalBaseOfTEntity.Execute.cs" />
-    <Compile Include="DalBaseOfTEntity.QueryFirst.cs" />
     <Compile Include="DalBaseOfTEntity.QueryFirstOrDefault.cs" />
+    <Compile Include="DalBaseOfTEntity.QueryFirst.cs" />
+    <Compile Include="DalBaseOfTEntity.SwitchActive.cs" />
     <Compile Include="DalBaseOfTEntity.SoftDelete.cs" />
     <Compile Include="DalBaseOfTEntity.Get.cs" />
     <Compile Include="DalBaseOfTEntity.cs" />
@@ -66,6 +66,7 @@
     <Compile Include="DalBaseOfTEntity.GetList.cs" />
     <Compile Include="DalBaseOfTEntity.Query.cs" />
     <Compile Include="DalBaseOfTEntity.QueryMultiple.cs" />
+    <Compile Include="DalOptions.cs" />
     <Compile Include="Mapper\AutoEntityMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

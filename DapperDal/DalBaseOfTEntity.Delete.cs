@@ -24,6 +24,21 @@ namespace DapperDal
         }
 
         /// <summary>
+        /// 根据实体主键ID删除指定实体
+        /// </summary>
+        /// <param name="id">实体主键ID</param>
+        /// <returns>删除结果</returns>
+        public virtual bool Delete(TPrimaryKey id)
+        {
+            using (var connection = OpenConnection())
+            {
+                IPredicate predicate = PredicateExtensions.GetIdPredicate<TEntity>(id);
+
+                return connection.Delete<TEntity>(predicate);
+            }
+        }
+
+        /// <summary>
         /// 根据条件删除实体
         /// </summary>
         /// <param name="predicate">删除条件</param>

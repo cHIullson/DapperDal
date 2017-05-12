@@ -52,6 +52,22 @@ namespace DapperDal
         }
 
         /// <summary>
+        /// 更新指定实体指定属性
+        /// </summary>
+        /// <param name="id">实体主键ID</param>
+        /// <param name="props">更新属性名</param>
+        /// <returns>更新结果</returns>
+        public virtual bool Update(TPrimaryKey id, object props)
+        {
+            using (var connection = OpenConnection())
+            {
+                IPredicate predicate = PredicateExtensions.GetIdPredicate<TEntity>(id);
+
+                return connection.Update<TEntity>(props, predicate);
+            }
+        }
+
+        /// <summary>
         /// 根据指定指定主键ID更新实体指定属性
         /// （条件使用实体主键ID）
         /// </summary>

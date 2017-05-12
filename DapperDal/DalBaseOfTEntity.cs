@@ -52,7 +52,6 @@ namespace DapperDal
                 {
                     configuration.DefaultMapper = typeof(AutoEntityMapper<>);
                     configuration.Nolock = true;
-                    configuration.SoftDeletePropsFactory = () => new { IsActive = 0 };
                     configuration.Buffered = true;
                 });
         }
@@ -72,6 +71,9 @@ namespace DapperDal
         /// <exception cref="ConfigurationErrorsException">找不到配置节点</exception>
         public DalBase(string connNameOrConnStr)
         {
+            // 初始化配置项
+            InitOptions();
+
             if (string.IsNullOrEmpty(connNameOrConnStr))
             {
                 throw new ArgumentNullException("connNameOrConnStr");
@@ -93,6 +95,11 @@ namespace DapperDal
                 ConnectionString = conStr.ConnectionString;
             }
         }
+
+        /// <summary>
+        /// 配置项
+        /// </summary>
+        public DalOptions Options { get; private set; }
 
         /// <summary>
         /// DB连接字符串
@@ -118,6 +125,21 @@ namespace DapperDal
             connection.Open();
 
             return connection;
+        }
+
+        /// <summary>
+        /// 初始化配置项
+        /// </summary>
+        private void InitOptions()
+        {
+            if (Options == null)
+            {
+                Options = new DalOptions();
+
+                Options.SoftDeletePropsFactory = () => new { IsActive = 0 };
+
+                Options.SoftActivePropsFactory = () => new { IsActive = 1 };
+            }
         }
     }
 }

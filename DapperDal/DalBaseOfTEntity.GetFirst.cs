@@ -18,7 +18,7 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.GetTop<TEntity>(1).First();
+                return connection.GetTop<TEntity>(1).FirstOrDefault();
             }
         }
 
@@ -32,7 +32,7 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.GetTop<TEntity>(1, predicate).First();
+                return connection.GetTop<TEntity>(1, predicate).FirstOrDefault();
             }
         }
 
@@ -49,7 +49,7 @@ namespace DapperDal
             using (var connection = OpenConnection())
             {
                 return connection.GetTop<TEntity>(1, null,
-                    sortingExpression.ToSortable(ascending)).First();
+                    sortingExpression.ToSortable(ascending)).FirstOrDefault();
             }
         }
 
@@ -64,7 +64,7 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.GetTop<TEntity>(1, predicate, sort.ToSortable()).First();
+                return connection.GetTop<TEntity>(1, predicate, sort.ToSortable()).FirstOrDefault();
             }
         }
 
@@ -83,7 +83,7 @@ namespace DapperDal
             using (var connection = OpenConnection())
             {
                 return connection.GetTop<TEntity>(1, predicate,
-                    sortingExpression.ToSortable(ascending)).First();
+                    sortingExpression.ToSortable(ascending)).FirstOrDefault();
             }
         }
 
@@ -97,7 +97,7 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.GetTop<TEntity>(1, predicate.ToPredicateGroup<TEntity, TPrimaryKey>()).First();
+                return connection.GetTop<TEntity>(1, predicate.ToPredicateGroup<TEntity, TPrimaryKey>()).FirstOrDefault();
             }
         }
 
@@ -113,7 +113,7 @@ namespace DapperDal
             using (var connection = OpenConnection())
             {
                 return connection.GetTop<TEntity>(1, predicate.ToPredicateGroup<TEntity, TPrimaryKey>(),
-                    sort.ToSortable()).First();
+                    sort.ToSortable()).FirstOrDefault();
             }
         }
 
@@ -132,7 +132,7 @@ namespace DapperDal
             using (var connection = OpenConnection())
             {
                 return connection.GetTop<TEntity>(1, predicate.ToPredicateGroup<TEntity, TPrimaryKey>(),
-                    sortingExpression.ToSortable(ascending)).First();
+                    sortingExpression.ToSortable(ascending)).FirstOrDefault();
             }
         }
     }

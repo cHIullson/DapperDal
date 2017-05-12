@@ -14,11 +14,11 @@ namespace DapperDal
         /// </summary>
         /// <param name="sql">SQL语句</param>
         /// <returns>实体</returns>
-        public virtual TEntity QueryFirstOrDefault(string sql)
+        public virtual TEntity QueryFirst(string sql)
         {
             using (var connection = OpenConnection())
             {
-                return connection.QueryFirstOrDefault<TEntity>(sql);
+                return connection.QueryFirst<TEntity>(sql);
             }
         }
 
@@ -28,11 +28,11 @@ namespace DapperDal
         /// <param name="sql">SQL语句</param>
         /// <param name="parameters">SQL参数</param>
         /// <returns>实体</returns>
-        public virtual TEntity QueryFirstOrDefault(string sql, object parameters)
+        public virtual TEntity QueryFirst(string sql, object parameters)
         {
             using (var connection = OpenConnection())
             {
-                return connection.QueryFirstOrDefault<TEntity>(sql, parameters);
+                return connection.QueryFirst<TEntity>(sql, parameters);
             }
         }
 
@@ -43,11 +43,11 @@ namespace DapperDal
         /// <param name="parameters">SQL参数</param>
         /// <param name="commandType">SQL语句命令类型</param>
         /// <returns>实体</returns>
-        public virtual TEntity QueryFirstOrDefault(string sql, object parameters, CommandType commandType)
+        public virtual TEntity QueryFirst(string sql, object parameters, CommandType commandType)
         {
             using (var connection = OpenConnection())
             {
-                return connection.QueryFirstOrDefault<TEntity>(sql, parameters, commandType: commandType);
+                return connection.QueryFirst<TEntity>(sql, parameters, commandType: commandType);
             }
         }
 
@@ -57,11 +57,11 @@ namespace DapperDal
         /// <typeparam name="TAny">返回实体类型</typeparam>
         /// <param name="sql">SQL语句</param>
         /// <returns>实体</returns>
-        public virtual TAny QueryFirstOrDefault<TAny>(string sql)
+        public virtual TAny QueryFirst<TAny>(string sql)
         {
             using (var connection = OpenConnection())
             {
-                return connection.QueryFirstOrDefault<TAny>(sql);
+                return connection.QueryFirst<TAny>(sql);
             }
         }
 
@@ -72,11 +72,11 @@ namespace DapperDal
         /// <param name="sql">SQL语句</param>
         /// <param name="parameters">SQL参数</param>
         /// <returns>实体</returns>
-        public virtual TAny QueryFirstOrDefault<TAny>(string sql, object parameters)
+        public virtual TAny QueryFirst<TAny>(string sql, object parameters)
         {
             using (var connection = OpenConnection())
             {
-                return connection.QueryFirstOrDefault<TAny>(sql, parameters);
+                return connection.QueryFirst<TAny>(sql, parameters);
             }
         }
 
@@ -88,11 +88,11 @@ namespace DapperDal
         /// <param name="parameters">SQL参数</param>
         /// <param name="commandType">SQL语句命令类型</param>
         /// <returns>实体</returns>
-        public virtual TAny QueryFirstOrDefault<TAny>(string sql, object parameters, CommandType commandType)
+        public virtual TAny QueryFirst<TAny>(string sql, object parameters, CommandType commandType)
         {
             using (var connection = OpenConnection())
             {
-                return connection.QueryFirstOrDefault<TAny>(sql, parameters, commandType: commandType);
+                return connection.QueryFirst<TAny>(sql, parameters, commandType: commandType);
             }
         }
     }

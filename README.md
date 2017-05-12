@@ -6,6 +6,12 @@ NuGet: [![NuGet Badge](https://buildstats.info/nuget/DapperDal)](https://www.nug
 
 Release Notes
 -------------
+### 1.5.14
+* 添加逻辑删除或激活方法 `SwitchActive`
+* 删除方法 `GetFirstOrDefault`，可以使用 `GetFirst` 替换
+* 添加支持主键 ID 的重载方法 `Update`、`Delete`
+* 配置项 `SoftDeleteProps` 迁移到 `DapperDal` 中，新添加配置项 `SoftActiveProps`
+
 ### 1.5.13
 * 添加谓词表达式组合扩展方法（来自[alexfoxgill/ExpressionTools](https://github.com/alexfoxgill/ExpressionTools)）
 
