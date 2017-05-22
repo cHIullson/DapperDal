@@ -74,26 +74,7 @@ namespace DapperDal
             // 初始化配置项
             InitOptions();
 
-            if (string.IsNullOrEmpty(connNameOrConnStr))
-            {
-                throw new ArgumentNullException("connNameOrConnStr");
-            }
-
-            if (connNameOrConnStr.Contains("=") || connNameOrConnStr.Contains(";"))
-            {
-                ConnectionString = connNameOrConnStr;
-            }
-            else
-            {
-                var conStr = ConfigurationManager.ConnectionStrings[connNameOrConnStr];
-                if (conStr == null)
-                {
-                    throw new ConfigurationErrorsException(
-                        string.Format("Failed to find connection string named '{0}' in app/web.config.", connNameOrConnStr));
-                }
-
-                ConnectionString = conStr.ConnectionString;
-            }
+            ConnectionString = ResolveConnectionString(connNameOrConnStr);
         }
 
         /// <summary>
@@ -112,15 +93,26 @@ namespace DapperDal
         /// <returns>DB连接</returns>
         protected virtual IDbConnection OpenConnection()
         {
-            if (string.IsNullOrEmpty(ConnectionString))
+            return OpenConnection(ConnectionString);
+        }
+
+        /// <summary>
+        /// 打开DB连接
+        /// </summary>
+        /// <param name="connNameOrConnStr">DB 连接字符串配置节点名</param>
+        /// <returns>DB连接</returns>
+        protected virtual IDbConnection OpenConnection(string connNameOrConnStr)
+        {
+            var connectionString = ResolveConnectionString(connNameOrConnStr);
+            if (string.IsNullOrEmpty(connectionString))
             {
                 throw new ArgumentNullException("connectionString");
             }
 
-            var connection = new SqlConnection(ConnectionString);
+            var connection = new SqlConnection(connectionString);
             if (connection == null)
                 throw new ConfigurationErrorsException(
-                    string.Format("Failed to create a connection using the connection string '{0}'.", ConnectionString));
+                    string.Format("Failed to create a connection using the connection string '{0}'.", connectionString));
 
             connection.Open();
 
@@ -141,5 +133,35 @@ namespace DapperDal
                 Options.SoftActivePropsFactory = () => new { IsActive = 1 };
             }
         }
+
+        /// <summary>
+        /// 获取 DB 连接串
+        /// </summary>
+        /// <param name="connNameOrConnStr">DB 连接字符串配置节点名</param>
+        /// <returns>DB 连接串</returns>
+        private string ResolveConnectionString(string connNameOrConnStr)
+        {
+            if (string.IsNullOrEmpty(connNameOrConnStr))
+            {
+                throw new ArgumentNullException("connNameOrConnStr");
+            }
+
+            if (connNameOrConnStr.Contains("=") || connNameOrConnStr.Contains(";"))
+            {
+                return connNameOrConnStr;
+            }
+            else
+            {
+                var conStr = ConfigurationManager.ConnectionStrings[connNameOrConnStr];
+                if (conStr == null)
+                {
+                    throw new ConfigurationErrorsException(
+                        string.Format("Failed to find connection string named '{0}' in app/web.config.", connNameOrConnStr));
+                }
+
+                return conStr.ConnectionString;
+            }
+        }
+
     }
 }

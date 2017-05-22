@@ -18,7 +18,7 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.QueryFirst<TEntity>(sql);
+                return connection.QueryFirstOrDefault<TEntity>(sql);
             }
         }
 
@@ -32,7 +32,7 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.QueryFirst<TEntity>(sql, parameters);
+                return connection.QueryFirstOrDefault<TEntity>(sql, parameters);
             }
         }
 
@@ -47,7 +47,7 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.QueryFirst<TEntity>(sql, parameters, commandType: commandType);
+                return connection.QueryFirstOrDefault<TEntity>(sql, parameters, commandType: commandType);
             }
         }
 
@@ -61,7 +61,7 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.QueryFirst<TAny>(sql);
+                return connection.QueryFirstOrDefault<TAny>(sql);
             }
         }
 
@@ -76,7 +76,7 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.QueryFirst<TAny>(sql, parameters);
+                return connection.QueryFirstOrDefault<TAny>(sql, parameters);
             }
         }
 
@@ -92,7 +92,7 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.QueryFirst<TAny>(sql, parameters, commandType: commandType);
+                return connection.QueryFirstOrDefault<TAny>(sql, parameters, commandType: commandType);
             }
         }
     }

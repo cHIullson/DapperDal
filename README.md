@@ -6,6 +6,10 @@ NuGet: [![NuGet Badge](https://buildstats.info/nuget/DapperDal)](https://www.nug
 
 Release Notes
 -------------
+### 1.5.15
+* 删除方法 `QueryFirstOrDefault`，可以使用 `QueryFirst` 替换
+* 添加重载方法 `OpenConnection`、`Execute`、`Query`, 支持传入其他 DB 连接串
+
 ### 1.5.14
 * 添加逻辑删除或激活方法 `SwitchActive`
 * 删除方法 `GetFirstOrDefault`，可以使用 `GetFirst` 替换
