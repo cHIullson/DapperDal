@@ -3,6 +3,7 @@
 用 `Dapper`、`Dapper-Extensions`、`Abp.Dapper` 封装的数据访问层
 
 NuGet: [![NuGet Badge](https://buildstats.info/nuget/DapperDal)](https://www.nuget.org/packages/DapperDal/)
+
 AppVeyor: [![Build status](https://ci.appveyor.com/api/projects/status/rxogkxvhdthd4rf0?svg=true)](https://ci.appveyor.com/project/arbing/dapperdal)
 
 Release Notes
