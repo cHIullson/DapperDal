@@ -14,6 +14,21 @@
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -54,6 +69,7 @@
       <HintPath>..\packages\odp.net.managed.121.1.1\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SQLite">
       <HintPath>..\packages\System.Data.SQLite.1.0.82.0\lib\net40\System.Data.SQLite.dll</HintPath>
@@ -77,26 +93,11 @@
     <Compile Include="Expressions\DapperExpressionExtensionsFixture.cs" />
     <Compile Include="Helpers\DatabaseInfo.cs" />
     <Compile Include="Helpers\Protected.cs" />
-    <Compile Include="IntegrationTests\MySql\CrudFixture.cs" />
-    <Compile Include="IntegrationTests\MySql\MySqlBaseFixture.cs" />
-    <Compile Include="IntegrationTests\MySql\TimerFixture.cs" />
-    <Compile Include="IntegrationTests\Oracle\CrudFixture.cs" />
-    <Compile Include="IntegrationTests\Oracle\Data\Animal.cs" />
-    <Compile Include="IntegrationTests\Oracle\Data\Car.cs" />
-    <Compile Include="IntegrationTests\Oracle\Data\Person.cs" />
-    <Compile Include="IntegrationTests\Oracle\OracleBaseFixture.cs" />
-    <Compile Include="IntegrationTests\Oracle\TimerFixture.cs" />
-    <Compile Include="IntegrationTests\Sqlite\CrudFixture.cs" />
-    <Compile Include="IntegrationTests\Sqlite\SqliteBaseFixture.cs" />
-    <Compile Include="IntegrationTests\Sqlite\TimerFixture.cs" />
     <Compile Include="Data\CustomMapper.cs" />
     <Compile Include="Data\Animal.cs" />
     <Compile Include="Data\Multikey.cs" />
     <Compile Include="Data\Person.cs" />
     <Compile Include="IntegrationTests\NonCrudFixture.cs" />
-    <Compile Include="IntegrationTests\SqlCe\CrudFixture.cs" />
-    <Compile Include="IntegrationTests\SqlCe\SqlCeBaseFixture.cs" />
-    <Compile Include="IntegrationTests\SqlCe\TimerFixture.cs" />
     <Compile Include="IntegrationTests\SqlServer\CrudFixture.cs" />
     <Compile Include="IntegrationTests\SqlServer\SqlServerBaseFixture.cs" />
     <Compile Include="IntegrationTests\SqlServer\TimerFixture.cs" />
@@ -132,37 +133,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="IntegrationTests\MySql\Sql\CreatePersonTable.sql" />
-    <EmbeddedResource Include="IntegrationTests\MySql\Sql\CreateFooTable.sql" />
-    <EmbeddedResource Include="IntegrationTests\MySql\Sql\CreateMultikeyTable.sql" />
-    <EmbeddedResource Include="IntegrationTests\SqlCe\Sql\CreateAnimalTable.sql" />
-    <EmbeddedResource Include="IntegrationTests\SqlCe\Sql\CreatePersonTable.sql" />
-    <EmbeddedResource Include="IntegrationTests\SqlCe\Sql\CreateFooTable.sql" />
-    <EmbeddedResource Include="IntegrationTests\SqlCe\Sql\CreateMultikeyTable.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="IntegrationTests\SqlCe\Sql\CreateCarTable.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="IntegrationTests\MySql\Sql\CreateCarTable.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="IntegrationTests\Sqlite\Sql\CreatePersonTable.sql" />
-    <EmbeddedResource Include="IntegrationTests\Sqlite\Sql\CreateMultikeyTable.sql" />
-    <EmbeddedResource Include="IntegrationTests\Sqlite\Sql\CreateFooTable.sql" />
-    <EmbeddedResource Include="IntegrationTests\Sqlite\Sql\CreateCarTable.sql" />
-    <EmbeddedResource Include="IntegrationTests\Sqlite\Sql\CreateAnimalTable.sql" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="IntegrationTests\SqlServer\Sql\CreateAnimalTable.sql" />
     <EmbeddedResource Include="IntegrationTests\SqlServer\Sql\CreatePersonTable.sql" />
     <EmbeddedResource Include="IntegrationTests\SqlServer\Sql\CreateCarTable.sql" />
     <EmbeddedResource Include="IntegrationTests\SqlServer\Sql\CreateFooTable.sql" />
     <EmbeddedResource Include="IntegrationTests\SqlServer\Sql\CreateMultikeyTable.sql" />
-    <EmbeddedResource Include="IntegrationTests\MySql\Sql\CreateAnimalTable.sql" />
-    <EmbeddedResource Include="IntegrationTests\Oracle\Sql\CreateCarTable.sql" />
-    <EmbeddedResource Include="IntegrationTests\Oracle\Sql\CreatePersonTable.sql" />
-    <EmbeddedResource Include="IntegrationTests\Oracle\Sql\CreateAnimalTable.sql" />
+    <EmbeddedResource Include="IntegrationTests\SqlServer\Sql\TruncateTable.sql" />
+    <EmbeddedResource Include="IntegrationTests\SqlServer\Sql\DropDatabase.sql" />
+    <EmbeddedResource Include="IntegrationTests\SqlServer\Sql\CreateDatabase.sql" />
     <Content Include="x64\SQLite.Interop.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -172,6 +150,13 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

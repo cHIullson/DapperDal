@@ -9,29 +9,90 @@ using NUnit.Framework;
 
 namespace DapperDal.Test.IntegrationTests.SqlServer
 {
-    public class SqlServerBaseFixture
+    [SetUpFixture]
+    public class MySetUpClass
     {
-        [SetUp]
-        public virtual void Setup()
+        [OneTimeSetUp]
+        public void RunBeforeAnyTests()
         {
-            var connectionString = ConfigurationManager.ConnectionStrings["Default"];
-            var connection = new SqlConnection(connectionString.ConnectionString);
+            CreateDatabase();
+
+            var connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=dapperTest;Integrated security=True;Application Name=DapperDal;";
+            var connection = new SqlConnection(connectionString);
             var files = new List<string>
-                                {
-                                    ReadScriptFile("CreateCarTable"),
-                                    ReadScriptFile("CreatePersonTable"),
-                                    ReadScriptFile("CreatePersonProcedure"),
-                                };
+            {
+                ReadScriptFile("CreateCarTable"),
+                ReadScriptFile("CreatePersonTable"),
+                ReadScriptFile("CreatePersonProcedure"),
+            };
 
             foreach (var setupFile in files)
             {
                 connection.Execute(setupFile);
             }
+        }
 
-            DapperExtensions.DapperExtensions.Configure(configuration =>
+        public void CreateDatabase()
+        {
+            var connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Integrated security=True;Application Name=DapperDal;";
+            var connection = new SqlConnection(connectionString);
+            var files = new List<string>
             {
-                configuration.OutputSql = Console.WriteLine;
-            });
+                ReadScriptFile("CreateDatabase"),
+            };
+
+            foreach (var setupFile in files)
+            {
+                connection.Execute(setupFile);
+            }
+        }
+
+
+        [OneTimeTearDown]
+        public void RunAfterAnyTests()
+        {
+            var connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=dapperTest;Integrated security=True;Application Name=DapperDal;";
+            var connection = new SqlConnection(connectionString);
+            var files = new List<string>
+            {
+                ReadScriptFile("TruncateTable"),
+                //ReadScriptFile("DropDatabase"),
+            };
+
+            foreach (var setupFile in files)
+            {
+                connection.Execute(setupFile);
+            }
+        }
+
+        public string ReadScriptFile(string name)
+        {
+            string fileName = GetType().Namespace + ".Sql." + name + ".sql";
+            using (Stream s = System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceStream(fileName))
+            using (StreamReader sr = new StreamReader(s))
+            {
+                return sr.ReadToEnd();
+            }
+        }
+
+    }
+
+    public class SqlServerBaseFixture
+    {
+        [SetUp]
+        public virtual void Setup()
+        {
+            var connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=dapperTest;Integrated security=True;Application Name=DapperDal;";
+            var connection = new SqlConnection(connectionString);
+            var files = new List<string>
+            {
+                ReadScriptFile("TruncateTable"),
+            };
+
+            foreach (var setupFile in files)
+            {
+                connection.Execute(setupFile);
+            }
         }
 
         public string ReadScriptFile(string name)
