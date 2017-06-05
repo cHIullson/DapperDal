@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
-using DapperExtensions;
-using DapperExtensions.Expressions;
+using DapperDal.Expressions;
+using DapperDal.Extensions;
 
 namespace DapperDal
 {
@@ -18,7 +18,11 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.Count<TEntity>(null) > 0;
+                return Configuration.DapperImplementor.Count<TEntity>(
+                    connection: connection,
+                    predicate: null,
+                    transaction: null,
+                    commandTimeout: null) > 0;
             }
         }
 
@@ -31,8 +35,12 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                IPredicate predicate = PredicateExtensions.GetIdPredicate<TEntity>(id);
-                return connection.Count<TEntity>(predicate) > 0;
+                IPredicate predicate = PredicateHelper.GetIdPredicate<TEntity>(id);
+                return Configuration.DapperImplementor.Count<TEntity>(
+                           connection: connection,
+                           predicate: predicate,
+                           transaction: null,
+                           commandTimeout: null) > 0;
             }
         }
 
@@ -46,7 +54,11 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.Count<TEntity>(predicate) > 0;
+                return Configuration.DapperImplementor.Count<TEntity>(
+                           connection: connection,
+                           predicate: predicate,
+                           transaction: null,
+                           commandTimeout: null) > 0;
             }
         }
 
@@ -60,7 +72,12 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.Count<TEntity>(predicate.ToPredicateGroup<TEntity, TPrimaryKey>()) > 0;
+                var predicateGp = predicate.ToPredicateGroup<TEntity, TPrimaryKey>();
+                return Configuration.DapperImplementor.Count<TEntity>(
+                    connection: connection,
+                    predicate: predicateGp,
+                    transaction: null,
+                    commandTimeout: null) > 0;
             }
         }
     }

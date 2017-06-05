@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata schemaVersion="2">
     <id>DapperDal</id>
-    <version>1.5.15</version>
+    <version>1.5.16</version>
     <title>DapperDal</title>
     <authors>arbing</authors>
     <owners>arbing</owners>

@@ -72,10 +72,6 @@
       <Project>{64cca848-7660-43ee-abae-91effe765e41}</Project>
       <Name>DapperDal</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DapperExtensions\DapperExtensions.csproj">
-      <Project>{4c1a2c6c-a469-4c87-98d1-f1d517fa1acf}</Project>
-      <Name>DapperExtensions</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

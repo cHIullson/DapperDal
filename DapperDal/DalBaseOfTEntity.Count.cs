@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
-using DapperExtensions;
-using DapperExtensions.Expressions;
+using DapperDal.Expressions;
+using DapperDal.Extensions;
 
 namespace DapperDal
 {
@@ -18,7 +18,11 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.Count<TEntity>(null);
+                return Configuration.DapperImplementor.Count<TEntity>(
+                    connection: connection, 
+                    predicate: null,
+                    transaction: null,
+                    commandTimeout: null);
             }
         }
 
@@ -32,7 +36,11 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.Count<TEntity>(predicate);
+                return Configuration.DapperImplementor.Count<TEntity>(
+                    connection: connection,
+                    predicate: predicate,
+                    transaction: null,
+                    commandTimeout: null);
             }
         }
 
@@ -46,7 +54,12 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.Count<TEntity>(predicate.ToPredicateGroup<TEntity, TPrimaryKey>());
+                var predicateGp = predicate.ToPredicateGroup<TEntity, TPrimaryKey>();
+                return Configuration.DapperImplementor.Count<TEntity>(
+                    connection: connection,
+                    predicate: predicateGp,
+                    transaction: null,
+                    commandTimeout: null);
             }
         }
     }

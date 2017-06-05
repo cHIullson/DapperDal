@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
-using DapperExtensions;
-using DapperExtensions.Expressions;
+using DapperDal.Expressions;
+using DapperDal.Extensions;
 
 namespace DapperDal
 {
@@ -18,7 +18,13 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.GetList<TEntity>();
+                return Configuration.DapperImplementor.GetList<TEntity>(
+                    connection: connection,
+                    predicate: null,
+                    sort: null,
+                    transaction: null,
+                    commandTimeout: null,
+                    buffered: Configuration.Buffered);
             }
         }
 
@@ -32,7 +38,13 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.GetList<TEntity>(predicate);
+                return Configuration.DapperImplementor.GetList<TEntity>(
+                    connection: connection,
+                    predicate: predicate,
+                    sort: null,
+                    transaction: null,
+                    commandTimeout: null,
+                    buffered: Configuration.Buffered);
             }
         }
 
@@ -48,8 +60,14 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.GetList<TEntity>(null,
-                    sortingExpression.ToSortable(ascending));
+                var sort = sortingExpression.ToSortable(ascending);
+                return Configuration.DapperImplementor.GetList<TEntity>(
+                    connection: connection,
+                    predicate: null,
+                    sort: sort,
+                    transaction: null,
+                    commandTimeout: null,
+                    buffered: Configuration.Buffered);
             }
         }
 
@@ -64,7 +82,14 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.GetList<TEntity>(predicate, sort.ToSortable());
+                var sorts = sort.ToSortable();
+                return Configuration.DapperImplementor.GetList<TEntity>(
+                    connection: connection,
+                    predicate: predicate,
+                    sort: sorts,
+                    transaction: null,
+                    commandTimeout: null,
+                    buffered: Configuration.Buffered);
             }
         }
 
@@ -82,8 +107,14 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.GetList<TEntity>(predicate,
-                    sortingExpression.ToSortable(ascending));
+                var sort = sortingExpression.ToSortable(ascending);
+                return Configuration.DapperImplementor.GetList<TEntity>(
+                    connection: connection,
+                    predicate: predicate,
+                    sort: sort,
+                    transaction: null,
+                    commandTimeout: null,
+                    buffered: Configuration.Buffered);
             }
         }
 
@@ -97,7 +128,14 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.GetList<TEntity>(predicate.ToPredicateGroup<TEntity, TPrimaryKey>());
+                var predicateGp = predicate.ToPredicateGroup<TEntity, TPrimaryKey>();
+                return Configuration.DapperImplementor.GetList<TEntity>(
+                    connection: connection,
+                    predicate: predicateGp,
+                    sort: null,
+                    transaction: null,
+                    commandTimeout: null,
+                    buffered: Configuration.Buffered);
             }
         }
 
@@ -112,8 +150,15 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.GetList<TEntity>(predicate.ToPredicateGroup<TEntity, TPrimaryKey>(),
-                    sort.ToSortable());
+                var predicateGp = predicate.ToPredicateGroup<TEntity, TPrimaryKey>();
+                var sorts = sort.ToSortable();
+                return Configuration.DapperImplementor.GetList<TEntity>(
+                    connection: connection,
+                    predicate: predicateGp,
+                    sort: sorts,
+                    transaction: null,
+                    commandTimeout: null,
+                    buffered: Configuration.Buffered);
             }
         }
 
@@ -131,8 +176,15 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.GetList<TEntity>(predicate.ToPredicateGroup<TEntity, TPrimaryKey>(),
-                    sortingExpression.ToSortable(ascending));
+                var predicateGp = predicate.ToPredicateGroup<TEntity, TPrimaryKey>();
+                var sort = sortingExpression.ToSortable(ascending);
+                return Configuration.DapperImplementor.GetList<TEntity>(
+                    connection: connection,
+                    predicate: predicateGp,
+                    sort: sort,
+                    transaction: null,
+                    commandTimeout: null,
+                    buffered: Configuration.Buffered);
             }
         }
     }

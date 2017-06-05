@@ -1,8 +1,5 @@
 using Dapper;
 using DapperDal.Mapper;
-using DapperExtensions;
-using DapperExtensions.Expressions;
-using DapperExtensions.Sql;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -47,13 +44,9 @@ namespace DapperDal
     {
         static DalBase()
         {
-            DapperExtensions.DapperExtensions.Configure(
-                configuration =>
-                {
-                    configuration.DefaultMapper = typeof(AutoEntityMapper<>);
-                    configuration.Nolock = true;
-                    configuration.Buffered = true;
-                });
+            DapperConfiguration.Default.DefaultMapper = typeof(AutoEntityMapper<>);
+            DapperConfiguration.Default.Nolock = true;
+            DapperConfiguration.Default.Buffered = true;
         }
 
         /// <summary>
@@ -75,6 +68,14 @@ namespace DapperDal
             InitOptions();
 
             ConnectionString = ResolveConnectionString(connNameOrConnStr);
+        }
+
+        /// <summary>
+        /// ≈‰÷√œÓ
+        /// </summary>
+        public DapperConfiguration Configuration
+        {
+            get { return DapperConfiguration.Default; }
         }
 
         /// <summary>

@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
-using DapperExtensions;
-using DapperExtensions.Expressions;
 
 namespace DapperDal
 {
@@ -19,7 +17,11 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.Insert(entity);
+                return Configuration.DapperImplementor.Insert(
+                    connection: connection,
+                    entity: entity,
+                    transaction: null,
+                    commandTimeout: null);
             }
         }
 
@@ -31,7 +33,11 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                connection.Insert(entities);
+                Configuration.DapperImplementor.Insert(
+                    connection: connection,
+                    entities: entities,
+                    transaction: null,
+                    commandTimeout: null);
             }
         }
     }

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
-using DapperExtensions;
-using DapperExtensions.Expressions;
+using DapperDal.Expressions;
+using DapperDal.Extensions;
 
 namespace DapperDal
 {
@@ -19,7 +19,11 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.Update(entity);
+                return Configuration.DapperImplementor.Update(
+                    connection: connection,
+                    entity: entity,
+                    transaction: null,
+                    commandTimeout: null);
             }
         }
 
@@ -33,7 +37,12 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.Update(entity, props.ToList());
+                return Configuration.DapperImplementor.Update(
+                    connection: connection,
+                    entity: entity,
+                    props: props.ToList(),
+                    transaction: null,
+                    commandTimeout: null);
             }
         }
 
@@ -47,7 +56,12 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.Update(entity, props);
+                return Configuration.DapperImplementor.Update(
+                    connection: connection,
+                    entity: entity,
+                    props: props,
+                    transaction: null,
+                    commandTimeout: null);
             }
         }
 
@@ -61,9 +75,14 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                IPredicate predicate = PredicateExtensions.GetIdPredicate<TEntity>(id);
+                IPredicate predicate = PredicateHelper.GetIdPredicate<TEntity>(id);
 
-                return connection.Update<TEntity>(props, predicate);
+                return Configuration.DapperImplementor.Update<TEntity>(
+                    connection: connection,
+                    props: props,
+                    predicate: predicate,
+                    transaction: null,
+                    commandTimeout: null);
             }
         }
 
@@ -77,7 +96,11 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.Update<TEntity>(keyAndProps);
+                return Configuration.DapperImplementor.Update<TEntity>(
+                    connection: connection,
+                    keyAndProps: keyAndProps,
+                    transaction: null,
+                    commandTimeout: null);
             }
         }
 
@@ -92,7 +115,12 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.Update<TEntity>(props, predicate);
+                return Configuration.DapperImplementor.Update<TEntity>(
+                    connection: connection,
+                    props: props,
+                    predicate: predicate,
+                    transaction: null,
+                    commandTimeout: null);
             }
         }
 
@@ -107,7 +135,14 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.Update<TEntity>(props, predicate.ToPredicateGroup<TEntity, TPrimaryKey>());
+                var predicateGp = predicate.ToPredicateGroup<TEntity, TPrimaryKey>();
+
+                return Configuration.DapperImplementor.Update<TEntity>(
+                    connection: connection,
+                    props: props,
+                    predicate: predicateGp,
+                    transaction: null,
+                    commandTimeout: null);
             }
         }
     }

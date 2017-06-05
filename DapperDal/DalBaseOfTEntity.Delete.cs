@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
-using DapperExtensions;
-using DapperExtensions.Expressions;
+using DapperDal.Expressions;
+using DapperDal.Extensions;
 
 namespace DapperDal
 {
@@ -19,7 +19,11 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.Delete(entity);
+                return Configuration.DapperImplementor.Delete(
+                    connection: connection, 
+                    entity: entity, 
+                    transaction: null,
+                    commandTimeout: null);
             }
         }
 
@@ -32,9 +36,13 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                IPredicate predicate = PredicateExtensions.GetIdPredicate<TEntity>(id);
+                IPredicate predicate = PredicateHelper.GetIdPredicate<TEntity>(id);
 
-                return connection.Delete<TEntity>(predicate);
+                return Configuration.DapperImplementor.Delete<TEntity>(
+                    connection: connection,
+                    predicate: predicate,
+                    transaction: null,
+                    commandTimeout: null);
             }
         }
 
@@ -47,7 +55,11 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.Delete<TEntity>(predicate);
+                return Configuration.DapperImplementor.Delete<TEntity>(
+                    connection: connection,
+                    predicate: predicate,
+                    transaction: null,
+                    commandTimeout: null);
             }
         }
 
@@ -60,7 +72,13 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.Delete<TEntity>(predicate.ToPredicateGroup<TEntity, TPrimaryKey>());
+                var predicateGp = predicate.ToPredicateGroup<TEntity, TPrimaryKey>();
+
+                return Configuration.DapperImplementor.Delete<TEntity>(
+                    connection: connection,
+                    predicate: predicateGp,
+                    transaction: null,
+                    commandTimeout: null);
             }
         }
     }

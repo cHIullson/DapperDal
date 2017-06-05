@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
-using DapperExtensions;
-using DapperExtensions.Expressions;
+using DapperDal.Expressions;
+using DapperDal.Extensions;
 
 namespace DapperDal
 {
@@ -19,7 +19,15 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.GetTop<TEntity>(limit);
+                return Configuration.DapperImplementor.GetTop<TEntity>(
+                    connection: connection,
+                    limit: limit,
+                    predicate: null,
+                    sort: null,
+                    transaction: null,
+                    commandTimeout: null,
+                    buffered: Configuration.Buffered
+                );
             }
         }
 
@@ -34,7 +42,15 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.GetTop<TEntity>(limit, predicate);
+                return Configuration.DapperImplementor.GetTop<TEntity>(
+                    connection: connection,
+                    limit: limit,
+                    predicate: predicate,
+                    sort: null,
+                    transaction: null,
+                    commandTimeout: null,
+                    buffered: Configuration.Buffered
+                );
             }
         }
 
@@ -51,8 +67,16 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.GetTop<TEntity>(limit, null,
-                    sortingExpression.ToSortable(ascending));
+                var sort = sortingExpression.ToSortable(ascending);
+                return Configuration.DapperImplementor.GetTop<TEntity>(
+                    connection: connection,
+                    limit: limit,
+                    predicate: null,
+                    sort: sort,
+                    transaction: null,
+                    commandTimeout: null,
+                    buffered: Configuration.Buffered
+                );
             }
         }
 
@@ -68,7 +92,16 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.GetTop<TEntity>(limit, predicate, sort.ToSortable());
+                var sorts = sort.ToSortable();
+                return Configuration.DapperImplementor.GetTop<TEntity>(
+                        connection: connection,
+                        limit: limit,
+                        predicate: predicate,
+                        sort: sorts,
+                        transaction: null,
+                        commandTimeout: null,
+                        buffered: Configuration.Buffered
+                    );
             }
         }
 
@@ -87,8 +120,16 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.GetTop<TEntity>(limit, predicate,
-                    sortingExpression.ToSortable(ascending));
+                var sort = sortingExpression.ToSortable(ascending);
+                return Configuration.DapperImplementor.GetTop<TEntity>(
+                        connection: connection,
+                        limit: limit,
+                        predicate: predicate,
+                        sort: sort,
+                        transaction: null,
+                        commandTimeout: null,
+                        buffered: Configuration.Buffered
+                    );
             }
         }
 
@@ -103,7 +144,16 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.GetTop<TEntity>(limit, predicate.ToPredicateGroup<TEntity, TPrimaryKey>());
+                var predicateGp = predicate.ToPredicateGroup<TEntity, TPrimaryKey>();
+                return Configuration.DapperImplementor.GetTop<TEntity>(
+                        connection: connection,
+                        limit: limit,
+                        predicate: predicateGp,
+                        sort: null,
+                        transaction: null,
+                        commandTimeout: null,
+                        buffered: Configuration.Buffered
+                    );
             }
         }
 
@@ -119,8 +169,17 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.GetTop<TEntity>(limit, predicate.ToPredicateGroup<TEntity, TPrimaryKey>(),
-                    sort.ToSortable());
+                var predicateGp = predicate.ToPredicateGroup<TEntity, TPrimaryKey>();
+                var sorts = sort.ToSortable();
+                return Configuration.DapperImplementor.GetTop<TEntity>(
+                        connection: connection,
+                        limit: limit,
+                        predicate: predicateGp,
+                        sort: sorts,
+                        transaction: null,
+                        commandTimeout: null,
+                        buffered: Configuration.Buffered
+                    );
             }
         }
 
@@ -139,8 +198,17 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.GetTop<TEntity>(limit, predicate.ToPredicateGroup<TEntity, TPrimaryKey>(),
-                    sortingExpression.ToSortable(ascending));
+                var predicateGp = predicate.ToPredicateGroup<TEntity, TPrimaryKey>();
+                var sorts = sortingExpression.ToSortable(ascending);
+                return Configuration.DapperImplementor.GetTop<TEntity>(
+                        connection: connection,
+                        limit: limit,
+                        predicate: predicateGp,
+                        sort: sorts,
+                        transaction: null,
+                        commandTimeout: null,
+                        buffered: Configuration.Buffered
+                    );
             }
         }
     }

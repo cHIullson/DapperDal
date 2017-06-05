@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using Dapper;
+using DapperDal.Expressions;
 using DapperDal.Test.Entities;
-using DapperExtensions;
-using DapperExtensions.Expressions;
 using NUnit.Framework;
 
 namespace DapperDal.Test.IntegrationTests.SqlServer

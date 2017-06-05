@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using DapperExtensions.Mapper;
 
 namespace DapperDal.Mapper
 {

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
-using DapperExtensions;
-using DapperExtensions.Expressions;
+using DapperDal.Expressions;
+using DapperDal.Extensions;
 
 namespace DapperDal
 {
@@ -24,8 +24,16 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.GetPage<TEntity>(predicate,
-                    sort.ToSortable(), pageNumber - 1, itemsPerPage);
+                var sorts = sort.ToSortable();
+                return Configuration.DapperImplementor.GetPage<TEntity>(
+                    connection: connection,
+                    predicate: predicate,
+                    sort: sorts,
+                    page: pageNumber - 1,
+                    resultsPerPage: itemsPerPage,
+                    transaction: null,
+                    commandTimeout: null,
+                    buffered: Configuration.Buffered);
             }
         }
 
@@ -46,9 +54,16 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.GetPage<TEntity>(predicate,
-                    sortingExpression.ToSortable(ascending),
-                    pageNumber - 1, itemsPerPage);
+                var sort = sortingExpression.ToSortable(ascending);
+                return Configuration.DapperImplementor.GetPage<TEntity>(
+                    connection: connection,
+                    predicate: predicate,
+                    sort: sort,
+                    page: pageNumber - 1,
+                    resultsPerPage: itemsPerPage,
+                    transaction: null,
+                    commandTimeout: null,
+                    buffered: Configuration.Buffered);
             }
         }
 
@@ -66,11 +81,17 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.GetPage<TEntity>(
-                    predicate.ToPredicateGroup<TEntity, TPrimaryKey>(),
-                    sort.ToSortable(),
-                    pageNumber - 1,
-                    itemsPerPage);
+                var predicateGp = predicate.ToPredicateGroup<TEntity, TPrimaryKey>();
+                var sorts = sort.ToSortable();
+                return Configuration.DapperImplementor.GetPage<TEntity>(
+                    connection: connection,
+                    predicate: predicateGp,
+                    sort: sorts,
+                    page: pageNumber - 1,
+                    resultsPerPage: itemsPerPage,
+                    transaction: null,
+                    commandTimeout: null,
+                    buffered: Configuration.Buffered);
             }
         }
 
@@ -91,9 +112,17 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return connection.GetPage<TEntity>(predicate.ToPredicateGroup<TEntity, TPrimaryKey>(),
-                    sortingExpression.ToSortable(ascending),
-                    pageNumber - 1, itemsPerPage);
+                var predicateGp = predicate.ToPredicateGroup<TEntity, TPrimaryKey>();
+                var sort = sortingExpression.ToSortable(ascending);
+                return Configuration.DapperImplementor.GetPage<TEntity>(
+                    connection: connection,
+                    predicate: predicateGp,
+                    sort: sort,
+                    page: pageNumber - 1,
+                    resultsPerPage: itemsPerPage,
+                    transaction: null,
+                    commandTimeout: null,
+                    buffered: Configuration.Buffered);
             }
         }
     }

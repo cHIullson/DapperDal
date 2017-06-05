@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
-using DapperExtensions;
-using DapperExtensions.Expressions;
-using DapperExtensions.Mapper;
+using DapperDal.Expressions;
+using DapperDal.Extensions;
 
 namespace DapperDal
 {
@@ -19,29 +18,26 @@ namespace DapperDal
         /// <param name="softDeleteProps">逻辑删除属性名及更新值，默认:IsActive=0</param>
         /// <param name="softActiveProps">激活属性名及更新值，默认:IsActive=1</param>
         /// <returns>更新结果</returns>
-        public virtual bool SwitchActive(TEntity entity, bool isActive, 
+        public virtual bool SwitchActive(TEntity entity, bool isActive,
             object softDeleteProps = null, object softActiveProps = null)
         {
-            using (var connection = OpenConnection())
+            if (isActive)
             {
-                if (isActive)
+                if (softActiveProps == null && Options.SoftActivePropsFactory != null)
                 {
-                    if (softActiveProps == null && Options.SoftActivePropsFactory != null)
-                    {
-                        softActiveProps = Options.SoftActivePropsFactory();
-                    }
-
-                    return connection.Update(entity, softActiveProps);
+                    softActiveProps = Options.SoftActivePropsFactory();
                 }
-                else
+
+                return Update(entity, softActiveProps);
+            }
+            else
+            {
+                if (softDeleteProps == null && Options.SoftDeletePropsFactory != null)
                 {
-                    if (softDeleteProps == null && Options.SoftDeletePropsFactory != null)
-                    {
-                        softDeleteProps = Options.SoftDeletePropsFactory();
-                    }
-
-                    return connection.Update(entity, softDeleteProps);
+                    softDeleteProps = Options.SoftDeletePropsFactory();
                 }
+
+                return Update(entity, softDeleteProps);
             }
         }
 
@@ -56,28 +52,25 @@ namespace DapperDal
         public virtual bool SwitchActive(TPrimaryKey id, bool isActive,
             object softDeleteProps = null, object softActiveProps = null)
         {
-            using (var connection = OpenConnection())
+            IPredicate predicate = PredicateHelper.GetIdPredicate<TEntity>(id);
+
+            if (isActive)
             {
-                IPredicate predicate = PredicateExtensions.GetIdPredicate<TEntity>(id);
-
-                if (isActive)
+                if (softActiveProps == null && Options.SoftActivePropsFactory != null)
                 {
-                    if (softActiveProps == null && Options.SoftActivePropsFactory != null)
-                    {
-                        softActiveProps = Options.SoftActivePropsFactory();
-                    }
-
-                    return connection.Update<TEntity>(softActiveProps, predicate);
+                    softActiveProps = Options.SoftActivePropsFactory();
                 }
-                else
+
+                return Update(softActiveProps, predicate);
+            }
+            else
+            {
+                if (softDeleteProps == null && Options.SoftDeletePropsFactory != null)
                 {
-                    if (softDeleteProps == null && Options.SoftDeletePropsFactory != null)
-                    {
-                        softDeleteProps = Options.SoftDeletePropsFactory();
-                    }
-
-                    return connection.Update<TEntity>(softDeleteProps, predicate);
+                    softDeleteProps = Options.SoftDeletePropsFactory();
                 }
+
+                return Update(softDeleteProps, predicate);
             }
         }
 
@@ -92,26 +85,23 @@ namespace DapperDal
         public virtual bool SwitchActive(object predicate, bool isActive,
             object softDeleteProps = null, object softActiveProps = null)
         {
-            using (var connection = OpenConnection())
+            if (isActive)
             {
-                if (isActive)
+                if (softActiveProps == null && Options.SoftActivePropsFactory != null)
                 {
-                    if (softActiveProps == null && Options.SoftActivePropsFactory != null)
-                    {
-                        softActiveProps = Options.SoftActivePropsFactory();
-                    }
-
-                    return connection.Update<TEntity>(softActiveProps, predicate);
+                    softActiveProps = Options.SoftActivePropsFactory();
                 }
-                else
+
+                return Update(softActiveProps, predicate);
+            }
+            else
+            {
+                if (softDeleteProps == null && Options.SoftDeletePropsFactory != null)
                 {
-                    if (softDeleteProps == null && Options.SoftDeletePropsFactory != null)
-                    {
-                        softDeleteProps = Options.SoftDeletePropsFactory();
-                    }
-
-                    return connection.Update<TEntity>(softDeleteProps, predicate);
+                    softDeleteProps = Options.SoftDeletePropsFactory();
                 }
+
+                return Update(softDeleteProps, predicate);
             }
         }
 
@@ -126,28 +116,25 @@ namespace DapperDal
         public virtual bool SwitchActive(Expression<Func<TEntity, bool>> predicate, bool isActive,
             object softDeleteProps = null, object softActiveProps = null)
         {
-            using (var connection = OpenConnection())
+            if (isActive)
             {
-                if (isActive)
+                if (softActiveProps == null && Options.SoftActivePropsFactory != null)
                 {
-                    if (softActiveProps == null && Options.SoftActivePropsFactory != null)
-                    {
-                        softActiveProps = Options.SoftActivePropsFactory();
-                    }
-
-                    return connection.Update<TEntity>(softActiveProps,
-                        predicate.ToPredicateGroup<TEntity, TPrimaryKey>());
+                    softActiveProps = Options.SoftActivePropsFactory();
                 }
-                else
+
+                var predicateGp = predicate.ToPredicateGroup<TEntity, TPrimaryKey>();
+                return Update(softActiveProps, predicateGp);
+            }
+            else
+            {
+                if (softDeleteProps == null && Options.SoftDeletePropsFactory != null)
                 {
-                    if (softDeleteProps == null && Options.SoftDeletePropsFactory != null)
-                    {
-                        softDeleteProps = Options.SoftDeletePropsFactory();
-                    }
-
-                    return connection.Update<TEntity>(softDeleteProps,
-                        predicate.ToPredicateGroup<TEntity, TPrimaryKey>());
+                    softDeleteProps = Options.SoftDeletePropsFactory();
                 }
+
+                var predicateGp = predicate.ToPredicateGroup<TEntity, TPrimaryKey>();
+                return Update(softDeleteProps, predicateGp);
             }
         }
     }
