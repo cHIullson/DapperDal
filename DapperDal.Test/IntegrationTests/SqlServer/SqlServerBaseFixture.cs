@@ -17,8 +17,8 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
         {
             CreateDatabase();
 
-            var connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=dapperTest;Integrated security=True;Application Name=DapperDal;";
-            var connection = new SqlConnection(connectionString);
+            var connectionString = ConfigurationManager.ConnectionStrings["Default"];
+            var connection = new SqlConnection(connectionString.ConnectionString);
             var files = new List<string>
             {
                 ReadScriptFile("CreateCarTable"),
@@ -51,8 +51,8 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
         [OneTimeTearDown]
         public void RunAfterAnyTests()
         {
-            var connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=dapperTest;Integrated security=True;Application Name=DapperDal;";
-            var connection = new SqlConnection(connectionString);
+            var connectionString = ConfigurationManager.ConnectionStrings["Default"];
+            var connection = new SqlConnection(connectionString.ConnectionString);
             var files = new List<string>
             {
                 ReadScriptFile("TruncateTable"),
@@ -82,8 +82,8 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
         [SetUp]
         public virtual void Setup()
         {
-            var connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=dapperTest;Integrated security=True;Application Name=DapperDal;";
-            var connection = new SqlConnection(connectionString);
+            var connectionString = ConfigurationManager.ConnectionStrings["Default"];
+            var connection = new SqlConnection(connectionString.ConnectionString);
             var files = new List<string>
             {
                 ReadScriptFile("TruncateTable"),

@@ -1,1 +1,1 @@
-﻿DROP DATABASE dapperTest;
+﻿DROP DATABASE DapperDalTest;

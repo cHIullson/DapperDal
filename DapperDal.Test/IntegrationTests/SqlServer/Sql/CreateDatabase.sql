@@ -2,21 +2,10 @@
 
 IF EXISTS (   SELECT *
               FROM   sysdatabases
-              WHERE  name = 'dapperTest'
+              WHERE  name = 'DapperDalTest'
           )
-    DROP DATABASE dapperTest;
+    DROP DATABASE DapperDalTest;
 
 EXEC('
-CREATE DATABASE dapperTest
-    ON PRIMARY (   NAME = ''dapperTest''
-                 , FILENAME = ''C:\Users\xiebt\dapperTest_data.mdf''
-                 , SIZE = 5MB
-                 , MAXSIZE = 100MB
-                 , FILEGROWTH = 15%
-               )
-    LOG ON (   NAME = ''dapperTest_log''
-             , FILENAME = ''C:\Users\xiebt\dapperTest_log.ldf''
-             , SIZE = 2MB
-             , FILEGROWTH = 1MB
-           );
+CREATE DATABASE DapperDalTest
 ')
