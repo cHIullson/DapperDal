@@ -212,6 +212,22 @@ namespace DapperDal.Implementor
         /// <param name="commandTimeout">数据库命令超时时间（单位秒）</param>
         /// <returns>多实体集合读取器</returns>
         IMultipleResultReader GetMultiple(IDbConnection connection, GetMultiplePredicate predicate, IDbTransaction transaction, int? commandTimeout);
+
+        /// <summary>
+        /// 根据实体主键ID获取谓词组
+        /// </summary>
+        /// <param name="classMap">实体类型映射</param>
+        /// <param name="id">实体主键ID</param>
+        /// <returns>谓词组</returns>
+        IPredicate GetIdPredicate(IClassMapper classMap, object id);
+
+        /// <summary>
+        /// 获取实体主键ID条件谓词
+        /// </summary>
+        /// <param name="id">实体主键ID</param>
+        /// <typeparam name="T">实体类型</typeparam>
+        /// <returns>谓词</returns>
+        IPredicate GetIdPredicate<T>(object id) where T : class;
     }
 
     /// <summary>
@@ -701,12 +717,7 @@ namespace DapperDal.Implementor
             return wherePredicate;
         }
 
-        /// <summary>
-        /// 根据实体主键ID获取谓词组
-        /// </summary>
-        /// <param name="classMap">实体类型映射</param>
-        /// <param name="id">实体主键ID</param>
-        /// <returns>谓词组</returns>
+        /// <inheritdoc />
         public IPredicate GetIdPredicate(IClassMapper classMap, object id)
         {
             bool isSimpleType = ReflectionHelper.IsSimpleType(id.GetType());
@@ -743,6 +754,14 @@ namespace DapperDal.Implementor
                            Operator = GroupOperator.And,
                            Predicates = predicates
                        };
+        }
+
+        /// <inheritdoc />
+        public IPredicate GetIdPredicate<T>(object id) where T : class
+        {
+            IClassMapper classMap = SqlGenerator.Configuration.GetMap<T>();
+            IPredicate predicate = GetIdPredicate(classMap, id);
+            return predicate;
         }
 
         /// <summary>

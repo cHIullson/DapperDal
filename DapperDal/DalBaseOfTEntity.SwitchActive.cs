@@ -53,7 +53,7 @@ namespace DapperDal
         public virtual bool SwitchActive(TPrimaryKey id, bool isActive,
             object softDeleteProps = null, object softActiveProps = null)
         {
-            IPredicate predicate = PredicateHelper.GetIdPredicate<TEntity>(id);
+            IPredicate predicate = Configuration.DalImplementor.GetIdPredicate<TEntity>(id);
 
             if (isActive)
             {

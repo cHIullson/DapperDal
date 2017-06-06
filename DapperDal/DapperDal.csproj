@@ -79,7 +79,6 @@
     <Compile Include="Expressions\QueryFunctions.cs" />
     <Compile Include="Expressions\SortDirection.cs" />
     <Compile Include="Extensions\SortingExtensions.cs" />
-    <Compile Include="Extensions\PredicateExtensions.cs" />
     <Compile Include="Extensions\ReflectionHelper.cs" />
     <Compile Include="Implementor\DalImplementor.cs" />
     <Compile Include="Mapper\AutoClassMapper.cs" />

@@ -37,7 +37,7 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                IPredicate predicate = PredicateHelper.GetIdPredicate<TEntity>(id);
+                IPredicate predicate = Configuration.DalImplementor.GetIdPredicate<TEntity>(id);
 
                 return Configuration.DalImplementor.Delete<TEntity>(
                     connection: connection,
