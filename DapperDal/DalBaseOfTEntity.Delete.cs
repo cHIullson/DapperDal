@@ -20,7 +20,7 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return Configuration.DapperImplementor.Delete(
+                return Configuration.DalImplementor.Delete(
                     connection: connection, 
                     entity: entity, 
                     transaction: null,
@@ -39,7 +39,7 @@ namespace DapperDal
             {
                 IPredicate predicate = PredicateHelper.GetIdPredicate<TEntity>(id);
 
-                return Configuration.DapperImplementor.Delete<TEntity>(
+                return Configuration.DalImplementor.Delete<TEntity>(
                     connection: connection,
                     predicate: predicate,
                     transaction: null,
@@ -56,7 +56,7 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return Configuration.DapperImplementor.Delete<TEntity>(
+                return Configuration.DalImplementor.Delete<TEntity>(
                     connection: connection,
                     predicate: predicate,
                     transaction: null,
@@ -75,7 +75,7 @@ namespace DapperDal
             {
                 var predicateGp = predicate.ToPredicateGroup<TEntity, TPrimaryKey>();
 
-                return Configuration.DapperImplementor.Delete<TEntity>(
+                return Configuration.DalImplementor.Delete<TEntity>(
                     connection: connection,
                     predicate: predicateGp,
                     transaction: null,

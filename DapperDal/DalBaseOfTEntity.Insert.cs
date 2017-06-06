@@ -17,7 +17,7 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return Configuration.DapperImplementor.Insert(
+                return Configuration.DalImplementor.Insert(
                     connection: connection,
                     entity: entity,
                     transaction: null,
@@ -33,7 +33,7 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                Configuration.DapperImplementor.Insert(
+                Configuration.DalImplementor.Insert(
                     connection: connection,
                     entities: entities,
                     transaction: null,

@@ -19,7 +19,7 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return Configuration.DapperImplementor.Count<TEntity>(
+                return Configuration.DalImplementor.Count<TEntity>(
                     connection: connection,
                     predicate: null,
                     transaction: null,
@@ -37,7 +37,7 @@ namespace DapperDal
             using (var connection = OpenConnection())
             {
                 IPredicate predicate = PredicateHelper.GetIdPredicate<TEntity>(id);
-                return Configuration.DapperImplementor.Count<TEntity>(
+                return Configuration.DalImplementor.Count<TEntity>(
                            connection: connection,
                            predicate: predicate,
                            transaction: null,
@@ -55,7 +55,7 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return Configuration.DapperImplementor.Count<TEntity>(
+                return Configuration.DalImplementor.Count<TEntity>(
                            connection: connection,
                            predicate: predicate,
                            transaction: null,
@@ -74,7 +74,7 @@ namespace DapperDal
             using (var connection = OpenConnection())
             {
                 var predicateGp = predicate.ToPredicateGroup<TEntity, TPrimaryKey>();
-                return Configuration.DapperImplementor.Count<TEntity>(
+                return Configuration.DalImplementor.Count<TEntity>(
                     connection: connection,
                     predicate: predicateGp,
                     transaction: null,

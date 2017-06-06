@@ -32,7 +32,7 @@ namespace DapperDal
          /// <summary>
          /// 数据访问实现实例
          /// </summary>
-         IDalImplementor DapperImplementor { get; set; }
+         IDalImplementor DalImplementor { get; set; }
 
         /// <summary>
         /// 生成SQL时，是否添加 WITH (NOLOCK)
@@ -113,7 +113,7 @@ namespace DapperDal
             DefaultMapper = defaultMapper;
             MappingAssemblies = mappingAssemblies ?? new List<Assembly>();
             Dialect = sqlDialect;
-            DapperImplementor = new DalImplementor(new SqlGeneratorImpl(this));
+            DalImplementor = new DalImplementor(new SqlGeneratorImpl(this));
         }
 
         /// <summary>
@@ -131,7 +131,7 @@ namespace DapperDal
         public ISqlDialect Dialect { get; set; }
 
         /// <inheritdoc />
-        public IDalImplementor DapperImplementor { get; set; }
+        public IDalImplementor DalImplementor { get; set; }
 
         /// <summary>
         /// 生成SQL时，是否添加 WITH (NOLOCK)
@@ -153,7 +153,7 @@ namespace DapperDal
         {
             MappingAssemblies = assemblies ?? new List<Assembly>();
             ClearCache();
-            DapperImplementor = new DalImplementor(new SqlGeneratorImpl(this));
+            DalImplementor = new DalImplementor(new SqlGeneratorImpl(this));
         }
 
         /// <inheritdoc />

@@ -20,7 +20,7 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return Configuration.DapperImplementor.Update(
+                return Configuration.DalImplementor.Update(
                     connection: connection,
                     entity: entity,
                     transaction: null,
@@ -38,7 +38,7 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return Configuration.DapperImplementor.Update(
+                return Configuration.DalImplementor.Update(
                     connection: connection,
                     entity: entity,
                     props: props.ToList(),
@@ -57,7 +57,7 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return Configuration.DapperImplementor.Update(
+                return Configuration.DalImplementor.Update(
                     connection: connection,
                     entity: entity,
                     props: props,
@@ -78,7 +78,7 @@ namespace DapperDal
             {
                 IPredicate predicate = PredicateHelper.GetIdPredicate<TEntity>(id);
 
-                return Configuration.DapperImplementor.Update<TEntity>(
+                return Configuration.DalImplementor.Update<TEntity>(
                     connection: connection,
                     props: props,
                     predicate: predicate,
@@ -97,7 +97,7 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return Configuration.DapperImplementor.Update<TEntity>(
+                return Configuration.DalImplementor.Update<TEntity>(
                     connection: connection,
                     keyAndProps: keyAndProps,
                     transaction: null,
@@ -116,7 +116,7 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return Configuration.DapperImplementor.Update<TEntity>(
+                return Configuration.DalImplementor.Update<TEntity>(
                     connection: connection,
                     props: props,
                     predicate: predicate,
@@ -138,7 +138,7 @@ namespace DapperDal
             {
                 var predicateGp = predicate.ToPredicateGroup<TEntity, TPrimaryKey>();
 
-                return Configuration.DapperImplementor.Update<TEntity>(
+                return Configuration.DalImplementor.Update<TEntity>(
                     connection: connection,
                     props: props,
                     predicate: predicateGp,

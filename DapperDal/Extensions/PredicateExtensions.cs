@@ -14,7 +14,7 @@ namespace DapperDal.Extensions
         {
             get
             {
-                return DalConfiguration.Default.DapperImplementor as DalImplementor;
+                return DalConfiguration.Default.DalImplementor as DalImplementor;
             }
         }
 

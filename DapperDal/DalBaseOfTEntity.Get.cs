@@ -17,7 +17,7 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return Configuration.DapperImplementor.Get<TEntity>(
+                return Configuration.DalImplementor.Get<TEntity>(
                            connection: connection,
                            id: id,
                            transaction: null,

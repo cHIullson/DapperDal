@@ -19,7 +19,7 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return Configuration.DapperImplementor.GetTop<TEntity>(
+                return Configuration.DalImplementor.GetTop<TEntity>(
                     connection: connection,
                     limit: limit,
                     predicate: null,
@@ -42,7 +42,7 @@ namespace DapperDal
         {
             using (var connection = OpenConnection())
             {
-                return Configuration.DapperImplementor.GetTop<TEntity>(
+                return Configuration.DalImplementor.GetTop<TEntity>(
                     connection: connection,
                     limit: limit,
                     predicate: predicate,
@@ -68,7 +68,7 @@ namespace DapperDal
             using (var connection = OpenConnection())
             {
                 var sort = sortingExpression.ToSortable(ascending);
-                return Configuration.DapperImplementor.GetTop<TEntity>(
+                return Configuration.DalImplementor.GetTop<TEntity>(
                     connection: connection,
                     limit: limit,
                     predicate: null,
@@ -93,7 +93,7 @@ namespace DapperDal
             using (var connection = OpenConnection())
             {
                 var sorts = sort.ToSortable();
-                return Configuration.DapperImplementor.GetTop<TEntity>(
+                return Configuration.DalImplementor.GetTop<TEntity>(
                         connection: connection,
                         limit: limit,
                         predicate: predicate,
@@ -121,7 +121,7 @@ namespace DapperDal
             using (var connection = OpenConnection())
             {
                 var sort = sortingExpression.ToSortable(ascending);
-                return Configuration.DapperImplementor.GetTop<TEntity>(
+                return Configuration.DalImplementor.GetTop<TEntity>(
                         connection: connection,
                         limit: limit,
                         predicate: predicate,
@@ -145,7 +145,7 @@ namespace DapperDal
             using (var connection = OpenConnection())
             {
                 var predicateGp = predicate.ToPredicateGroup<TEntity, TPrimaryKey>();
-                return Configuration.DapperImplementor.GetTop<TEntity>(
+                return Configuration.DalImplementor.GetTop<TEntity>(
                         connection: connection,
                         limit: limit,
                         predicate: predicateGp,
@@ -171,7 +171,7 @@ namespace DapperDal
             {
                 var predicateGp = predicate.ToPredicateGroup<TEntity, TPrimaryKey>();
                 var sorts = sort.ToSortable();
-                return Configuration.DapperImplementor.GetTop<TEntity>(
+                return Configuration.DalImplementor.GetTop<TEntity>(
                         connection: connection,
                         limit: limit,
                         predicate: predicateGp,
@@ -200,7 +200,7 @@ namespace DapperDal
             {
                 var predicateGp = predicate.ToPredicateGroup<TEntity, TPrimaryKey>();
                 var sorts = sortingExpression.ToSortable(ascending);
-                return Configuration.DapperImplementor.GetTop<TEntity>(
+                return Configuration.DalImplementor.GetTop<TEntity>(
                         connection: connection,
                         limit: limit,
                         predicate: predicateGp,
