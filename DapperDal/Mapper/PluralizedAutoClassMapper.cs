@@ -10,12 +10,15 @@ namespace DapperDal.Mapper
     /// </summary>
     public class PluralizedAutoClassMapper<T> : AutoClassMapper<T> where T : class
     {
+        /// <inheritdoc />
         public override void Table(string tableName)
         {
             base.Table(Formatting.Pluralize(tableName));
         }
-        
-        // Adapted from: http://mattgrande.wordpress.com/2009/10/28/pluralization-helper-for-c/
+
+        /// <summary>
+        /// Adapted from: http://mattgrande.wordpress.com/2009/10/28/pluralization-helper-for-c/
+        /// </summary>
         public static class Formatting
         {
             private static readonly IList<string> Unpluralizables = new List<string> { "equipment", "information", "rice", "money", "species", "series", "fish", "sheep", "deer" };
@@ -41,6 +44,11 @@ namespace DapperDal.Mapper
                                                                                          { "(.+)", @"$1s" }
                                                                                      };
 
+            /// <summary>
+            /// 复形化
+            /// </summary>
+            /// <param name="singular">单词</param>
+            /// <returns>复数</returns>
             public static string Pluralize(string singular)
             {
                 if (Unpluralizables.Contains(singular))

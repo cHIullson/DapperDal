@@ -482,6 +482,7 @@ namespace DapperDal.Implementor
             return connection.Execute(sql, dynamicParameters, transaction, commandTimeout, CommandType.Text) > 0;
         }
 
+        /// <inheritdoc />
         public bool Update<T>(IDbConnection connection, object props, object predicate, IDbTransaction transaction, int? commandTimeout) where T : class
         {
             IClassMapper classMap = SqlGenerator.Configuration.GetMap<T>();
@@ -534,6 +535,7 @@ namespace DapperDal.Implementor
             return result;
         }
 
+        /// <inheritdoc />
         public IEnumerable<T> GetList<T>(IDbConnection connection, object predicate, IList<ISort> sort, IDbTransaction transaction, int? commandTimeout, bool buffered) where T : class
         {
             IClassMapper classMap = SqlGenerator.Configuration.GetMap<T>();
@@ -565,6 +567,7 @@ namespace DapperDal.Implementor
             return GetSet<T>(connection, classMap, wherePredicate, sort, firstResult, maxResults, transaction, commandTimeout, buffered);
         }
 
+        /// <inheritdoc />
         public int Count<T>(IDbConnection connection, object predicate, IDbTransaction transaction, int? commandTimeout) where T : class
         {
             IClassMapper classMap = SqlGenerator.Configuration.GetMap<T>();
