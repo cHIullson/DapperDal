@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using DapperDal.Extensions;
 using DapperDal.Mapper;
+using DapperDal.Predicate;
 
 namespace DapperDal.Sql
 {
     public interface ISqlGenerator
     {
-        DapperConfiguration Configuration { get; }
+        IDalConfiguration Configuration { get; }
 
         string Select(IClassMapper classMap, IPredicate predicate, IList<ISort> sort, IDictionary<string, object> parameters, int limit = 0);
         string SelectPaged(IClassMapper classMap, IPredicate predicate, IList<ISort> sort, int page, int resultsPerPage, IDictionary<string, object> parameters);
@@ -29,12 +30,12 @@ namespace DapperDal.Sql
 
     public class SqlGeneratorImpl : ISqlGenerator
     {
-        public SqlGeneratorImpl(DapperConfiguration configuration)
+        public SqlGeneratorImpl(IDalConfiguration configuration)
         {
             Configuration = configuration;
         }
 
-        public DapperConfiguration Configuration { get; private set; }
+        public IDalConfiguration Configuration { get; private set; }
 
         public virtual string Select(IClassMapper classMap, IPredicate predicate, IList<ISort> sort, IDictionary<string, object> parameters, int limit = 0)
         {

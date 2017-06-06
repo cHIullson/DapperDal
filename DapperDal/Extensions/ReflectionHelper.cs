@@ -7,7 +7,7 @@ using System.Text;
 
 namespace DapperDal.Extensions
 {
-    public static class ReflectionHelper
+    internal static class ReflectionHelper
     {
         private static List<Type> _simpleTypes = new List<Type>
                                {

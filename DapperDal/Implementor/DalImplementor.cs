@@ -8,11 +8,12 @@ using System.Text;
 using Dapper;
 using DapperDal.Extensions;
 using DapperDal.Mapper;
+using DapperDal.Predicate;
 using DapperDal.Sql;
 
 namespace DapperDal.Implementor
 {
-    public interface IDapperImplementor
+    public interface IDalImplementor
     {
         ISqlGenerator SqlGenerator { get; }
         T Get<T>(IDbConnection connection, dynamic id, IDbTransaction transaction, int? commandTimeout) where T : class;
@@ -33,9 +34,9 @@ namespace DapperDal.Implementor
         IMultipleResultReader GetMultiple(IDbConnection connection, GetMultiplePredicate predicate, IDbTransaction transaction, int? commandTimeout);
     }
 
-    public class DapperImplementor : IDapperImplementor
+    public class DalImplementor : IDalImplementor
     {
-        public DapperImplementor(ISqlGenerator sqlGenerator)
+        public DalImplementor(ISqlGenerator sqlGenerator)
         {
             SqlGenerator = sqlGenerator;
         }

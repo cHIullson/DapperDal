@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using DapperDal.Expressions;
+using DapperDal.Predicate;
 
 namespace DapperDal.Extensions
 {

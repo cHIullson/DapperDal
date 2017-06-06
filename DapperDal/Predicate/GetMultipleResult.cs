@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Dapper;
 
-namespace DapperDal
+namespace DapperDal.Predicate
 {
     public interface IMultipleResultReader
     {

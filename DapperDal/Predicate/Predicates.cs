@@ -9,7 +9,7 @@ using DapperDal.Extensions;
 using DapperDal.Mapper;
 using DapperDal.Sql;
 
-namespace DapperDal
+namespace DapperDal.Predicate
 {
     public static class Predicates
     {
@@ -359,7 +359,7 @@ namespace DapperDal
             return sql;
         }
 
-        protected virtual IClassMapper GetClassMapper(Type type, DapperConfiguration configuration)
+        protected virtual IClassMapper GetClassMapper(Type type, IDalConfiguration configuration)
         {
             IClassMapper map = configuration.GetMap(type);
             if (map == null)

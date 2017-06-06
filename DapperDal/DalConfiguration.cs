@@ -9,38 +9,81 @@ using DapperDal.Sql;
 
 namespace DapperDal
 {
-    public class DapperConfiguration
+    public interface IDalConfiguration
+    {
+         Type DefaultMapper { get; set; }
+
+         IList<Assembly> MappingAssemblies { get; set; }
+
+         ISqlDialect Dialect { get; set; }
+
+         IDalImplementor DapperImplementor { get; set; }
+
+        /// <summary>
+        /// 生成SQL时，是否添加 WITH (NOLOCK)
+        /// </summary>
+         bool Nolock { get; set; }
+
+        /// <summary>
+        /// SQL输出方法
+        /// </summary>
+         Action<string> OutputSql { get; set; }
+
+        /// <summary>
+        /// 实体集合返回前是否要缓冲（ToList）
+        /// </summary>
+         bool Buffered { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="assemblies"></param>
+        void SetMappingAssemblies(IList<Assembly> assemblies);
+
+        IClassMapper GetMap(Type entityType);
+
+        IClassMapper GetMap<T>() where T : class;
+
+        void ClearCache();
+
+        Guid GetNextGuid();
+    }
+
+    public class DalConfiguration : IDalConfiguration
     {
         private readonly ConcurrentDictionary<Type, IClassMapper> _classMaps = new ConcurrentDictionary<Type, IClassMapper>();
 
-        static DapperConfiguration()
+        static DalConfiguration()
         {
-            Default = new DapperConfiguration();
+            Default = new DalConfiguration();
         }
 
-        public DapperConfiguration()
+        public DalConfiguration()
             : this(typeof(AutoClassMapper<>), new List<Assembly>(), new SqlServerDialect())
         {
         }
 
 
-        public DapperConfiguration(Type defaultMapper, IList<Assembly> mappingAssemblies, ISqlDialect sqlDialect)
+        public DalConfiguration(Type defaultMapper, IList<Assembly> mappingAssemblies, ISqlDialect sqlDialect)
         {
             DefaultMapper = defaultMapper;
             MappingAssemblies = mappingAssemblies ?? new List<Assembly>();
             Dialect = sqlDialect;
-            DapperImplementor = new DapperImplementor(new SqlGeneratorImpl(this));
+            DapperImplementor = new DalImplementor(new SqlGeneratorImpl(this));
         }
 
         /// <summary>
         /// 全局默认配置
         /// </summary>
-        public static DapperConfiguration Default { get; }
+        public static IDalConfiguration Default { get; }
 
         public Type DefaultMapper { get; set; }
+
         public IList<Assembly> MappingAssemblies { get; set; }
+
         public ISqlDialect Dialect { get; set; }
-        public IDapperImplementor DapperImplementor { get; set; }
+
+        public IDalImplementor DapperImplementor { get; set; }
 
         /// <summary>
         /// 生成SQL时，是否添加 WITH (NOLOCK)
@@ -56,6 +99,17 @@ namespace DapperDal
         /// 实体集合返回前是否要缓冲（ToList）
         /// </summary>
         public bool Buffered { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="assemblies"></param>
+        public void SetMappingAssemblies(IList<Assembly> assemblies)
+        {
+            MappingAssemblies = assemblies ?? new List<Assembly>();
+            ClearCache();
+            DapperImplementor = new DalImplementor(new SqlGeneratorImpl(this));
+        }
 
         public IClassMapper GetMap(Type entityType)
         {
@@ -101,7 +155,7 @@ namespace DapperDal
             return new Guid(b);
         }
 
-        protected virtual Type GetMapType(Type entityType)
+        private Type GetMapType(Type entityType)
         {
             Func<Assembly, Type> getType = a =>
             {

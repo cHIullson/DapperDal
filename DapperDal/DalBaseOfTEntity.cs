@@ -44,9 +44,7 @@ namespace DapperDal
     {
         static DalBase()
         {
-            DapperConfiguration.Default.DefaultMapper = typeof(AutoEntityMapper<>);
-            DapperConfiguration.Default.Nolock = true;
-            DapperConfiguration.Default.Buffered = true;
+            SetDefaultConfiguration();
         }
 
         /// <summary>
@@ -64,8 +62,10 @@ namespace DapperDal
         /// <exception cref="ConfigurationErrorsException">找不到配置节点</exception>
         public DalBase(string connNameOrConnStr)
         {
+            Configuration = DalConfiguration.Default;
+
             // 初始化配置项
-            InitOptions();
+            SetDefaultOptions();
 
             ConnectionString = ResolveConnectionString(connNameOrConnStr);
         }
@@ -73,10 +73,7 @@ namespace DapperDal
         /// <summary>
         /// 配置项
         /// </summary>
-        public DapperConfiguration Configuration
-        {
-            get { return DapperConfiguration.Default; }
-        }
+        public IDalConfiguration Configuration { get; private set; }
 
         /// <summary>
         /// 配置项
@@ -123,16 +120,28 @@ namespace DapperDal
         /// <summary>
         /// 初始化配置项
         /// </summary>
-        private void InitOptions()
+        private static void SetDefaultConfiguration()
+        {
+            if (DalConfiguration.Default != null)
+            {
+                DalConfiguration.Default.DefaultMapper = typeof(AutoEntityMapper<>);
+                DalConfiguration.Default.Nolock = true;
+                DalConfiguration.Default.Buffered = true;
+            }
+        }
+
+        /// <summary>
+        /// 初始化配置项
+        /// </summary>
+        private void SetDefaultOptions()
         {
             if (Options == null)
             {
                 Options = new DalOptions();
-
-                Options.SoftDeletePropsFactory = () => new { IsActive = 0 };
-
-                Options.SoftActivePropsFactory = () => new { IsActive = 1 };
             }
+
+            Options.SoftDeletePropsFactory = () => new { IsActive = 0 };
+            Options.SoftActivePropsFactory = () => new { IsActive = 1 };
         }
 
         /// <summary>

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DapperDal
+namespace DapperDal.Predicate
 {
     public class GetMultiplePredicate
     {

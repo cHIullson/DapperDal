@@ -5,6 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using DapperDal.Expressions;
 using DapperDal.Extensions;
+using DapperDal.Predicate;
 
 namespace DapperDal
 {

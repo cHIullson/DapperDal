@@ -1,16 +1,15 @@
-﻿using System;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("DapperDal")]
+[assembly: AssemblyTitle("DapperDal.Test.Entities")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("DapperDal")]
+[assembly: AssemblyProduct("DapperDal.Test.Entities")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -21,9 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("64cca848-7660-43ee-abae-91effe765e41")]
-
-[assembly: InternalsVisibleTo("DapperDal.Test")]
+[assembly: Guid("1ef2b04a-7e97-4c53-8afb-d90e815cfb05")]
 
 // 程序集的版本信息由下列四个值组成: 
 //
@@ -35,8 +32,5 @@ using System.Runtime.InteropServices;
 // 可以指定所有值，也可以使用以下所示的 "*" 预置版本号和修订号
 //通过使用 "*"，如下所示:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.5.16.0")]
-[assembly: AssemblyFileVersion("1.5.16.0")]
-[assembly: AssemblyInformationalVersion("1.5.16")]
-
-[assembly: CLSCompliant(true)]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]

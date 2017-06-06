@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using Dapper;
+using DapperDal;
 using DapperDal.Expressions;
+using DapperDal.Predicate;
 using DapperDal.Test.Entities;
 using NUnit.Framework;
 

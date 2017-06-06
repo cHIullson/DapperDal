@@ -48,12 +48,16 @@
     <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.1.50.2\lib\net40\Dapper.dll</HintPath>
     </Reference>
+    <Reference Include="Moq, Version=4.0.10827.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\packages\Moq.4.0.10827\lib\NET40\Moq.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework, Version=3.6.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.6.1\lib\net40\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -63,11 +67,32 @@
   <ItemGroup>
     <Compile Include="Entities\CarEntity.cs" />
     <Compile Include="Entities\PersonEntity.cs" />
+    <Compile Include="Helpers\DatabaseInfo.cs" />
+    <Compile Include="Helpers\Protected.cs" />
+    <Compile Include="Helpers\TestHelpers.cs" />
+    <Compile Include="IntegrationTests\NonCrudFixture.cs" />
     <Compile Include="IntegrationTests\SqlServer\CrudFixture.cs" />
     <Compile Include="IntegrationTests\SqlServer\SqlServerBaseFixture.cs" />
+    <Compile Include="Mapper\AutoClassMapperFixture.cs" />
+    <Compile Include="Mapper\ClassMapperFixture.cs" />
+    <Compile Include="Mapper\PluralizedAutoClassMapperFixture.cs" />
+    <Compile Include="Mapper\PropertyMapFixture.cs" />
+    <Compile Include="PredicatesFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReflectionHelperFixture.cs" />
+    <Compile Include="Sql\SqlDialectBaseFixture.cs" />
+    <Compile Include="Sql\SqlGeneratorFixture.cs" />
+    <Compile Include="Sql\SqlServerDialectFixture.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DapperDal.Test.Entities\DapperDal.Test.Entities.csproj">
+      <Project>{1ef2b04a-7e97-4c53-8afb-d90e815cfb05}</Project>
+      <Name>DapperDal.Test.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DapperDal.Test.Maps\DapperDal.Test.Maps.csproj">
+      <Project>{e335be03-0a91-4a41-8631-71044cc46310}</Project>
+      <Name>DapperDal.Test.Maps</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DapperDal\DapperDal.csproj">
       <Project>{64cca848-7660-43ee-abae-91effe765e41}</Project>
       <Name>DapperDal</Name>

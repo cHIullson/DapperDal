@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DapperDal.Sql
 {
-    public class SqlServerDialect : DapperDal.Sql.SqlDialectBase
+    public class SqlServerDialect : SqlDialectBase
     {
         public override char OpenQuote
         {

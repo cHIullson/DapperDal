@@ -1,16 +1,17 @@
 ﻿
 using DapperDal.Implementor;
 using DapperDal.Mapper;
+using DapperDal.Predicate;
 
 namespace DapperDal.Extensions
 {
     public static class PredicateHelper
     {
-        internal static DapperImplementor Instance
+        internal static DalImplementor Instance
         {
             get
             {
-                return DapperConfiguration.Default.DapperImplementor as DapperImplementor;
+                return DalConfiguration.Default.DapperImplementor as DalImplementor;
             }
         }
 
@@ -22,7 +23,7 @@ namespace DapperDal.Extensions
         /// <returns>谓词</returns>
         public static IPredicate GetIdPredicate<T>(object id) where T : class
         {
-            IClassMapper classMap = DapperConfiguration.Default.GetMap<T>();
+            IClassMapper classMap = DalConfiguration.Default.GetMap<T>();
             IPredicate predicate = Instance.GetIdPredicate(classMap, id);
             return predicate;
         }
