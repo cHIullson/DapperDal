@@ -2,6 +2,9 @@
 
 namespace DapperDal.Expressions
 {
+    /// <summary>
+    /// 映射SQL查询支持的函数
+    /// </summary>
     public static class QueryFunctions
     {
         /// <summary>

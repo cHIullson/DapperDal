@@ -32,7 +32,7 @@ namespace DapperDal
         /// 更新指定实体指定属性
         /// </summary>
         /// <param name="entity">实体</param>
-        /// <param name="props">更新属性名</param>
+        /// <param name="props">要更新的属性名列表</param>
         /// <returns>更新结果</returns>
         public virtual bool Update(TEntity entity, IEnumerable<string> props)
         {
@@ -51,7 +51,7 @@ namespace DapperDal
         /// 更新指定实体指定属性
         /// </summary>
         /// <param name="entity">实体</param>
-        /// <param name="props">更新属性名</param>
+        /// <param name="props">要更新的属性名列表，以匿名对象提供</param>
         /// <returns>更新结果</returns>
         public virtual bool Update(TEntity entity, object props)
         {

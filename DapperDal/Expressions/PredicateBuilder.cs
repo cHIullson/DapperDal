@@ -8,6 +8,9 @@ using DapperDal.Extensions;
 
 namespace DapperDal.Expressions
 {
+    /// <summary>
+    /// 谓词表达式构建扩展方法
+    /// </summary>
     public static class PredicateBuilder
     {
         /// <summary>

@@ -11,6 +11,9 @@ using DapperDal.Sql;
 
 namespace DapperDal.Predicate
 {
+    /// <summary>
+    /// 谓词组工具方法
+    /// </summary>
     public static class Predicates
     {
         /// <summary>
@@ -119,21 +122,50 @@ namespace DapperDal.Predicate
         }
     }
 
+    /// <summary>
+    /// 表示谓词的接口
+    /// </summary>
     public interface IPredicate
     {
+        /// <summary>
+        /// 返回根据参数使用SQL生成器生成的SQL语句
+        /// </summary>
+        /// <param name="sqlGenerator">SQL生成器</param>
+        /// <param name="parameters">参数</param>
+        /// <returns>SQL语句</returns>
         string GetSql(ISqlGenerator sqlGenerator, IDictionary<string, object> parameters);
     }
 
+    /// <summary>
+    /// 表示谓词的基接口
+    /// </summary>
     public interface IBasePredicate : IPredicate
     {
+        /// <summary>
+        /// 属性名
+        /// </summary>
         string PropertyName { get; set; }
     }
 
+    /// <summary>
+    /// 谓词基类
+    /// </summary>
     public abstract class BasePredicate : IBasePredicate
     {
+        /// <inheritdoc />
         public abstract string GetSql(ISqlGenerator sqlGenerator, IDictionary<string, object> parameters);
+
+        /// <inheritdoc />
         public string PropertyName { get; set; }
 
+        /// <summary>
+        /// 获取字段名
+        /// </summary>
+        /// <param name="entityType">实体类型</param>
+        /// <param name="sqlGenerator">SQL生成器</param>
+        /// <param name="propertyName">属性名</param>
+        /// <returns>字段名</returns>
+        /// <exception cref="NullReferenceException">实体类型或属性映射未找到</exception>
         protected virtual string GetColumnName(Type entityType, ISqlGenerator sqlGenerator, string propertyName)
         {
             IClassMapper map = sqlGenerator.Configuration.GetMap(entityType);
@@ -152,17 +184,41 @@ namespace DapperDal.Predicate
         }
     }
 
+    /// <summary>
+    /// 表示比较的谓词接口
+    /// </summary>
     public interface IComparePredicate : IBasePredicate
     {
+        /// <summary>
+        /// 比较操作类型
+        /// </summary>
         Operator Operator { get; set; }
+
+        /// <summary>
+        /// 比较类型是否逻辑非
+        /// </summary>
         bool Not { get; set; }
     }
 
+    /// <summary>
+    /// 比较谓词基类
+    /// </summary>
     public abstract class ComparePredicate : BasePredicate
     {
+        /// <summary>
+        /// 比较操作类型
+        /// </summary>
         public Operator Operator { get; set; }
+
+        /// <summary>
+        /// 比较类型是否逻辑非
+        /// </summary>
         public bool Not { get; set; }
 
+        /// <summary>
+        /// 获取比较操作类型的SQL片段
+        /// </summary>
+        /// <returns>SQL片段</returns>
         public virtual string GetOperatorString()
         {
             switch (Operator)
@@ -183,16 +239,28 @@ namespace DapperDal.Predicate
         }
     }
 
+    /// <summary>
+    /// 表示字段值比较谓的词组接口
+    /// </summary>
     public interface IFieldPredicate : IComparePredicate
     {
+        /// <summary>
+        /// 字段值
+        /// </summary>
         object Value { get; set; }
     }
 
+    /// <summary>
+    /// 字段值比较谓词类
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class FieldPredicate<T> : ComparePredicate, IFieldPredicate
         where T : class
     {
+        /// <inheritdoc />
         public object Value { get; set; }
 
+        /// <inheritdoc />
         public override string GetSql(ISqlGenerator sqlGenerator, IDictionary<string, object> parameters)
         {
             string columnName = GetColumnName(typeof(T), sqlGenerator, PropertyName);
@@ -224,17 +292,30 @@ namespace DapperDal.Predicate
         }
     }
 
+    /// <summary>
+    /// 表示两个属性比较的谓词接口
+    /// </summary>
     public interface IPropertyPredicate : IComparePredicate
     {
+        /// <summary>
+        /// 第二个属性名
+        /// </summary>
         string PropertyName2 { get; set; }
     }
 
+    /// <summary>
+    /// 两个属性比较的谓词类
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T2"></typeparam>
     public class PropertyPredicate<T, T2> : ComparePredicate, IPropertyPredicate
         where T : class
         where T2 : class
     {
+        /// <inheritdoc />
         public string PropertyName2 { get; set; }
 
+        /// <inheritdoc />
         public override string GetSql(ISqlGenerator sqlGenerator, IDictionary<string, object> parameters)
         {
             string columnName = GetColumnName(typeof(T), sqlGenerator, PropertyName);
@@ -243,23 +324,52 @@ namespace DapperDal.Predicate
         }
     }
 
+    /// <summary>
+    /// 表示在两者之间的起始值、结束值的结构
+    /// </summary>
     public struct BetweenValues
     {
+        /// <summary>
+        /// 起始值
+        /// </summary>
         public object Value1 { get; set; }
+
+        /// <summary>
+        /// 结束值
+        /// </summary>
         public object Value2 { get; set; }
     }
 
+    /// <summary>
+    /// 表示属性在两者之间的谓词接口
+    /// </summary>
     public interface IBetweenPredicate : IPredicate
     {
+        /// <summary>
+        /// 属性名
+        /// </summary>
         string PropertyName { get; set; }
+
+        /// <summary>
+        /// 起始值、结束值
+        /// </summary>
         BetweenValues Value { get; set; }
+
+        /// <summary>
+        /// 比较类型是否逻辑非
+        /// </summary>
         bool Not { get; set; }
 
     }
 
+    /// <summary>
+    /// 表示属性在两者之间的谓词类
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class BetweenPredicate<T> : BasePredicate, IBetweenPredicate
         where T : class
     {
+        /// <inheritdoc />
         public override string GetSql(ISqlGenerator sqlGenerator, IDictionary<string, object> parameters)
         {
             string columnName = GetColumnName(typeof(T), sqlGenerator, PropertyName);
@@ -268,60 +378,83 @@ namespace DapperDal.Predicate
             return string.Format("({0} {1}BETWEEN {2} AND {3})", columnName, Not ? "NOT " : string.Empty, propertyName1, propertyName2);
         }
 
+        /// <inheritdoc />
         public BetweenValues Value { get; set; }
 
+        /// <inheritdoc />
         public bool Not { get; set; }
     }
 
     /// <summary>
-    /// Comparison operator for predicates.
+    /// 谓词比较操作类型
     /// </summary>
     public enum Operator
     {
         /// <summary>
+        /// 等于
         /// Equal to
         /// </summary>
         Eq,
 
         /// <summary>
+        /// 大于
         /// Greater than
         /// </summary>
         Gt,
 
         /// <summary>
+        /// 大于等于
         /// Greater than or equal to
         /// </summary>
         Ge,
 
         /// <summary>
+        /// 小于
         /// Less than
         /// </summary>
         Lt,
 
         /// <summary>
+        /// 小于等于
         /// Less than or equal to
         /// </summary>
         Le,
 
         /// <summary>
+        /// 类似于
         /// Like (You can use % in the value to do wilcard searching)
         /// </summary>
         Like
     }
 
+    /// <summary>
+    /// 表示谓词组的接口
+    /// </summary>
     public interface IPredicateGroup : IPredicate
     {
+        /// <summary>
+        /// 谓词之间组合的操作类型
+        /// </summary>
         GroupOperator Operator { get; set; }
+
+        /// <summary>
+        /// 谓词组
+        /// </summary>
         IList<IPredicate> Predicates { get; set; }
     }
 
     /// <summary>
-    /// Groups IPredicates together using the specified group operator.
+    /// 谓词组类
     /// </summary>
     public class PredicateGroup : IPredicateGroup
     {
+        /// <inheritdoc />
         public GroupOperator Operator { get; set; }
+
+        /// <inheritdoc />
         public IList<IPredicate> Predicates { get; set; }
+
+        /// <inheritdoc />
         public string GetSql(ISqlGenerator sqlGenerator, IDictionary<string, object> parameters)
         {
             string seperator = Operator == GroupOperator.And ? " AND " : " OR ";
@@ -337,18 +470,36 @@ namespace DapperDal.Predicate
         }
     }
 
+    /// <summary>
+    /// 表示是否存在的谓词接口
+    /// </summary>
     public interface IExistsPredicate : IPredicate
     {
+        /// <summary>
+        /// 子谓词
+        /// </summary>
         IPredicate Predicate { get; set; }
+
+        /// <summary>
+        /// 比较类型是否逻辑非
+        /// </summary>
         bool Not { get; set; }
     }
 
+    /// <summary>
+    /// 是否存在的谓词类
+    /// </summary>
+    /// <typeparam name="TSub"></typeparam>
     public class ExistsPredicate<TSub> : IExistsPredicate
         where TSub : class
     {
+        /// <inheritdoc />
         public IPredicate Predicate { get; set; }
+
+        /// <inheritdoc />
         public bool Not { get; set; }
 
+        /// <inheritdoc />
         public string GetSql(ISqlGenerator sqlGenerator, IDictionary<string, object> parameters)
         {
             IClassMapper mapSub = GetClassMapper(typeof(TSub), sqlGenerator.Configuration);
@@ -359,6 +510,13 @@ namespace DapperDal.Predicate
             return sql;
         }
 
+        /// <summary>
+        /// 获取实体类型的映射器
+        /// </summary>
+        /// <param name="type">实体类型</param>
+        /// <param name="configuration">数据访问配置</param>
+        /// <returns>实体类型的映射器</returns>
+        /// <exception cref="NullReferenceException">实体类型的映射器未找到</exception>
         protected virtual IClassMapper GetClassMapper(Type type, IDalConfiguration configuration)
         {
             IClassMapper map = configuration.GetMap(type);
@@ -371,24 +529,47 @@ namespace DapperDal.Predicate
         }
     }
 
+    /// <summary>
+    /// 表示排序条件的接口
+    /// </summary>
     public interface ISort
     {
+        /// <summary>
+        /// 排序属性名
+        /// </summary>
         string PropertyName { get; set; }
+
+        /// <summary>
+        /// 是否升序
+        /// </summary>
         bool Ascending { get; set; }
     }
 
+    /// <summary>
+    /// 排序条件
+    /// </summary>
     public class Sort : ISort
     {
+        /// <inheritdoc />
         public string PropertyName { get; set; }
+
+        /// <inheritdoc />
         public bool Ascending { get; set; }
     }
 
     /// <summary>
-    /// Operator to use when joining predicates in a PredicateGroup.
+    /// 谓词间组合操作类型
     /// </summary>
     public enum GroupOperator
     {
+        /// <summary>
+        /// 并且
+        /// </summary>
         And,
+
+        /// <summary>
+        /// 或者
+        /// </summary>
         Or
     }
 }

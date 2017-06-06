@@ -5,6 +5,9 @@ using DapperDal.Predicate;
 
 namespace DapperDal.Extensions
 {
+    /// <summary>
+    /// 谓词生成帮助方法
+    /// </summary>
     public static class PredicateHelper
     {
         internal static DalImplementor Instance

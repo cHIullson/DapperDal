@@ -9,43 +9,63 @@ using DapperDal.Extensions;
 
 namespace DapperDal.Mapper
 {
+    /// <summary>
+    /// 实体类型映射器接口
+    /// </summary>
     public interface IClassMapper
     {
+        /// <summary>
+        /// 数据库架构名
+        /// </summary>
         string SchemaName { get; }
+
+        /// <summary>
+        /// 数据库表名
+        /// </summary>
         string TableName { get; }
+
+        /// <summary>
+        /// 实体属性信息列表
+        /// </summary>
         IList<IPropertyMap> Properties { get; }
+
+        /// <summary>
+        /// 实体类型
+        /// </summary>
         Type EntityType { get; }
     }
 
+    /// <summary>
+    /// 泛型实体映射器接口
+    /// </summary>
+    /// <typeparam name="T">实体类型</typeparam>
     public interface IClassMapper<T> : IClassMapper where T : class
     {
     }
 
     /// <summary>
-    /// Maps an entity to a table through a collection of property maps.
+    /// 默认泛型实体映射器类
     /// </summary>
     public class ClassMapper<T> : IClassMapper<T> where T : class
     {
-        /// <summary>
-        /// Gets or sets the schema to use when referring to the corresponding table name in the database.
-        /// </summary>
+        /// <inheritdoc />
         public string SchemaName { get; protected set; }
 
-        /// <summary>
-        /// Gets or sets the table to use in the database.
-        /// </summary>
+        /// <inheritdoc />
         public string TableName { get; protected set; }
 
-        /// <summary>
-        /// A collection of properties that will map to columns in the database table.
-        /// </summary>
+        /// <inheritdoc />
         public IList<IPropertyMap> Properties { get; private set; }
 
+        /// <inheritdoc />
         public Type EntityType
         {
             get { return typeof(T); }
         }
 
+        /// <summary>
+        /// 初始化默认泛型实体映射器
+        /// </summary>
         public ClassMapper()
         {
             PropertyTypeKeyTypeMapping = new Dictionary<Type, KeyType>
@@ -66,23 +86,41 @@ namespace DapperDal.Mapper
             Table(typeof(T).Name);
         }
 
+        /// <summary>
+        /// 属性类型与键类型的对应关系字典
+        /// </summary>
         protected Dictionary<Type, KeyType> PropertyTypeKeyTypeMapping { get; private set; }
 
+        /// <summary>
+        /// 设置数据库架构名
+        /// </summary>
+        /// <param name="schemaName">数据库架构名</param>
         public virtual void Schema(string schemaName)
         {
             SchemaName = schemaName;
         }
 
+        /// <summary>
+        /// 设置数据库表名
+        /// </summary>
+        /// <param name="tableName">设置数据库表名</param>
         public virtual void Table(string tableName)
         {
             TableName = tableName;
         }
 
+        /// <summary>
+        /// 执行自动映射
+        /// </summary>
         protected virtual void AutoMap()
         {
             AutoMap(null);
         }
 
+        /// <summary>
+        /// 执行自动映射
+        /// </summary>
+        /// <param name="canMap">指示实体属性是否要映射的方法提供</param>
         protected virtual void AutoMap(Func<Type, PropertyInfo, bool> canMap)
         {
             Type type = typeof(T);
@@ -124,8 +162,10 @@ namespace DapperDal.Mapper
         }
 
         /// <summary>
-        /// Fluently, maps an entity property to a column
+        /// 设置实体属性映射，支持链式调用
         /// </summary>
+        /// <param name="expression">实体属性映射表达式</param>
+        /// <returns>实体属性映射器</returns>
         protected PropertyMap Map(Expression<Func<T, object>> expression)
         {
             PropertyInfo propertyInfo = ReflectionHelper.GetProperty(expression) as PropertyInfo;
@@ -133,8 +173,10 @@ namespace DapperDal.Mapper
         }
 
         /// <summary>
-        /// Fluently, maps an entity property to a column
+        /// 设置实体属性映射，支持链式调用
         /// </summary>
+        /// <param name="propertyInfo">实体属性元数据访问器</param>
+        /// <returns>实体属性映射器</returns>
         protected PropertyMap Map(PropertyInfo propertyInfo)
         {
             PropertyMap result = new PropertyMap(propertyInfo);

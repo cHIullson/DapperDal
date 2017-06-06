@@ -4,13 +4,13 @@ using System.Linq;
 namespace DapperDal.Mapper
 {
     /// <summary>
-    /// 自动实体映射
+    /// 实体自动映射器类
     /// </summary>
     /// <typeparam name="T">实体类</typeparam>
     public class AutoEntityMapper<T> : ClassMapper<T> where T : class
     {
         /// <summary>
-        /// 构造方法自动映射实体
+        /// 初始化自动映射实体
         /// </summary>
         public AutoEntityMapper()
         {

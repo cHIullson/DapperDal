@@ -6,7 +6,7 @@ using System.Text;
 namespace DapperDal
 {
     /// <summary>
-    /// DAL配置项
+    /// 数据访问设置项
     /// </summary>
     public class DalOptions
     {

@@ -9,14 +9,29 @@ using DapperDal.Sql;
 
 namespace DapperDal
 {
+    /// <summary>
+    /// 数据访问配置接口
+    /// </summary>
     public interface IDalConfiguration
     {
+         /// <summary>
+         /// 默认实体映射类型
+         /// </summary>
          Type DefaultMapper { get; set; }
 
-         IList<Assembly> MappingAssemblies { get; set; }
+        /// <summary>
+        /// 实体映射类型检索程序集
+        /// </summary>
+        IList<Assembly> MappingAssemblies { get; set; }
 
+         /// <summary>
+         /// SQL方言实例
+         /// </summary>
          ISqlDialect Dialect { get; set; }
 
+         /// <summary>
+         /// 数据访问实现实例
+         /// </summary>
          IDalImplementor DapperImplementor { get; set; }
 
         /// <summary>
@@ -35,20 +50,40 @@ namespace DapperDal
          bool Buffered { get; set; }
 
         /// <summary>
-        /// 
+        /// 设置实体映射类型检索程序集
         /// </summary>
-        /// <param name="assemblies"></param>
+        /// <param name="assemblies">实体映射类型检索程序集</param>
         void SetMappingAssemblies(IList<Assembly> assemblies);
 
+        /// <summary>
+        /// 获取实体映射类型
+        /// </summary>
+        /// <param name="entityType">实体类型</param>
+        /// <returns>实体映射类型</returns>
         IClassMapper GetMap(Type entityType);
 
+        /// <summary>
+        /// 获取实体映射类型
+        /// </summary>
+        /// <typeparam name="T">实体类型</typeparam>
+        /// <returns>实体映射类型</returns>
         IClassMapper GetMap<T>() where T : class;
 
+        /// <summary>
+        /// 清空实体映射类型缓存
+        /// </summary>
         void ClearCache();
 
+        /// <summary>
+        /// 获取新的GUID
+        /// </summary>
+        /// <returns>新的GUID</returns>
         Guid GetNextGuid();
     }
 
+    /// <summary>
+    /// 数据访问配置类
+    /// </summary>
     public class DalConfiguration : IDalConfiguration
     {
         private readonly ConcurrentDictionary<Type, IClassMapper> _classMaps = new ConcurrentDictionary<Type, IClassMapper>();
@@ -58,12 +93,21 @@ namespace DapperDal
             Default = new DalConfiguration();
         }
 
+        /// <summary>
+        /// 初始化数据访问配置
+        /// </summary>
         public DalConfiguration()
             : this(typeof(AutoClassMapper<>), new List<Assembly>(), new SqlServerDialect())
         {
         }
 
 
+        /// <summary>
+        /// 初始化数据访问配置
+        /// </summary>
+        /// <param name="defaultMapper">默认实体映射类型</param>
+        /// <param name="mappingAssemblies">实体映射类型检索程序集</param>
+        /// <param name="sqlDialect">SQL方言实例</param>
         public DalConfiguration(Type defaultMapper, IList<Assembly> mappingAssemblies, ISqlDialect sqlDialect)
         {
             DefaultMapper = defaultMapper;
@@ -77,12 +121,16 @@ namespace DapperDal
         /// </summary>
         public static IDalConfiguration Default { get; }
 
+        /// <inheritdoc />
         public Type DefaultMapper { get; set; }
 
+        /// <inheritdoc />
         public IList<Assembly> MappingAssemblies { get; set; }
 
+        /// <inheritdoc />
         public ISqlDialect Dialect { get; set; }
 
+        /// <inheritdoc />
         public IDalImplementor DapperImplementor { get; set; }
 
         /// <summary>
@@ -100,10 +148,7 @@ namespace DapperDal
         /// </summary>
         public bool Buffered { get; set; }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="assemblies"></param>
+        /// <inheritdoc />
         public void SetMappingAssemblies(IList<Assembly> assemblies)
         {
             MappingAssemblies = assemblies ?? new List<Assembly>();
@@ -111,6 +156,7 @@ namespace DapperDal
             DapperImplementor = new DalImplementor(new SqlGeneratorImpl(this));
         }
 
+        /// <inheritdoc />
         public IClassMapper GetMap(Type entityType)
         {
             IClassMapper map;
@@ -129,16 +175,19 @@ namespace DapperDal
             return map;
         }
 
+        /// <inheritdoc />
         public IClassMapper GetMap<T>() where T : class
         {
             return GetMap(typeof(T));
         }
 
+        /// <inheritdoc />
         public void ClearCache()
         {
             _classMaps.Clear();
         }
 
+        /// <inheritdoc />
         public Guid GetNextGuid()
         {
             byte[] b = Guid.NewGuid().ToByteArray();

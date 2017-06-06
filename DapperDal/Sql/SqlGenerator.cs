@@ -8,35 +8,143 @@ using DapperDal.Predicate;
 
 namespace DapperDal.Sql
 {
+    /// <summary>
+    /// SQL生成器接口
+    /// </summary>
     public interface ISqlGenerator
     {
+        /// <summary>
+        /// 数据访问配置类实例
+        /// </summary>
         IDalConfiguration Configuration { get; }
 
+        /// <summary>
+        /// 生成获取语句
+        /// </summary>
+        /// <param name="classMap">实体类型映射</param>
+        /// <param name="predicate">查询条件谓词</param>
+        /// <param name="sort">排序条件</param>
+        /// <param name="parameters">查询参数</param>
+        /// <param name="limit">前几条</param>
+        /// <returns>生成获取语句</returns>
         string Select(IClassMapper classMap, IPredicate predicate, IList<ISort> sort, IDictionary<string, object> parameters, int limit = 0);
+
+        /// <summary>
+        /// 生成分页获取语句
+        /// </summary>
+        /// <param name="classMap">实体类型映射</param>
+        /// <param name="predicate">查询条件谓词</param>
+        /// <param name="sort">排序条件</param>
+        /// <param name="page">页索引</param>
+        /// <param name="resultsPerPage">每页条数</param>
+        /// <param name="parameters">查询参数</param>
+        /// <returns>分页获取语句</returns>
         string SelectPaged(IClassMapper classMap, IPredicate predicate, IList<ISort> sort, int page, int resultsPerPage, IDictionary<string, object> parameters);
+
+        /// <summary>
+        /// 生成区间获取语句
+        /// </summary>
+        /// <param name="classMap">实体类型映射</param>
+        /// <param name="predicate">查询条件谓词</param>
+        /// <param name="sort">排序条件</param>
+        /// <param name="firstResult">起始行数</param>
+        /// <param name="maxResults">最大条数</param>
+        /// <param name="parameters">查询参数</param>
+        /// <returns>区间获取语句</returns>
         string SelectSet(IClassMapper classMap, IPredicate predicate, IList<ISort> sort, int firstResult, int maxResults, IDictionary<string, object> parameters);
+
+        /// <summary>
+        /// 生成条数获取语句
+        /// </summary>
+        /// <param name="classMap">实体类型映射</param>
+        /// <param name="predicate">查询条件谓词</param>
+        /// <param name="parameters">查询参数</param>
+        /// <returns>条数获取语句</returns>
         string Count(IClassMapper classMap, IPredicate predicate, IDictionary<string, object> parameters);
 
+        /// <summary>
+        /// 生成插入语句
+        /// </summary>
+        /// <param name="classMap">实体类型映射</param>
+        /// <returns>条数获取语句</returns>
         string Insert(IClassMapper classMap);
+
+        /// <summary>
+        /// 生成更新语句
+        /// </summary>
+        /// <param name="classMap">实体类型映射</param>
+        /// <param name="predicate">更新条件谓词</param>
+        /// <param name="parameters">更新参数</param>
+        /// <param name="props">更新属性列表</param>
+        /// <returns>更新语句</returns>
         string Update(IClassMapper classMap, IPredicate predicate, IDictionary<string, object> parameters, IList<string> props = null);
+
+        /// <summary>
+        /// 生成删除语句
+        /// </summary>
+        /// <param name="classMap">实体类型映射</param>
+        /// <param name="predicate">删除条件谓词</param>
+        /// <param name="parameters">删除参数</param>
+        /// <returns>删除语句</returns>
         string Delete(IClassMapper classMap, IPredicate predicate, IDictionary<string, object> parameters);
 
+        /// <summary>
+        /// 生成包含主键条件的获取语句
+        /// </summary>
+        /// <param name="classMap">实体类型映射</param>
+        /// <returns>包含主键条件的获取语句</returns>
         string IdentitySql(IClassMapper classMap);
+
+        /// <summary>
+        /// 生成表名
+        /// </summary>
+        /// <param name="map">实体类型映射</param>
+        /// <returns></returns>
         string GetTableName(IClassMapper map);
+
+        /// <summary>
+        /// 生成字段名
+        /// </summary>
+        /// <param name="map">实体类型映射</param>
+        /// <param name="property">属性映射</param>
+        /// <param name="includeAlias">是否包含别名</param>
+        /// <returns>字段名</returns>
         string GetColumnName(IClassMapper map, IPropertyMap property, bool includeAlias);
+
+        /// <summary>
+        /// 生成字段名
+        /// </summary>
+        /// <param name="map">实体类型映射</param>
+        /// <param name="propertyName">属性名</param>
+        /// <param name="includeAlias">是否包含别名</param>
+        /// <returns>字段名</returns>
         string GetColumnName(IClassMapper map, string propertyName, bool includeAlias);
+
+        /// <summary>
+        /// 是否支持多语句执行
+        /// </summary>
+        /// <returns></returns>
         bool SupportsMultipleStatements();
     }
 
+    /// <summary>
+    /// SQL生成器类
+    /// </summary>
     public class SqlGeneratorImpl : ISqlGenerator
     {
+        /// <summary>
+        /// 初始化SQL生成器类
+        /// </summary>
+        /// <param name="configuration">数据访问配置类实例</param>
         public SqlGeneratorImpl(IDalConfiguration configuration)
         {
             Configuration = configuration;
         }
 
+        /// <inheritdoc />
         public IDalConfiguration Configuration { get; private set; }
 
+        /// <inheritdoc />
         public virtual string Select(IClassMapper classMap, IPredicate predicate, IList<ISort> sort, IDictionary<string, object> parameters, int limit = 0)
         {
             if (parameters == null)
@@ -78,6 +186,7 @@ namespace DapperDal.Sql
             return outSql;
         }
 
+        /// <inheritdoc />
         public virtual string SelectPaged(IClassMapper classMap, IPredicate predicate, IList<ISort> sort, int page, int resultsPerPage, IDictionary<string, object> parameters)
         {
             if (sort == null || !sort.Any())
@@ -119,6 +228,7 @@ namespace DapperDal.Sql
             return outSql;
         }
 
+        /// <inheritdoc />
         public virtual string SelectSet(IClassMapper classMap, IPredicate predicate, IList<ISort> sort, int firstResult, int maxResults, IDictionary<string, object> parameters)
         {
             if (sort == null || !sort.Any())
@@ -161,6 +271,7 @@ namespace DapperDal.Sql
         }
 
 
+        /// <inheritdoc />
         public virtual string Count(IClassMapper classMap, IPredicate predicate, IDictionary<string, object> parameters)
         {
             if (parameters == null)
@@ -192,6 +303,7 @@ namespace DapperDal.Sql
             return outSql;
         }
 
+        /// <inheritdoc />
         public virtual string Insert(IClassMapper classMap)
         {
             var columns = classMap.Properties.Where(p => !(p.Ignored || p.IsReadOnly || p.KeyType == KeyType.Identity || p.KeyType == KeyType.TriggerIdentity));
@@ -226,6 +338,7 @@ namespace DapperDal.Sql
             return sql;
         }
 
+        /// <inheritdoc />
         public virtual string Update(IClassMapper classMap, IPredicate predicate, IDictionary<string, object> parameters, IList<string> props = null)
         {
             if (predicate == null)
@@ -265,6 +378,7 @@ namespace DapperDal.Sql
             return sql;
         }
 
+        /// <inheritdoc />
         public virtual string Delete(IClassMapper classMap, IPredicate predicate, IDictionary<string, object> parameters)
         {
             if (predicate == null)
@@ -290,16 +404,19 @@ namespace DapperDal.Sql
             return outSql;
         }
 
+        /// <inheritdoc />
         public virtual string IdentitySql(IClassMapper classMap)
         {
             return Configuration.Dialect.GetIdentitySql(GetTableName(classMap));
         }
 
+        /// <inheritdoc />
         public virtual string GetTableName(IClassMapper map)
         {
             return Configuration.Dialect.GetTableName(map.SchemaName, map.TableName, null);
         }
 
+        /// <inheritdoc />
         public virtual string GetColumnName(IClassMapper map, IPropertyMap property, bool includeAlias)
         {
             string alias = null;
@@ -311,6 +428,7 @@ namespace DapperDal.Sql
             return Configuration.Dialect.GetColumnName(GetTableName(map), property.ColumnName, alias);
         }
 
+        /// <inheritdoc />
         public virtual string GetColumnName(IClassMapper map, string propertyName, bool includeAlias)
         {
             IPropertyMap propertyMap = map.Properties.SingleOrDefault(p => p.Name.Equals(propertyName, StringComparison.InvariantCultureIgnoreCase));
@@ -322,11 +440,17 @@ namespace DapperDal.Sql
             return GetColumnName(map, propertyMap, includeAlias);
         }
 
+        /// <inheritdoc />
         public virtual bool SupportsMultipleStatements()
         {
             return Configuration.Dialect.SupportsMultipleStatements;
         }
 
+        /// <summary>
+        /// 生成所有字段组合语句
+        /// </summary>
+        /// <param name="classMap">实体类型映射</param>
+        /// <returns>字段组合语句</returns>
         public virtual string BuildSelectColumns(IClassMapper classMap)
         {
             var columns = classMap.Properties

@@ -5,29 +5,37 @@ using System.Text;
 
 namespace DapperDal.Sql
 {
+    /// <summary>
+    /// SQL Server方言类
+    /// </summary>
     public class SqlServerDialect : SqlDialectBase
     {
+        /// <inheritdoc />
         public override char OpenQuote
         {
             get { return '['; }
         }
 
+        /// <inheritdoc />
         public override char CloseQuote
         {
             get { return ']'; }
         }
 
+        /// <inheritdoc />
         public override string GetIdentitySql(string tableName)
         {
             return string.Format("SELECT CAST(SCOPE_IDENTITY()  AS BIGINT) AS [Id]");
         }
 
+        /// <inheritdoc />
         public override string GetPagingSql(string sql, int page, int resultsPerPage, IDictionary<string, object> parameters)
         {
             int startValue = (page * resultsPerPage) + 1;
             return GetSetSql(sql, startValue, resultsPerPage, parameters);
         }
 
+        /// <inheritdoc />
         public override string GetSetSql(string sql, int firstResult, int maxResults, IDictionary<string, object> parameters)
         {
             if (string.IsNullOrEmpty(sql))
@@ -60,6 +68,11 @@ namespace DapperDal.Sql
             return result;
         }
 
+        /// <summary>
+        /// 获取SQL语句的排序部分语句
+        /// </summary>
+        /// <param name="sql">SQL语句</param>
+        /// <returns>排序部分语句</returns>
         protected string GetOrderByClause(string sql)
         {
             int orderByIndex = sql.LastIndexOf(" ORDER BY ", StringComparison.InvariantCultureIgnoreCase);
@@ -79,6 +92,11 @@ namespace DapperDal.Sql
             return result.Substring(0, whereIndex).Trim();
         }
 
+        /// <summary>
+        /// 获取SQL语句的FROM索引
+        /// </summary>
+        /// <param name="sql">SQL语句</param>
+        /// <returns>FROM索引</returns>
         protected int GetFromStart(string sql)
         {
             int selectCount = 0;
@@ -106,6 +124,11 @@ namespace DapperDal.Sql
             return fromIndex;
         }
 
+        /// <summary>
+        /// 获取SQL语句的SELECT索引
+        /// </summary>
+        /// <param name="sql">SQL语句</param>
+        /// <returns>SELECT索引</returns>
         protected virtual int GetSelectEnd(string sql)
         {
             if (sql.StartsWith("SELECT DISTINCT", StringComparison.InvariantCultureIgnoreCase))
@@ -121,6 +144,11 @@ namespace DapperDal.Sql
             throw new ArgumentException("SQL must be a SELECT statement.", "sql");
         }
 
+        /// <summary>
+        /// 获取SQL语句里的所有字段名
+        /// </summary>
+        /// <param name="sql">SQL语句</param>
+        /// <returns>字段名列表</returns>
         protected virtual IList<string> GetColumnNames(string sql)
         {
             int start = GetSelectEnd(sql);

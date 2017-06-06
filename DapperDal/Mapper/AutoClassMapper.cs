@@ -7,6 +7,9 @@ namespace DapperDal.Mapper
     /// </summary>
     public class AutoClassMapper<T> : ClassMapper<T> where T : class
     {
+        /// <summary>
+        /// 初始化自动类型绑定器
+        /// </summary>
         public AutoClassMapper()
         {
             Type type = typeof(T);
