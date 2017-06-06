@@ -30,6 +30,8 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             {
                 connection.Execute(setupFile);
             }
+
+            DalConfiguration.Default.OutputSql = Console.WriteLine;
         }
 
         public void CreateDatabase()
