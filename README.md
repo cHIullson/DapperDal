@@ -8,6 +8,9 @@ AppVeyor: [![Build status](https://ci.appveyor.com/api/projects/status/rxogkxvhd
 
 Release Notes
 -------------
+### 1.5.16
+* 重构，合并 `Dapper-Extensions` 到 `DapperDal`，然后移除 `Dapper-Extensions`
+
 ### 1.5.15
 * 删除方法 `QueryFirstOrDefault`，可以使用 `QueryFirst` 替换
 * 添加重载方法 `OpenConnection`、`Execute`、`Query`, 支持传入其他 DB 连接串
