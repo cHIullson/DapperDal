@@ -1,8 +1,8 @@
 using System;
 using System.Linq.Expressions;
 using System.Reflection;
-using DapperDal.Extensions;
 using DapperDal.Mapper;
+using DapperDal.Utils;
 using NUnit.Framework;
 
 namespace DapperDal.Test.Mapper

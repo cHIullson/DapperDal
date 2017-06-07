@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using DapperDal.Extensions;
+using DapperDal.Utils;
 
 namespace DapperDal.Expressions
 {
@@ -40,7 +40,8 @@ namespace DapperDal.Expressions
         /// <param name="first">The first predicate</param>
         /// <param name="second">The second predicate</param>
         /// <returns>An expression representing a logical "and" between both predicates</returns>
-        public static Expression<Func<T, bool>> And<T>(this Expression<Func<T, bool>> first, Expression<Func<T, bool>> second)
+        public static Expression<Func<T, bool>> And<T>(this Expression<Func<T, bool>> first,
+            Expression<Func<T, bool>> second)
         {
             if (ExpressionUtility.IsConstant(first, true))
                 return second;
@@ -58,7 +59,8 @@ namespace DapperDal.Expressions
         /// <param name="first">The first predicate</param>
         /// <param name="second">The second predicate</param>
         /// <returns>An expression representing a logical "or" between both predicates</returns>
-        public static Expression<Func<T, bool>> Or<T>(this Expression<Func<T, bool>> first, Expression<Func<T, bool>> second)
+        public static Expression<Func<T, bool>> Or<T>(this Expression<Func<T, bool>> first,
+            Expression<Func<T, bool>> second)
         {
             if (ExpressionUtility.IsConstant(first, false))
                 return second;

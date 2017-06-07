@@ -5,9 +5,9 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
-using DapperDal.Extensions;
 using DapperDal.Mapper;
 using DapperDal.Sql;
+using DapperDal.Utils;
 
 namespace DapperDal.Predicate
 {

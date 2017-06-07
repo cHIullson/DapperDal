@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Numerics;
 using System.Reflection;
-using DapperDal.Extensions;
 using DapperDal.Mapper;
 using DapperDal.Test.Helpers;
+using DapperDal.Utils;
 using Moq;
 using NUnit.Framework;
 

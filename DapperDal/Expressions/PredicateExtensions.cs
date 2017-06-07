@@ -1,13 +1,15 @@
-﻿using System;
-using System.Linq.Expressions;
-using Dapper.Extensions.Linq.Builder;
+﻿// https://github.com/alexfoxgill/ExpressionTools
 
-namespace DapperExtensions.Expressions
+using System;
+using System.Linq.Expressions;
+using DapperDal.Predicate;
+
+namespace DapperDal.Expressions
 {
     /// <summary>
     /// 查询条件表达式转换扩展
     /// </summary>
-    public static class DapperExpressionExtensions
+    public static class PredicateExtensions
     {
         /// <summary>
         /// 查询条件表达式转换为谓词组的扩展方法

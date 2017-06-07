@@ -54,7 +54,10 @@ namespace DapperDal.Expressions
         /// <returns></returns>
         public static MemberInitExpression AddBinding(this MemberInitExpression memberInit, MemberBinding binding)
         {
-            var bindings = new List<MemberBinding>(memberInit.Bindings) { binding };
+            var bindings = new List<MemberBinding>(memberInit.Bindings)
+            {
+                binding
+            };
             return Expression.MemberInit(memberInit.NewExpression, bindings);
         }
 

@@ -6,10 +6,10 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using Dapper;
-using DapperDal.Extensions;
 using DapperDal.Mapper;
 using DapperDal.Predicate;
 using DapperDal.Sql;
+using DapperDal.Utils;
 
 namespace DapperDal.Implementor
 {

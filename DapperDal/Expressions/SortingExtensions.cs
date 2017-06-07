@@ -3,25 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using DapperDal.Predicate;
+using DapperDal.Utils;
 
-namespace DapperExtensions.Expressions
+namespace DapperDal.Expressions
 {
-    /// <summary>
-    /// 排序方向
-    /// </summary>
-    public enum SortDirection
-    {
-        /// <summary>
-        /// 升序
-        /// </summary>
-        Ascending = 0,
-
-        /// <summary>
-        /// 降序
-        /// </summary>
-        Descending
-    }
-
     /// <summary>
     /// 排序条件转换扩展
     /// </summary>

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using DapperDal.Extensions;
 using DapperDal.Mapper;
 using DapperDal.Predicate;
+using DapperDal.Utils;
 
 namespace DapperDal.Sql
 {

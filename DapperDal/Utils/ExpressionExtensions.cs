@@ -1,11 +1,16 @@
 ﻿// https://github.com/alexfoxgill/ExpressionTools
+
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using DapperDal.Expressions;
 
-namespace DapperExtensions.Expressions
+namespace DapperDal.Utils
 {
-    public static class ExpressionExtensions
+    /// <summary>
+    /// 表达式转换扩展
+    /// </summary>
+    internal static class ExpressionExtensions
     {
         /// <summary>
         /// Combines two expressions (a -> b) and (a -> c) with a combining expression ((b,c) -> d) to form an expression (a -> d)

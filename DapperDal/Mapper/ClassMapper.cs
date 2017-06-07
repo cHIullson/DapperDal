@@ -5,7 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Numerics;
 using System.Reflection;
-using DapperDal.Extensions;
+using DapperDal.Utils;
 
 namespace DapperDal.Mapper
 {

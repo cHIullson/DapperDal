@@ -5,9 +5,12 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
 
-namespace DapperExtensions
+namespace DapperDal.Utils
 {
-    public static class ReflectionHelper
+    /// <summary>
+    /// 反射工具方法
+    /// </summary>
+    internal static class ReflectionHelper
     {
         private static List<Type> _simpleTypes = new List<Type>
                                {
@@ -30,7 +33,12 @@ namespace DapperExtensions
                                    typeof(DateTimeOffset),
                                    typeof(byte[])
                                };
-        
+
+        /// <summary>
+        /// 从表达式获取成员元数据访问器对象
+        /// </summary>
+        /// <param name="lambda">表达式</param>
+        /// <returns>成员元数据访问器对象</returns>
         public static MemberInfo GetProperty(LambdaExpression lambda)
         {
             Expression expr = lambda;
@@ -54,6 +62,11 @@ namespace DapperExtensions
             }
         }
 
+        /// <summary>
+        /// 对象生成属性名及属性值的字典返回
+        /// </summary>
+        /// <param name="obj">对象</param>
+        /// <returns>属性名及属性值的字典</returns>
         public static IDictionary<string, object> GetObjectValues(object obj)
         {
             IDictionary<string, object> result = new Dictionary<string, object>();
@@ -73,6 +86,12 @@ namespace DapperExtensions
             return result;
         }
 
+        /// <summary>
+        /// 拼接查询字段名
+        /// </summary>
+        /// <param name="list">查询字段名列表</param>
+        /// <param name="seperator">拼接分割字符</param>
+        /// <returns>拼接后的语句</returns>
         public static string AppendStrings(this IEnumerable<string> list, string seperator = ", ")
         {
             return list.Aggregate(
@@ -81,6 +100,11 @@ namespace DapperExtensions
                 sb => sb.ToString());
         }
 
+        /// <summary>
+        /// 类型是否是简单类型
+        /// </summary>
+        /// <param name="type">类型</param>
+        /// <returns>是否是简单类型</returns>
         public static bool IsSimpleType(Type type)
         {
             Type actualType = type;
@@ -92,11 +116,26 @@ namespace DapperExtensions
             return _simpleTypes.Contains(actualType);
         }
 
+        /// <summary>
+        /// 生成SQL参数片段
+        /// </summary>
+        /// <param name="parameters">参数列表</param>
+        /// <param name="parameterName">参数名</param>
+        /// <param name="parameterPrefix">参数前缀</param>
+        /// <returns>参数片段</returns>
         public static string GetParameterName(this IDictionary<string, object> parameters, string parameterName, char parameterPrefix)
         {
             return string.Format("{0}{1}_{2}", parameterPrefix, parameterName, parameters.Count);
         }
 
+        /// <summary>
+        /// 生成SQL参数片段
+        /// </summary>
+        /// <param name="parameters">参数列表</param>
+        /// <param name="parameterName">参数名</param>
+        /// <param name="value">参数值</param>
+        /// <param name="parameterPrefix">参数前缀</param>
+        /// <returns>参数片段</returns>
         public static string SetParameterName(this IDictionary<string, object> parameters, string parameterName, object value, char parameterPrefix)
         {
             string name = parameters.GetParameterName(parameterName, parameterPrefix);

@@ -1,6 +1,6 @@
 using System;
 using System.Linq.Expressions;
-using DapperDal.Extensions;
+using DapperDal.Utils;
 using NUnit.Framework;
 
 namespace DapperDal.Test
