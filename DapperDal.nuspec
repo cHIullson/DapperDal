@@ -10,8 +10,8 @@
     <projectUrl>https://github.com/arbing/DapperDal</projectUrl>
     <!--<iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>-->
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>用 Dapper、Dapper-Extensions、Abp.Dapper 封装的数据访问层</description>
-    <summary>用 Dapper、Dapper-Extensions、Abp.Dapper 封装的数据访问层</summary>
+    <description>轻量级ORM，基于 Dapper、Dapper-Extensions，作为数据访问层基类使用</description>
+    <summary>轻量级ORM，基于 Dapper、Dapper-Extensions，作为数据访问层基类使用</summary>
     <releaseNotes>
       ### 1.5.16
       * 重构，合并 Dapper-Extensions 到 DapperDal，然后移除 Dapper-Extensions
@@ -67,8 +67,8 @@
     </frameworkAssemblies>
   </metadata>
   <files>
-    <file src="bin\Release\DapperDal.dll" target="lib\net40" />
-    <file src="bin\Release\DapperDal.pdb" target="lib\net40" />
-    <file src="bin\Release\DapperDal.xml" target="lib\net40" />
+    <file src="src\DapperDal\bin\Release\DapperDal.dll" target="lib\net40" />
+    <file src="src\DapperDal\bin\Release\DapperDal.pdb" target="lib\net40" />
+    <file src="src\DapperDal\bin\Release\DapperDal.xml" target="lib\net40" />
   </files>  
 </package>

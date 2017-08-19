@@ -46,7 +46,7 @@
       <Project>{1ef2b04a-7e97-4c53-8afb-d90e815cfb05}</Project>
       <Name>DapperDal.Test.Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DapperDal\DapperDal.csproj">
+    <ProjectReference Include="..\..\src\DapperDal\DapperDal.csproj">
       <Project>{64cca848-7660-43ee-abae-91effe765e41}</Project>
       <Name>DapperDal</Name>
     </ProjectReference>

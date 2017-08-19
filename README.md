@@ -1,10 +1,27 @@
 # DapperDal
 
-用 `Dapper`、`Dapper-Extensions`、`Abp.Dapper` 封装的数据访问层
+轻量级ORM，基于 `Dapper`、`Dapper-Extensions`，作为数据访问层基类使用
 
-NuGet: [![NuGet Badge](https://buildstats.info/nuget/DapperDal)](https://www.nuget.org/packages/DapperDal/)
+[![NuGet Badge](https://buildstats.info/nuget/DapperDal)](https://www.nuget.org/packages/DapperDal/)
+[![Build status](https://ci.appveyor.com/api/projects/status/rxogkxvhdthd4rf0?svg=true)](https://ci.appveyor.com/project/arbing/dapperdal)
 
-AppVeyor: [![Build status](https://ci.appveyor.com/api/projects/status/rxogkxvhdthd4rf0?svg=true)](https://ci.appveyor.com/project/arbing/dapperdal)
+Introduction
+-------------
+
+Features
+-------------
+
+Installation
+-------------
+
+https://www.nuget.org/packages/DapperDal
+
+```
+PM> Install-Package DapperDal
+```
+
+Examples
+-------------
 
 Release Notes
 -------------
