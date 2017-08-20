@@ -80,35 +80,11 @@
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">ExistsPredicate&lt;TSub&gt;</span></div>
   </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="DapperDal.Predicate.html">DapperDal.Predicate</a></h6>
   <h6><strong>Assembly</strong>: DapperDal.dll</h6>
   <h5 id="DapperDal_Predicate_ExistsPredicate_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class ExistsPredicate&lt;TSub&gt; : IExistsPredicate, IPredicate where TSub : class</code></pre>
+    <pre><code class="lang-csharp hljs">public class ExistsPredicate&lt;TSub&gt; : object, IExistsPredicate, IPredicate where TSub : class</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -136,7 +112,8 @@
   </span>
   <a id="DapperDal_Predicate_ExistsPredicate_1_Not_" data-uid="DapperDal.Predicate.ExistsPredicate`1.Not*"></a>
   <h4 id="DapperDal_Predicate_ExistsPredicate_1_Not" data-uid="DapperDal.Predicate.ExistsPredicate`1.Not">Not</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>比较类型是否逻辑非</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -168,7 +145,8 @@
   </span>
   <a id="DapperDal_Predicate_ExistsPredicate_1_Predicate_" data-uid="DapperDal.Predicate.ExistsPredicate`1.Predicate*"></a>
   <h4 id="DapperDal_Predicate_ExistsPredicate_1_Predicate" data-uid="DapperDal.Predicate.ExistsPredicate`1.Predicate">Predicate</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>子谓词</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -195,13 +173,13 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Predicate_ExistsPredicate_1_GetClassMapper_System_Type_DapperDal_IDalConfiguration_.md&amp;value=---%0Auid%3A%20DapperDal.Predicate.ExistsPredicate%601.GetClassMapper(System.Type%2CDapperDal.IDalConfiguration)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Predicate_ExistsPredicate_1_GetClassMapper_Type_DapperDal_IDalConfiguration_.md&amp;value=---%0Auid%3A%20DapperDal.Predicate.ExistsPredicate%601.GetClassMapper(Type%2CDapperDal.IDalConfiguration)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Predicate/Predicates.cs/#L520">View Source</a>
   </span>
   <a id="DapperDal_Predicate_ExistsPredicate_1_GetClassMapper_" data-uid="DapperDal.Predicate.ExistsPredicate`1.GetClassMapper*"></a>
-  <h4 id="DapperDal_Predicate_ExistsPredicate_1_GetClassMapper_System_Type_DapperDal_IDalConfiguration_" data-uid="DapperDal.Predicate.ExistsPredicate`1.GetClassMapper(System.Type,DapperDal.IDalConfiguration)">GetClassMapper(Type, IDalConfiguration)</h4>
+  <h4 id="DapperDal_Predicate_ExistsPredicate_1_GetClassMapper_Type_DapperDal_IDalConfiguration_" data-uid="DapperDal.Predicate.ExistsPredicate`1.GetClassMapper(Type,DapperDal.IDalConfiguration)">GetClassMapper(Type, IDalConfiguration)</h4>
   <div class="markdown level1 summary"><p>获取实体类型的映射器</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -220,7 +198,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Type</span></td>
+        <td><span class="xref">Type</span></td>
         <td><span class="parametername">type</span></td>
         <td><p>实体类型</p>
 </td>
@@ -249,32 +227,17 @@
       </tr>
     </tbody>
   </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.NullReferenceException</span></td>
-        <td><p>实体类型的映射器未找到</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Predicate_ExistsPredicate_1_GetSql_DapperDal_Sql_ISqlGenerator_System_Collections_Generic_IDictionary_System_String_System_Object__.md&amp;value=---%0Auid%3A%20DapperDal.Predicate.ExistsPredicate%601.GetSql(DapperDal.Sql.ISqlGenerator%2CSystem.Collections.Generic.IDictionary%7BSystem.String%2CSystem.Object%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Predicate_ExistsPredicate_1_GetSql_DapperDal_Sql_ISqlGenerator_IDictionary_System_String_System_Object__.md&amp;value=---%0Auid%3A%20DapperDal.Predicate.ExistsPredicate%601.GetSql(DapperDal.Sql.ISqlGenerator%2CIDictionary%7BSystem.String%2CSystem.Object%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Predicate/Predicates.cs/#L503">View Source</a>
   </span>
   <a id="DapperDal_Predicate_ExistsPredicate_1_GetSql_" data-uid="DapperDal.Predicate.ExistsPredicate`1.GetSql*"></a>
-  <h4 id="DapperDal_Predicate_ExistsPredicate_1_GetSql_DapperDal_Sql_ISqlGenerator_System_Collections_Generic_IDictionary_System_String_System_Object__" data-uid="DapperDal.Predicate.ExistsPredicate`1.GetSql(DapperDal.Sql.ISqlGenerator,System.Collections.Generic.IDictionary{System.String,System.Object})">GetSql(ISqlGenerator, IDictionary&lt;String, Object&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="DapperDal_Predicate_ExistsPredicate_1_GetSql_DapperDal_Sql_ISqlGenerator_IDictionary_System_String_System_Object__" data-uid="DapperDal.Predicate.ExistsPredicate`1.GetSql(DapperDal.Sql.ISqlGenerator,IDictionary{System.String,System.Object})">GetSql(ISqlGenerator, IDictionary&lt;String, Object&gt;)</h4>
+  <div class="markdown level1 summary"><p>返回根据参数使用SQL生成器生成的SQL语句</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -293,12 +256,14 @@
       <tr>
         <td><a class="xref" href="DapperDal.Sql.ISqlGenerator.html">ISqlGenerator</a></td>
         <td><span class="parametername">sqlGenerator</span></td>
-        <td></td>
+        <td><p>SQL生成器</p>
+</td>
       </tr>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IDictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Object</span>&gt;</td>
+        <td><span class="xref">IDictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Object</span>&gt;</td>
         <td><span class="parametername">parameters</span></td>
-        <td></td>
+        <td><p>参数</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -313,12 +278,13 @@
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td></td>
+        <td><p>SQL语句</p>
+</td>
       </tr>
     </tbody>
   </table>
   <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="DapperDal.Predicate.IPredicate.html#DapperDal_Predicate_IPredicate_GetSql_DapperDal_Sql_ISqlGenerator_System_Collections_Generic_IDictionary_System_String_System_Object__">IPredicate.GetSql(ISqlGenerator, IDictionary&lt;String, Object&gt;)</a></div>
+      <div><a class="xref" href="DapperDal.Predicate.IPredicate.html#DapperDal_Predicate_IPredicate_GetSql_DapperDal_Sql_ISqlGenerator_IDictionary_System_String_System_Object__">IPredicate.GetSql(ISqlGenerator, IDictionary&lt;String, Object&gt;)</a></div>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
       <a class="xref" href="DapperDal.Expressions.SortingExtensions.html#DapperDal_Expressions_SortingExtensions_ToSortable_System_Object_">SortingExtensions.ToSortable(Object)</a>

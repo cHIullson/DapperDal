@@ -97,28 +97,7 @@
       <a class="xref" href="DapperDal.Predicate.BasePredicate.html#DapperDal_Predicate_BasePredicate_PropertyName">BasePredicate.PropertyName</a>
     </div>
     <div>
-      <a class="xref" href="DapperDal.Predicate.BasePredicate.html#DapperDal_Predicate_BasePredicate_GetColumnName_System_Type_DapperDal_Sql_ISqlGenerator_System_String_">BasePredicate.GetColumnName(Type, ISqlGenerator, String)</a>
-    </div>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
+      <a class="xref" href="DapperDal.Predicate.BasePredicate.html#DapperDal_Predicate_BasePredicate_GetColumnName_Type_DapperDal_Sql_ISqlGenerator_System_String_">BasePredicate.GetColumnName(Type, ISqlGenerator, String)</a>
     </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="DapperDal.Predicate.html">DapperDal.Predicate</a></h6>
@@ -157,7 +136,8 @@
   </span>
   <a id="DapperDal_Predicate_PropertyPredicate_2_PropertyName2_" data-uid="DapperDal.Predicate.PropertyPredicate`2.PropertyName2*"></a>
   <h4 id="DapperDal_Predicate_PropertyPredicate_2_PropertyName2" data-uid="DapperDal.Predicate.PropertyPredicate`2.PropertyName2">PropertyName2</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>第二个属性名</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -184,14 +164,15 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Predicate_PropertyPredicate_2_GetSql_DapperDal_Sql_ISqlGenerator_System_Collections_Generic_IDictionary_System_String_System_Object__.md&amp;value=---%0Auid%3A%20DapperDal.Predicate.PropertyPredicate%602.GetSql(DapperDal.Sql.ISqlGenerator%2CSystem.Collections.Generic.IDictionary%7BSystem.String%2CSystem.Object%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Predicate_PropertyPredicate_2_GetSql_DapperDal_Sql_ISqlGenerator_IDictionary_System_String_System_Object__.md&amp;value=---%0Auid%3A%20DapperDal.Predicate.PropertyPredicate%602.GetSql(DapperDal.Sql.ISqlGenerator%2CIDictionary%7BSystem.String%2CSystem.Object%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Predicate/Predicates.cs/#L319">View Source</a>
   </span>
   <a id="DapperDal_Predicate_PropertyPredicate_2_GetSql_" data-uid="DapperDal.Predicate.PropertyPredicate`2.GetSql*"></a>
-  <h4 id="DapperDal_Predicate_PropertyPredicate_2_GetSql_DapperDal_Sql_ISqlGenerator_System_Collections_Generic_IDictionary_System_String_System_Object__" data-uid="DapperDal.Predicate.PropertyPredicate`2.GetSql(DapperDal.Sql.ISqlGenerator,System.Collections.Generic.IDictionary{System.String,System.Object})">GetSql(ISqlGenerator, IDictionary&lt;String, Object&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="DapperDal_Predicate_PropertyPredicate_2_GetSql_DapperDal_Sql_ISqlGenerator_IDictionary_System_String_System_Object__" data-uid="DapperDal.Predicate.PropertyPredicate`2.GetSql(DapperDal.Sql.ISqlGenerator,IDictionary{System.String,System.Object})">GetSql(ISqlGenerator, IDictionary&lt;String, Object&gt;)</h4>
+  <div class="markdown level1 summary"><p>返回根据参数使用SQL生成器生成的SQL语句</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -210,12 +191,14 @@
       <tr>
         <td><a class="xref" href="DapperDal.Sql.ISqlGenerator.html">ISqlGenerator</a></td>
         <td><span class="parametername">sqlGenerator</span></td>
-        <td></td>
+        <td><p>SQL生成器</p>
+</td>
       </tr>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IDictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Object</span>&gt;</td>
+        <td><span class="xref">IDictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Object</span>&gt;</td>
         <td><span class="parametername">parameters</span></td>
-        <td></td>
+        <td><p>参数</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -230,14 +213,15 @@
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td></td>
+        <td><p>SQL语句</p>
+</td>
       </tr>
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="DapperDal.Predicate.BasePredicate.html#DapperDal_Predicate_BasePredicate_GetSql_DapperDal_Sql_ISqlGenerator_System_Collections_Generic_IDictionary_System_String_System_Object__">BasePredicate.GetSql(ISqlGenerator, IDictionary&lt;String, Object&gt;)</a></div>
+  <div><a class="xref" href="DapperDal.Predicate.BasePredicate.html#DapperDal_Predicate_BasePredicate_GetSql_DapperDal_Sql_ISqlGenerator_IDictionary_System_String_System_Object__">BasePredicate.GetSql(ISqlGenerator, IDictionary&lt;String, Object&gt;)</a></div>
   <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="DapperDal.Predicate.IPredicate.html#DapperDal_Predicate_IPredicate_GetSql_DapperDal_Sql_ISqlGenerator_System_Collections_Generic_IDictionary_System_String_System_Object__">IPredicate.GetSql(ISqlGenerator, IDictionary&lt;String, Object&gt;)</a></div>
+      <div><a class="xref" href="DapperDal.Predicate.IPredicate.html#DapperDal_Predicate_IPredicate_GetSql_DapperDal_Sql_ISqlGenerator_IDictionary_System_String_System_Object__">IPredicate.GetSql(ISqlGenerator, IDictionary&lt;String, Object&gt;)</a></div>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
       <a class="xref" href="DapperDal.Expressions.SortingExtensions.html#DapperDal_Expressions_SortingExtensions_ToSortable_System_Object_">SortingExtensions.ToSortable(Object)</a>

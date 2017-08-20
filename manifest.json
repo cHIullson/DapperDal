@@ -1,6 +1,6 @@
 {
   "homepages": [],
-  "source_base_path": "C:/GitRepos/DapperDal",
+  "source_base_path": "C:/projects/dapperdal",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -21,10 +21,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.DalBase-1.html",
-          "hash": "/gCo2U4O3GNUSjQCtRM/og=="
+          "hash": "jL1T8wYqdp7o/FLN8cad4g=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -33,10 +33,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.DalBase-2.html",
-          "hash": "JdtSHrSWeuif1ld3CwZ6zQ=="
+          "hash": "TwlQZAb+/Ym3m+ejOsBuLQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -45,10 +45,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.DalConfiguration.html",
-          "hash": "YCEi2ZggTBVOyQZ7puzHXA=="
+          "hash": "U7ayhsIeedaHWbF+Tn5KpA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -57,10 +57,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.DalOptions.html",
-          "hash": "GsCNFpeY/nRzLeLIutGLcg=="
+          "hash": "uELnEWlZKmHRMHwLHmx3Aw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -69,10 +69,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Expressions.PredicateBuilder.html",
-          "hash": "FK7tAQROM+spmOxKpgLpcA=="
+          "hash": "8UkAw0n3dL7WypEd2r6sxg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -81,10 +81,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Expressions.PredicateExtensions.html",
-          "hash": "27PM3o9BzbPbU0oj6DsFaA=="
+          "hash": "nHaal9HJqBzIHFDOQdWURA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -93,10 +93,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Expressions.QueryFunctions.html",
-          "hash": "6oDh9Z2Gw2EYJr6HxglkIA=="
+          "hash": "jpuoZGHespSNzokg7lq54A=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -105,10 +105,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Expressions.SortDirection.html",
-          "hash": "6b8/XzI4ig9xlCKkjGAp6w=="
+          "hash": "Bwz6jI0b5Ajxjh+kEnnFMA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -117,10 +117,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Expressions.SortingExtensions.html",
-          "hash": "hE07ONn+dOtf0kMriSV1sQ=="
+          "hash": "qBY0ZUyvLkk/CdQKu+LI8g=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -129,10 +129,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Expressions.html",
-          "hash": "uf/pJtL2dOXxOTlPw/46jQ=="
+          "hash": "3ERGzJYIejJUMtxzEMjocg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -141,10 +141,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.IDalConfiguration.html",
-          "hash": "0gnW11LZeNlkyhMr47vEkA=="
+          "hash": "yGg7UDu1sVdx+1U3ctPOAg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -153,10 +153,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Implementor.DalImplementor.html",
-          "hash": "LbeSSIQC8J25psvZqeN0Hg=="
+          "hash": "l0YbSR1kNUvWlrnkdah9aA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -165,10 +165,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Implementor.IDalImplementor.html",
-          "hash": "NXb6iQUwOCeXZrmyS/fMDw=="
+          "hash": "R/zPwrgYF3S4HF9YkpBeqQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -180,7 +180,7 @@
           "hash": "xCTKVatVricAfOxqMymvpQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -189,10 +189,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Mapper.AutoClassMapper-1.html",
-          "hash": "G4xL7WWteIAaqtIi+ClRuw=="
+          "hash": "doWJHvR1IWLqTu1CJ+yqag=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -201,10 +201,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Mapper.AutoEntityMapper-1.html",
-          "hash": "OaIAVXuSCQqSHT3gS+Wfug=="
+          "hash": "9J6JwHvKYCUTbTOuZANrrg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -213,10 +213,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Mapper.ClassMapper-1.html",
-          "hash": "sOYfGWh5TRZ6e2oMxBfDTg=="
+          "hash": "pPJarX3O1DawJzCzJwS6sQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -228,7 +228,7 @@
           "hash": "Zs6NOqmBUihZEkNyc4TGMg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -237,10 +237,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Mapper.IClassMapper.html",
-          "hash": "cPy0c6XJ9dyMDxav9Jxhjg=="
+          "hash": "hkuujYlEi3pISlwnaXKFHQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -249,10 +249,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Mapper.IPropertyMap.html",
-          "hash": "9lAPy07MH7zoIh534UNd7w=="
+          "hash": "QzIAaCJkn3BJFbnDJrB4Dw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -261,10 +261,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Mapper.KeyType.html",
-          "hash": "4ZvBQiNRVUlHcHcuPJ45tg=="
+          "hash": "RHF+hJwLGR3SwiDHIs2vQg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -273,10 +273,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Mapper.PluralizedAutoClassMapper-1.Formatting.html",
-          "hash": "oSbyYTmxSAg5je+dk5gUxw=="
+          "hash": "B+Dh3zQAzSHLbqP2IMH1NA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -285,10 +285,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Mapper.PluralizedAutoClassMapper-1.html",
-          "hash": "ILpaunNujEgdwwbsIO5R3A=="
+          "hash": "K9Kb/s1zAjXvt9YxYaNZAA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -297,10 +297,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Mapper.PropertyMap.html",
-          "hash": "LlDdlgWKazBi41c0b1V6gA=="
+          "hash": "vWP59FjDhWI9EUqTE0/EWg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -312,7 +312,7 @@
           "hash": "N3wV9J5NSChjJW9iaNbFPA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -321,10 +321,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Predicate.BasePredicate.html",
-          "hash": "A4i0DKRGsgEXZywsdwoRuw=="
+          "hash": "1/+urzAl/17PR59zI15H4A=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -333,10 +333,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Predicate.BetweenPredicate-1.html",
-          "hash": "nlAVVF0yKY+MZ5sKU0IpfQ=="
+          "hash": "XFhjsWHAITHOEJAXCJ0DQw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -345,10 +345,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Predicate.BetweenValues.html",
-          "hash": "8mytwOlnzEEBXMBRphZugg=="
+          "hash": "g523z1xfgxVGDtAXXltrfA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -357,10 +357,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Predicate.ComparePredicate.html",
-          "hash": "8rplijDo2ztEPlwOMay54A=="
+          "hash": "Ca638jLjWsDDY5EiYgh4Mg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -369,10 +369,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Predicate.ExistsPredicate-1.html",
-          "hash": "7i2O0pGAL0s/pax4CcOwYg=="
+          "hash": "WLYLIkS7x/Ltm3OMo5nv/Q=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -381,10 +381,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Predicate.FieldPredicate-1.html",
-          "hash": "cvT/CxUCw1eQjZMlvBj+Wg=="
+          "hash": "DU1z1t1vi2OwO7O0cFVWmA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -393,10 +393,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Predicate.GetMultiplePredicate.GetMultiplePredicateItem.html",
-          "hash": "GY/lLQYH+FsTN+h64n5Eow=="
+          "hash": "g5HL6BNCR6EvJN6JuRQ3xw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -405,10 +405,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Predicate.GetMultiplePredicate.html",
-          "hash": "RgJkkZjC5Q4U+y0X0bshPw=="
+          "hash": "DSimNXJEavKBJIsxb99sTw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -417,10 +417,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Predicate.GridReaderResultReader.html",
-          "hash": "okpCFTrrF2CG8GGnLBtAxA=="
+          "hash": "p83SHEFVydY9WK/N6TDovw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -429,10 +429,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Predicate.GroupOperator.html",
-          "hash": "J+7g1xwTUS2abi0l9YvqlQ=="
+          "hash": "Na5FrZIyonGodxge4+424A=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -441,10 +441,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Predicate.IBasePredicate.html",
-          "hash": "qkYTHmUsFAMhqf0cqFEZoA=="
+          "hash": "7A+3y7hLnbGhy5rhTRmb4Q=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -453,10 +453,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Predicate.IBetweenPredicate.html",
-          "hash": "SI5eS+coTBlguUCSE4KRpA=="
+          "hash": "LjknnEyWuT1Yh9qxww0ydw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -465,10 +465,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Predicate.IComparePredicate.html",
-          "hash": "YRitvxeiOik2/F3TT56Yzg=="
+          "hash": "YKDRfmc7OazssEa2HjYFGQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -477,10 +477,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Predicate.IExistsPredicate.html",
-          "hash": "8GmwEVt7XOayUBgosYmtYg=="
+          "hash": "VESa5HZpN7OEj5McuAZPPg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -489,10 +489,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Predicate.IFieldPredicate.html",
-          "hash": "EZHoZuapuEZEDRwyivgUmQ=="
+          "hash": "WVcGMVwbFzsPi8Bz1lQCuA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -501,10 +501,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Predicate.IMultipleResultReader.html",
-          "hash": "P5OMdeRtCFqvXgb7Xevkew=="
+          "hash": "E5YMvxwnc+waz2Cn0F/j7g=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -513,10 +513,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Predicate.IPredicate.html",
-          "hash": "ZYwkhUrSdy5OUlBwje1Obw=="
+          "hash": "ICj1VVMiSO+/25CBXdXB3A=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -525,10 +525,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Predicate.IPredicateGroup.html",
-          "hash": "671QdnaT0AkQR2QIbeNiQQ=="
+          "hash": "9GGP+5+KbPzWjE3qRjX+cQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -537,10 +537,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Predicate.IPropertyPredicate.html",
-          "hash": "XyIRi1DiaHjZ1GgS/h6s4A=="
+          "hash": "FdycKXRel/NHQE0DWgaDqg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -552,7 +552,7 @@
           "hash": "coQjyemtMc/6Ej152Uw2iQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -561,10 +561,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Predicate.Operator.html",
-          "hash": "ogcvOTOf4HWruWQMAcs72A=="
+          "hash": "jjunOZVPepxgYoWyLORoCg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -573,10 +573,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Predicate.PredicateGroup.html",
-          "hash": "x1fqzuL53Vk0TJ+bUqZr5Q=="
+          "hash": "eUVg3TVghIwtanaZ39fpXg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -585,10 +585,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Predicate.Predicates.html",
-          "hash": "uAk6K/elCRUE1RqCU2jSlA=="
+          "hash": "eaIXA5QeJ2Qcy3kANMmn9g=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -597,10 +597,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Predicate.PropertyPredicate-2.html",
-          "hash": "YCkelUdwyxqTTfLfvqUSkg=="
+          "hash": "TlReW9GPpWNFdPPgv5Rbnw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -609,10 +609,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Predicate.SequenceReaderResultReader.html",
-          "hash": "nCf52mo4KeftcEaEDFYV0g=="
+          "hash": "Ri//3/Fnh2vpv/xa86gy7w=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -621,10 +621,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Predicate.Sort.html",
-          "hash": "RcvC36LM85l1Sf2wuxQiYw=="
+          "hash": "GmjkhHX6SwyL8mbvblrfXg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -636,7 +636,7 @@
           "hash": "wK3OxmxIPpXpRiZ+lngWjA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -645,10 +645,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Sql.ISqlDialect.html",
-          "hash": "zyd+u8ZvJ9z6vTdFViUD1w=="
+          "hash": "4cGwAMixFMI485o7CzzX1g=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -657,10 +657,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Sql.ISqlGenerator.html",
-          "hash": "iKQhNCVkKILt3ynVJkPIGg=="
+          "hash": "7QYjxOaRWP1RoCVaXa2ElQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -669,10 +669,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Sql.SqlDialectBase.html",
-          "hash": "Asc9xWl6zKM9gV858iAUYA=="
+          "hash": "zxHBiFvPC3basus71LNd2w=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -681,10 +681,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Sql.SqlGeneratorImpl.html",
-          "hash": "DuSslTG6hzqD4mCS4YCdjA=="
+          "hash": "kPcN1UJkFA6G2osmusPYKQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -693,10 +693,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.Sql.SqlServerDialect.html",
-          "hash": "HpNndvA84upBkjbbIwC9Lw=="
+          "hash": "O80A8Tlf3tNtneHCmHYjFA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -708,7 +708,7 @@
           "hash": "S24r6OAfykXI7DQNlMEgDw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -717,10 +717,10 @@
       "output": {
         ".html": {
           "relative_path": "api/DapperDal.html",
-          "hash": "Nr7MVkMIMSfQwujp9jMkZg=="
+          "hash": "/7BBWOcOA1dJLSS0riV8Hg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -732,7 +732,7 @@
           "hash": "bwp1KcnXlaApxwwpON0rJg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -742,6 +742,18 @@
         ".html": {
           "relative_path": "api/toc.html",
           "hash": "kf5gmA7kaQ0QiJgDA9zIrQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "h7vqs7yuq5gl+0aCiD6ITA=="
         }
       },
       "is_incremental": false,
@@ -763,7 +775,8 @@
   "incremental_info": [
     {
       "status": {
-        "can_incremental": true,
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
         "incrementalPhase": "build"
       },
       "processors": {
@@ -772,30 +785,30 @@
           "details": "Processor RestApiDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         },
-        "TocDocumentProcessor": {
+        "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
-          "details": "Processor TocDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         },
         "ConceptualDocumentProcessor": {
-          "can_incremental": true,
-          "incrementalPhase": "build"
-        },
-        "ManagedReferenceDocumentProcessor": {
-          "can_incremental": true,
+          "can_incremental": false,
           "incrementalPhase": "build"
         },
         "ResourceDocumentProcessor": {
           "can_incremental": false,
           "details": "Processor ResourceDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
         }
       }
     },
     {
       "status": {
-        "can_incremental": true,
-        "details": "Can support incremental post processing.",
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: last post processor info is null.",
         "incrementalPhase": "postProcessing"
       },
       "processors": {}

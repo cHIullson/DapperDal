@@ -80,35 +80,11 @@
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">DalConfiguration</span></div>
   </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="DapperDal.html">DapperDal</a></h6>
   <h6><strong>Assembly</strong>: DapperDal.dll</h6>
   <h5 id="DapperDal_DalConfiguration_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class DalConfiguration : IDalConfiguration</code></pre>
+    <pre><code class="lang-csharp hljs">public class DalConfiguration : object, IDalConfiguration</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -130,13 +106,13 @@
   </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_DalConfiguration__ctor_System_Type_System_Collections_Generic_IList_System_Reflection_Assembly__DapperDal_Sql_ISqlDialect_.md&amp;value=---%0Auid%3A%20DapperDal.DalConfiguration.%23ctor(System.Type%2CSystem.Collections.Generic.IList%7BSystem.Reflection.Assembly%7D%2CDapperDal.Sql.ISqlDialect)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_DalConfiguration__ctor_Type_IList_Assembly__DapperDal_Sql_ISqlDialect_.md&amp;value=---%0Auid%3A%20DapperDal.DalConfiguration.%23ctor(Type%2CIList%7BAssembly%7D%2CDapperDal.Sql.ISqlDialect)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/DalConfiguration.cs/#L111">View Source</a>
   </span>
   <a id="DapperDal_DalConfiguration__ctor_" data-uid="DapperDal.DalConfiguration.#ctor*"></a>
-  <h4 id="DapperDal_DalConfiguration__ctor_System_Type_System_Collections_Generic_IList_System_Reflection_Assembly__DapperDal_Sql_ISqlDialect_" data-uid="DapperDal.DalConfiguration.#ctor(System.Type,System.Collections.Generic.IList{System.Reflection.Assembly},DapperDal.Sql.ISqlDialect)">DalConfiguration(Type, IList&lt;Assembly&gt;, ISqlDialect)</h4>
+  <h4 id="DapperDal_DalConfiguration__ctor_Type_IList_Assembly__DapperDal_Sql_ISqlDialect_" data-uid="DapperDal.DalConfiguration.#ctor(Type,IList{Assembly},DapperDal.Sql.ISqlDialect)">DalConfiguration(Type, IList&lt;Assembly&gt;, ISqlDialect)</h4>
   <div class="markdown level1 summary"><p>初始化数据访问配置</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -155,13 +131,13 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Type</span></td>
+        <td><span class="xref">Type</span></td>
         <td><span class="parametername">defaultMapper</span></td>
         <td><p>默认实体映射类型</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IList</span>&lt;<span class="xref">System.Reflection.Assembly</span>&gt;</td>
+        <td><span class="xref">IList</span>&lt;<span class="xref">Assembly</span>&gt;</td>
         <td><span class="parametername">mappingAssemblies</span></td>
         <td><p>实体映射类型检索程序集</p>
 </td>
@@ -218,7 +194,8 @@
   </span>
   <a id="DapperDal_DalConfiguration_DalImplementor_" data-uid="DapperDal.DalConfiguration.DalImplementor*"></a>
   <h4 id="DapperDal_DalConfiguration_DalImplementor" data-uid="DapperDal.DalConfiguration.DalImplementor">DalImplementor</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>数据访问实现实例</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -281,7 +258,8 @@
   </span>
   <a id="DapperDal_DalConfiguration_DefaultMapper_" data-uid="DapperDal.DalConfiguration.DefaultMapper*"></a>
   <h4 id="DapperDal_DalConfiguration_DefaultMapper" data-uid="DapperDal.DalConfiguration.DefaultMapper">DefaultMapper</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>默认实体映射类型</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -297,7 +275,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Type</span></td>
+        <td><span class="xref">Type</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -313,7 +291,8 @@
   </span>
   <a id="DapperDal_DalConfiguration_Dialect_" data-uid="DapperDal.DalConfiguration.Dialect*"></a>
   <h4 id="DapperDal_DalConfiguration_Dialect" data-uid="DapperDal.DalConfiguration.Dialect">Dialect</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>SQL方言实例</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -345,7 +324,8 @@
   </span>
   <a id="DapperDal_DalConfiguration_MappingAssemblies_" data-uid="DapperDal.DalConfiguration.MappingAssemblies*"></a>
   <h4 id="DapperDal_DalConfiguration_MappingAssemblies" data-uid="DapperDal.DalConfiguration.MappingAssemblies">MappingAssemblies</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>实体映射类型检索程序集</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -361,7 +341,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IList</span>&lt;<span class="xref">System.Reflection.Assembly</span>&gt;</td>
+        <td><span class="xref">IList</span>&lt;<span class="xref">Assembly</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -427,7 +407,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Action</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="xref">Action</span>&lt;<span class="xref">System.String</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -445,7 +425,8 @@
   </span>
   <a id="DapperDal_DalConfiguration_ClearCache_" data-uid="DapperDal.DalConfiguration.ClearCache*"></a>
   <h4 id="DapperDal_DalConfiguration_ClearCache" data-uid="DapperDal.DalConfiguration.ClearCache">ClearCache()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>清空实体映射类型缓存</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -455,14 +436,15 @@
       <div><a class="xref" href="DapperDal.IDalConfiguration.html#DapperDal_IDalConfiguration_ClearCache">IDalConfiguration.ClearCache()</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_DalConfiguration_GetMap_System_Type_.md&amp;value=---%0Auid%3A%20DapperDal.DalConfiguration.GetMap(System.Type)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_DalConfiguration_GetMap_Type_.md&amp;value=---%0Auid%3A%20DapperDal.DalConfiguration.GetMap(Type)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/DalConfiguration.cs/#L160">View Source</a>
   </span>
   <a id="DapperDal_DalConfiguration_GetMap_" data-uid="DapperDal.DalConfiguration.GetMap*"></a>
-  <h4 id="DapperDal_DalConfiguration_GetMap_System_Type_" data-uid="DapperDal.DalConfiguration.GetMap(System.Type)">GetMap(Type)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="DapperDal_DalConfiguration_GetMap_Type_" data-uid="DapperDal.DalConfiguration.GetMap(Type)">GetMap(Type)</h4>
+  <div class="markdown level1 summary"><p>获取实体映射类型</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -479,9 +461,10 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Type</span></td>
+        <td><span class="xref">Type</span></td>
         <td><span class="parametername">entityType</span></td>
-        <td></td>
+        <td><p>实体类型</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -496,12 +479,13 @@
     <tbody>
       <tr>
         <td><a class="xref" href="DapperDal.Mapper.IClassMapper.html">IClassMapper</a></td>
-        <td></td>
+        <td><p>实体映射类型</p>
+</td>
       </tr>
     </tbody>
   </table>
   <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="DapperDal.IDalConfiguration.html#DapperDal_IDalConfiguration_GetMap_System_Type_">IDalConfiguration.GetMap(Type)</a></div>
+      <div><a class="xref" href="DapperDal.IDalConfiguration.html#DapperDal_IDalConfiguration_GetMap_Type_">IDalConfiguration.GetMap(Type)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_DalConfiguration_GetMap__1.md&amp;value=---%0Auid%3A%20DapperDal.DalConfiguration.GetMap%60%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -511,7 +495,8 @@
   </span>
   <a id="DapperDal_DalConfiguration_GetMap_" data-uid="DapperDal.DalConfiguration.GetMap*"></a>
   <h4 id="DapperDal_DalConfiguration_GetMap__1" data-uid="DapperDal.DalConfiguration.GetMap``1">GetMap&lt;T&gt;()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>获取实体映射类型</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -528,7 +513,8 @@
     <tbody>
       <tr>
         <td><a class="xref" href="DapperDal.Mapper.IClassMapper.html">IClassMapper</a></td>
-        <td></td>
+        <td><p>实体映射类型</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -543,7 +529,8 @@
     <tbody>
       <tr>
         <td><span class="parametername">T</span></td>
-        <td></td>
+        <td><p>实体类型</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -558,7 +545,8 @@
   </span>
   <a id="DapperDal_DalConfiguration_GetNextGuid_" data-uid="DapperDal.DalConfiguration.GetNextGuid*"></a>
   <h4 id="DapperDal_DalConfiguration_GetNextGuid" data-uid="DapperDal.DalConfiguration.GetNextGuid">GetNextGuid()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>获取新的GUID</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -574,8 +562,9 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Guid</span></td>
-        <td></td>
+        <td><span class="xref">Guid</span></td>
+        <td><p>新的GUID</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -583,14 +572,15 @@
       <div><a class="xref" href="DapperDal.IDalConfiguration.html#DapperDal_IDalConfiguration_GetNextGuid">IDalConfiguration.GetNextGuid()</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_DalConfiguration_SetMappingAssemblies_System_Collections_Generic_IList_System_Reflection_Assembly__.md&amp;value=---%0Auid%3A%20DapperDal.DalConfiguration.SetMappingAssemblies(System.Collections.Generic.IList%7BSystem.Reflection.Assembly%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_DalConfiguration_SetMappingAssemblies_IList_Assembly__.md&amp;value=---%0Auid%3A%20DapperDal.DalConfiguration.SetMappingAssemblies(IList%7BAssembly%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/DalConfiguration.cs/#L152">View Source</a>
   </span>
   <a id="DapperDal_DalConfiguration_SetMappingAssemblies_" data-uid="DapperDal.DalConfiguration.SetMappingAssemblies*"></a>
-  <h4 id="DapperDal_DalConfiguration_SetMappingAssemblies_System_Collections_Generic_IList_System_Reflection_Assembly__" data-uid="DapperDal.DalConfiguration.SetMappingAssemblies(System.Collections.Generic.IList{System.Reflection.Assembly})">SetMappingAssemblies(IList&lt;Assembly&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="DapperDal_DalConfiguration_SetMappingAssemblies_IList_Assembly__" data-uid="DapperDal.DalConfiguration.SetMappingAssemblies(IList{Assembly})">SetMappingAssemblies(IList&lt;Assembly&gt;)</h4>
+  <div class="markdown level1 summary"><p>设置实体映射类型检索程序集</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -607,14 +597,15 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IList</span>&lt;<span class="xref">System.Reflection.Assembly</span>&gt;</td>
+        <td><span class="xref">IList</span>&lt;<span class="xref">Assembly</span>&gt;</td>
         <td><span class="parametername">assemblies</span></td>
-        <td></td>
+        <td><p>实体映射类型检索程序集</p>
+</td>
       </tr>
     </tbody>
   </table>
   <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="DapperDal.IDalConfiguration.html#DapperDal_IDalConfiguration_SetMappingAssemblies_System_Collections_Generic_IList_System_Reflection_Assembly__">IDalConfiguration.SetMappingAssemblies(IList&lt;Assembly&gt;)</a></div>
+      <div><a class="xref" href="DapperDal.IDalConfiguration.html#DapperDal_IDalConfiguration_SetMappingAssemblies_IList_Assembly__">IDalConfiguration.SetMappingAssemblies(IList&lt;Assembly&gt;)</a></div>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
       <a class="xref" href="DapperDal.Expressions.SortingExtensions.html#DapperDal_Expressions_SortingExtensions_ToSortable_System_Object_">SortingExtensions.ToSortable(Object)</a>

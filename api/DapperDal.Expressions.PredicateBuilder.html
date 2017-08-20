@@ -80,113 +80,23 @@
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">PredicateBuilder</span></div>
   </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="DapperDal.Expressions.html">DapperDal.Expressions</a></h6>
   <h6><strong>Assembly</strong>: DapperDal.dll</h6>
   <h5 id="DapperDal_Expressions_PredicateBuilder_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static class PredicateBuilder</code></pre>
+    <pre><code class="lang-csharp hljs">public static class PredicateBuilder : object</code></pre>
   </div>
   <h3 id="methods">Methods
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Expressions_PredicateBuilder_All__1_System_Collections_Generic_IEnumerable_System_Linq_Expressions_Expression_System_Func___0_System_Boolean____.md&amp;value=---%0Auid%3A%20DapperDal.Expressions.PredicateBuilder.All%60%601(System.Collections.Generic.IEnumerable%7BSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2CSystem.Boolean%7D%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Expressions/PredicateBuilder.cs/#L91">View Source</a>
-  </span>
-  <a id="DapperDal_Expressions_PredicateBuilder_All_" data-uid="DapperDal.Expressions.PredicateBuilder.All*"></a>
-  <h4 id="DapperDal_Expressions_PredicateBuilder_All__1_System_Collections_Generic_IEnumerable_System_Linq_Expressions_Expression_System_Func___0_System_Boolean____" data-uid="DapperDal.Expressions.PredicateBuilder.All``1(System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}}})">All&lt;T&gt;(IEnumerable&lt;Expression&lt;Func&lt;T, Boolean&gt;&gt;&gt;)</h4>
-  <div class="markdown level1 summary"><p>Performs a reduction on the given list of predicates using logical &quot;and&quot;. Returns a <a class="xref" href="DapperDal.Expressions.PredicateBuilder.html#DapperDal_Expressions_PredicateBuilder_True__1">True&lt;T&gt;()</a> expression if the list is empty</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Expression&lt;Func&lt;T, bool&gt;&gt; All&lt;T&gt;(this IEnumerable&lt;Expression&lt;Func&lt;T, bool&gt;&gt;&gt; predicates)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;T, <span class="xref">System.Boolean</span>&gt;&gt;&gt;</td>
-        <td><span class="parametername">predicates</span></td>
-        <td><p>The predicates</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;T, <span class="xref">System.Boolean</span>&gt;&gt;</td>
-        <td><p>A series of &quot;and&quot; expressions</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td><p>The input type for all predicates</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Expressions_PredicateBuilder_All__1_System_Linq_Expressions_Expression_System_Func___0_System_Boolean_____.md&amp;value=---%0Auid%3A%20DapperDal.Expressions.PredicateBuilder.All%60%601(System.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2CSystem.Boolean%7D%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Expressions_PredicateBuilder_All__1_Expression_Func___0_System_Boolean_____.md&amp;value=---%0Auid%3A%20DapperDal.Expressions.PredicateBuilder.All%60%601(Expression%7BFunc%7B%60%600%2CSystem.Boolean%7D%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Expressions/PredicateBuilder.cs/#L102">View Source</a>
   </span>
   <a id="DapperDal_Expressions_PredicateBuilder_All_" data-uid="DapperDal.Expressions.PredicateBuilder.All*"></a>
-  <h4 id="DapperDal_Expressions_PredicateBuilder_All__1_System_Linq_Expressions_Expression_System_Func___0_System_Boolean_____" data-uid="DapperDal.Expressions.PredicateBuilder.All``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}}[])">All&lt;T&gt;(Expression&lt;Func&lt;T, Boolean&gt;&gt;[])</h4>
+  <h4 id="DapperDal_Expressions_PredicateBuilder_All__1_Expression_Func___0_System_Boolean_____" data-uid="DapperDal.Expressions.PredicateBuilder.All``1(Expression{Func{``0,System.Boolean}}[])">All&lt;T&gt;(Expression&lt;Func&lt;T, Boolean&gt;&gt;[])</h4>
   <div class="markdown level1 summary"><p>Performs a reduction on the given list of predicates using logical &quot;and&quot;. Returns a <a class="xref" href="DapperDal.Expressions.PredicateBuilder.html#DapperDal_Expressions_PredicateBuilder_True__1">True&lt;T&gt;()</a> expression if the list is empty</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -205,7 +115,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;T, <span class="xref">System.Boolean</span>&gt;&gt;[]</td>
+        <td><span class="xref">Expression</span>&lt;<span class="xref">Func</span>&lt;T, <span class="xref">System.Boolean</span>&gt;&gt;[]</td>
         <td><span class="parametername">predicates</span></td>
         <td><p>The predicates</p>
 </td>
@@ -222,7 +132,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;T, <span class="xref">System.Boolean</span>&gt;&gt;</td>
+        <td><span class="xref">Expression</span>&lt;<span class="xref">Func</span>&lt;T, <span class="xref">System.Boolean</span>&gt;&gt;</td>
         <td><p>A series of &quot;and&quot; expressions</p>
 </td>
       </tr>
@@ -246,13 +156,79 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Expressions_PredicateBuilder_And__1_System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Linq_Expressions_Expression_System_Func___0_System_Boolean___.md&amp;value=---%0Auid%3A%20DapperDal.Expressions.PredicateBuilder.And%60%601(System.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2CSystem.Boolean%7D%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2CSystem.Boolean%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Expressions_PredicateBuilder_All__1_IEnumerable_Expression_Func___0_System_Boolean____.md&amp;value=---%0Auid%3A%20DapperDal.Expressions.PredicateBuilder.All%60%601(IEnumerable%7BExpression%7BFunc%7B%60%600%2CSystem.Boolean%7D%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Expressions/PredicateBuilder.cs/#L91">View Source</a>
+  </span>
+  <a id="DapperDal_Expressions_PredicateBuilder_All_" data-uid="DapperDal.Expressions.PredicateBuilder.All*"></a>
+  <h4 id="DapperDal_Expressions_PredicateBuilder_All__1_IEnumerable_Expression_Func___0_System_Boolean____" data-uid="DapperDal.Expressions.PredicateBuilder.All``1(IEnumerable{Expression{Func{``0,System.Boolean}}})">All&lt;T&gt;(IEnumerable&lt;Expression&lt;Func&lt;T, Boolean&gt;&gt;&gt;)</h4>
+  <div class="markdown level1 summary"><p>Performs a reduction on the given list of predicates using logical &quot;and&quot;. Returns a <a class="xref" href="DapperDal.Expressions.PredicateBuilder.html#DapperDal_Expressions_PredicateBuilder_True__1">True&lt;T&gt;()</a> expression if the list is empty</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Expression&lt;Func&lt;T, bool&gt;&gt; All&lt;T&gt;(this IEnumerable&lt;Expression&lt;Func&lt;T, bool&gt;&gt;&gt; predicates)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">Expression</span>&lt;<span class="xref">Func</span>&lt;T, <span class="xref">System.Boolean</span>&gt;&gt;&gt;</td>
+        <td><span class="parametername">predicates</span></td>
+        <td><p>The predicates</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Expression</span>&lt;<span class="xref">Func</span>&lt;T, <span class="xref">System.Boolean</span>&gt;&gt;</td>
+        <td><p>A series of &quot;and&quot; expressions</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The input type for all predicates</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Expressions_PredicateBuilder_And__1_Expression_Func___0_System_Boolean___Expression_Func___0_System_Boolean___.md&amp;value=---%0Auid%3A%20DapperDal.Expressions.PredicateBuilder.And%60%601(Expression%7BFunc%7B%60%600%2CSystem.Boolean%7D%7D%2CExpression%7BFunc%7B%60%600%2CSystem.Boolean%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Expressions/PredicateBuilder.cs/#L43">View Source</a>
   </span>
   <a id="DapperDal_Expressions_PredicateBuilder_And_" data-uid="DapperDal.Expressions.PredicateBuilder.And*"></a>
-  <h4 id="DapperDal_Expressions_PredicateBuilder_And__1_System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Linq_Expressions_Expression_System_Func___0_System_Boolean___" data-uid="DapperDal.Expressions.PredicateBuilder.And``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">And&lt;T&gt;(Expression&lt;Func&lt;T, Boolean&gt;&gt;, Expression&lt;Func&lt;T, Boolean&gt;&gt;)</h4>
+  <h4 id="DapperDal_Expressions_PredicateBuilder_And__1_Expression_Func___0_System_Boolean___Expression_Func___0_System_Boolean___" data-uid="DapperDal.Expressions.PredicateBuilder.And``1(Expression{Func{``0,System.Boolean}},Expression{Func{``0,System.Boolean}})">And&lt;T&gt;(Expression&lt;Func&lt;T, Boolean&gt;&gt;, Expression&lt;Func&lt;T, Boolean&gt;&gt;)</h4>
   <div class="markdown level1 summary"><p>Combines the first predicate with the second using a logical &quot;and&quot;. Short-circuits if either expression is constant</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -271,13 +247,13 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;T, <span class="xref">System.Boolean</span>&gt;&gt;</td>
+        <td><span class="xref">Expression</span>&lt;<span class="xref">Func</span>&lt;T, <span class="xref">System.Boolean</span>&gt;&gt;</td>
         <td><span class="parametername">first</span></td>
         <td><p>The first predicate</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;T, <span class="xref">System.Boolean</span>&gt;&gt;</td>
+        <td><span class="xref">Expression</span>&lt;<span class="xref">Func</span>&lt;T, <span class="xref">System.Boolean</span>&gt;&gt;</td>
         <td><span class="parametername">second</span></td>
         <td><p>The second predicate</p>
 </td>
@@ -294,7 +270,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;T, <span class="xref">System.Boolean</span>&gt;&gt;</td>
+        <td><span class="xref">Expression</span>&lt;<span class="xref">Func</span>&lt;T, <span class="xref">System.Boolean</span>&gt;&gt;</td>
         <td><p>An expression representing a logical &quot;and&quot; between both predicates</p>
 </td>
       </tr>
@@ -318,19 +294,19 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Expressions_PredicateBuilder_Any__1_System_Collections_Generic_IEnumerable_System_Linq_Expressions_Expression_System_Func___0_System_Boolean____.md&amp;value=---%0Auid%3A%20DapperDal.Expressions.PredicateBuilder.Any%60%601(System.Collections.Generic.IEnumerable%7BSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2CSystem.Boolean%7D%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Expressions_PredicateBuilder_Any__1_Expression_Func___0_System_Boolean_____.md&amp;value=---%0Auid%3A%20DapperDal.Expressions.PredicateBuilder.Any%60%601(Expression%7BFunc%7B%60%600%2CSystem.Boolean%7D%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Expressions/PredicateBuilder.cs/#L113">View Source</a>
+    <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Expressions/PredicateBuilder.cs/#L124">View Source</a>
   </span>
   <a id="DapperDal_Expressions_PredicateBuilder_Any_" data-uid="DapperDal.Expressions.PredicateBuilder.Any*"></a>
-  <h4 id="DapperDal_Expressions_PredicateBuilder_Any__1_System_Collections_Generic_IEnumerable_System_Linq_Expressions_Expression_System_Func___0_System_Boolean____" data-uid="DapperDal.Expressions.PredicateBuilder.Any``1(System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}}})">Any&lt;T&gt;(IEnumerable&lt;Expression&lt;Func&lt;T, Boolean&gt;&gt;&gt;)</h4>
+  <h4 id="DapperDal_Expressions_PredicateBuilder_Any__1_Expression_Func___0_System_Boolean_____" data-uid="DapperDal.Expressions.PredicateBuilder.Any``1(Expression{Func{``0,System.Boolean}}[])">Any&lt;T&gt;(Expression&lt;Func&lt;T, Boolean&gt;&gt;[])</h4>
   <div class="markdown level1 summary"><p>Performs a reduction on the given list of predicates using logical &quot;or&quot;. Returns a <a class="xref" href="DapperDal.Expressions.PredicateBuilder.html#DapperDal_Expressions_PredicateBuilder_False__1">False&lt;T&gt;()</a> expression if the list is empty</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Expression&lt;Func&lt;T, bool&gt;&gt; Any&lt;T&gt;(this IEnumerable&lt;Expression&lt;Func&lt;T, bool&gt;&gt;&gt; predicates)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Expression&lt;Func&lt;T, bool&gt;&gt; Any&lt;T&gt;(params Expression&lt;Func&lt;T, bool&gt;&gt;[] predicates)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -343,7 +319,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;T, <span class="xref">System.Boolean</span>&gt;&gt;&gt;</td>
+        <td><span class="xref">Expression</span>&lt;<span class="xref">Func</span>&lt;T, <span class="xref">System.Boolean</span>&gt;&gt;[]</td>
         <td><span class="parametername">predicates</span></td>
         <td><p>The predicates</p>
 </td>
@@ -360,7 +336,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;T, <span class="xref">System.Boolean</span>&gt;&gt;</td>
+        <td><span class="xref">Expression</span>&lt;<span class="xref">Func</span>&lt;T, <span class="xref">System.Boolean</span>&gt;&gt;</td>
         <td><p>A series of &quot;or&quot; expressions</p>
 </td>
       </tr>
@@ -384,19 +360,19 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Expressions_PredicateBuilder_Any__1_System_Linq_Expressions_Expression_System_Func___0_System_Boolean_____.md&amp;value=---%0Auid%3A%20DapperDal.Expressions.PredicateBuilder.Any%60%601(System.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2CSystem.Boolean%7D%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Expressions_PredicateBuilder_Any__1_IEnumerable_Expression_Func___0_System_Boolean____.md&amp;value=---%0Auid%3A%20DapperDal.Expressions.PredicateBuilder.Any%60%601(IEnumerable%7BExpression%7BFunc%7B%60%600%2CSystem.Boolean%7D%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Expressions/PredicateBuilder.cs/#L124">View Source</a>
+    <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Expressions/PredicateBuilder.cs/#L113">View Source</a>
   </span>
   <a id="DapperDal_Expressions_PredicateBuilder_Any_" data-uid="DapperDal.Expressions.PredicateBuilder.Any*"></a>
-  <h4 id="DapperDal_Expressions_PredicateBuilder_Any__1_System_Linq_Expressions_Expression_System_Func___0_System_Boolean_____" data-uid="DapperDal.Expressions.PredicateBuilder.Any``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}}[])">Any&lt;T&gt;(Expression&lt;Func&lt;T, Boolean&gt;&gt;[])</h4>
+  <h4 id="DapperDal_Expressions_PredicateBuilder_Any__1_IEnumerable_Expression_Func___0_System_Boolean____" data-uid="DapperDal.Expressions.PredicateBuilder.Any``1(IEnumerable{Expression{Func{``0,System.Boolean}}})">Any&lt;T&gt;(IEnumerable&lt;Expression&lt;Func&lt;T, Boolean&gt;&gt;&gt;)</h4>
   <div class="markdown level1 summary"><p>Performs a reduction on the given list of predicates using logical &quot;or&quot;. Returns a <a class="xref" href="DapperDal.Expressions.PredicateBuilder.html#DapperDal_Expressions_PredicateBuilder_False__1">False&lt;T&gt;()</a> expression if the list is empty</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Expression&lt;Func&lt;T, bool&gt;&gt; Any&lt;T&gt;(params Expression&lt;Func&lt;T, bool&gt;&gt;[] predicates)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Expression&lt;Func&lt;T, bool&gt;&gt; Any&lt;T&gt;(this IEnumerable&lt;Expression&lt;Func&lt;T, bool&gt;&gt;&gt; predicates)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -409,7 +385,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;T, <span class="xref">System.Boolean</span>&gt;&gt;[]</td>
+        <td><span class="xref">IEnumerable</span>&lt;<span class="xref">Expression</span>&lt;<span class="xref">Func</span>&lt;T, <span class="xref">System.Boolean</span>&gt;&gt;&gt;</td>
         <td><span class="parametername">predicates</span></td>
         <td><p>The predicates</p>
 </td>
@@ -426,7 +402,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;T, <span class="xref">System.Boolean</span>&gt;&gt;</td>
+        <td><span class="xref">Expression</span>&lt;<span class="xref">Func</span>&lt;T, <span class="xref">System.Boolean</span>&gt;&gt;</td>
         <td><p>A series of &quot;or&quot; expressions</p>
 </td>
       </tr>
@@ -474,7 +450,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;T, <span class="xref">System.Boolean</span>&gt;&gt;</td>
+        <td><span class="xref">Expression</span>&lt;<span class="xref">Func</span>&lt;T, <span class="xref">System.Boolean</span>&gt;&gt;</td>
         <td><p>A constant expression returning false</p>
 </td>
       </tr>
@@ -498,13 +474,13 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Expressions_PredicateBuilder_Not__1_System_Linq_Expressions_Expression_System_Func___0_System_Boolean___.md&amp;value=---%0Auid%3A%20DapperDal.Expressions.PredicateBuilder.Not%60%601(System.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2CSystem.Boolean%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Expressions_PredicateBuilder_Not__1_Expression_Func___0_System_Boolean___.md&amp;value=---%0Auid%3A%20DapperDal.Expressions.PredicateBuilder.Not%60%601(Expression%7BFunc%7B%60%600%2CSystem.Boolean%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Expressions/PredicateBuilder.cs/#L80">View Source</a>
   </span>
   <a id="DapperDal_Expressions_PredicateBuilder_Not_" data-uid="DapperDal.Expressions.PredicateBuilder.Not*"></a>
-  <h4 id="DapperDal_Expressions_PredicateBuilder_Not__1_System_Linq_Expressions_Expression_System_Func___0_System_Boolean___" data-uid="DapperDal.Expressions.PredicateBuilder.Not``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">Not&lt;T&gt;(Expression&lt;Func&lt;T, Boolean&gt;&gt;)</h4>
+  <h4 id="DapperDal_Expressions_PredicateBuilder_Not__1_Expression_Func___0_System_Boolean___" data-uid="DapperDal.Expressions.PredicateBuilder.Not``1(Expression{Func{``0,System.Boolean}})">Not&lt;T&gt;(Expression&lt;Func&lt;T, Boolean&gt;&gt;)</h4>
   <div class="markdown level1 summary"><p>Composes a negation with the result of the predicate</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -523,7 +499,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;T, <span class="xref">System.Boolean</span>&gt;&gt;</td>
+        <td><span class="xref">Expression</span>&lt;<span class="xref">Func</span>&lt;T, <span class="xref">System.Boolean</span>&gt;&gt;</td>
         <td><span class="parametername">expr</span></td>
         <td><p>The predicate</p>
 </td>
@@ -540,7 +516,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;T, <span class="xref">System.Boolean</span>&gt;&gt;</td>
+        <td><span class="xref">Expression</span>&lt;<span class="xref">Func</span>&lt;T, <span class="xref">System.Boolean</span>&gt;&gt;</td>
         <td><p>An expression negating the result of the predicate</p>
 </td>
       </tr>
@@ -564,13 +540,13 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Expressions_PredicateBuilder_Or__1_System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Linq_Expressions_Expression_System_Func___0_System_Boolean___.md&amp;value=---%0Auid%3A%20DapperDal.Expressions.PredicateBuilder.Or%60%601(System.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2CSystem.Boolean%7D%7D%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%60%600%2CSystem.Boolean%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Expressions_PredicateBuilder_Or__1_Expression_Func___0_System_Boolean___Expression_Func___0_System_Boolean___.md&amp;value=---%0Auid%3A%20DapperDal.Expressions.PredicateBuilder.Or%60%601(Expression%7BFunc%7B%60%600%2CSystem.Boolean%7D%7D%2CExpression%7BFunc%7B%60%600%2CSystem.Boolean%7D%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Expressions/PredicateBuilder.cs/#L62">View Source</a>
   </span>
   <a id="DapperDal_Expressions_PredicateBuilder_Or_" data-uid="DapperDal.Expressions.PredicateBuilder.Or*"></a>
-  <h4 id="DapperDal_Expressions_PredicateBuilder_Or__1_System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Linq_Expressions_Expression_System_Func___0_System_Boolean___" data-uid="DapperDal.Expressions.PredicateBuilder.Or``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">Or&lt;T&gt;(Expression&lt;Func&lt;T, Boolean&gt;&gt;, Expression&lt;Func&lt;T, Boolean&gt;&gt;)</h4>
+  <h4 id="DapperDal_Expressions_PredicateBuilder_Or__1_Expression_Func___0_System_Boolean___Expression_Func___0_System_Boolean___" data-uid="DapperDal.Expressions.PredicateBuilder.Or``1(Expression{Func{``0,System.Boolean}},Expression{Func{``0,System.Boolean}})">Or&lt;T&gt;(Expression&lt;Func&lt;T, Boolean&gt;&gt;, Expression&lt;Func&lt;T, Boolean&gt;&gt;)</h4>
   <div class="markdown level1 summary"><p>Combines the first predicate with the second using a logical &quot;or&quot;. Short-circuits if either expression is constant</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -589,13 +565,13 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;T, <span class="xref">System.Boolean</span>&gt;&gt;</td>
+        <td><span class="xref">Expression</span>&lt;<span class="xref">Func</span>&lt;T, <span class="xref">System.Boolean</span>&gt;&gt;</td>
         <td><span class="parametername">first</span></td>
         <td><p>The first predicate</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;T, <span class="xref">System.Boolean</span>&gt;&gt;</td>
+        <td><span class="xref">Expression</span>&lt;<span class="xref">Func</span>&lt;T, <span class="xref">System.Boolean</span>&gt;&gt;</td>
         <td><span class="parametername">second</span></td>
         <td><p>The second predicate</p>
 </td>
@@ -612,7 +588,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;T, <span class="xref">System.Boolean</span>&gt;&gt;</td>
+        <td><span class="xref">Expression</span>&lt;<span class="xref">Func</span>&lt;T, <span class="xref">System.Boolean</span>&gt;&gt;</td>
         <td><p>An expression representing a logical &quot;or&quot; between both predicates</p>
 </td>
       </tr>
@@ -660,7 +636,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Linq.Expressions.Expression</span>&lt;<span class="xref">System.Func</span>&lt;T, <span class="xref">System.Boolean</span>&gt;&gt;</td>
+        <td><span class="xref">Expression</span>&lt;<span class="xref">Func</span>&lt;T, <span class="xref">System.Boolean</span>&gt;&gt;</td>
         <td><p>A constant expression returning true</p>
 </td>
       </tr>

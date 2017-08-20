@@ -80,47 +80,23 @@
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">PropertyMap</span></div>
   </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="DapperDal.Mapper.html">DapperDal.Mapper</a></h6>
   <h6><strong>Assembly</strong>: DapperDal.dll</h6>
   <h5 id="DapperDal_Mapper_PropertyMap_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class PropertyMap : IPropertyMap</code></pre>
+    <pre><code class="lang-csharp hljs">public class PropertyMap : object, IPropertyMap</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Mapper_PropertyMap__ctor_System_Reflection_PropertyInfo_.md&amp;value=---%0Auid%3A%20DapperDal.Mapper.PropertyMap.%23ctor(System.Reflection.PropertyInfo)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Mapper_PropertyMap__ctor_PropertyInfo_.md&amp;value=---%0Auid%3A%20DapperDal.Mapper.PropertyMap.%23ctor(PropertyInfo)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Mapper/PropertyMap.cs/#L51">View Source</a>
   </span>
   <a id="DapperDal_Mapper_PropertyMap__ctor_" data-uid="DapperDal.Mapper.PropertyMap.#ctor*"></a>
-  <h4 id="DapperDal_Mapper_PropertyMap__ctor_System_Reflection_PropertyInfo_" data-uid="DapperDal.Mapper.PropertyMap.#ctor(System.Reflection.PropertyInfo)">PropertyMap(PropertyInfo)</h4>
+  <h4 id="DapperDal_Mapper_PropertyMap__ctor_PropertyInfo_" data-uid="DapperDal.Mapper.PropertyMap.#ctor(PropertyInfo)">PropertyMap(PropertyInfo)</h4>
   <div class="markdown level1 summary"><p>初始化实体属性映射器</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -139,7 +115,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Reflection.PropertyInfo</span></td>
+        <td><span class="xref">PropertyInfo</span></td>
         <td><span class="parametername">propertyInfo</span></td>
         <td><p>属性元数据访问器</p>
 </td>
@@ -157,7 +133,8 @@
   </span>
   <a id="DapperDal_Mapper_PropertyMap_ColumnName_" data-uid="DapperDal.Mapper.PropertyMap.ColumnName*"></a>
   <h4 id="DapperDal_Mapper_PropertyMap_ColumnName" data-uid="DapperDal.Mapper.PropertyMap.ColumnName">ColumnName</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>属性对应表字段名</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -189,7 +166,8 @@
   </span>
   <a id="DapperDal_Mapper_PropertyMap_Ignored_" data-uid="DapperDal.Mapper.PropertyMap.Ignored*"></a>
   <h4 id="DapperDal_Mapper_PropertyMap_Ignored" data-uid="DapperDal.Mapper.PropertyMap.Ignored">Ignored</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>属性是否忽略</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -221,7 +199,8 @@
   </span>
   <a id="DapperDal_Mapper_PropertyMap_IsReadOnly_" data-uid="DapperDal.Mapper.PropertyMap.IsReadOnly*"></a>
   <h4 id="DapperDal_Mapper_PropertyMap_IsReadOnly" data-uid="DapperDal.Mapper.PropertyMap.IsReadOnly">IsReadOnly</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>属性是否只读</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -253,7 +232,8 @@
   </span>
   <a id="DapperDal_Mapper_PropertyMap_KeyType_" data-uid="DapperDal.Mapper.PropertyMap.KeyType*"></a>
   <h4 id="DapperDal_Mapper_PropertyMap_KeyType" data-uid="DapperDal.Mapper.PropertyMap.KeyType">KeyType</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>属性类型</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -285,7 +265,8 @@
   </span>
   <a id="DapperDal_Mapper_PropertyMap_Name_" data-uid="DapperDal.Mapper.PropertyMap.Name*"></a>
   <h4 id="DapperDal_Mapper_PropertyMap_Name" data-uid="DapperDal.Mapper.PropertyMap.Name">Name</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>属性名</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -317,7 +298,8 @@
   </span>
   <a id="DapperDal_Mapper_PropertyMap_PropertyInfo_" data-uid="DapperDal.Mapper.PropertyMap.PropertyInfo*"></a>
   <h4 id="DapperDal_Mapper_PropertyMap_PropertyInfo" data-uid="DapperDal.Mapper.PropertyMap.PropertyInfo">PropertyInfo</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>属性元数据访问器</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -333,7 +315,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Reflection.PropertyInfo</span></td>
+        <td><span class="xref">PropertyInfo</span></td>
         <td></td>
       </tr>
     </tbody>

@@ -80,35 +80,11 @@
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">DalImplementor</span></div>
   </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="DapperDal.Implementor.html">DapperDal.Implementor</a></h6>
   <h6><strong>Assembly</strong>: DapperDal.dll</h6>
   <h5 id="DapperDal_Implementor_DalImplementor_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class DalImplementor : IDalImplementor</code></pre>
+    <pre><code class="lang-csharp hljs">public class DalImplementor : object, IDalImplementor</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -157,7 +133,8 @@
   </span>
   <a id="DapperDal_Implementor_DalImplementor_SqlGenerator_" data-uid="DapperDal.Implementor.DalImplementor.SqlGenerator*"></a>
   <h4 id="DapperDal_Implementor_DalImplementor_SqlGenerator" data-uid="DapperDal.Implementor.DalImplementor.SqlGenerator">SqlGenerator</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>SQL生成器</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -184,14 +161,15 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_Count__1_System_Data_IDbConnection_System_Object_System_Data_IDbTransaction_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.Count%60%601(System.Data.IDbConnection%2CSystem.Object%2CSystem.Data.IDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_Count__1_IDbConnection_System_Object_IDbTransaction_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.Count%60%601(IDbConnection%2CSystem.Object%2CIDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Implementor/DalImplementor.cs/#L571">View Source</a>
   </span>
   <a id="DapperDal_Implementor_DalImplementor_Count_" data-uid="DapperDal.Implementor.DalImplementor.Count*"></a>
-  <h4 id="DapperDal_Implementor_DalImplementor_Count__1_System_Data_IDbConnection_System_Object_System_Data_IDbTransaction_System_Nullable_System_Int32__" data-uid="DapperDal.Implementor.DalImplementor.Count``1(System.Data.IDbConnection,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32})">Count&lt;T&gt;(IDbConnection, Object, IDbTransaction, Nullable&lt;Int32&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="DapperDal_Implementor_DalImplementor_Count__1_IDbConnection_System_Object_IDbTransaction_System_Nullable_System_Int32__" data-uid="DapperDal.Implementor.DalImplementor.Count``1(IDbConnection,System.Object,IDbTransaction,System.Nullable{System.Int32})">Count&lt;T&gt;(IDbConnection, Object, IDbTransaction, Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>根据条件获取实体条数</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -208,24 +186,28 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Data.IDbConnection</span></td>
+        <td><span class="xref">IDbConnection</span></td>
         <td><span class="parametername">connection</span></td>
-        <td></td>
+        <td><p>数据库连接</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Object</span></td>
         <td><span class="parametername">predicate</span></td>
-        <td></td>
+        <td><p>查询条件</p>
+</td>
       </tr>
       <tr>
-        <td><span class="xref">System.Data.IDbTransaction</span></td>
+        <td><span class="xref">IDbTransaction</span></td>
         <td><span class="parametername">transaction</span></td>
-        <td></td>
+        <td><p>数据库事务</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
         <td><span class="parametername">commandTimeout</span></td>
-        <td></td>
+        <td><p>数据库命令超时时间（单位秒）</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -240,7 +222,8 @@
     <tbody>
       <tr>
         <td><span class="xref">System.Int32</span></td>
-        <td></td>
+        <td><p>实体条数</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -255,21 +238,22 @@
     <tbody>
       <tr>
         <td><span class="parametername">T</span></td>
-        <td></td>
+        <td><p>实体类型</p>
+</td>
       </tr>
     </tbody>
   </table>
   <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="DapperDal.Implementor.IDalImplementor.html#DapperDal_Implementor_IDalImplementor_Count__1_System_Data_IDbConnection_System_Object_System_Data_IDbTransaction_System_Nullable_System_Int32__">IDalImplementor.Count&lt;T&gt;(IDbConnection, Object, IDbTransaction, Nullable&lt;Int32&gt;)</a></div>
+      <div><a class="xref" href="DapperDal.Implementor.IDalImplementor.html#DapperDal_Implementor_IDalImplementor_Count__1_IDbConnection_System_Object_IDbTransaction_System_Nullable_System_Int32__">IDalImplementor.Count&lt;T&gt;(IDbConnection, Object, IDbTransaction, Nullable&lt;Int32&gt;)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_Delete__1_System_Data_IDbConnection___0_System_Data_IDbTransaction_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.Delete%60%601(System.Data.IDbConnection%2C%60%600%2CSystem.Data.IDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_Delete__1_IDbConnection___0_IDbTransaction_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.Delete%60%601(IDbConnection%2C%60%600%2CIDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Implementor/DalImplementor.cs/#L514">View Source</a>
   </span>
   <a id="DapperDal_Implementor_DalImplementor_Delete_" data-uid="DapperDal.Implementor.DalImplementor.Delete*"></a>
-  <h4 id="DapperDal_Implementor_DalImplementor_Delete__1_System_Data_IDbConnection___0_System_Data_IDbTransaction_System_Nullable_System_Int32__" data-uid="DapperDal.Implementor.DalImplementor.Delete``1(System.Data.IDbConnection,``0,System.Data.IDbTransaction,System.Nullable{System.Int32})">Delete&lt;T&gt;(IDbConnection, T, IDbTransaction, Nullable&lt;Int32&gt;)</h4>
+  <h4 id="DapperDal_Implementor_DalImplementor_Delete__1_IDbConnection___0_IDbTransaction_System_Nullable_System_Int32__" data-uid="DapperDal.Implementor.DalImplementor.Delete``1(IDbConnection,``0,IDbTransaction,System.Nullable{System.Int32})">Delete&lt;T&gt;(IDbConnection, T, IDbTransaction, Nullable&lt;Int32&gt;)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -287,7 +271,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Data.IDbConnection</span></td>
+        <td><span class="xref">IDbConnection</span></td>
         <td><span class="parametername">connection</span></td>
         <td></td>
       </tr>
@@ -297,7 +281,7 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.Data.IDbTransaction</span></td>
+        <td><span class="xref">IDbTransaction</span></td>
         <td><span class="parametername">transaction</span></td>
         <td></td>
       </tr>
@@ -339,16 +323,16 @@
     </tbody>
   </table>
   <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="DapperDal.Implementor.IDalImplementor.html#DapperDal_Implementor_IDalImplementor_Delete__1_System_Data_IDbConnection___0_System_Data_IDbTransaction_System_Nullable_System_Int32__">IDalImplementor.Delete&lt;T&gt;(IDbConnection, T, IDbTransaction, Nullable&lt;Int32&gt;)</a></div>
+      <div><a class="xref" href="DapperDal.Implementor.IDalImplementor.html#DapperDal_Implementor_IDalImplementor_Delete__1_IDbConnection___0_IDbTransaction_System_Nullable_System_Int32__">IDalImplementor.Delete&lt;T&gt;(IDbConnection, T, IDbTransaction, Nullable&lt;Int32&gt;)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_Delete__1_System_Data_IDbConnection_DapperDal_Mapper_IClassMapper_DapperDal_Predicate_IPredicate_System_Data_IDbTransaction_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.Delete%60%601(System.Data.IDbConnection%2CDapperDal.Mapper.IClassMapper%2CDapperDal.Predicate.IPredicate%2CSystem.Data.IDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_Delete__1_IDbConnection_DapperDal_Mapper_IClassMapper_DapperDal_Predicate_IPredicate_IDbTransaction_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.Delete%60%601(IDbConnection%2CDapperDal.Mapper.IClassMapper%2CDapperDal.Predicate.IPredicate%2CIDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Implementor/DalImplementor.cs/#L693">View Source</a>
   </span>
   <a id="DapperDal_Implementor_DalImplementor_Delete_" data-uid="DapperDal.Implementor.DalImplementor.Delete*"></a>
-  <h4 id="DapperDal_Implementor_DalImplementor_Delete__1_System_Data_IDbConnection_DapperDal_Mapper_IClassMapper_DapperDal_Predicate_IPredicate_System_Data_IDbTransaction_System_Nullable_System_Int32__" data-uid="DapperDal.Implementor.DalImplementor.Delete``1(System.Data.IDbConnection,DapperDal.Mapper.IClassMapper,DapperDal.Predicate.IPredicate,System.Data.IDbTransaction,System.Nullable{System.Int32})">Delete&lt;T&gt;(IDbConnection, IClassMapper, IPredicate, IDbTransaction, Nullable&lt;Int32&gt;)</h4>
+  <h4 id="DapperDal_Implementor_DalImplementor_Delete__1_IDbConnection_DapperDal_Mapper_IClassMapper_DapperDal_Predicate_IPredicate_IDbTransaction_System_Nullable_System_Int32__" data-uid="DapperDal.Implementor.DalImplementor.Delete``1(IDbConnection,DapperDal.Mapper.IClassMapper,DapperDal.Predicate.IPredicate,IDbTransaction,System.Nullable{System.Int32})">Delete&lt;T&gt;(IDbConnection, IClassMapper, IPredicate, IDbTransaction, Nullable&lt;Int32&gt;)</h4>
   <div class="markdown level1 summary"><p>根据条件删除实体</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -367,7 +351,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Data.IDbConnection</span></td>
+        <td><span class="xref">IDbConnection</span></td>
         <td><span class="parametername">connection</span></td>
         <td><p>数据库连接</p>
 </td>
@@ -385,7 +369,7 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Data.IDbTransaction</span></td>
+        <td><span class="xref">IDbTransaction</span></td>
         <td><span class="parametername">transaction</span></td>
         <td><p>数据库事务</p>
 </td>
@@ -432,14 +416,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_Delete__1_System_Data_IDbConnection_System_Object_System_Data_IDbTransaction_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.Delete%60%601(System.Data.IDbConnection%2CSystem.Object%2CSystem.Data.IDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_Delete__1_IDbConnection_System_Object_IDbTransaction_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.Delete%60%601(IDbConnection%2CSystem.Object%2CIDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Implementor/DalImplementor.cs/#L522">View Source</a>
   </span>
   <a id="DapperDal_Implementor_DalImplementor_Delete_" data-uid="DapperDal.Implementor.DalImplementor.Delete*"></a>
-  <h4 id="DapperDal_Implementor_DalImplementor_Delete__1_System_Data_IDbConnection_System_Object_System_Data_IDbTransaction_System_Nullable_System_Int32__" data-uid="DapperDal.Implementor.DalImplementor.Delete``1(System.Data.IDbConnection,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32})">Delete&lt;T&gt;(IDbConnection, Object, IDbTransaction, Nullable&lt;Int32&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="DapperDal_Implementor_DalImplementor_Delete__1_IDbConnection_System_Object_IDbTransaction_System_Nullable_System_Int32__" data-uid="DapperDal.Implementor.DalImplementor.Delete``1(IDbConnection,System.Object,IDbTransaction,System.Nullable{System.Int32})">Delete&lt;T&gt;(IDbConnection, Object, IDbTransaction, Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>根据条件删除实体</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -456,24 +441,28 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Data.IDbConnection</span></td>
+        <td><span class="xref">IDbConnection</span></td>
         <td><span class="parametername">connection</span></td>
-        <td></td>
+        <td><p>数据库连接</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Object</span></td>
         <td><span class="parametername">predicate</span></td>
-        <td></td>
+        <td><p>删除条件</p>
+</td>
       </tr>
       <tr>
-        <td><span class="xref">System.Data.IDbTransaction</span></td>
+        <td><span class="xref">IDbTransaction</span></td>
         <td><span class="parametername">transaction</span></td>
-        <td></td>
+        <td><p>数据库事务</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
         <td><span class="parametername">commandTimeout</span></td>
-        <td></td>
+        <td><p>数据库命令超时时间（单位秒）</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -488,7 +477,8 @@
     <tbody>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
-        <td></td>
+        <td><p>返回删除是否成功的结果</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -503,22 +493,24 @@
     <tbody>
       <tr>
         <td><span class="parametername">T</span></td>
-        <td></td>
+        <td><p>实体类型</p>
+</td>
       </tr>
     </tbody>
   </table>
   <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="DapperDal.Implementor.IDalImplementor.html#DapperDal_Implementor_IDalImplementor_Delete__1_System_Data_IDbConnection_System_Object_System_Data_IDbTransaction_System_Nullable_System_Int32__">IDalImplementor.Delete&lt;T&gt;(IDbConnection, Object, IDbTransaction, Nullable&lt;Int32&gt;)</a></div>
+      <div><a class="xref" href="DapperDal.Implementor.IDalImplementor.html#DapperDal_Implementor_IDalImplementor_Delete__1_IDbConnection_System_Object_IDbTransaction_System_Nullable_System_Int32__">IDalImplementor.Delete&lt;T&gt;(IDbConnection, Object, IDbTransaction, Nullable&lt;Int32&gt;)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_Get__1_System_Data_IDbConnection_System_Object_System_Data_IDbTransaction_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.Get%60%601(System.Data.IDbConnection%2CSystem.Object%2CSystem.Data.IDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_Get__1_IDbConnection_System_Object_IDbTransaction_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.Get%60%601(IDbConnection%2CSystem.Object%2CIDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Implementor/DalImplementor.cs/#L530">View Source</a>
   </span>
   <a id="DapperDal_Implementor_DalImplementor_Get_" data-uid="DapperDal.Implementor.DalImplementor.Get*"></a>
-  <h4 id="DapperDal_Implementor_DalImplementor_Get__1_System_Data_IDbConnection_System_Object_System_Data_IDbTransaction_System_Nullable_System_Int32__" data-uid="DapperDal.Implementor.DalImplementor.Get``1(System.Data.IDbConnection,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32})">Get&lt;T&gt;(IDbConnection, Object, IDbTransaction, Nullable&lt;Int32&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="DapperDal_Implementor_DalImplementor_Get__1_IDbConnection_System_Object_IDbTransaction_System_Nullable_System_Int32__" data-uid="DapperDal.Implementor.DalImplementor.Get``1(IDbConnection,System.Object,IDbTransaction,System.Nullable{System.Int32})">Get&lt;T&gt;(IDbConnection, Object, IDbTransaction, Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>根据实体ID（主键）获取实体</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -535,24 +527,28 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Data.IDbConnection</span></td>
+        <td><span class="xref">IDbConnection</span></td>
         <td><span class="parametername">connection</span></td>
-        <td></td>
+        <td><p>数据库连接</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Object</span></td>
         <td><span class="parametername">id</span></td>
-        <td></td>
+        <td><p>实体ID（主键）</p>
+</td>
       </tr>
       <tr>
-        <td><span class="xref">System.Data.IDbTransaction</span></td>
+        <td><span class="xref">IDbTransaction</span></td>
         <td><span class="parametername">transaction</span></td>
-        <td></td>
+        <td><p>数据库事务</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
         <td><span class="parametername">commandTimeout</span></td>
-        <td></td>
+        <td><p>数据库命令超时时间（单位秒）</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -567,7 +563,8 @@
     <tbody>
       <tr>
         <td><span class="xref">T</span></td>
-        <td></td>
+        <td><p>返回实体</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -582,12 +579,13 @@
     <tbody>
       <tr>
         <td><span class="parametername">T</span></td>
-        <td></td>
+        <td><p>实体类型</p>
+</td>
       </tr>
     </tbody>
   </table>
   <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="DapperDal.Implementor.IDalImplementor.html#DapperDal_Implementor_IDalImplementor_Get__1_System_Data_IDbConnection_System_Object_System_Data_IDbTransaction_System_Nullable_System_Int32__">IDalImplementor.Get&lt;T&gt;(IDbConnection, Object, IDbTransaction, Nullable&lt;Int32&gt;)</a></div>
+      <div><a class="xref" href="DapperDal.Implementor.IDalImplementor.html#DapperDal_Implementor_IDalImplementor_Get__1_IDbConnection_System_Object_IDbTransaction_System_Nullable_System_Int32__">IDalImplementor.Get&lt;T&gt;(IDbConnection, Object, IDbTransaction, Nullable&lt;Int32&gt;)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_GetEntityPredicate_DapperDal_Mapper_IClassMapper_System_Object_.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.GetEntityPredicate(DapperDal.Mapper.IClassMapper%2CSystem.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -653,7 +651,8 @@
   </span>
   <a id="DapperDal_Implementor_DalImplementor_GetIdPredicate_" data-uid="DapperDal.Implementor.DalImplementor.GetIdPredicate*"></a>
   <h4 id="DapperDal_Implementor_DalImplementor_GetIdPredicate_DapperDal_Mapper_IClassMapper_System_Object_" data-uid="DapperDal.Implementor.DalImplementor.GetIdPredicate(DapperDal.Mapper.IClassMapper,System.Object)">GetIdPredicate(IClassMapper, Object)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>根据实体主键ID获取谓词组</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -672,12 +671,14 @@
       <tr>
         <td><a class="xref" href="DapperDal.Mapper.IClassMapper.html">IClassMapper</a></td>
         <td><span class="parametername">classMap</span></td>
-        <td></td>
+        <td><p>实体类型映射</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Object</span></td>
         <td><span class="parametername">id</span></td>
-        <td></td>
+        <td><p>实体主键ID</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -692,7 +693,8 @@
     <tbody>
       <tr>
         <td><a class="xref" href="DapperDal.Predicate.IPredicate.html">IPredicate</a></td>
-        <td></td>
+        <td><p>谓词组</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -707,7 +709,8 @@
   </span>
   <a id="DapperDal_Implementor_DalImplementor_GetIdPredicate_" data-uid="DapperDal.Implementor.DalImplementor.GetIdPredicate*"></a>
   <h4 id="DapperDal_Implementor_DalImplementor_GetIdPredicate__1_System_Object_" data-uid="DapperDal.Implementor.DalImplementor.GetIdPredicate``1(System.Object)">GetIdPredicate&lt;T&gt;(Object)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>获取实体主键ID条件谓词</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -726,7 +729,8 @@
       <tr>
         <td><span class="xref">System.Object</span></td>
         <td><span class="parametername">id</span></td>
-        <td></td>
+        <td><p>实体主键ID</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -741,7 +745,8 @@
     <tbody>
       <tr>
         <td><a class="xref" href="DapperDal.Predicate.IPredicate.html">IPredicate</a></td>
-        <td></td>
+        <td><p>谓词</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -756,7 +761,8 @@
     <tbody>
       <tr>
         <td><span class="parametername">T</span></td>
-        <td></td>
+        <td><p>实体类型</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -834,22 +840,6 @@
       </tr>
     </tbody>
   </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
-        <td><p>实体无主键</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_GetKeyPredicate__1_DapperDal_Mapper_IClassMapper_System_Object_.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.GetKeyPredicate%60%601(DapperDal.Mapper.IClassMapper%2CSystem.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -922,31 +912,15 @@
       </tr>
     </tbody>
   </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.ArgumentException</span></td>
-        <td><p>实体无主键</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_GetList__1_System_Data_IDbConnection_DapperDal_Mapper_IClassMapper_DapperDal_Predicate_IPredicate_System_Collections_Generic_IList_DapperDal_Predicate_ISort__System_Data_IDbTransaction_System_Nullable_System_Int32__System_Boolean_.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.GetList%60%601(System.Data.IDbConnection%2CDapperDal.Mapper.IClassMapper%2CDapperDal.Predicate.IPredicate%2CSystem.Collections.Generic.IList%7BDapperDal.Predicate.ISort%7D%2CSystem.Data.IDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_GetList__1_IDbConnection_DapperDal_Mapper_IClassMapper_DapperDal_Predicate_IPredicate_IList_DapperDal_Predicate_ISort__IDbTransaction_System_Nullable_System_Int32__System_Boolean_.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.GetList%60%601(IDbConnection%2CDapperDal.Mapper.IClassMapper%2CDapperDal.Predicate.IPredicate%2CIList%7BDapperDal.Predicate.ISort%7D%2CIDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Implementor/DalImplementor.cs/#L598">View Source</a>
   </span>
   <a id="DapperDal_Implementor_DalImplementor_GetList_" data-uid="DapperDal.Implementor.DalImplementor.GetList*"></a>
-  <h4 id="DapperDal_Implementor_DalImplementor_GetList__1_System_Data_IDbConnection_DapperDal_Mapper_IClassMapper_DapperDal_Predicate_IPredicate_System_Collections_Generic_IList_DapperDal_Predicate_ISort__System_Data_IDbTransaction_System_Nullable_System_Int32__System_Boolean_" data-uid="DapperDal.Implementor.DalImplementor.GetList``1(System.Data.IDbConnection,DapperDal.Mapper.IClassMapper,DapperDal.Predicate.IPredicate,System.Collections.Generic.IList{DapperDal.Predicate.ISort},System.Data.IDbTransaction,System.Nullable{System.Int32},System.Boolean)">GetList&lt;T&gt;(IDbConnection, IClassMapper, IPredicate, IList&lt;ISort&gt;, IDbTransaction, Nullable&lt;Int32&gt;, Boolean)</h4>
+  <h4 id="DapperDal_Implementor_DalImplementor_GetList__1_IDbConnection_DapperDal_Mapper_IClassMapper_DapperDal_Predicate_IPredicate_IList_DapperDal_Predicate_ISort__IDbTransaction_System_Nullable_System_Int32__System_Boolean_" data-uid="DapperDal.Implementor.DalImplementor.GetList``1(IDbConnection,DapperDal.Mapper.IClassMapper,DapperDal.Predicate.IPredicate,IList{DapperDal.Predicate.ISort},IDbTransaction,System.Nullable{System.Int32},System.Boolean)">GetList&lt;T&gt;(IDbConnection, IClassMapper, IPredicate, IList&lt;ISort&gt;, IDbTransaction, Nullable&lt;Int32&gt;, Boolean)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -964,7 +938,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Data.IDbConnection</span></td>
+        <td><span class="xref">IDbConnection</span></td>
         <td><span class="parametername">connection</span></td>
         <td></td>
       </tr>
@@ -979,12 +953,12 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IList</span>&lt;<a class="xref" href="DapperDal.Predicate.ISort.html">ISort</a>&gt;</td>
+        <td><span class="xref">IList</span>&lt;<a class="xref" href="DapperDal.Predicate.ISort.html">ISort</a>&gt;</td>
         <td><span class="parametername">sort</span></td>
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.Data.IDbTransaction</span></td>
+        <td><span class="xref">IDbTransaction</span></td>
         <td><span class="parametername">transaction</span></td>
         <td></td>
       </tr>
@@ -1010,7 +984,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;</td>
+        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -1032,13 +1006,13 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_GetList__1_System_Data_IDbConnection_DapperDal_Mapper_IClassMapper_DapperDal_Predicate_IPredicate_System_Collections_Generic_IList_DapperDal_Predicate_ISort__System_Int32_System_Data_IDbTransaction_System_Nullable_System_Int32__System_Boolean_.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.GetList%60%601(System.Data.IDbConnection%2CDapperDal.Mapper.IClassMapper%2CDapperDal.Predicate.IPredicate%2CSystem.Collections.Generic.IList%7BDapperDal.Predicate.ISort%7D%2CSystem.Int32%2CSystem.Data.IDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_GetList__1_IDbConnection_DapperDal_Mapper_IClassMapper_DapperDal_Predicate_IPredicate_IList_DapperDal_Predicate_ISort__System_Int32_IDbTransaction_System_Nullable_System_Int32__System_Boolean_.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.GetList%60%601(IDbConnection%2CDapperDal.Mapper.IClassMapper%2CDapperDal.Predicate.IPredicate%2CIList%7BDapperDal.Predicate.ISort%7D%2CSystem.Int32%2CIDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Implementor/DalImplementor.cs/#L616">View Source</a>
   </span>
   <a id="DapperDal_Implementor_DalImplementor_GetList_" data-uid="DapperDal.Implementor.DalImplementor.GetList*"></a>
-  <h4 id="DapperDal_Implementor_DalImplementor_GetList__1_System_Data_IDbConnection_DapperDal_Mapper_IClassMapper_DapperDal_Predicate_IPredicate_System_Collections_Generic_IList_DapperDal_Predicate_ISort__System_Int32_System_Data_IDbTransaction_System_Nullable_System_Int32__System_Boolean_" data-uid="DapperDal.Implementor.DalImplementor.GetList``1(System.Data.IDbConnection,DapperDal.Mapper.IClassMapper,DapperDal.Predicate.IPredicate,System.Collections.Generic.IList{DapperDal.Predicate.ISort},System.Int32,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Boolean)">GetList&lt;T&gt;(IDbConnection, IClassMapper, IPredicate, IList&lt;ISort&gt;, Int32, IDbTransaction, Nullable&lt;Int32&gt;, Boolean)</h4>
+  <h4 id="DapperDal_Implementor_DalImplementor_GetList__1_IDbConnection_DapperDal_Mapper_IClassMapper_DapperDal_Predicate_IPredicate_IList_DapperDal_Predicate_ISort__System_Int32_IDbTransaction_System_Nullable_System_Int32__System_Boolean_" data-uid="DapperDal.Implementor.DalImplementor.GetList``1(IDbConnection,DapperDal.Mapper.IClassMapper,DapperDal.Predicate.IPredicate,IList{DapperDal.Predicate.ISort},System.Int32,IDbTransaction,System.Nullable{System.Int32},System.Boolean)">GetList&lt;T&gt;(IDbConnection, IClassMapper, IPredicate, IList&lt;ISort&gt;, Int32, IDbTransaction, Nullable&lt;Int32&gt;, Boolean)</h4>
   <div class="markdown level1 summary"><p>根据查询条件和排序条件获取实体集合</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1057,7 +1031,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Data.IDbConnection</span></td>
+        <td><span class="xref">IDbConnection</span></td>
         <td><span class="parametername">connection</span></td>
         <td><p>数据库连接</p>
 </td>
@@ -1075,7 +1049,7 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IList</span>&lt;<a class="xref" href="DapperDal.Predicate.ISort.html">ISort</a>&gt;</td>
+        <td><span class="xref">IList</span>&lt;<a class="xref" href="DapperDal.Predicate.ISort.html">ISort</a>&gt;</td>
         <td><span class="parametername">sort</span></td>
         <td><p>排序条件</p>
 </td>
@@ -1087,7 +1061,7 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Data.IDbTransaction</span></td>
+        <td><span class="xref">IDbTransaction</span></td>
         <td><span class="parametername">transaction</span></td>
         <td><p>数据库事务</p>
 </td>
@@ -1116,7 +1090,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;</td>
+        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
         <td><p>实体集合</p>
 </td>
       </tr>
@@ -1140,14 +1114,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_GetList__1_System_Data_IDbConnection_System_Object_System_Collections_Generic_IList_DapperDal_Predicate_ISort__System_Data_IDbTransaction_System_Nullable_System_Int32__System_Boolean_.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.GetList%60%601(System.Data.IDbConnection%2CSystem.Object%2CSystem.Collections.Generic.IList%7BDapperDal.Predicate.ISort%7D%2CSystem.Data.IDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_GetList__1_IDbConnection_System_Object_IList_DapperDal_Predicate_ISort__IDbTransaction_System_Nullable_System_Int32__System_Boolean_.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.GetList%60%601(IDbConnection%2CSystem.Object%2CIList%7BDapperDal.Predicate.ISort%7D%2CIDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Implementor/DalImplementor.cs/#L539">View Source</a>
   </span>
   <a id="DapperDal_Implementor_DalImplementor_GetList_" data-uid="DapperDal.Implementor.DalImplementor.GetList*"></a>
-  <h4 id="DapperDal_Implementor_DalImplementor_GetList__1_System_Data_IDbConnection_System_Object_System_Collections_Generic_IList_DapperDal_Predicate_ISort__System_Data_IDbTransaction_System_Nullable_System_Int32__System_Boolean_" data-uid="DapperDal.Implementor.DalImplementor.GetList``1(System.Data.IDbConnection,System.Object,System.Collections.Generic.IList{DapperDal.Predicate.ISort},System.Data.IDbTransaction,System.Nullable{System.Int32},System.Boolean)">GetList&lt;T&gt;(IDbConnection, Object, IList&lt;ISort&gt;, IDbTransaction, Nullable&lt;Int32&gt;, Boolean)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="DapperDal_Implementor_DalImplementor_GetList__1_IDbConnection_System_Object_IList_DapperDal_Predicate_ISort__IDbTransaction_System_Nullable_System_Int32__System_Boolean_" data-uid="DapperDal.Implementor.DalImplementor.GetList``1(IDbConnection,System.Object,IList{DapperDal.Predicate.ISort},IDbTransaction,System.Nullable{System.Int32},System.Boolean)">GetList&lt;T&gt;(IDbConnection, Object, IList&lt;ISort&gt;, IDbTransaction, Nullable&lt;Int32&gt;, Boolean)</h4>
+  <div class="markdown level1 summary"><p>根据查询条件和排序条件获取实体集合</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1164,34 +1139,40 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Data.IDbConnection</span></td>
+        <td><span class="xref">IDbConnection</span></td>
         <td><span class="parametername">connection</span></td>
-        <td></td>
+        <td><p>数据库连接</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Object</span></td>
         <td><span class="parametername">predicate</span></td>
-        <td></td>
+        <td><p>查询条件</p>
+</td>
       </tr>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IList</span>&lt;<a class="xref" href="DapperDal.Predicate.ISort.html">ISort</a>&gt;</td>
+        <td><span class="xref">IList</span>&lt;<a class="xref" href="DapperDal.Predicate.ISort.html">ISort</a>&gt;</td>
         <td><span class="parametername">sort</span></td>
-        <td></td>
+        <td><p>排序条件</p>
+</td>
       </tr>
       <tr>
-        <td><span class="xref">System.Data.IDbTransaction</span></td>
+        <td><span class="xref">IDbTransaction</span></td>
         <td><span class="parametername">transaction</span></td>
-        <td></td>
+        <td><p>数据库事务</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
         <td><span class="parametername">commandTimeout</span></td>
-        <td></td>
+        <td><p>数据库命令超时时间（单位秒）</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
         <td><span class="parametername">buffered</span></td>
-        <td></td>
+        <td><p>实体集合返回前是否要缓冲（ToList）</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1205,8 +1186,9 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;</td>
-        <td></td>
+        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
+        <td><p>实体集合</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1221,22 +1203,24 @@
     <tbody>
       <tr>
         <td><span class="parametername">T</span></td>
-        <td></td>
+        <td><p>实体类型</p>
+</td>
       </tr>
     </tbody>
   </table>
   <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="DapperDal.Implementor.IDalImplementor.html#DapperDal_Implementor_IDalImplementor_GetList__1_System_Data_IDbConnection_System_Object_System_Collections_Generic_IList_DapperDal_Predicate_ISort__System_Data_IDbTransaction_System_Nullable_System_Int32__System_Boolean_">IDalImplementor.GetList&lt;T&gt;(IDbConnection, Object, IList&lt;ISort&gt;, IDbTransaction, Nullable&lt;Int32&gt;, Boolean)</a></div>
+      <div><a class="xref" href="DapperDal.Implementor.IDalImplementor.html#DapperDal_Implementor_IDalImplementor_GetList__1_IDbConnection_System_Object_IList_DapperDal_Predicate_ISort__IDbTransaction_System_Nullable_System_Int32__System_Boolean_">IDalImplementor.GetList&lt;T&gt;(IDbConnection, Object, IList&lt;ISort&gt;, IDbTransaction, Nullable&lt;Int32&gt;, Boolean)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_GetMultiple_System_Data_IDbConnection_DapperDal_Predicate_GetMultiplePredicate_System_Data_IDbTransaction_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.GetMultiple(System.Data.IDbConnection%2CDapperDal.Predicate.GetMultiplePredicate%2CSystem.Data.IDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_GetMultiple_IDbConnection_DapperDal_Predicate_GetMultiplePredicate_IDbTransaction_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.GetMultiple(IDbConnection%2CDapperDal.Predicate.GetMultiplePredicate%2CIDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Implementor/DalImplementor.cs/#L587">View Source</a>
   </span>
   <a id="DapperDal_Implementor_DalImplementor_GetMultiple_" data-uid="DapperDal.Implementor.DalImplementor.GetMultiple*"></a>
-  <h4 id="DapperDal_Implementor_DalImplementor_GetMultiple_System_Data_IDbConnection_DapperDal_Predicate_GetMultiplePredicate_System_Data_IDbTransaction_System_Nullable_System_Int32__" data-uid="DapperDal.Implementor.DalImplementor.GetMultiple(System.Data.IDbConnection,DapperDal.Predicate.GetMultiplePredicate,System.Data.IDbTransaction,System.Nullable{System.Int32})">GetMultiple(IDbConnection, GetMultiplePredicate, IDbTransaction, Nullable&lt;Int32&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="DapperDal_Implementor_DalImplementor_GetMultiple_IDbConnection_DapperDal_Predicate_GetMultiplePredicate_IDbTransaction_System_Nullable_System_Int32__" data-uid="DapperDal.Implementor.DalImplementor.GetMultiple(IDbConnection,DapperDal.Predicate.GetMultiplePredicate,IDbTransaction,System.Nullable{System.Int32})">GetMultiple(IDbConnection, GetMultiplePredicate, IDbTransaction, Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>根据多个条件组获取多个指定实体集合</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1253,24 +1237,28 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Data.IDbConnection</span></td>
+        <td><span class="xref">IDbConnection</span></td>
         <td><span class="parametername">connection</span></td>
-        <td></td>
+        <td><p>数据库连接</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="DapperDal.Predicate.GetMultiplePredicate.html">GetMultiplePredicate</a></td>
         <td><span class="parametername">predicate</span></td>
-        <td></td>
+        <td><p>查询条件</p>
+</td>
       </tr>
       <tr>
-        <td><span class="xref">System.Data.IDbTransaction</span></td>
+        <td><span class="xref">IDbTransaction</span></td>
         <td><span class="parametername">transaction</span></td>
-        <td></td>
+        <td><p>数据库事务</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
         <td><span class="parametername">commandTimeout</span></td>
-        <td></td>
+        <td><p>数据库命令超时时间（单位秒）</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1285,21 +1273,22 @@
     <tbody>
       <tr>
         <td><a class="xref" href="DapperDal.Predicate.IMultipleResultReader.html">IMultipleResultReader</a></td>
-        <td></td>
+        <td><p>多实体集合读取器</p>
+</td>
       </tr>
     </tbody>
   </table>
   <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="DapperDal.Implementor.IDalImplementor.html#DapperDal_Implementor_IDalImplementor_GetMultiple_System_Data_IDbConnection_DapperDal_Predicate_GetMultiplePredicate_System_Data_IDbTransaction_System_Nullable_System_Int32__">IDalImplementor.GetMultiple(IDbConnection, GetMultiplePredicate, IDbTransaction, Nullable&lt;Int32&gt;)</a></div>
+      <div><a class="xref" href="DapperDal.Implementor.IDalImplementor.html#DapperDal_Implementor_IDalImplementor_GetMultiple_IDbConnection_DapperDal_Predicate_GetMultiplePredicate_IDbTransaction_System_Nullable_System_Int32__">IDalImplementor.GetMultiple(IDbConnection, GetMultiplePredicate, IDbTransaction, Nullable&lt;Int32&gt;)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_GetMultipleByBatch_System_Data_IDbConnection_DapperDal_Predicate_GetMultiplePredicate_System_Data_IDbTransaction_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.GetMultipleByBatch(System.Data.IDbConnection%2CDapperDal.Predicate.GetMultiplePredicate%2CSystem.Data.IDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_GetMultipleByBatch_IDbConnection_DapperDal_Predicate_GetMultiplePredicate_IDbTransaction_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.GetMultipleByBatch(IDbConnection%2CDapperDal.Predicate.GetMultiplePredicate%2CIDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Implementor/DalImplementor.cs/#L876">View Source</a>
   </span>
   <a id="DapperDal_Implementor_DalImplementor_GetMultipleByBatch_" data-uid="DapperDal.Implementor.DalImplementor.GetMultipleByBatch*"></a>
-  <h4 id="DapperDal_Implementor_DalImplementor_GetMultipleByBatch_System_Data_IDbConnection_DapperDal_Predicate_GetMultiplePredicate_System_Data_IDbTransaction_System_Nullable_System_Int32__" data-uid="DapperDal.Implementor.DalImplementor.GetMultipleByBatch(System.Data.IDbConnection,DapperDal.Predicate.GetMultiplePredicate,System.Data.IDbTransaction,System.Nullable{System.Int32})">GetMultipleByBatch(IDbConnection, GetMultiplePredicate, IDbTransaction, Nullable&lt;Int32&gt;)</h4>
+  <h4 id="DapperDal_Implementor_DalImplementor_GetMultipleByBatch_IDbConnection_DapperDal_Predicate_GetMultiplePredicate_IDbTransaction_System_Nullable_System_Int32__" data-uid="DapperDal.Implementor.DalImplementor.GetMultipleByBatch(IDbConnection,DapperDal.Predicate.GetMultiplePredicate,IDbTransaction,System.Nullable{System.Int32})">GetMultipleByBatch(IDbConnection, GetMultiplePredicate, IDbTransaction, Nullable&lt;Int32&gt;)</h4>
   <div class="markdown level1 summary"><p>根据多个条件组批量获取多个指定实体集合</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1318,7 +1307,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Data.IDbConnection</span></td>
+        <td><span class="xref">IDbConnection</span></td>
         <td><span class="parametername">connection</span></td>
         <td><p>数据库连接</p>
 </td>
@@ -1330,7 +1319,7 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Data.IDbTransaction</span></td>
+        <td><span class="xref">IDbTransaction</span></td>
         <td><span class="parametername">transaction</span></td>
         <td><p>数据库事务</p>
 </td>
@@ -1361,13 +1350,13 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_GetMultipleBySequence_System_Data_IDbConnection_DapperDal_Predicate_GetMultiplePredicate_System_Data_IDbTransaction_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.GetMultipleBySequence(System.Data.IDbConnection%2CDapperDal.Predicate.GetMultiplePredicate%2CSystem.Data.IDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_GetMultipleBySequence_IDbConnection_DapperDal_Predicate_GetMultiplePredicate_IDbTransaction_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.GetMultipleBySequence(IDbConnection%2CDapperDal.Predicate.GetMultiplePredicate%2CIDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Implementor/DalImplementor.cs/#L910">View Source</a>
   </span>
   <a id="DapperDal_Implementor_DalImplementor_GetMultipleBySequence_" data-uid="DapperDal.Implementor.DalImplementor.GetMultipleBySequence*"></a>
-  <h4 id="DapperDal_Implementor_DalImplementor_GetMultipleBySequence_System_Data_IDbConnection_DapperDal_Predicate_GetMultiplePredicate_System_Data_IDbTransaction_System_Nullable_System_Int32__" data-uid="DapperDal.Implementor.DalImplementor.GetMultipleBySequence(System.Data.IDbConnection,DapperDal.Predicate.GetMultiplePredicate,System.Data.IDbTransaction,System.Nullable{System.Int32})">GetMultipleBySequence(IDbConnection, GetMultiplePredicate, IDbTransaction, Nullable&lt;Int32&gt;)</h4>
+  <h4 id="DapperDal_Implementor_DalImplementor_GetMultipleBySequence_IDbConnection_DapperDal_Predicate_GetMultiplePredicate_IDbTransaction_System_Nullable_System_Int32__" data-uid="DapperDal.Implementor.DalImplementor.GetMultipleBySequence(IDbConnection,DapperDal.Predicate.GetMultiplePredicate,IDbTransaction,System.Nullable{System.Int32})">GetMultipleBySequence(IDbConnection, GetMultiplePredicate, IDbTransaction, Nullable&lt;Int32&gt;)</h4>
   <div class="markdown level1 summary"><p>根据多个条件组顺次获取多个指定实体集合</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1386,7 +1375,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Data.IDbConnection</span></td>
+        <td><span class="xref">IDbConnection</span></td>
         <td><span class="parametername">connection</span></td>
         <td><p>数据库连接</p>
 </td>
@@ -1398,7 +1387,7 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Data.IDbTransaction</span></td>
+        <td><span class="xref">IDbTransaction</span></td>
         <td><span class="parametername">transaction</span></td>
         <td><p>数据库事务</p>
 </td>
@@ -1429,13 +1418,13 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_GetPage__1_System_Data_IDbConnection_DapperDal_Mapper_IClassMapper_DapperDal_Predicate_IPredicate_System_Collections_Generic_IList_DapperDal_Predicate_ISort__System_Int32_System_Int32_System_Data_IDbTransaction_System_Nullable_System_Int32__System_Boolean_.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.GetPage%60%601(System.Data.IDbConnection%2CDapperDal.Mapper.IClassMapper%2CDapperDal.Predicate.IPredicate%2CSystem.Collections.Generic.IList%7BDapperDal.Predicate.ISort%7D%2CSystem.Int32%2CSystem.Int32%2CSystem.Data.IDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_GetPage__1_IDbConnection_DapperDal_Mapper_IClassMapper_DapperDal_Predicate_IPredicate_IList_DapperDal_Predicate_ISort__System_Int32_System_Int32_IDbTransaction_System_Nullable_System_Int32__System_Boolean_.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.GetPage%60%601(IDbConnection%2CDapperDal.Mapper.IClassMapper%2CDapperDal.Predicate.IPredicate%2CIList%7BDapperDal.Predicate.ISort%7D%2CSystem.Int32%2CSystem.Int32%2CIDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Implementor/DalImplementor.cs/#L643">View Source</a>
   </span>
   <a id="DapperDal_Implementor_DalImplementor_GetPage_" data-uid="DapperDal.Implementor.DalImplementor.GetPage*"></a>
-  <h4 id="DapperDal_Implementor_DalImplementor_GetPage__1_System_Data_IDbConnection_DapperDal_Mapper_IClassMapper_DapperDal_Predicate_IPredicate_System_Collections_Generic_IList_DapperDal_Predicate_ISort__System_Int32_System_Int32_System_Data_IDbTransaction_System_Nullable_System_Int32__System_Boolean_" data-uid="DapperDal.Implementor.DalImplementor.GetPage``1(System.Data.IDbConnection,DapperDal.Mapper.IClassMapper,DapperDal.Predicate.IPredicate,System.Collections.Generic.IList{DapperDal.Predicate.ISort},System.Int32,System.Int32,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Boolean)">GetPage&lt;T&gt;(IDbConnection, IClassMapper, IPredicate, IList&lt;ISort&gt;, Int32, Int32, IDbTransaction, Nullable&lt;Int32&gt;, Boolean)</h4>
+  <h4 id="DapperDal_Implementor_DalImplementor_GetPage__1_IDbConnection_DapperDal_Mapper_IClassMapper_DapperDal_Predicate_IPredicate_IList_DapperDal_Predicate_ISort__System_Int32_System_Int32_IDbTransaction_System_Nullable_System_Int32__System_Boolean_" data-uid="DapperDal.Implementor.DalImplementor.GetPage``1(IDbConnection,DapperDal.Mapper.IClassMapper,DapperDal.Predicate.IPredicate,IList{DapperDal.Predicate.ISort},System.Int32,System.Int32,IDbTransaction,System.Nullable{System.Int32},System.Boolean)">GetPage&lt;T&gt;(IDbConnection, IClassMapper, IPredicate, IList&lt;ISort&gt;, Int32, Int32, IDbTransaction, Nullable&lt;Int32&gt;, Boolean)</h4>
   <div class="markdown level1 summary"><p>根据查询条件和排序条件获取实体分页集合</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1454,7 +1443,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Data.IDbConnection</span></td>
+        <td><span class="xref">IDbConnection</span></td>
         <td><span class="parametername">connection</span></td>
         <td><p>数据库连接</p>
 </td>
@@ -1472,7 +1461,7 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IList</span>&lt;<a class="xref" href="DapperDal.Predicate.ISort.html">ISort</a>&gt;</td>
+        <td><span class="xref">IList</span>&lt;<a class="xref" href="DapperDal.Predicate.ISort.html">ISort</a>&gt;</td>
         <td><span class="parametername">sort</span></td>
         <td><p>排序条件</p>
 </td>
@@ -1490,7 +1479,7 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Data.IDbTransaction</span></td>
+        <td><span class="xref">IDbTransaction</span></td>
         <td><span class="parametername">transaction</span></td>
         <td><p>数据库事务</p>
 </td>
@@ -1519,7 +1508,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;</td>
+        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
         <td><p>实体集合</p>
 </td>
       </tr>
@@ -1543,14 +1532,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_GetPage__1_System_Data_IDbConnection_System_Object_System_Collections_Generic_IList_DapperDal_Predicate_ISort__System_Int32_System_Int32_System_Data_IDbTransaction_System_Nullable_System_Int32__System_Boolean_.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.GetPage%60%601(System.Data.IDbConnection%2CSystem.Object%2CSystem.Collections.Generic.IList%7BDapperDal.Predicate.ISort%7D%2CSystem.Int32%2CSystem.Int32%2CSystem.Data.IDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_GetPage__1_IDbConnection_System_Object_IList_DapperDal_Predicate_ISort__System_Int32_System_Int32_IDbTransaction_System_Nullable_System_Int32__System_Boolean_.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.GetPage%60%601(IDbConnection%2CSystem.Object%2CIList%7BDapperDal.Predicate.ISort%7D%2CSystem.Int32%2CSystem.Int32%2CIDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Implementor/DalImplementor.cs/#L555">View Source</a>
   </span>
   <a id="DapperDal_Implementor_DalImplementor_GetPage_" data-uid="DapperDal.Implementor.DalImplementor.GetPage*"></a>
-  <h4 id="DapperDal_Implementor_DalImplementor_GetPage__1_System_Data_IDbConnection_System_Object_System_Collections_Generic_IList_DapperDal_Predicate_ISort__System_Int32_System_Int32_System_Data_IDbTransaction_System_Nullable_System_Int32__System_Boolean_" data-uid="DapperDal.Implementor.DalImplementor.GetPage``1(System.Data.IDbConnection,System.Object,System.Collections.Generic.IList{DapperDal.Predicate.ISort},System.Int32,System.Int32,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Boolean)">GetPage&lt;T&gt;(IDbConnection, Object, IList&lt;ISort&gt;, Int32, Int32, IDbTransaction, Nullable&lt;Int32&gt;, Boolean)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="DapperDal_Implementor_DalImplementor_GetPage__1_IDbConnection_System_Object_IList_DapperDal_Predicate_ISort__System_Int32_System_Int32_IDbTransaction_System_Nullable_System_Int32__System_Boolean_" data-uid="DapperDal.Implementor.DalImplementor.GetPage``1(IDbConnection,System.Object,IList{DapperDal.Predicate.ISort},System.Int32,System.Int32,IDbTransaction,System.Nullable{System.Int32},System.Boolean)">GetPage&lt;T&gt;(IDbConnection, Object, IList&lt;ISort&gt;, Int32, Int32, IDbTransaction, Nullable&lt;Int32&gt;, Boolean)</h4>
+  <div class="markdown level1 summary"><p>根据查询条件和排序条件获取实体分页集合</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1567,44 +1557,52 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Data.IDbConnection</span></td>
+        <td><span class="xref">IDbConnection</span></td>
         <td><span class="parametername">connection</span></td>
-        <td></td>
+        <td><p>数据库连接</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Object</span></td>
         <td><span class="parametername">predicate</span></td>
-        <td></td>
+        <td><p>查询条件</p>
+</td>
       </tr>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IList</span>&lt;<a class="xref" href="DapperDal.Predicate.ISort.html">ISort</a>&gt;</td>
+        <td><span class="xref">IList</span>&lt;<a class="xref" href="DapperDal.Predicate.ISort.html">ISort</a>&gt;</td>
         <td><span class="parametername">sort</span></td>
-        <td></td>
+        <td><p>排序条件</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">page</span></td>
-        <td></td>
+        <td><p>页索引，从0起始</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">resultsPerPage</span></td>
-        <td></td>
+        <td><p>每页条数</p>
+</td>
       </tr>
       <tr>
-        <td><span class="xref">System.Data.IDbTransaction</span></td>
+        <td><span class="xref">IDbTransaction</span></td>
         <td><span class="parametername">transaction</span></td>
-        <td></td>
+        <td><p>数据库事务</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
         <td><span class="parametername">commandTimeout</span></td>
-        <td></td>
+        <td><p>数据库命令超时时间（单位秒）</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
         <td><span class="parametername">buffered</span></td>
-        <td></td>
+        <td><p>实体集合返回前是否要缓冲（ToList）</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1618,8 +1616,9 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;</td>
-        <td></td>
+        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
+        <td><p>实体集合</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1634,12 +1633,13 @@
     <tbody>
       <tr>
         <td><span class="parametername">T</span></td>
-        <td></td>
+        <td><p>实体类型</p>
+</td>
       </tr>
     </tbody>
   </table>
   <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="DapperDal.Implementor.IDalImplementor.html#DapperDal_Implementor_IDalImplementor_GetPage__1_System_Data_IDbConnection_System_Object_System_Collections_Generic_IList_DapperDal_Predicate_ISort__System_Int32_System_Int32_System_Data_IDbTransaction_System_Nullable_System_Int32__System_Boolean_">IDalImplementor.GetPage&lt;T&gt;(IDbConnection, Object, IList&lt;ISort&gt;, Int32, Int32, IDbTransaction, Nullable&lt;Int32&gt;, Boolean)</a></div>
+      <div><a class="xref" href="DapperDal.Implementor.IDalImplementor.html#DapperDal_Implementor_IDalImplementor_GetPage__1_IDbConnection_System_Object_IList_DapperDal_Predicate_ISort__System_Int32_System_Int32_IDbTransaction_System_Nullable_System_Int32__System_Boolean_">IDalImplementor.GetPage&lt;T&gt;(IDbConnection, Object, IList&lt;ISort&gt;, Int32, Int32, IDbTransaction, Nullable&lt;Int32&gt;, Boolean)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_GetPredicate_DapperDal_Mapper_IClassMapper_System_Object_.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.GetPredicate(DapperDal.Mapper.IClassMapper%2CSystem.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -1698,13 +1698,13 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_GetSet__1_System_Data_IDbConnection_DapperDal_Mapper_IClassMapper_DapperDal_Predicate_IPredicate_System_Collections_Generic_IList_DapperDal_Predicate_ISort__System_Int32_System_Int32_System_Data_IDbTransaction_System_Nullable_System_Int32__System_Boolean_.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.GetSet%60%601(System.Data.IDbConnection%2CDapperDal.Mapper.IClassMapper%2CDapperDal.Predicate.IPredicate%2CSystem.Collections.Generic.IList%7BDapperDal.Predicate.ISort%7D%2CSystem.Int32%2CSystem.Int32%2CSystem.Data.IDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_GetSet__1_IDbConnection_DapperDal_Mapper_IClassMapper_DapperDal_Predicate_IPredicate_IList_DapperDal_Predicate_ISort__System_Int32_System_Int32_IDbTransaction_System_Nullable_System_Int32__System_Boolean_.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.GetSet%60%601(IDbConnection%2CDapperDal.Mapper.IClassMapper%2CDapperDal.Predicate.IPredicate%2CIList%7BDapperDal.Predicate.ISort%7D%2CSystem.Int32%2CSystem.Int32%2CIDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Implementor/DalImplementor.cs/#L670">View Source</a>
   </span>
   <a id="DapperDal_Implementor_DalImplementor_GetSet_" data-uid="DapperDal.Implementor.DalImplementor.GetSet*"></a>
-  <h4 id="DapperDal_Implementor_DalImplementor_GetSet__1_System_Data_IDbConnection_DapperDal_Mapper_IClassMapper_DapperDal_Predicate_IPredicate_System_Collections_Generic_IList_DapperDal_Predicate_ISort__System_Int32_System_Int32_System_Data_IDbTransaction_System_Nullable_System_Int32__System_Boolean_" data-uid="DapperDal.Implementor.DalImplementor.GetSet``1(System.Data.IDbConnection,DapperDal.Mapper.IClassMapper,DapperDal.Predicate.IPredicate,System.Collections.Generic.IList{DapperDal.Predicate.ISort},System.Int32,System.Int32,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Boolean)">GetSet&lt;T&gt;(IDbConnection, IClassMapper, IPredicate, IList&lt;ISort&gt;, Int32, Int32, IDbTransaction, Nullable&lt;Int32&gt;, Boolean)</h4>
+  <h4 id="DapperDal_Implementor_DalImplementor_GetSet__1_IDbConnection_DapperDal_Mapper_IClassMapper_DapperDal_Predicate_IPredicate_IList_DapperDal_Predicate_ISort__System_Int32_System_Int32_IDbTransaction_System_Nullable_System_Int32__System_Boolean_" data-uid="DapperDal.Implementor.DalImplementor.GetSet``1(IDbConnection,DapperDal.Mapper.IClassMapper,DapperDal.Predicate.IPredicate,IList{DapperDal.Predicate.ISort},System.Int32,System.Int32,IDbTransaction,System.Nullable{System.Int32},System.Boolean)">GetSet&lt;T&gt;(IDbConnection, IClassMapper, IPredicate, IList&lt;ISort&gt;, Int32, Int32, IDbTransaction, Nullable&lt;Int32&gt;, Boolean)</h4>
   <div class="markdown level1 summary"><p>根据查询条件和排序条件获取实体区间集合</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1723,7 +1723,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Data.IDbConnection</span></td>
+        <td><span class="xref">IDbConnection</span></td>
         <td><span class="parametername">connection</span></td>
         <td><p>数据库连接</p>
 </td>
@@ -1741,7 +1741,7 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IList</span>&lt;<a class="xref" href="DapperDal.Predicate.ISort.html">ISort</a>&gt;</td>
+        <td><span class="xref">IList</span>&lt;<a class="xref" href="DapperDal.Predicate.ISort.html">ISort</a>&gt;</td>
         <td><span class="parametername">sort</span></td>
         <td><p>排序条件</p>
 </td>
@@ -1759,7 +1759,7 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Data.IDbTransaction</span></td>
+        <td><span class="xref">IDbTransaction</span></td>
         <td><span class="parametername">transaction</span></td>
         <td><p>数据库事务</p>
 </td>
@@ -1788,7 +1788,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;</td>
+        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
         <td><p>实体集合</p>
 </td>
       </tr>
@@ -1812,14 +1812,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_GetSet__1_System_Data_IDbConnection_System_Object_System_Collections_Generic_IList_DapperDal_Predicate_ISort__System_Int32_System_Int32_System_Data_IDbTransaction_System_Nullable_System_Int32__System_Boolean_.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.GetSet%60%601(System.Data.IDbConnection%2CSystem.Object%2CSystem.Collections.Generic.IList%7BDapperDal.Predicate.ISort%7D%2CSystem.Int32%2CSystem.Int32%2CSystem.Data.IDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_GetSet__1_IDbConnection_System_Object_IList_DapperDal_Predicate_ISort__System_Int32_System_Int32_IDbTransaction_System_Nullable_System_Int32__System_Boolean_.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.GetSet%60%601(IDbConnection%2CSystem.Object%2CIList%7BDapperDal.Predicate.ISort%7D%2CSystem.Int32%2CSystem.Int32%2CIDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Implementor/DalImplementor.cs/#L563">View Source</a>
   </span>
   <a id="DapperDal_Implementor_DalImplementor_GetSet_" data-uid="DapperDal.Implementor.DalImplementor.GetSet*"></a>
-  <h4 id="DapperDal_Implementor_DalImplementor_GetSet__1_System_Data_IDbConnection_System_Object_System_Collections_Generic_IList_DapperDal_Predicate_ISort__System_Int32_System_Int32_System_Data_IDbTransaction_System_Nullable_System_Int32__System_Boolean_" data-uid="DapperDal.Implementor.DalImplementor.GetSet``1(System.Data.IDbConnection,System.Object,System.Collections.Generic.IList{DapperDal.Predicate.ISort},System.Int32,System.Int32,System.Data.IDbTransaction,System.Nullable{System.Int32},System.Boolean)">GetSet&lt;T&gt;(IDbConnection, Object, IList&lt;ISort&gt;, Int32, Int32, IDbTransaction, Nullable&lt;Int32&gt;, Boolean)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="DapperDal_Implementor_DalImplementor_GetSet__1_IDbConnection_System_Object_IList_DapperDal_Predicate_ISort__System_Int32_System_Int32_IDbTransaction_System_Nullable_System_Int32__System_Boolean_" data-uid="DapperDal.Implementor.DalImplementor.GetSet``1(IDbConnection,System.Object,IList{DapperDal.Predicate.ISort},System.Int32,System.Int32,IDbTransaction,System.Nullable{System.Int32},System.Boolean)">GetSet&lt;T&gt;(IDbConnection, Object, IList&lt;ISort&gt;, Int32, Int32, IDbTransaction, Nullable&lt;Int32&gt;, Boolean)</h4>
+  <div class="markdown level1 summary"><p>根据查询条件和排序条件获取实体区间集合</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1836,44 +1837,52 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Data.IDbConnection</span></td>
+        <td><span class="xref">IDbConnection</span></td>
         <td><span class="parametername">connection</span></td>
-        <td></td>
+        <td><p>数据库连接</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Object</span></td>
         <td><span class="parametername">predicate</span></td>
-        <td></td>
+        <td><p>查询条件</p>
+</td>
       </tr>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IList</span>&lt;<a class="xref" href="DapperDal.Predicate.ISort.html">ISort</a>&gt;</td>
+        <td><span class="xref">IList</span>&lt;<a class="xref" href="DapperDal.Predicate.ISort.html">ISort</a>&gt;</td>
         <td><span class="parametername">sort</span></td>
-        <td></td>
+        <td><p>排序条件</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">firstResult</span></td>
-        <td></td>
+        <td><p>起始行数</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">maxResults</span></td>
-        <td></td>
+        <td><p>最大条数</p>
+</td>
       </tr>
       <tr>
-        <td><span class="xref">System.Data.IDbTransaction</span></td>
+        <td><span class="xref">IDbTransaction</span></td>
         <td><span class="parametername">transaction</span></td>
-        <td></td>
+        <td><p>数据库事务</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
         <td><span class="parametername">commandTimeout</span></td>
-        <td></td>
+        <td><p>数据库命令超时时间（单位秒）</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
         <td><span class="parametername">buffered</span></td>
-        <td></td>
+        <td><p>实体集合返回前是否要缓冲（ToList）</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1887,8 +1896,9 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;</td>
-        <td></td>
+        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
+        <td><p>实体集合</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1903,22 +1913,24 @@
     <tbody>
       <tr>
         <td><span class="parametername">T</span></td>
-        <td></td>
+        <td><p>实体类型</p>
+</td>
       </tr>
     </tbody>
   </table>
   <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="DapperDal.Implementor.IDalImplementor.html#DapperDal_Implementor_IDalImplementor_GetSet__1_System_Data_IDbConnection_System_Object_System_Collections_Generic_IList_DapperDal_Predicate_ISort__System_Int32_System_Int32_System_Data_IDbTransaction_System_Nullable_System_Int32__System_Boolean_">IDalImplementor.GetSet&lt;T&gt;(IDbConnection, Object, IList&lt;ISort&gt;, Int32, Int32, IDbTransaction, Nullable&lt;Int32&gt;, Boolean)</a></div>
+      <div><a class="xref" href="DapperDal.Implementor.IDalImplementor.html#DapperDal_Implementor_IDalImplementor_GetSet__1_IDbConnection_System_Object_IList_DapperDal_Predicate_ISort__System_Int32_System_Int32_IDbTransaction_System_Nullable_System_Int32__System_Boolean_">IDalImplementor.GetSet&lt;T&gt;(IDbConnection, Object, IList&lt;ISort&gt;, Int32, Int32, IDbTransaction, Nullable&lt;Int32&gt;, Boolean)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_GetTop__1_System_Data_IDbConnection_System_Int32_System_Object_System_Collections_Generic_IList_DapperDal_Predicate_ISort__System_Data_IDbTransaction_System_Nullable_System_Int32__System_Boolean_.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.GetTop%60%601(System.Data.IDbConnection%2CSystem.Int32%2CSystem.Object%2CSystem.Collections.Generic.IList%7BDapperDal.Predicate.ISort%7D%2CSystem.Data.IDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_GetTop__1_IDbConnection_System_Int32_System_Object_IList_DapperDal_Predicate_ISort__IDbTransaction_System_Nullable_System_Int32__System_Boolean_.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.GetTop%60%601(IDbConnection%2CSystem.Int32%2CSystem.Object%2CIList%7BDapperDal.Predicate.ISort%7D%2CIDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Implementor/DalImplementor.cs/#L547">View Source</a>
   </span>
   <a id="DapperDal_Implementor_DalImplementor_GetTop_" data-uid="DapperDal.Implementor.DalImplementor.GetTop*"></a>
-  <h4 id="DapperDal_Implementor_DalImplementor_GetTop__1_System_Data_IDbConnection_System_Int32_System_Object_System_Collections_Generic_IList_DapperDal_Predicate_ISort__System_Data_IDbTransaction_System_Nullable_System_Int32__System_Boolean_" data-uid="DapperDal.Implementor.DalImplementor.GetTop``1(System.Data.IDbConnection,System.Int32,System.Object,System.Collections.Generic.IList{DapperDal.Predicate.ISort},System.Data.IDbTransaction,System.Nullable{System.Int32},System.Boolean)">GetTop&lt;T&gt;(IDbConnection, Int32, Object, IList&lt;ISort&gt;, IDbTransaction, Nullable&lt;Int32&gt;, Boolean)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="DapperDal_Implementor_DalImplementor_GetTop__1_IDbConnection_System_Int32_System_Object_IList_DapperDal_Predicate_ISort__IDbTransaction_System_Nullable_System_Int32__System_Boolean_" data-uid="DapperDal.Implementor.DalImplementor.GetTop``1(IDbConnection,System.Int32,System.Object,IList{DapperDal.Predicate.ISort},IDbTransaction,System.Nullable{System.Int32},System.Boolean)">GetTop&lt;T&gt;(IDbConnection, Int32, Object, IList&lt;ISort&gt;, IDbTransaction, Nullable&lt;Int32&gt;, Boolean)</h4>
+  <div class="markdown level1 summary"><p>根据查询条件和排序条件获取实体集合的前N条</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1935,39 +1947,46 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Data.IDbConnection</span></td>
+        <td><span class="xref">IDbConnection</span></td>
         <td><span class="parametername">connection</span></td>
-        <td></td>
+        <td><p>数据库连接</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">limit</span></td>
-        <td></td>
+        <td><p>前几条</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Object</span></td>
         <td><span class="parametername">predicate</span></td>
-        <td></td>
+        <td><p>查询条件</p>
+</td>
       </tr>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IList</span>&lt;<a class="xref" href="DapperDal.Predicate.ISort.html">ISort</a>&gt;</td>
+        <td><span class="xref">IList</span>&lt;<a class="xref" href="DapperDal.Predicate.ISort.html">ISort</a>&gt;</td>
         <td><span class="parametername">sort</span></td>
-        <td></td>
+        <td><p>排序条件</p>
+</td>
       </tr>
       <tr>
-        <td><span class="xref">System.Data.IDbTransaction</span></td>
+        <td><span class="xref">IDbTransaction</span></td>
         <td><span class="parametername">transaction</span></td>
-        <td></td>
+        <td><p>数据库事务</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
         <td><span class="parametername">commandTimeout</span></td>
-        <td></td>
+        <td><p>数据库命令超时时间（单位秒）</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
         <td><span class="parametername">buffered</span></td>
-        <td></td>
+        <td><p>实体集合返回前是否要缓冲（ToList）</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1981,8 +2000,9 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;</td>
-        <td></td>
+        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
+        <td><p>实体集合</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1997,21 +2017,22 @@
     <tbody>
       <tr>
         <td><span class="parametername">T</span></td>
-        <td></td>
+        <td><p>实体类型</p>
+</td>
       </tr>
     </tbody>
   </table>
   <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="DapperDal.Implementor.IDalImplementor.html#DapperDal_Implementor_IDalImplementor_GetTop__1_System_Data_IDbConnection_System_Int32_System_Object_System_Collections_Generic_IList_DapperDal_Predicate_ISort__System_Data_IDbTransaction_System_Nullable_System_Int32__System_Boolean_">IDalImplementor.GetTop&lt;T&gt;(IDbConnection, Int32, Object, IList&lt;ISort&gt;, IDbTransaction, Nullable&lt;Int32&gt;, Boolean)</a></div>
+      <div><a class="xref" href="DapperDal.Implementor.IDalImplementor.html#DapperDal_Implementor_IDalImplementor_GetTop__1_IDbConnection_System_Int32_System_Object_IList_DapperDal_Predicate_ISort__IDbTransaction_System_Nullable_System_Int32__System_Boolean_">IDalImplementor.GetTop&lt;T&gt;(IDbConnection, Int32, Object, IList&lt;ISort&gt;, IDbTransaction, Nullable&lt;Int32&gt;, Boolean)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_Insert__1_System_Data_IDbConnection___0_System_Data_IDbTransaction_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.Insert%60%601(System.Data.IDbConnection%2C%60%600%2CSystem.Data.IDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_Insert__1_IDbConnection___0_IDbTransaction_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.Insert%60%601(IDbConnection%2C%60%600%2CIDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Implementor/DalImplementor.cs/#L305">View Source</a>
   </span>
   <a id="DapperDal_Implementor_DalImplementor_Insert_" data-uid="DapperDal.Implementor.DalImplementor.Insert*"></a>
-  <h4 id="DapperDal_Implementor_DalImplementor_Insert__1_System_Data_IDbConnection___0_System_Data_IDbTransaction_System_Nullable_System_Int32__" data-uid="DapperDal.Implementor.DalImplementor.Insert``1(System.Data.IDbConnection,``0,System.Data.IDbTransaction,System.Nullable{System.Int32})">Insert&lt;T&gt;(IDbConnection, T, IDbTransaction, Nullable&lt;Int32&gt;)</h4>
+  <h4 id="DapperDal_Implementor_DalImplementor_Insert__1_IDbConnection___0_IDbTransaction_System_Nullable_System_Int32__" data-uid="DapperDal.Implementor.DalImplementor.Insert``1(IDbConnection,``0,IDbTransaction,System.Nullable{System.Int32})">Insert&lt;T&gt;(IDbConnection, T, IDbTransaction, Nullable&lt;Int32&gt;)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -2029,7 +2050,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Data.IDbConnection</span></td>
+        <td><span class="xref">IDbConnection</span></td>
         <td><span class="parametername">connection</span></td>
         <td></td>
       </tr>
@@ -2039,7 +2060,7 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.Data.IDbTransaction</span></td>
+        <td><span class="xref">IDbTransaction</span></td>
         <td><span class="parametername">transaction</span></td>
         <td></td>
       </tr>
@@ -2081,16 +2102,16 @@
     </tbody>
   </table>
   <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="DapperDal.Implementor.IDalImplementor.html#DapperDal_Implementor_IDalImplementor_Insert__1_System_Data_IDbConnection___0_System_Data_IDbTransaction_System_Nullable_System_Int32__">IDalImplementor.Insert&lt;T&gt;(IDbConnection, T, IDbTransaction, Nullable&lt;Int32&gt;)</a></div>
+      <div><a class="xref" href="DapperDal.Implementor.IDalImplementor.html#DapperDal_Implementor_IDalImplementor_Insert__1_IDbConnection___0_IDbTransaction_System_Nullable_System_Int32__">IDalImplementor.Insert&lt;T&gt;(IDbConnection, T, IDbTransaction, Nullable&lt;Int32&gt;)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_Insert__1_System_Data_IDbConnection_System_Collections_Generic_IEnumerable___0__System_Data_IDbTransaction_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.Insert%60%601(System.Data.IDbConnection%2CSystem.Collections.Generic.IEnumerable%7B%60%600%7D%2CSystem.Data.IDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_Insert__1_IDbConnection_IEnumerable___0__IDbTransaction_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.Insert%60%601(IDbConnection%2CIEnumerable%7B%60%600%7D%2CIDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Implementor/DalImplementor.cs/#L251">View Source</a>
   </span>
   <a id="DapperDal_Implementor_DalImplementor_Insert_" data-uid="DapperDal.Implementor.DalImplementor.Insert*"></a>
-  <h4 id="DapperDal_Implementor_DalImplementor_Insert__1_System_Data_IDbConnection_System_Collections_Generic_IEnumerable___0__System_Data_IDbTransaction_System_Nullable_System_Int32__" data-uid="DapperDal.Implementor.DalImplementor.Insert``1(System.Data.IDbConnection,System.Collections.Generic.IEnumerable{``0},System.Data.IDbTransaction,System.Nullable{System.Int32})">Insert&lt;T&gt;(IDbConnection, IEnumerable&lt;T&gt;, IDbTransaction, Nullable&lt;Int32&gt;)</h4>
+  <h4 id="DapperDal_Implementor_DalImplementor_Insert__1_IDbConnection_IEnumerable___0__IDbTransaction_System_Nullable_System_Int32__" data-uid="DapperDal.Implementor.DalImplementor.Insert``1(IDbConnection,IEnumerable{``0},IDbTransaction,System.Nullable{System.Int32})">Insert&lt;T&gt;(IDbConnection, IEnumerable&lt;T&gt;, IDbTransaction, Nullable&lt;Int32&gt;)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -2108,17 +2129,17 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Data.IDbConnection</span></td>
+        <td><span class="xref">IDbConnection</span></td>
         <td><span class="parametername">connection</span></td>
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;</td>
+        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
         <td><span class="parametername">entities</span></td>
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.Data.IDbTransaction</span></td>
+        <td><span class="xref">IDbTransaction</span></td>
         <td><span class="parametername">transaction</span></td>
         <td></td>
       </tr>
@@ -2145,100 +2166,16 @@
     </tbody>
   </table>
   <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="DapperDal.Implementor.IDalImplementor.html#DapperDal_Implementor_IDalImplementor_Insert__1_System_Data_IDbConnection_System_Collections_Generic_IEnumerable___0__System_Data_IDbTransaction_System_Nullable_System_Int32__">IDalImplementor.Insert&lt;T&gt;(IDbConnection, IEnumerable&lt;T&gt;, IDbTransaction, Nullable&lt;Int32&gt;)</a></div>
+      <div><a class="xref" href="DapperDal.Implementor.IDalImplementor.html#DapperDal_Implementor_IDalImplementor_Insert__1_IDbConnection_IEnumerable___0__IDbTransaction_System_Nullable_System_Int32__">IDalImplementor.Insert&lt;T&gt;(IDbConnection, IEnumerable&lt;T&gt;, IDbTransaction, Nullable&lt;Int32&gt;)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_Update__1_System_Data_IDbConnection___0_System_Collections_Generic_IList_System_String__System_Data_IDbTransaction_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.Update%60%601(System.Data.IDbConnection%2C%60%600%2CSystem.Collections.Generic.IList%7BSystem.String%7D%2CSystem.Data.IDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Implementor/DalImplementor.cs/#L403">View Source</a>
-  </span>
-  <a id="DapperDal_Implementor_DalImplementor_Update_" data-uid="DapperDal.Implementor.DalImplementor.Update*"></a>
-  <h4 id="DapperDal_Implementor_DalImplementor_Update__1_System_Data_IDbConnection___0_System_Collections_Generic_IList_System_String__System_Data_IDbTransaction_System_Nullable_System_Int32__" data-uid="DapperDal.Implementor.DalImplementor.Update``1(System.Data.IDbConnection,``0,System.Collections.Generic.IList{System.String},System.Data.IDbTransaction,System.Nullable{System.Int32})">Update&lt;T&gt;(IDbConnection, T, IList&lt;String&gt;, IDbTransaction, Nullable&lt;Int32&gt;)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool Update&lt;T&gt;(IDbConnection connection, T entity, IList&lt;string&gt; props, IDbTransaction transaction, int ? commandTimeout)where T : class</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Data.IDbConnection</span></td>
-        <td><span class="parametername">connection</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">T</span></td>
-        <td><span class="parametername">entity</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.IList</span>&lt;<span class="xref">System.String</span>&gt;</td>
-        <td><span class="parametername">props</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Data.IDbTransaction</span></td>
-        <td><span class="parametername">transaction</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
-        <td><span class="parametername">commandTimeout</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Boolean</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="DapperDal.Implementor.IDalImplementor.html#DapperDal_Implementor_IDalImplementor_Update__1_System_Data_IDbConnection___0_System_Collections_Generic_IList_System_String__System_Data_IDbTransaction_System_Nullable_System_Int32__">IDalImplementor.Update&lt;T&gt;(IDbConnection, T, IList&lt;String&gt;, IDbTransaction, Nullable&lt;Int32&gt;)</a></div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_Update__1_System_Data_IDbConnection___0_System_Data_IDbTransaction_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.Update%60%601(System.Data.IDbConnection%2C%60%600%2CSystem.Data.IDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_Update__1_IDbConnection___0_IDbTransaction_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.Update%60%601(IDbConnection%2C%60%600%2CIDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Implementor/DalImplementor.cs/#L380">View Source</a>
   </span>
   <a id="DapperDal_Implementor_DalImplementor_Update_" data-uid="DapperDal.Implementor.DalImplementor.Update*"></a>
-  <h4 id="DapperDal_Implementor_DalImplementor_Update__1_System_Data_IDbConnection___0_System_Data_IDbTransaction_System_Nullable_System_Int32__" data-uid="DapperDal.Implementor.DalImplementor.Update``1(System.Data.IDbConnection,``0,System.Data.IDbTransaction,System.Nullable{System.Int32})">Update&lt;T&gt;(IDbConnection, T, IDbTransaction, Nullable&lt;Int32&gt;)</h4>
+  <h4 id="DapperDal_Implementor_DalImplementor_Update__1_IDbConnection___0_IDbTransaction_System_Nullable_System_Int32__" data-uid="DapperDal.Implementor.DalImplementor.Update``1(IDbConnection,``0,IDbTransaction,System.Nullable{System.Int32})">Update&lt;T&gt;(IDbConnection, T, IDbTransaction, Nullable&lt;Int32&gt;)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -2256,7 +2193,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Data.IDbConnection</span></td>
+        <td><span class="xref">IDbConnection</span></td>
         <td><span class="parametername">connection</span></td>
         <td></td>
       </tr>
@@ -2266,7 +2203,7 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.Data.IDbTransaction</span></td>
+        <td><span class="xref">IDbTransaction</span></td>
         <td><span class="parametername">transaction</span></td>
         <td></td>
       </tr>
@@ -2308,16 +2245,100 @@
     </tbody>
   </table>
   <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="DapperDal.Implementor.IDalImplementor.html#DapperDal_Implementor_IDalImplementor_Update__1_System_Data_IDbConnection___0_System_Data_IDbTransaction_System_Nullable_System_Int32__">IDalImplementor.Update&lt;T&gt;(IDbConnection, T, IDbTransaction, Nullable&lt;Int32&gt;)</a></div>
+      <div><a class="xref" href="DapperDal.Implementor.IDalImplementor.html#DapperDal_Implementor_IDalImplementor_Update__1_IDbConnection___0_IDbTransaction_System_Nullable_System_Int32__">IDalImplementor.Update&lt;T&gt;(IDbConnection, T, IDbTransaction, Nullable&lt;Int32&gt;)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_Update__1_System_Data_IDbConnection___0_System_Object_System_Data_IDbTransaction_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.Update%60%601(System.Data.IDbConnection%2C%60%600%2CSystem.Object%2CSystem.Data.IDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_Update__1_IDbConnection___0_IList_System_String__IDbTransaction_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.Update%60%601(IDbConnection%2C%60%600%2CIList%7BSystem.String%7D%2CIDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Implementor/DalImplementor.cs/#L403">View Source</a>
+  </span>
+  <a id="DapperDal_Implementor_DalImplementor_Update_" data-uid="DapperDal.Implementor.DalImplementor.Update*"></a>
+  <h4 id="DapperDal_Implementor_DalImplementor_Update__1_IDbConnection___0_IList_System_String__IDbTransaction_System_Nullable_System_Int32__" data-uid="DapperDal.Implementor.DalImplementor.Update``1(IDbConnection,``0,IList{System.String},IDbTransaction,System.Nullable{System.Int32})">Update&lt;T&gt;(IDbConnection, T, IList&lt;String&gt;, IDbTransaction, Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Update&lt;T&gt;(IDbConnection connection, T entity, IList&lt;string&gt; props, IDbTransaction transaction, int ? commandTimeout)where T : class</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IDbConnection</span></td>
+        <td><span class="parametername">connection</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">entity</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">IList</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">props</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">IDbTransaction</span></td>
+        <td><span class="parametername">transaction</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">commandTimeout</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="DapperDal.Implementor.IDalImplementor.html#DapperDal_Implementor_IDalImplementor_Update__1_IDbConnection___0_IList_System_String__IDbTransaction_System_Nullable_System_Int32__">IDalImplementor.Update&lt;T&gt;(IDbConnection, T, IList&lt;String&gt;, IDbTransaction, Nullable&lt;Int32&gt;)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_Update__1_IDbConnection___0_System_Object_IDbTransaction_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.Update%60%601(IDbConnection%2C%60%600%2CSystem.Object%2CIDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Implementor/DalImplementor.cs/#L429">View Source</a>
   </span>
   <a id="DapperDal_Implementor_DalImplementor_Update_" data-uid="DapperDal.Implementor.DalImplementor.Update*"></a>
-  <h4 id="DapperDal_Implementor_DalImplementor_Update__1_System_Data_IDbConnection___0_System_Object_System_Data_IDbTransaction_System_Nullable_System_Int32__" data-uid="DapperDal.Implementor.DalImplementor.Update``1(System.Data.IDbConnection,``0,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32})">Update&lt;T&gt;(IDbConnection, T, Object, IDbTransaction, Nullable&lt;Int32&gt;)</h4>
+  <h4 id="DapperDal_Implementor_DalImplementor_Update__1_IDbConnection___0_System_Object_IDbTransaction_System_Nullable_System_Int32__" data-uid="DapperDal.Implementor.DalImplementor.Update``1(IDbConnection,``0,System.Object,IDbTransaction,System.Nullable{System.Int32})">Update&lt;T&gt;(IDbConnection, T, Object, IDbTransaction, Nullable&lt;Int32&gt;)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -2335,7 +2356,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Data.IDbConnection</span></td>
+        <td><span class="xref">IDbConnection</span></td>
         <td><span class="parametername">connection</span></td>
         <td></td>
       </tr>
@@ -2350,7 +2371,7 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">System.Data.IDbTransaction</span></td>
+        <td><span class="xref">IDbTransaction</span></td>
         <td><span class="parametername">transaction</span></td>
         <td></td>
       </tr>
@@ -2392,17 +2413,18 @@
     </tbody>
   </table>
   <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="DapperDal.Implementor.IDalImplementor.html#DapperDal_Implementor_IDalImplementor_Update__1_System_Data_IDbConnection___0_System_Object_System_Data_IDbTransaction_System_Nullable_System_Int32__">IDalImplementor.Update&lt;T&gt;(IDbConnection, T, Object, IDbTransaction, Nullable&lt;Int32&gt;)</a></div>
+      <div><a class="xref" href="DapperDal.Implementor.IDalImplementor.html#DapperDal_Implementor_IDalImplementor_Update__1_IDbConnection___0_System_Object_IDbTransaction_System_Nullable_System_Int32__">IDalImplementor.Update&lt;T&gt;(IDbConnection, T, Object, IDbTransaction, Nullable&lt;Int32&gt;)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_Update__1_System_Data_IDbConnection_System_Object_System_Data_IDbTransaction_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.Update%60%601(System.Data.IDbConnection%2CSystem.Object%2CSystem.Data.IDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_Update__1_IDbConnection_System_Object_IDbTransaction_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.Update%60%601(IDbConnection%2CSystem.Object%2CIDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Implementor/DalImplementor.cs/#L457">View Source</a>
   </span>
   <a id="DapperDal_Implementor_DalImplementor_Update_" data-uid="DapperDal.Implementor.DalImplementor.Update*"></a>
-  <h4 id="DapperDal_Implementor_DalImplementor_Update__1_System_Data_IDbConnection_System_Object_System_Data_IDbTransaction_System_Nullable_System_Int32__" data-uid="DapperDal.Implementor.DalImplementor.Update``1(System.Data.IDbConnection,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32})">Update&lt;T&gt;(IDbConnection, Object, IDbTransaction, Nullable&lt;Int32&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="DapperDal_Implementor_DalImplementor_Update__1_IDbConnection_System_Object_IDbTransaction_System_Nullable_System_Int32__" data-uid="DapperDal.Implementor.DalImplementor.Update``1(IDbConnection,System.Object,IDbTransaction,System.Nullable{System.Int32})">Update&lt;T&gt;(IDbConnection, Object, IDbTransaction, Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>根据指定指定主键ID更新实体指定属性</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -2419,24 +2441,28 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Data.IDbConnection</span></td>
+        <td><span class="xref">IDbConnection</span></td>
         <td><span class="parametername">connection</span></td>
-        <td></td>
+        <td><p>数据库连接</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Object</span></td>
         <td><span class="parametername">keyAndProps</span></td>
-        <td></td>
+        <td><p>更新实体，包含主键ID、更新属性及值</p>
+</td>
       </tr>
       <tr>
-        <td><span class="xref">System.Data.IDbTransaction</span></td>
+        <td><span class="xref">IDbTransaction</span></td>
         <td><span class="parametername">transaction</span></td>
-        <td></td>
+        <td><p>数据库事务</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
         <td><span class="parametername">commandTimeout</span></td>
-        <td></td>
+        <td><p>数据库命令超时时间（单位秒）</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -2451,7 +2477,8 @@
     <tbody>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
-        <td></td>
+        <td><p>返回更新是否成功的结果</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -2466,22 +2493,24 @@
     <tbody>
       <tr>
         <td><span class="parametername">T</span></td>
-        <td></td>
+        <td><p>实体类型</p>
+</td>
       </tr>
     </tbody>
   </table>
   <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="DapperDal.Implementor.IDalImplementor.html#DapperDal_Implementor_IDalImplementor_Update__1_System_Data_IDbConnection_System_Object_System_Data_IDbTransaction_System_Nullable_System_Int32__">IDalImplementor.Update&lt;T&gt;(IDbConnection, Object, IDbTransaction, Nullable&lt;Int32&gt;)</a></div>
+      <div><a class="xref" href="DapperDal.Implementor.IDalImplementor.html#DapperDal_Implementor_IDalImplementor_Update__1_IDbConnection_System_Object_IDbTransaction_System_Nullable_System_Int32__">IDalImplementor.Update&lt;T&gt;(IDbConnection, Object, IDbTransaction, Nullable&lt;Int32&gt;)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_Update__1_System_Data_IDbConnection_System_Object_System_Object_System_Data_IDbTransaction_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.Update%60%601(System.Data.IDbConnection%2CSystem.Object%2CSystem.Object%2CSystem.Data.IDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Implementor_DalImplementor_Update__1_IDbConnection_System_Object_System_Object_IDbTransaction_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20DapperDal.Implementor.DalImplementor.Update%60%601(IDbConnection%2CSystem.Object%2CSystem.Object%2CIDbTransaction%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Implementor/DalImplementor.cs/#L486">View Source</a>
   </span>
   <a id="DapperDal_Implementor_DalImplementor_Update_" data-uid="DapperDal.Implementor.DalImplementor.Update*"></a>
-  <h4 id="DapperDal_Implementor_DalImplementor_Update__1_System_Data_IDbConnection_System_Object_System_Object_System_Data_IDbTransaction_System_Nullable_System_Int32__" data-uid="DapperDal.Implementor.DalImplementor.Update``1(System.Data.IDbConnection,System.Object,System.Object,System.Data.IDbTransaction,System.Nullable{System.Int32})">Update&lt;T&gt;(IDbConnection, Object, Object, IDbTransaction, Nullable&lt;Int32&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="DapperDal_Implementor_DalImplementor_Update__1_IDbConnection_System_Object_System_Object_IDbTransaction_System_Nullable_System_Int32__" data-uid="DapperDal.Implementor.DalImplementor.Update``1(IDbConnection,System.Object,System.Object,IDbTransaction,System.Nullable{System.Int32})">Update&lt;T&gt;(IDbConnection, Object, Object, IDbTransaction, Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>根据指定更新条件更新实体指定属性</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -2498,29 +2527,34 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Data.IDbConnection</span></td>
+        <td><span class="xref">IDbConnection</span></td>
         <td><span class="parametername">connection</span></td>
-        <td></td>
+        <td><p>数据库连接</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Object</span></td>
         <td><span class="parametername">props</span></td>
-        <td></td>
+        <td><p>要更新的属性名及值，以匿名对象提供</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Object</span></td>
         <td><span class="parametername">predicate</span></td>
-        <td></td>
+        <td><p>更新条件，使用谓词或匿名对象</p>
+</td>
       </tr>
       <tr>
-        <td><span class="xref">System.Data.IDbTransaction</span></td>
+        <td><span class="xref">IDbTransaction</span></td>
         <td><span class="parametername">transaction</span></td>
-        <td></td>
+        <td><p>数据库事务</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
         <td><span class="parametername">commandTimeout</span></td>
-        <td></td>
+        <td><p>数据库命令超时时间（单位秒）</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -2535,7 +2569,8 @@
     <tbody>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
-        <td></td>
+        <td><p>返回更新是否成功的结果</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -2550,12 +2585,13 @@
     <tbody>
       <tr>
         <td><span class="parametername">T</span></td>
-        <td></td>
+        <td><p>实体类型</p>
+</td>
       </tr>
     </tbody>
   </table>
   <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="DapperDal.Implementor.IDalImplementor.html#DapperDal_Implementor_IDalImplementor_Update__1_System_Data_IDbConnection_System_Object_System_Object_System_Data_IDbTransaction_System_Nullable_System_Int32__">IDalImplementor.Update&lt;T&gt;(IDbConnection, Object, Object, IDbTransaction, Nullable&lt;Int32&gt;)</a></div>
+      <div><a class="xref" href="DapperDal.Implementor.IDalImplementor.html#DapperDal_Implementor_IDalImplementor_Update__1_IDbConnection_System_Object_System_Object_IDbTransaction_System_Nullable_System_Int32__">IDalImplementor.Update&lt;T&gt;(IDbConnection, Object, Object, IDbTransaction, Nullable&lt;Int32&gt;)</a></div>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
       <a class="xref" href="DapperDal.Expressions.SortingExtensions.html#DapperDal_Expressions_SortingExtensions_ToSortable_System_Object_">SortingExtensions.ToSortable(Object)</a>

@@ -110,27 +110,6 @@
     <div>
       <a class="xref" href="DapperDal.Sql.SqlDialectBase.html#DapperDal_Sql_SqlDialectBase_UnQuoteString_System_String_">SqlDialectBase.UnQuoteString(String)</a>
     </div>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="DapperDal.Sql.html">DapperDal.Sql</a></h6>
   <h6><strong>Assembly</strong>: DapperDal.dll</h6>
@@ -149,7 +128,8 @@
   </span>
   <a id="DapperDal_Sql_SqlServerDialect_CloseQuote_" data-uid="DapperDal.Sql.SqlServerDialect.CloseQuote*"></a>
   <h4 id="DapperDal_Sql_SqlServerDialect_CloseQuote" data-uid="DapperDal.Sql.SqlServerDialect.CloseQuote">CloseQuote</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>表示右引号的字符</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -181,7 +161,8 @@
   </span>
   <a id="DapperDal_Sql_SqlServerDialect_OpenQuote_" data-uid="DapperDal.Sql.SqlServerDialect.OpenQuote*"></a>
   <h4 id="DapperDal_Sql_SqlServerDialect_OpenQuote" data-uid="DapperDal.Sql.SqlServerDialect.OpenQuote">OpenQuote</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>表示左引号的字符</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -250,7 +231,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IList</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="xref">IList</span>&lt;<span class="xref">System.String</span>&gt;</td>
         <td><p>字段名列表</p>
 </td>
       </tr>
@@ -315,7 +296,8 @@
   </span>
   <a id="DapperDal_Sql_SqlServerDialect_GetIdentitySql_" data-uid="DapperDal.Sql.SqlServerDialect.GetIdentitySql*"></a>
   <h4 id="DapperDal_Sql_SqlServerDialect_GetIdentitySql_System_String_" data-uid="DapperDal.Sql.SqlServerDialect.GetIdentitySql(System.String)">GetIdentitySql(String)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>生成包含主键条件的获取语句</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -334,7 +316,8 @@
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">tableName</span></td>
-        <td></td>
+        <td><p>数据库表名</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -349,7 +332,8 @@
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td></td>
+        <td><p>SQL</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -407,14 +391,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Sql_SqlServerDialect_GetPagingSql_System_String_System_Int32_System_Int32_System_Collections_Generic_IDictionary_System_String_System_Object__.md&amp;value=---%0Auid%3A%20DapperDal.Sql.SqlServerDialect.GetPagingSql(System.String%2CSystem.Int32%2CSystem.Int32%2CSystem.Collections.Generic.IDictionary%7BSystem.String%2CSystem.Object%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Sql_SqlServerDialect_GetPagingSql_System_String_System_Int32_System_Int32_IDictionary_System_String_System_Object__.md&amp;value=---%0Auid%3A%20DapperDal.Sql.SqlServerDialect.GetPagingSql(System.String%2CSystem.Int32%2CSystem.Int32%2CIDictionary%7BSystem.String%2CSystem.Object%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Sql/SqlServerDialect.cs/#L32">View Source</a>
   </span>
   <a id="DapperDal_Sql_SqlServerDialect_GetPagingSql_" data-uid="DapperDal.Sql.SqlServerDialect.GetPagingSql*"></a>
-  <h4 id="DapperDal_Sql_SqlServerDialect_GetPagingSql_System_String_System_Int32_System_Int32_System_Collections_Generic_IDictionary_System_String_System_Object__" data-uid="DapperDal.Sql.SqlServerDialect.GetPagingSql(System.String,System.Int32,System.Int32,System.Collections.Generic.IDictionary{System.String,System.Object})">GetPagingSql(String, Int32, Int32, IDictionary&lt;String, Object&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="DapperDal_Sql_SqlServerDialect_GetPagingSql_System_String_System_Int32_System_Int32_IDictionary_System_String_System_Object__" data-uid="DapperDal.Sql.SqlServerDialect.GetPagingSql(System.String,System.Int32,System.Int32,IDictionary{System.String,System.Object})">GetPagingSql(String, Int32, Int32, IDictionary&lt;String, Object&gt;)</h4>
+  <div class="markdown level1 summary"><p>生成分页SQL</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -433,22 +418,26 @@
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">sql</span></td>
-        <td></td>
+        <td><p>原SQL</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">page</span></td>
-        <td></td>
+        <td><p>页索引</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">resultsPerPage</span></td>
-        <td></td>
+        <td><p>每页条数</p>
+</td>
       </tr>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IDictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Object</span>&gt;</td>
+        <td><span class="xref">IDictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Object</span>&gt;</td>
         <td><span class="parametername">parameters</span></td>
-        <td></td>
+        <td><p>参数</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -463,12 +452,13 @@
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td></td>
+        <td><p>新SQL</p>
+</td>
       </tr>
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="DapperDal.Sql.SqlDialectBase.html#DapperDal_Sql_SqlDialectBase_GetPagingSql_System_String_System_Int32_System_Int32_System_Collections_Generic_IDictionary_System_String_System_Object__">SqlDialectBase.GetPagingSql(String, Int32, Int32, IDictionary&lt;String, Object&gt;)</a></div>
+  <div><a class="xref" href="DapperDal.Sql.SqlDialectBase.html#DapperDal_Sql_SqlDialectBase_GetPagingSql_System_String_System_Int32_System_Int32_IDictionary_System_String_System_Object__">SqlDialectBase.GetPagingSql(String, Int32, Int32, IDictionary&lt;String, Object&gt;)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Sql_SqlServerDialect_GetSelectEnd_System_String_.md&amp;value=---%0Auid%3A%20DapperDal.Sql.SqlServerDialect.GetSelectEnd(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -521,14 +511,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Sql_SqlServerDialect_GetSetSql_System_String_System_Int32_System_Int32_System_Collections_Generic_IDictionary_System_String_System_Object__.md&amp;value=---%0Auid%3A%20DapperDal.Sql.SqlServerDialect.GetSetSql(System.String%2CSystem.Int32%2CSystem.Int32%2CSystem.Collections.Generic.IDictionary%7BSystem.String%2CSystem.Object%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Sql_SqlServerDialect_GetSetSql_System_String_System_Int32_System_Int32_IDictionary_System_String_System_Object__.md&amp;value=---%0Auid%3A%20DapperDal.Sql.SqlServerDialect.GetSetSql(System.String%2CSystem.Int32%2CSystem.Int32%2CIDictionary%7BSystem.String%2CSystem.Object%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Sql/SqlServerDialect.cs/#L39">View Source</a>
   </span>
   <a id="DapperDal_Sql_SqlServerDialect_GetSetSql_" data-uid="DapperDal.Sql.SqlServerDialect.GetSetSql*"></a>
-  <h4 id="DapperDal_Sql_SqlServerDialect_GetSetSql_System_String_System_Int32_System_Int32_System_Collections_Generic_IDictionary_System_String_System_Object__" data-uid="DapperDal.Sql.SqlServerDialect.GetSetSql(System.String,System.Int32,System.Int32,System.Collections.Generic.IDictionary{System.String,System.Object})">GetSetSql(String, Int32, Int32, IDictionary&lt;String, Object&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="DapperDal_Sql_SqlServerDialect_GetSetSql_System_String_System_Int32_System_Int32_IDictionary_System_String_System_Object__" data-uid="DapperDal.Sql.SqlServerDialect.GetSetSql(System.String,System.Int32,System.Int32,IDictionary{System.String,System.Object})">GetSetSql(String, Int32, Int32, IDictionary&lt;String, Object&gt;)</h4>
+  <div class="markdown level1 summary"><p>生成区间SQL</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -547,22 +538,26 @@
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">sql</span></td>
-        <td></td>
+        <td><p>原SQL</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">firstResult</span></td>
-        <td></td>
+        <td><p>起始行数</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">maxResults</span></td>
-        <td></td>
+        <td><p>最大条数</p>
+</td>
       </tr>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IDictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Object</span>&gt;</td>
+        <td><span class="xref">IDictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Object</span>&gt;</td>
         <td><span class="parametername">parameters</span></td>
-        <td></td>
+        <td><p>参数</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -577,12 +572,13 @@
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td></td>
+        <td><p>新SQL</p>
+</td>
       </tr>
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="DapperDal.Sql.SqlDialectBase.html#DapperDal_Sql_SqlDialectBase_GetSetSql_System_String_System_Int32_System_Int32_System_Collections_Generic_IDictionary_System_String_System_Object__">SqlDialectBase.GetSetSql(String, Int32, Int32, IDictionary&lt;String, Object&gt;)</a></div>
+  <div><a class="xref" href="DapperDal.Sql.SqlDialectBase.html#DapperDal_Sql_SqlDialectBase_GetSetSql_System_String_System_Int32_System_Int32_IDictionary_System_String_System_Object__">SqlDialectBase.GetSetSql(String, Int32, Int32, IDictionary&lt;String, Object&gt;)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Sql_SqlServerDialect_SelectLimit_System_String_System_Int32_.md&amp;value=---%0Auid%3A%20DapperDal.Sql.SqlServerDialect.SelectLimit(System.String%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -592,7 +588,8 @@
   </span>
   <a id="DapperDal_Sql_SqlServerDialect_SelectLimit_" data-uid="DapperDal.Sql.SqlServerDialect.SelectLimit*"></a>
   <h4 id="DapperDal_Sql_SqlServerDialect_SelectLimit_System_String_System_Int32_" data-uid="DapperDal.Sql.SqlServerDialect.SelectLimit(System.String,System.Int32)">SelectLimit(String, Int32)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>获取前N条的SQL</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -611,12 +608,14 @@
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">sql</span></td>
-        <td></td>
+        <td><p>原SQL</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">limit</span></td>
-        <td></td>
+        <td><p>指定前几条</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -631,7 +630,8 @@
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td></td>
+        <td><p>新SQL</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -646,7 +646,8 @@
   </span>
   <a id="DapperDal_Sql_SqlServerDialect_SetNolock_" data-uid="DapperDal.Sql.SqlServerDialect.SetNolock*"></a>
   <h4 id="DapperDal_Sql_SqlServerDialect_SetNolock_System_String_" data-uid="DapperDal.Sql.SqlServerDialect.SetNolock(System.String)">SetNolock(String)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>SQL语句添加 WITH (NOLOCK)</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -665,7 +666,8 @@
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">sql</span></td>
-        <td></td>
+        <td><p>SQL语句</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -680,7 +682,8 @@
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td></td>
+        <td><p>添加后SQL语句</p>
+</td>
       </tr>
     </tbody>
   </table>

@@ -80,47 +80,23 @@
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">GridReaderResultReader</span></div>
   </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="DapperDal.Predicate.html">DapperDal.Predicate</a></h6>
   <h6><strong>Assembly</strong>: DapperDal.dll</h6>
   <h5 id="DapperDal_Predicate_GridReaderResultReader_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class GridReaderResultReader : IMultipleResultReader</code></pre>
+    <pre><code class="lang-csharp hljs">public class GridReaderResultReader : object, IMultipleResultReader</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Predicate_GridReaderResultReader__ctor_Dapper_SqlMapper_GridReader_.md&amp;value=---%0Auid%3A%20DapperDal.Predicate.GridReaderResultReader.%23ctor(Dapper.SqlMapper.GridReader)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Predicate_GridReaderResultReader__ctor_SqlMapper_GridReader_.md&amp;value=---%0Auid%3A%20DapperDal.Predicate.GridReaderResultReader.%23ctor(SqlMapper.GridReader)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Predicate/GetMultipleResult.cs/#L30">View Source</a>
   </span>
   <a id="DapperDal_Predicate_GridReaderResultReader__ctor_" data-uid="DapperDal.Predicate.GridReaderResultReader.#ctor*"></a>
-  <h4 id="DapperDal_Predicate_GridReaderResultReader__ctor_Dapper_SqlMapper_GridReader_" data-uid="DapperDal.Predicate.GridReaderResultReader.#ctor(Dapper.SqlMapper.GridReader)">GridReaderResultReader(SqlMapper.GridReader)</h4>
+  <h4 id="DapperDal_Predicate_GridReaderResultReader__ctor_SqlMapper_GridReader_" data-uid="DapperDal.Predicate.GridReaderResultReader.#ctor(SqlMapper.GridReader)">GridReaderResultReader(SqlMapper.GridReader)</h4>
   <div class="markdown level1 summary"><p>初始化多结果集批量读取类</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -139,7 +115,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Dapper.SqlMapper.GridReader</span></td>
+        <td><span class="xref">SqlMapper.GridReader</span></td>
         <td><span class="parametername">reader</span></td>
         <td></td>
       </tr>
@@ -156,7 +132,8 @@
   </span>
   <a id="DapperDal_Predicate_GridReaderResultReader_Read_" data-uid="DapperDal.Predicate.GridReaderResultReader.Read*"></a>
   <h4 id="DapperDal_Predicate_GridReaderResultReader_Read__1" data-uid="DapperDal.Predicate.GridReaderResultReader.Read``1">Read&lt;T&gt;()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>获取结果集</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -172,8 +149,9 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;T&gt;</td>
-        <td></td>
+        <td><span class="xref">IEnumerable</span>&lt;T&gt;</td>
+        <td><p>实体集合</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -188,7 +166,8 @@
     <tbody>
       <tr>
         <td><span class="parametername">T</span></td>
-        <td></td>
+        <td><p>结果集实体类型</p>
+</td>
       </tr>
     </tbody>
   </table>
