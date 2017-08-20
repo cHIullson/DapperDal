@@ -1,2 +1,0 @@
-﻿TRUNCATE TABLE Car;
-TRUNCATE TABLE Person;
