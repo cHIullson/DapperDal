@@ -1,0 +1,680 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class DalBase&lt;TEntity&gt;
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class DalBase&lt;TEntity&gt;
+   ">
+    <meta name="generator" content="docfx 2.22.3.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="DapperDal.DalBase`1">
+  
+  
+  <h1 id="DapperDal_DalBase_1" data-uid="DapperDal.DalBase`1" class="text-break">Class DalBase&lt;TEntity&gt;
+  </h1>
+  <div class="markdown level0 summary"><p>实体数据访问层基类</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="DapperDal.DalBase-2.html">DalBase</a>&lt;TEntity, <span class="xref">System.Int32</span>&gt;</div>
+    <div class="level2"><span class="xref">DalBase&lt;TEntity&gt;</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_Execute_System_String_System_String_">DalBase&lt;TEntity, Int32&gt;.Execute(String, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_Execute_System_String_System_String_System_Object_">DalBase&lt;TEntity, Int32&gt;.Execute(String, String, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_Execute_System_String_System_String_System_Object_System_Data_CommandType_">DalBase&lt;TEntity, Int32&gt;.Execute(String, String, Object, CommandType)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_ExecuteScalar__1_System_String_System_String_">DalBase&lt;TEntity, Int32&gt;.ExecuteScalar&lt;TAny&gt;(String, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_ExecuteScalar__1_System_String_System_String_System_Object_">DalBase&lt;TEntity, Int32&gt;.ExecuteScalar&lt;TAny&gt;(String, String, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_ExecuteScalar__1_System_String_System_String_System_Object_System_Data_CommandType_">DalBase&lt;TEntity, Int32&gt;.ExecuteScalar&lt;TAny&gt;(String, String, Object, CommandType)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_Exsit">DalBase&lt;TEntity, Int32&gt;.Exsit()</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_Exsit__1_">DalBase&lt;TEntity, Int32&gt;.Exsit(Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_Exsit_System_Object_">DalBase&lt;TEntity, Int32&gt;.Exsit(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_Exsit_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___">DalBase&lt;TEntity, Int32&gt;.Exsit(Expression&lt;Func&lt;TEntity, Boolean&gt;&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_ExecuteScalar__1_System_String_">DalBase&lt;TEntity, Int32&gt;.ExecuteScalar&lt;TAny&gt;(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_ExecuteScalar__1_System_String_System_Object_">DalBase&lt;TEntity, Int32&gt;.ExecuteScalar&lt;TAny&gt;(String, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_ExecuteScalar__1_System_String_System_Object_System_Data_CommandType_">DalBase&lt;TEntity, Int32&gt;.ExecuteScalar&lt;TAny&gt;(String, Object, CommandType)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_GetFirst">DalBase&lt;TEntity, Int32&gt;.GetFirst()</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_GetFirst_System_Object_">DalBase&lt;TEntity, Int32&gt;.GetFirst(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_GetFirst_DapperDal_Expressions_SortDirection_System_Linq_Expressions_Expression_System_Func__0_System_Object_____">DalBase&lt;TEntity, Int32&gt;.GetFirst(SortDirection, Expression&lt;Func&lt;TEntity, Object&gt;&gt;[])</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_GetFirst_System_Object_System_Object_">DalBase&lt;TEntity, Int32&gt;.GetFirst(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_GetFirst_System_Object_DapperDal_Expressions_SortDirection_System_Linq_Expressions_Expression_System_Func__0_System_Object_____">DalBase&lt;TEntity, Int32&gt;.GetFirst(Object, SortDirection, Expression&lt;Func&lt;TEntity, Object&gt;&gt;[])</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_GetFirst_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___">DalBase&lt;TEntity, Int32&gt;.GetFirst(Expression&lt;Func&lt;TEntity, Boolean&gt;&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_GetFirst_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Object_">DalBase&lt;TEntity, Int32&gt;.GetFirst(Expression&lt;Func&lt;TEntity, Boolean&gt;&gt;, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_GetFirst_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___DapperDal_Expressions_SortDirection_System_Linq_Expressions_Expression_System_Func__0_System_Object_____">DalBase&lt;TEntity, Int32&gt;.GetFirst(Expression&lt;Func&lt;TEntity, Boolean&gt;&gt;, SortDirection, Expression&lt;Func&lt;TEntity, Object&gt;&gt;[])</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_GetTop_System_Int32_">DalBase&lt;TEntity, Int32&gt;.GetTop(Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_GetTop_System_Int32_System_Object_">DalBase&lt;TEntity, Int32&gt;.GetTop(Int32, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_GetTop_System_Int32_DapperDal_Expressions_SortDirection_System_Linq_Expressions_Expression_System_Func__0_System_Object_____">DalBase&lt;TEntity, Int32&gt;.GetTop(Int32, SortDirection, Expression&lt;Func&lt;TEntity, Object&gt;&gt;[])</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_GetTop_System_Int32_System_Object_System_Object_">DalBase&lt;TEntity, Int32&gt;.GetTop(Int32, Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_GetTop_System_Int32_System_Object_DapperDal_Expressions_SortDirection_System_Linq_Expressions_Expression_System_Func__0_System_Object_____">DalBase&lt;TEntity, Int32&gt;.GetTop(Int32, Object, SortDirection, Expression&lt;Func&lt;TEntity, Object&gt;&gt;[])</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_GetTop_System_Int32_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___">DalBase&lt;TEntity, Int32&gt;.GetTop(Int32, Expression&lt;Func&lt;TEntity, Boolean&gt;&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_GetTop_System_Int32_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Object_">DalBase&lt;TEntity, Int32&gt;.GetTop(Int32, Expression&lt;Func&lt;TEntity, Boolean&gt;&gt;, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_GetTop_System_Int32_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___DapperDal_Expressions_SortDirection_System_Linq_Expressions_Expression_System_Func__0_System_Object_____">DalBase&lt;TEntity, Int32&gt;.GetTop(Int32, Expression&lt;Func&lt;TEntity, Boolean&gt;&gt;, SortDirection, Expression&lt;Func&lt;TEntity, Object&gt;&gt;[])</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_Execute_System_String_">DalBase&lt;TEntity, Int32&gt;.Execute(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_Execute_System_String_System_Object_">DalBase&lt;TEntity, Int32&gt;.Execute(String, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_Execute_System_String_System_Object_System_Data_CommandType_">DalBase&lt;TEntity, Int32&gt;.Execute(String, Object, CommandType)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_Query_System_String_System_String_">DalBase&lt;TEntity, Int32&gt;.Query(String, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_Query_System_String_System_String_System_Object_">DalBase&lt;TEntity, Int32&gt;.Query(String, String, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_Query_System_String_System_String_System_Object_System_Data_CommandType_">DalBase&lt;TEntity, Int32&gt;.Query(String, String, Object, CommandType)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_Query__1_System_String_System_String_">DalBase&lt;TEntity, Int32&gt;.Query&lt;TAny&gt;(String, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_Query__1_System_String_System_String_System_Object_">DalBase&lt;TEntity, Int32&gt;.Query&lt;TAny&gt;(String, String, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_Query__1_System_String_System_String_System_Object_System_Data_CommandType_">DalBase&lt;TEntity, Int32&gt;.Query&lt;TAny&gt;(String, String, Object, CommandType)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryFirst_System_String_System_String_">DalBase&lt;TEntity, Int32&gt;.QueryFirst(String, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryFirst_System_String_System_String_System_Object_">DalBase&lt;TEntity, Int32&gt;.QueryFirst(String, String, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryFirst_System_String_System_String_System_Object_System_Data_CommandType_">DalBase&lt;TEntity, Int32&gt;.QueryFirst(String, String, Object, CommandType)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryFirst__1_System_String_System_String_">DalBase&lt;TEntity, Int32&gt;.QueryFirst&lt;TAny&gt;(String, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryFirst__1_System_String_System_String_System_Object_">DalBase&lt;TEntity, Int32&gt;.QueryFirst&lt;TAny&gt;(String, String, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryFirst__1_System_String_System_String_System_Object_System_Data_CommandType_">DalBase&lt;TEntity, Int32&gt;.QueryFirst&lt;TAny&gt;(String, String, Object, CommandType)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryFirst_System_String_">DalBase&lt;TEntity, Int32&gt;.QueryFirst(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryFirst_System_String_System_Object_">DalBase&lt;TEntity, Int32&gt;.QueryFirst(String, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryFirst_System_String_System_Object_System_Data_CommandType_">DalBase&lt;TEntity, Int32&gt;.QueryFirst(String, Object, CommandType)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryFirst__1_System_String_">DalBase&lt;TEntity, Int32&gt;.QueryFirst&lt;TAny&gt;(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryFirst__1_System_String_System_Object_">DalBase&lt;TEntity, Int32&gt;.QueryFirst&lt;TAny&gt;(String, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryFirst__1_System_String_System_Object_System_Data_CommandType_">DalBase&lt;TEntity, Int32&gt;.QueryFirst&lt;TAny&gt;(String, Object, CommandType)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryMultiple__2_System_String_System_String_">DalBase&lt;TEntity, Int32&gt;.QueryMultiple&lt;TFirst, TSecond&gt;(String, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryMultiple__2_System_String_System_String_System_Object_">DalBase&lt;TEntity, Int32&gt;.QueryMultiple&lt;TFirst, TSecond&gt;(String, String, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryMultiple__2_System_String_System_String_System_Object_System_Data_CommandType_">DalBase&lt;TEntity, Int32&gt;.QueryMultiple&lt;TFirst, TSecond&gt;(String, String, Object, CommandType)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryMultiple__3_System_String_System_String_">DalBase&lt;TEntity, Int32&gt;.QueryMultiple&lt;TFirst, TSecond, TThird&gt;(String, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryMultiple__3_System_String_System_String_System_Object_">DalBase&lt;TEntity, Int32&gt;.QueryMultiple&lt;TFirst, TSecond, TThird&gt;(String, String, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryMultiple__3_System_String_System_String_System_Object_System_Data_CommandType_">DalBase&lt;TEntity, Int32&gt;.QueryMultiple&lt;TFirst, TSecond, TThird&gt;(String, String, Object, CommandType)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryMultiple__4_System_String_System_String_">DalBase&lt;TEntity, Int32&gt;.QueryMultiple&lt;TFirst, TSecond, TThird, TFourth&gt;(String, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryMultiple__4_System_String_System_String_System_Object_">DalBase&lt;TEntity, Int32&gt;.QueryMultiple&lt;TFirst, TSecond, TThird, TFourth&gt;(String, String, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryMultiple__4_System_String_System_String_System_Object_System_Data_CommandType_">DalBase&lt;TEntity, Int32&gt;.QueryMultiple&lt;TFirst, TSecond, TThird, TFourth&gt;(String, String, Object, CommandType)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryMultiple__5_System_String_System_String_">DalBase&lt;TEntity, Int32&gt;.QueryMultiple&lt;TFirst, TSecond, TThird, TFourth, TFifth&gt;(String, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryMultiple__5_System_String_System_String_System_Object_">DalBase&lt;TEntity, Int32&gt;.QueryMultiple&lt;TFirst, TSecond, TThird, TFourth, TFifth&gt;(String, String, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryMultiple__5_System_String_System_String_System_Object_System_Data_CommandType_">DalBase&lt;TEntity, Int32&gt;.QueryMultiple&lt;TFirst, TSecond, TThird, TFourth, TFifth&gt;(String, String, Object, CommandType)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryMultiple__6_System_String_System_String_">DalBase&lt;TEntity, Int32&gt;.QueryMultiple&lt;TFirst, TSecond, TThird, TFourth, TFifth, TSixth&gt;(String, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryMultiple__6_System_String_System_String_System_Object_">DalBase&lt;TEntity, Int32&gt;.QueryMultiple&lt;TFirst, TSecond, TThird, TFourth, TFifth, TSixth&gt;(String, String, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryMultiple__6_System_String_System_String_System_Object_System_Data_CommandType_">DalBase&lt;TEntity, Int32&gt;.QueryMultiple&lt;TFirst, TSecond, TThird, TFourth, TFifth, TSixth&gt;(String, String, Object, CommandType)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryMultiple__7_System_String_System_String_">DalBase&lt;TEntity, Int32&gt;.QueryMultiple&lt;TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh&gt;(String, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryMultiple__7_System_String_System_String_System_Object_">DalBase&lt;TEntity, Int32&gt;.QueryMultiple&lt;TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh&gt;(String, String, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryMultiple__7_System_String_System_String_System_Object_System_Data_CommandType_">DalBase&lt;TEntity, Int32&gt;.QueryMultiple&lt;TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh&gt;(String, String, Object, CommandType)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryMultiple__8_System_String_System_String_">DalBase&lt;TEntity, Int32&gt;.QueryMultiple&lt;TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TEighth&gt;(String, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryMultiple__8_System_String_System_String_System_Object_">DalBase&lt;TEntity, Int32&gt;.QueryMultiple&lt;TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TEighth&gt;(String, String, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryMultiple__8_System_String_System_String_System_Object_System_Data_CommandType_">DalBase&lt;TEntity, Int32&gt;.QueryMultiple&lt;TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TEighth&gt;(String, String, Object, CommandType)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_SwitchActive__0_System_Boolean_System_Object_System_Object_">DalBase&lt;TEntity, Int32&gt;.SwitchActive(TEntity, Boolean, Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_SwitchActive__1_System_Boolean_System_Object_System_Object_">DalBase&lt;TEntity, Int32&gt;.SwitchActive(Int32, Boolean, Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_SwitchActive_System_Object_System_Boolean_System_Object_System_Object_">DalBase&lt;TEntity, Int32&gt;.SwitchActive(Object, Boolean, Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_SwitchActive_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Boolean_System_Object_System_Object_">DalBase&lt;TEntity, Int32&gt;.SwitchActive(Expression&lt;Func&lt;TEntity, Boolean&gt;&gt;, Boolean, Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_SoftDelete__0_System_Object_">DalBase&lt;TEntity, Int32&gt;.SoftDelete(TEntity, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_SoftDelete__1_System_Object_">DalBase&lt;TEntity, Int32&gt;.SoftDelete(Int32, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_SoftDelete_System_Object_System_Object_">DalBase&lt;TEntity, Int32&gt;.SoftDelete(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_SoftDelete_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Object_">DalBase&lt;TEntity, Int32&gt;.SoftDelete(Expression&lt;Func&lt;TEntity, Boolean&gt;&gt;, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_Get__1_">DalBase&lt;TEntity, Int32&gt;.Get(Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_Configuration">DalBase&lt;TEntity, Int32&gt;.Configuration</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_Options">DalBase&lt;TEntity, Int32&gt;.Options</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_ConnectionString">DalBase&lt;TEntity, Int32&gt;.ConnectionString</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_OpenConnection">DalBase&lt;TEntity, Int32&gt;.OpenConnection()</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_OpenConnection_System_String_">DalBase&lt;TEntity, Int32&gt;.OpenConnection(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_Count">DalBase&lt;TEntity, Int32&gt;.Count()</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_Count_System_Object_">DalBase&lt;TEntity, Int32&gt;.Count(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_Count_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___">DalBase&lt;TEntity, Int32&gt;.Count(Expression&lt;Func&lt;TEntity, Boolean&gt;&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_Delete__0_">DalBase&lt;TEntity, Int32&gt;.Delete(TEntity)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_Delete__1_">DalBase&lt;TEntity, Int32&gt;.Delete(Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_Delete_System_Object_">DalBase&lt;TEntity, Int32&gt;.Delete(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_Delete_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___">DalBase&lt;TEntity, Int32&gt;.Delete(Expression&lt;Func&lt;TEntity, Boolean&gt;&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_Insert__0_">DalBase&lt;TEntity, Int32&gt;.Insert(TEntity)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_Insert_System_Collections_Generic_IEnumerable__0__">DalBase&lt;TEntity, Int32&gt;.Insert(IEnumerable&lt;TEntity&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_Update__0_">DalBase&lt;TEntity, Int32&gt;.Update(TEntity)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_Update__0_System_Collections_Generic_IEnumerable_System_String__">DalBase&lt;TEntity, Int32&gt;.Update(TEntity, IEnumerable&lt;String&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_Update__0_System_Object_">DalBase&lt;TEntity, Int32&gt;.Update(TEntity, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_Update__1_System_Object_">DalBase&lt;TEntity, Int32&gt;.Update(Int32, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_Update_System_Object_">DalBase&lt;TEntity, Int32&gt;.Update(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_Update_System_Object_System_Object_">DalBase&lt;TEntity, Int32&gt;.Update(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_Update_System_Object_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___">DalBase&lt;TEntity, Int32&gt;.Update(Object, Expression&lt;Func&lt;TEntity, Boolean&gt;&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_GetSet_System_Object_System_Object_System_Int32_System_Int32_">DalBase&lt;TEntity, Int32&gt;.GetSet(Object, Object, Int32, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_GetSet_System_Object_System_Int32_System_Int32_DapperDal_Expressions_SortDirection_System_Linq_Expressions_Expression_System_Func__0_System_Object_____">DalBase&lt;TEntity, Int32&gt;.GetSet(Object, Int32, Int32, SortDirection, Expression&lt;Func&lt;TEntity, Object&gt;&gt;[])</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_GetSet_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Object_System_Int32_System_Int32_">DalBase&lt;TEntity, Int32&gt;.GetSet(Expression&lt;Func&lt;TEntity, Boolean&gt;&gt;, Object, Int32, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_GetSet_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Int32_System_Int32_DapperDal_Expressions_SortDirection_System_Linq_Expressions_Expression_System_Func__0_System_Object_____">DalBase&lt;TEntity, Int32&gt;.GetSet(Expression&lt;Func&lt;TEntity, Boolean&gt;&gt;, Int32, Int32, SortDirection, Expression&lt;Func&lt;TEntity, Object&gt;&gt;[])</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_GetListPaged_System_Object_System_Object_System_Int32_System_Int32_">DalBase&lt;TEntity, Int32&gt;.GetListPaged(Object, Object, Int32, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_GetListPaged_System_Object_System_Int32_System_Int32_DapperDal_Expressions_SortDirection_System_Linq_Expressions_Expression_System_Func__0_System_Object_____">DalBase&lt;TEntity, Int32&gt;.GetListPaged(Object, Int32, Int32, SortDirection, Expression&lt;Func&lt;TEntity, Object&gt;&gt;[])</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_GetListPaged_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Object_System_Int32_System_Int32_">DalBase&lt;TEntity, Int32&gt;.GetListPaged(Expression&lt;Func&lt;TEntity, Boolean&gt;&gt;, Object, Int32, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_GetListPaged_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Int32_System_Int32_DapperDal_Expressions_SortDirection_System_Linq_Expressions_Expression_System_Func__0_System_Object_____">DalBase&lt;TEntity, Int32&gt;.GetListPaged(Expression&lt;Func&lt;TEntity, Boolean&gt;&gt;, Int32, Int32, SortDirection, Expression&lt;Func&lt;TEntity, Object&gt;&gt;[])</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_GetList">DalBase&lt;TEntity, Int32&gt;.GetList()</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_GetList_System_Object_">DalBase&lt;TEntity, Int32&gt;.GetList(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_GetList_DapperDal_Expressions_SortDirection_System_Linq_Expressions_Expression_System_Func__0_System_Object_____">DalBase&lt;TEntity, Int32&gt;.GetList(SortDirection, Expression&lt;Func&lt;TEntity, Object&gt;&gt;[])</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_GetList_System_Object_System_Object_">DalBase&lt;TEntity, Int32&gt;.GetList(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_GetList_System_Object_DapperDal_Expressions_SortDirection_System_Linq_Expressions_Expression_System_Func__0_System_Object_____">DalBase&lt;TEntity, Int32&gt;.GetList(Object, SortDirection, Expression&lt;Func&lt;TEntity, Object&gt;&gt;[])</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_GetList_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___">DalBase&lt;TEntity, Int32&gt;.GetList(Expression&lt;Func&lt;TEntity, Boolean&gt;&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_GetList_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Object_">DalBase&lt;TEntity, Int32&gt;.GetList(Expression&lt;Func&lt;TEntity, Boolean&gt;&gt;, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_GetList_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___DapperDal_Expressions_SortDirection_System_Linq_Expressions_Expression_System_Func__0_System_Object_____">DalBase&lt;TEntity, Int32&gt;.GetList(Expression&lt;Func&lt;TEntity, Boolean&gt;&gt;, SortDirection, Expression&lt;Func&lt;TEntity, Object&gt;&gt;[])</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_Query_System_String_">DalBase&lt;TEntity, Int32&gt;.Query(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_Query_System_String_System_Object_">DalBase&lt;TEntity, Int32&gt;.Query(String, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_Query_System_String_System_Object_System_Data_CommandType_">DalBase&lt;TEntity, Int32&gt;.Query(String, Object, CommandType)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_Query__1_System_String_">DalBase&lt;TEntity, Int32&gt;.Query&lt;TAny&gt;(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_Query__1_System_String_System_Object_">DalBase&lt;TEntity, Int32&gt;.Query&lt;TAny&gt;(String, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_Query__1_System_String_System_Object_System_Data_CommandType_">DalBase&lt;TEntity, Int32&gt;.Query&lt;TAny&gt;(String, Object, CommandType)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryMultiple__2_System_String_">DalBase&lt;TEntity, Int32&gt;.QueryMultiple&lt;TFirst, TSecond&gt;(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryMultiple__2_System_String_System_Object_">DalBase&lt;TEntity, Int32&gt;.QueryMultiple&lt;TFirst, TSecond&gt;(String, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryMultiple__2_System_String_System_Object_System_Data_CommandType_">DalBase&lt;TEntity, Int32&gt;.QueryMultiple&lt;TFirst, TSecond&gt;(String, Object, CommandType)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryMultiple__3_System_String_">DalBase&lt;TEntity, Int32&gt;.QueryMultiple&lt;TFirst, TSecond, TThird&gt;(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryMultiple__3_System_String_System_Object_">DalBase&lt;TEntity, Int32&gt;.QueryMultiple&lt;TFirst, TSecond, TThird&gt;(String, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryMultiple__3_System_String_System_Object_System_Data_CommandType_">DalBase&lt;TEntity, Int32&gt;.QueryMultiple&lt;TFirst, TSecond, TThird&gt;(String, Object, CommandType)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryMultiple__4_System_String_">DalBase&lt;TEntity, Int32&gt;.QueryMultiple&lt;TFirst, TSecond, TThird, TFourth&gt;(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryMultiple__4_System_String_System_Object_">DalBase&lt;TEntity, Int32&gt;.QueryMultiple&lt;TFirst, TSecond, TThird, TFourth&gt;(String, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryMultiple__4_System_String_System_Object_System_Data_CommandType_">DalBase&lt;TEntity, Int32&gt;.QueryMultiple&lt;TFirst, TSecond, TThird, TFourth&gt;(String, Object, CommandType)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryMultiple__5_System_String_">DalBase&lt;TEntity, Int32&gt;.QueryMultiple&lt;TFirst, TSecond, TThird, TFourth, TFifth&gt;(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryMultiple__5_System_String_System_Object_">DalBase&lt;TEntity, Int32&gt;.QueryMultiple&lt;TFirst, TSecond, TThird, TFourth, TFifth&gt;(String, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryMultiple__5_System_String_System_Object_System_Data_CommandType_">DalBase&lt;TEntity, Int32&gt;.QueryMultiple&lt;TFirst, TSecond, TThird, TFourth, TFifth&gt;(String, Object, CommandType)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryMultiple__6_System_String_">DalBase&lt;TEntity, Int32&gt;.QueryMultiple&lt;TFirst, TSecond, TThird, TFourth, TFifth, TSixth&gt;(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryMultiple__6_System_String_System_Object_">DalBase&lt;TEntity, Int32&gt;.QueryMultiple&lt;TFirst, TSecond, TThird, TFourth, TFifth, TSixth&gt;(String, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryMultiple__6_System_String_System_Object_System_Data_CommandType_">DalBase&lt;TEntity, Int32&gt;.QueryMultiple&lt;TFirst, TSecond, TThird, TFourth, TFifth, TSixth&gt;(String, Object, CommandType)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryMultiple__7_System_String_">DalBase&lt;TEntity, Int32&gt;.QueryMultiple&lt;TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh&gt;(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryMultiple__7_System_String_System_Object_">DalBase&lt;TEntity, Int32&gt;.QueryMultiple&lt;TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh&gt;(String, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryMultiple__7_System_String_System_Object_System_Data_CommandType_">DalBase&lt;TEntity, Int32&gt;.QueryMultiple&lt;TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh&gt;(String, Object, CommandType)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryMultiple__8_System_String_">DalBase&lt;TEntity, Int32&gt;.QueryMultiple&lt;TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TEighth&gt;(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryMultiple__8_System_String_System_Object_">DalBase&lt;TEntity, Int32&gt;.QueryMultiple&lt;TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TEighth&gt;(String, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryMultiple__8_System_String_System_Object_System_Data_CommandType_">DalBase&lt;TEntity, Int32&gt;.QueryMultiple&lt;TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh, TEighth&gt;(String, Object, CommandType)</a>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="DapperDal.html">DapperDal</a></h6>
+  <h6><strong>Assembly</strong>: DapperDal.dll</h6>
+  <h5 id="DapperDal_DalBase_1_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class DalBase&lt;TEntity&gt; : DalBase&lt;TEntity, int&gt; where TEntity : class</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TEntity</span></td>
+        <td><p>实体类型</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_DalBase_1__ctor.md&amp;value=---%0Auid%3A%20DapperDal.DalBase%601.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/DalBaseOfTEntity.cs/#L23">View Source</a>
+  </span>
+  <a id="DapperDal_DalBase_1__ctor_" data-uid="DapperDal.DalBase`1.#ctor*"></a>
+  <h4 id="DapperDal_DalBase_1__ctor" data-uid="DapperDal.DalBase`1.#ctor">DalBase()</h4>
+  <div class="markdown level1 summary"><p>默认初始化 DAL 新实例</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DalBase()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_DalBase_1__ctor_System_String_.md&amp;value=---%0Auid%3A%20DapperDal.DalBase%601.%23ctor(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/DalBaseOfTEntity.cs/#L33">View Source</a>
+  </span>
+  <a id="DapperDal_DalBase_1__ctor_" data-uid="DapperDal.DalBase`1.#ctor*"></a>
+  <h4 id="DapperDal_DalBase_1__ctor_System_String_" data-uid="DapperDal.DalBase`1.#ctor(System.String)">DalBase(String)</h4>
+  <div class="markdown level1 summary"><p>用配置节点名初始化 DAL 新实例</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DalBase(string connectionName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">connectionName</span></td>
+        <td><p>DB连接字符串配置节点名</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>参数为空</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Configuration.ConfigurationErrorsException</span></td>
+        <td><p>找不到配置节点</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="DapperDal.Expressions.SortingExtensions.html#DapperDal_Expressions_SortingExtensions_ToSortable_System_Object_">SortingExtensions.ToSortable(Object)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_DalBase_1.md&amp;value=---%0Auid%3A%20DapperDal.DalBase%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/DalBaseOfTEntity.cs/#L18" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2015-2017 Microsoft<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

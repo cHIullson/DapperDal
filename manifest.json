@@ -1,0 +1,805 @@
+{
+  "homepages": [],
+  "source_base_path": "C:/GitRepos/DapperDal",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Conceptual",
+      "source_relative_path": "README.md",
+      "output": {
+        ".html": {
+          "relative_path": "README.html",
+          "hash": "vdW0wI3GuwFG6yEV16Wd+Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.DalBase-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.DalBase-1.html",
+          "hash": "/gCo2U4O3GNUSjQCtRM/og=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.DalBase-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.DalBase-2.html",
+          "hash": "JdtSHrSWeuif1ld3CwZ6zQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.DalConfiguration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.DalConfiguration.html",
+          "hash": "YCEi2ZggTBVOyQZ7puzHXA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.DalOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.DalOptions.html",
+          "hash": "GsCNFpeY/nRzLeLIutGLcg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Expressions.PredicateBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Expressions.PredicateBuilder.html",
+          "hash": "FK7tAQROM+spmOxKpgLpcA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Expressions.PredicateExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Expressions.PredicateExtensions.html",
+          "hash": "27PM3o9BzbPbU0oj6DsFaA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Expressions.QueryFunctions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Expressions.QueryFunctions.html",
+          "hash": "6oDh9Z2Gw2EYJr6HxglkIA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Expressions.SortDirection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Expressions.SortDirection.html",
+          "hash": "6b8/XzI4ig9xlCKkjGAp6w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Expressions.SortingExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Expressions.SortingExtensions.html",
+          "hash": "hE07ONn+dOtf0kMriSV1sQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Expressions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Expressions.html",
+          "hash": "uf/pJtL2dOXxOTlPw/46jQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.IDalConfiguration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.IDalConfiguration.html",
+          "hash": "0gnW11LZeNlkyhMr47vEkA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Implementor.DalImplementor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Implementor.DalImplementor.html",
+          "hash": "LbeSSIQC8J25psvZqeN0Hg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Implementor.IDalImplementor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Implementor.IDalImplementor.html",
+          "hash": "NXb6iQUwOCeXZrmyS/fMDw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Implementor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Implementor.html",
+          "hash": "xCTKVatVricAfOxqMymvpQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Mapper.AutoClassMapper-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Mapper.AutoClassMapper-1.html",
+          "hash": "G4xL7WWteIAaqtIi+ClRuw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Mapper.AutoEntityMapper-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Mapper.AutoEntityMapper-1.html",
+          "hash": "OaIAVXuSCQqSHT3gS+Wfug=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Mapper.ClassMapper-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Mapper.ClassMapper-1.html",
+          "hash": "sOYfGWh5TRZ6e2oMxBfDTg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Mapper.IClassMapper-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Mapper.IClassMapper-1.html",
+          "hash": "Zs6NOqmBUihZEkNyc4TGMg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Mapper.IClassMapper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Mapper.IClassMapper.html",
+          "hash": "cPy0c6XJ9dyMDxav9Jxhjg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Mapper.IPropertyMap.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Mapper.IPropertyMap.html",
+          "hash": "9lAPy07MH7zoIh534UNd7w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Mapper.KeyType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Mapper.KeyType.html",
+          "hash": "4ZvBQiNRVUlHcHcuPJ45tg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Mapper.PluralizedAutoClassMapper-1.Formatting.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Mapper.PluralizedAutoClassMapper-1.Formatting.html",
+          "hash": "oSbyYTmxSAg5je+dk5gUxw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Mapper.PluralizedAutoClassMapper-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Mapper.PluralizedAutoClassMapper-1.html",
+          "hash": "ILpaunNujEgdwwbsIO5R3A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Mapper.PropertyMap.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Mapper.PropertyMap.html",
+          "hash": "LlDdlgWKazBi41c0b1V6gA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Mapper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Mapper.html",
+          "hash": "N3wV9J5NSChjJW9iaNbFPA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Predicate.BasePredicate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Predicate.BasePredicate.html",
+          "hash": "A4i0DKRGsgEXZywsdwoRuw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Predicate.BetweenPredicate-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Predicate.BetweenPredicate-1.html",
+          "hash": "nlAVVF0yKY+MZ5sKU0IpfQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Predicate.BetweenValues.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Predicate.BetweenValues.html",
+          "hash": "8mytwOlnzEEBXMBRphZugg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Predicate.ComparePredicate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Predicate.ComparePredicate.html",
+          "hash": "8rplijDo2ztEPlwOMay54A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Predicate.ExistsPredicate-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Predicate.ExistsPredicate-1.html",
+          "hash": "7i2O0pGAL0s/pax4CcOwYg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Predicate.FieldPredicate-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Predicate.FieldPredicate-1.html",
+          "hash": "cvT/CxUCw1eQjZMlvBj+Wg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Predicate.GetMultiplePredicate.GetMultiplePredicateItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Predicate.GetMultiplePredicate.GetMultiplePredicateItem.html",
+          "hash": "GY/lLQYH+FsTN+h64n5Eow=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Predicate.GetMultiplePredicate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Predicate.GetMultiplePredicate.html",
+          "hash": "RgJkkZjC5Q4U+y0X0bshPw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Predicate.GridReaderResultReader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Predicate.GridReaderResultReader.html",
+          "hash": "okpCFTrrF2CG8GGnLBtAxA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Predicate.GroupOperator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Predicate.GroupOperator.html",
+          "hash": "J+7g1xwTUS2abi0l9YvqlQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Predicate.IBasePredicate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Predicate.IBasePredicate.html",
+          "hash": "qkYTHmUsFAMhqf0cqFEZoA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Predicate.IBetweenPredicate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Predicate.IBetweenPredicate.html",
+          "hash": "SI5eS+coTBlguUCSE4KRpA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Predicate.IComparePredicate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Predicate.IComparePredicate.html",
+          "hash": "YRitvxeiOik2/F3TT56Yzg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Predicate.IExistsPredicate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Predicate.IExistsPredicate.html",
+          "hash": "8GmwEVt7XOayUBgosYmtYg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Predicate.IFieldPredicate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Predicate.IFieldPredicate.html",
+          "hash": "EZHoZuapuEZEDRwyivgUmQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Predicate.IMultipleResultReader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Predicate.IMultipleResultReader.html",
+          "hash": "P5OMdeRtCFqvXgb7Xevkew=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Predicate.IPredicate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Predicate.IPredicate.html",
+          "hash": "ZYwkhUrSdy5OUlBwje1Obw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Predicate.IPredicateGroup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Predicate.IPredicateGroup.html",
+          "hash": "671QdnaT0AkQR2QIbeNiQQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Predicate.IPropertyPredicate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Predicate.IPropertyPredicate.html",
+          "hash": "XyIRi1DiaHjZ1GgS/h6s4A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Predicate.ISort.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Predicate.ISort.html",
+          "hash": "coQjyemtMc/6Ej152Uw2iQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Predicate.Operator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Predicate.Operator.html",
+          "hash": "ogcvOTOf4HWruWQMAcs72A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Predicate.PredicateGroup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Predicate.PredicateGroup.html",
+          "hash": "x1fqzuL53Vk0TJ+bUqZr5Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Predicate.Predicates.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Predicate.Predicates.html",
+          "hash": "uAk6K/elCRUE1RqCU2jSlA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Predicate.PropertyPredicate-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Predicate.PropertyPredicate-2.html",
+          "hash": "YCkelUdwyxqTTfLfvqUSkg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Predicate.SequenceReaderResultReader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Predicate.SequenceReaderResultReader.html",
+          "hash": "nCf52mo4KeftcEaEDFYV0g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Predicate.Sort.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Predicate.Sort.html",
+          "hash": "RcvC36LM85l1Sf2wuxQiYw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Predicate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Predicate.html",
+          "hash": "wK3OxmxIPpXpRiZ+lngWjA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Sql.ISqlDialect.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Sql.ISqlDialect.html",
+          "hash": "zyd+u8ZvJ9z6vTdFViUD1w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Sql.ISqlGenerator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Sql.ISqlGenerator.html",
+          "hash": "iKQhNCVkKILt3ynVJkPIGg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Sql.SqlDialectBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Sql.SqlDialectBase.html",
+          "hash": "Asc9xWl6zKM9gV858iAUYA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Sql.SqlGeneratorImpl.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Sql.SqlGeneratorImpl.html",
+          "hash": "DuSslTG6hzqD4mCS4YCdjA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Sql.SqlServerDialect.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Sql.SqlServerDialect.html",
+          "hash": "HpNndvA84upBkjbbIwC9Lw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.Sql.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.Sql.html",
+          "hash": "S24r6OAfykXI7DQNlMEgDw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DapperDal.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DapperDal.html",
+          "hash": "Nr7MVkMIMSfQwujp9jMkZg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "bwp1KcnXlaApxwwpON0rJg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "kf5gmA7kaQ0QiJgDA9zIrQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "0Nj0yOTXINQPZa4/ixpsdw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": true,
+        "incrementalPhase": "build"
+      },
+      "processors": {
+        "RestApiDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor RestApiDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build"
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build"
+        },
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": true,
+        "details": "Can support incremental post processing.",
+        "incrementalPhase": "postProcessing"
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {}
+}

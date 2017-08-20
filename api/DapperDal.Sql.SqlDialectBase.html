@@ -1,0 +1,898 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class SqlDialectBase
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class SqlDialectBase
+   ">
+    <meta name="generator" content="docfx 2.22.3.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="DapperDal.Sql.SqlDialectBase">
+  
+  
+  <h1 id="DapperDal_Sql_SqlDialectBase" data-uid="DapperDal.Sql.SqlDialectBase" class="text-break">Class SqlDialectBase
+  </h1>
+  <div class="markdown level0 summary"><p>SQL方言基类</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">SqlDialectBase</span></div>
+  </div>
+      <div class="level2"><a class="xref" href="DapperDal.Sql.SqlServerDialect.html">SqlServerDialect</a></div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="DapperDal.Sql.html">DapperDal.Sql</a></h6>
+  <h6><strong>Assembly</strong>: DapperDal.dll</h6>
+  <h5 id="DapperDal_Sql_SqlDialectBase_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class SqlDialectBase : ISqlDialect</code></pre>
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Sql_SqlDialectBase_BatchSeperator.md&amp;value=---%0Auid%3A%20DapperDal.Sql.SqlDialectBase.BatchSeperator%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Sql/SqlDialectBase.cs/#L136">View Source</a>
+  </span>
+  <a id="DapperDal_Sql_SqlDialectBase_BatchSeperator_" data-uid="DapperDal.Sql.SqlDialectBase.BatchSeperator*"></a>
+  <h4 id="DapperDal_Sql_SqlDialectBase_BatchSeperator" data-uid="DapperDal.Sql.SqlDialectBase.BatchSeperator">BatchSeperator</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string BatchSeperator { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="DapperDal.Sql.ISqlDialect.html#DapperDal_Sql_ISqlDialect_BatchSeperator">ISqlDialect.BatchSeperator</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Sql_SqlDialectBase_CloseQuote.md&amp;value=---%0Auid%3A%20DapperDal.Sql.SqlDialectBase.CloseQuote%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Sql/SqlDialectBase.cs/#L130">View Source</a>
+  </span>
+  <a id="DapperDal_Sql_SqlDialectBase_CloseQuote_" data-uid="DapperDal.Sql.SqlDialectBase.CloseQuote*"></a>
+  <h4 id="DapperDal_Sql_SqlDialectBase_CloseQuote" data-uid="DapperDal.Sql.SqlDialectBase.CloseQuote">CloseQuote</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual char CloseQuote { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Char</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="DapperDal.Sql.ISqlDialect.html#DapperDal_Sql_ISqlDialect_CloseQuote">ISqlDialect.CloseQuote</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Sql_SqlDialectBase_EmptyExpression.md&amp;value=---%0Auid%3A%20DapperDal.Sql.SqlDialectBase.EmptyExpression%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Sql/SqlDialectBase.cs/#L154">View Source</a>
+  </span>
+  <a id="DapperDal_Sql_SqlDialectBase_EmptyExpression_" data-uid="DapperDal.Sql.SqlDialectBase.EmptyExpression*"></a>
+  <h4 id="DapperDal_Sql_SqlDialectBase_EmptyExpression" data-uid="DapperDal.Sql.SqlDialectBase.EmptyExpression">EmptyExpression</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string EmptyExpression { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="DapperDal.Sql.ISqlDialect.html#DapperDal_Sql_ISqlDialect_EmptyExpression">ISqlDialect.EmptyExpression</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Sql_SqlDialectBase_OpenQuote.md&amp;value=---%0Auid%3A%20DapperDal.Sql.SqlDialectBase.OpenQuote%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Sql/SqlDialectBase.cs/#L124">View Source</a>
+  </span>
+  <a id="DapperDal_Sql_SqlDialectBase_OpenQuote_" data-uid="DapperDal.Sql.SqlDialectBase.OpenQuote*"></a>
+  <h4 id="DapperDal_Sql_SqlDialectBase_OpenQuote" data-uid="DapperDal.Sql.SqlDialectBase.OpenQuote">OpenQuote</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual char OpenQuote { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Char</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="DapperDal.Sql.ISqlDialect.html#DapperDal_Sql_ISqlDialect_OpenQuote">ISqlDialect.OpenQuote</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Sql_SqlDialectBase_ParameterPrefix.md&amp;value=---%0Auid%3A%20DapperDal.Sql.SqlDialectBase.ParameterPrefix%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Sql/SqlDialectBase.cs/#L148">View Source</a>
+  </span>
+  <a id="DapperDal_Sql_SqlDialectBase_ParameterPrefix_" data-uid="DapperDal.Sql.SqlDialectBase.ParameterPrefix*"></a>
+  <h4 id="DapperDal_Sql_SqlDialectBase_ParameterPrefix" data-uid="DapperDal.Sql.SqlDialectBase.ParameterPrefix">ParameterPrefix</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual char ParameterPrefix { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Char</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="DapperDal.Sql.ISqlDialect.html#DapperDal_Sql_ISqlDialect_ParameterPrefix">ISqlDialect.ParameterPrefix</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Sql_SqlDialectBase_SupportsMultipleStatements.md&amp;value=---%0Auid%3A%20DapperDal.Sql.SqlDialectBase.SupportsMultipleStatements%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Sql/SqlDialectBase.cs/#L142">View Source</a>
+  </span>
+  <a id="DapperDal_Sql_SqlDialectBase_SupportsMultipleStatements_" data-uid="DapperDal.Sql.SqlDialectBase.SupportsMultipleStatements*"></a>
+  <h4 id="DapperDal_Sql_SqlDialectBase_SupportsMultipleStatements" data-uid="DapperDal.Sql.SqlDialectBase.SupportsMultipleStatements">SupportsMultipleStatements</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool SupportsMultipleStatements { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="DapperDal.Sql.ISqlDialect.html#DapperDal_Sql_ISqlDialect_SupportsMultipleStatements">ISqlDialect.SupportsMultipleStatements</a></div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Sql_SqlDialectBase_GetColumnName_System_String_System_String_System_String_.md&amp;value=---%0Auid%3A%20DapperDal.Sql.SqlDialectBase.GetColumnName(System.String%2CSystem.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Sql/SqlDialectBase.cs/#L183">View Source</a>
+  </span>
+  <a id="DapperDal_Sql_SqlDialectBase_GetColumnName_" data-uid="DapperDal.Sql.SqlDialectBase.GetColumnName*"></a>
+  <h4 id="DapperDal_Sql_SqlDialectBase_GetColumnName_System_String_System_String_System_String_" data-uid="DapperDal.Sql.SqlDialectBase.GetColumnName(System.String,System.String,System.String)">GetColumnName(String, String, String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string GetColumnName(string prefix, string columnName, string alias)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">prefix</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">columnName</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">alias</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="DapperDal.Sql.ISqlDialect.html#DapperDal_Sql_ISqlDialect_GetColumnName_System_String_System_String_System_String_">ISqlDialect.GetColumnName(String, String, String)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Sql_SqlDialectBase_GetIdentitySql_System_String_.md&amp;value=---%0Auid%3A%20DapperDal.Sql.SqlDialectBase.GetIdentitySql(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Sql/SqlDialectBase.cs/#L207">View Source</a>
+  </span>
+  <a id="DapperDal_Sql_SqlDialectBase_GetIdentitySql_" data-uid="DapperDal.Sql.SqlDialectBase.GetIdentitySql*"></a>
+  <h4 id="DapperDal_Sql_SqlDialectBase_GetIdentitySql_System_String_" data-uid="DapperDal.Sql.SqlDialectBase.GetIdentitySql(System.String)">GetIdentitySql(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract string GetIdentitySql(string tableName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">tableName</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="DapperDal.Sql.ISqlDialect.html#DapperDal_Sql_ISqlDialect_GetIdentitySql_System_String_">ISqlDialect.GetIdentitySql(String)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Sql_SqlDialectBase_GetPagingSql_System_String_System_Int32_System_Int32_System_Collections_Generic_IDictionary_System_String_System_Object__.md&amp;value=---%0Auid%3A%20DapperDal.Sql.SqlDialectBase.GetPagingSql(System.String%2CSystem.Int32%2CSystem.Int32%2CSystem.Collections.Generic.IDictionary%7BSystem.String%2CSystem.Object%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Sql/SqlDialectBase.cs/#L210">View Source</a>
+  </span>
+  <a id="DapperDal_Sql_SqlDialectBase_GetPagingSql_" data-uid="DapperDal.Sql.SqlDialectBase.GetPagingSql*"></a>
+  <h4 id="DapperDal_Sql_SqlDialectBase_GetPagingSql_System_String_System_Int32_System_Int32_System_Collections_Generic_IDictionary_System_String_System_Object__" data-uid="DapperDal.Sql.SqlDialectBase.GetPagingSql(System.String,System.Int32,System.Int32,System.Collections.Generic.IDictionary{System.String,System.Object})">GetPagingSql(String, Int32, Int32, IDictionary&lt;String, Object&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract string GetPagingSql(string sql, int page, int resultsPerPage, IDictionary&lt;string, object&gt; parameters)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">sql</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">page</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">resultsPerPage</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IDictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Object</span>&gt;</td>
+        <td><span class="parametername">parameters</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="DapperDal.Sql.ISqlDialect.html#DapperDal_Sql_ISqlDialect_GetPagingSql_System_String_System_Int32_System_Int32_System_Collections_Generic_IDictionary_System_String_System_Object__">ISqlDialect.GetPagingSql(String, Int32, Int32, IDictionary&lt;String, Object&gt;)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Sql_SqlDialectBase_GetSetSql_System_String_System_Int32_System_Int32_System_Collections_Generic_IDictionary_System_String_System_Object__.md&amp;value=---%0Auid%3A%20DapperDal.Sql.SqlDialectBase.GetSetSql(System.String%2CSystem.Int32%2CSystem.Int32%2CSystem.Collections.Generic.IDictionary%7BSystem.String%2CSystem.Object%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Sql/SqlDialectBase.cs/#L214">View Source</a>
+  </span>
+  <a id="DapperDal_Sql_SqlDialectBase_GetSetSql_" data-uid="DapperDal.Sql.SqlDialectBase.GetSetSql*"></a>
+  <h4 id="DapperDal_Sql_SqlDialectBase_GetSetSql_System_String_System_Int32_System_Int32_System_Collections_Generic_IDictionary_System_String_System_Object__" data-uid="DapperDal.Sql.SqlDialectBase.GetSetSql(System.String,System.Int32,System.Int32,System.Collections.Generic.IDictionary{System.String,System.Object})">GetSetSql(String, Int32, Int32, IDictionary&lt;String, Object&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract string GetSetSql(string sql, int firstResult, int maxResults, IDictionary&lt;string, object&gt; parameters)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">sql</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">firstResult</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">maxResults</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IDictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Object</span>&gt;</td>
+        <td><span class="parametername">parameters</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="DapperDal.Sql.ISqlDialect.html#DapperDal_Sql_ISqlDialect_GetSetSql_System_String_System_Int32_System_Int32_System_Collections_Generic_IDictionary_System_String_System_Object__">ISqlDialect.GetSetSql(String, Int32, Int32, IDictionary&lt;String, Object&gt;)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Sql_SqlDialectBase_GetTableName_System_String_System_String_System_String_.md&amp;value=---%0Auid%3A%20DapperDal.Sql.SqlDialectBase.GetTableName(System.String%2CSystem.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Sql/SqlDialectBase.cs/#L160">View Source</a>
+  </span>
+  <a id="DapperDal_Sql_SqlDialectBase_GetTableName_" data-uid="DapperDal.Sql.SqlDialectBase.GetTableName*"></a>
+  <h4 id="DapperDal_Sql_SqlDialectBase_GetTableName_System_String_System_String_System_String_" data-uid="DapperDal.Sql.SqlDialectBase.GetTableName(System.String,System.String,System.String)">GetTableName(String, String, String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string GetTableName(string schemaName, string tableName, string alias)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">schemaName</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">tableName</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">alias</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="DapperDal.Sql.ISqlDialect.html#DapperDal_Sql_ISqlDialect_GetTableName_System_String_System_String_System_String_">ISqlDialect.GetTableName(String, String, String)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Sql_SqlDialectBase_IsQuoted_System_String_.md&amp;value=---%0Auid%3A%20DapperDal.Sql.SqlDialectBase.IsQuoted(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Sql/SqlDialectBase.cs/#L218">View Source</a>
+  </span>
+  <a id="DapperDal_Sql_SqlDialectBase_IsQuoted_" data-uid="DapperDal.Sql.SqlDialectBase.IsQuoted*"></a>
+  <h4 id="DapperDal_Sql_SqlDialectBase_IsQuoted_System_String_" data-uid="DapperDal.Sql.SqlDialectBase.IsQuoted(System.String)">IsQuoted(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool IsQuoted(string value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="DapperDal.Sql.ISqlDialect.html#DapperDal_Sql_ISqlDialect_IsQuoted_System_String_">ISqlDialect.IsQuoted(String)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Sql_SqlDialectBase_QuoteString_System_String_.md&amp;value=---%0Auid%3A%20DapperDal.Sql.SqlDialectBase.QuoteString(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Sql/SqlDialectBase.cs/#L229">View Source</a>
+  </span>
+  <a id="DapperDal_Sql_SqlDialectBase_QuoteString_" data-uid="DapperDal.Sql.SqlDialectBase.QuoteString*"></a>
+  <h4 id="DapperDal_Sql_SqlDialectBase_QuoteString_System_String_" data-uid="DapperDal.Sql.SqlDialectBase.QuoteString(System.String)">QuoteString(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string QuoteString(string value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="DapperDal.Sql.ISqlDialect.html#DapperDal_Sql_ISqlDialect_QuoteString_System_String_">ISqlDialect.QuoteString(String)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Sql_SqlDialectBase_SelectLimit_System_String_System_Int32_.md&amp;value=---%0Auid%3A%20DapperDal.Sql.SqlDialectBase.SelectLimit(System.String%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Sql/SqlDialectBase.cs/#L245">View Source</a>
+  </span>
+  <a id="DapperDal_Sql_SqlDialectBase_SelectLimit_" data-uid="DapperDal.Sql.SqlDialectBase.SelectLimit*"></a>
+  <h4 id="DapperDal_Sql_SqlDialectBase_SelectLimit_System_String_System_Int32_" data-uid="DapperDal.Sql.SqlDialectBase.SelectLimit(System.String,System.Int32)">SelectLimit(String, Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string SelectLimit(string sql, int limit)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">sql</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">limit</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="DapperDal.Sql.ISqlDialect.html#DapperDal_Sql_ISqlDialect_SelectLimit_System_String_System_Int32_">ISqlDialect.SelectLimit(String, Int32)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Sql_SqlDialectBase_SetNolock_System_String_.md&amp;value=---%0Auid%3A%20DapperDal.Sql.SqlDialectBase.SetNolock(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Sql/SqlDialectBase.cs/#L251">View Source</a>
+  </span>
+  <a id="DapperDal_Sql_SqlDialectBase_SetNolock_" data-uid="DapperDal.Sql.SqlDialectBase.SetNolock*"></a>
+  <h4 id="DapperDal_Sql_SqlDialectBase_SetNolock_System_String_" data-uid="DapperDal.Sql.SqlDialectBase.SetNolock(System.String)">SetNolock(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string SetNolock(string sql)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">sql</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="DapperDal.Sql.ISqlDialect.html#DapperDal_Sql_ISqlDialect_SetNolock_System_String_">ISqlDialect.SetNolock(String)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Sql_SqlDialectBase_UnQuoteString_System_String_.md&amp;value=---%0Auid%3A%20DapperDal.Sql.SqlDialectBase.UnQuoteString(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Sql/SqlDialectBase.cs/#L239">View Source</a>
+  </span>
+  <a id="DapperDal_Sql_SqlDialectBase_UnQuoteString_" data-uid="DapperDal.Sql.SqlDialectBase.UnQuoteString*"></a>
+  <h4 id="DapperDal_Sql_SqlDialectBase_UnQuoteString_System_String_" data-uid="DapperDal.Sql.SqlDialectBase.UnQuoteString(System.String)">UnQuoteString(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string UnQuoteString(string value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="DapperDal.Expressions.SortingExtensions.html#DapperDal_Expressions_SortingExtensions_ToSortable_System_Object_">SortingExtensions.ToSortable(Object)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Sql_SqlDialectBase.md&amp;value=---%0Auid%3A%20DapperDal.Sql.SqlDialectBase%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Sql/SqlDialectBase.cs/#L121" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2015-2017 Microsoft<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

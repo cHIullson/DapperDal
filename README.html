@@ -1,0 +1,483 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>DapperDal - &#31616;&#21333;&#26131;&#29992;&#30340;&#24494; ORM &#31867;&#24211;&#65292;&#25968;&#25454;&#35775;&#38382;&#23618;&#22522;&#31867; </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="DapperDal - &#31616;&#21333;&#26131;&#29992;&#30340;&#24494; ORM &#31867;&#24211;&#65292;&#25968;&#25454;&#35775;&#38382;&#23618;&#22522;&#31867; ">
+    <meta name="generator" content="docfx 2.22.3.0">
+    
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles/docfx.vendor.css">
+    <link rel="stylesheet" href="styles/docfx.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <meta property="docfx:navrel" content="toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="index.html">
+                <img id="logo" class="svg" src="logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="dapperdal---简单易用的微-orm-类库数据访问层基类">DapperDal - 简单易用的微 ORM 类库，数据访问层基类</h1>
+
+<p><a href="https://www.nuget.org/packages/DapperDal/"><img src="https://buildstats.info/nuget/DapperDal" alt="NuGet Badge"></a>
+<a href="https://ci.appveyor.com/project/arbing/dapperdal"><img src="https://ci.appveyor.com/api/projects/status/rxogkxvhdthd4rf0?svg=true" alt="Build status"></a></p>
+<h2 id="introduction">Introduction</h2>
+<p>基于 <code>Dapper</code>、<code>Dapper-Extensions</code> 构建的微型 ORM 类库，提供一个包含增、删、改、查等常用方法的数据访问层基类，支持用 <code>Lambda</code> 表达式书写查询和更新条件。</p>
+<h2 id="features">Features</h2>
+<ul>
+<li>零配置，开箱即用。</li>
+<li>数据库表、实体类型自动映射，主键自动映射。实体类上无需定义 Attribute。</li>
+<li>灵活易用的增、删、改、查、分页查询等常用重载方法，单表操作无需编写任何 SQL 语句。</li>
+<li>查询和更新条件支持 <code>Lambda</code> 表达式组合，自动生成安全参数化的 SQL 语句。</li>
+<li>提供 SQL 语句、存储过程执行方法，返回结果集自动模型映射，比 DataSet 效率高。</li>
+<li>支持部分字段更新，无变化字段不更新。</li>
+<li>数据库表字段变化时重新生成实体类即可，数据访问层无需重新生成。</li>
+<li>基类定义了 IDbConnection 属性，所有 <code>Dapper</code>、<code>Dapper-Extensions</code> 方法都能使用。</li>
+<li>完善的单元测试。</li>
+<li>命名约定：实体类名和数据库表名应匹配，实体属性名与表字段名应匹配。主键字段名应以 <code>Id</code> 命名或结尾</li>
+<li>限制：多表联合查询还是需要编写 SQL 语句或者存储过程。</li>
+</ul>
+<h2 id="installation">Installation</h2>
+<p><a href="https://www.nuget.org/packages/DapperDal">https://www.nuget.org/packages/DapperDal</a></p>
+<pre><code>PM&gt; Install-Package DapperDal
+</code></pre><h2 id="api-document">API Document</h2>
+<p><a href="https://arbing.github.io/DapperDal">https://arbing.github.io/DapperDal</a></p>
+<h2 id="examples">Examples</h2>
+<p>定义实体类 PersonEntity</p>
+<pre><code>/// &lt;summary&gt;
+/// 人员信息表实体类
+/// &lt;/summary&gt;
+public class PersonEntity
+{
+    public long PersonId { get; set; }
+
+    public string PersonName { get; set; }
+
+    public int CarId { get; set; }
+
+    public DateTime CreateTime { get; set; }
+
+    public DateTime UpdateTime { get; set; }
+
+    public short IsActive { get; set; }
+}
+</code></pre><p>数据访问层定义DAL类 PersonDal，继承自 DalBase<personentity, long=""><p>
+<pre><code>/// &lt;summary&gt;
+/// 人员信息表数据访问类
+/// &lt;/summary&gt;
+public class PersonDal : DalBase&lt;PersonEntity, long&gt;
+{
+    public PersonDal() : base(ConnectionNames.Default)
+    {
+
+    }
+    ...
+}
+</code></pre><p>单条插入</p>
+<pre><code>var personDal = new PersonDal();
+
+PersonEntity p = new PersonEntity { PersonName = &quot;Foo&quot;, CreateTime = DateTime.Now, UpdateTime = DateTime.Now };
+
+long id = personDal.Insert(p);
+</code></pre><p>多条批量插入</p>
+<pre><code>var personDal = new PersonDal();
+
+PersonEntity p1 = new PersonEntity { PersonName = &quot;Foo&quot;, CreateTime = DateTime.Now, UpdateTime = DateTime.Now };
+PersonEntity p2 = new PersonEntity { PersonName = &quot;Bar&quot;, CreateTime = DateTime.Now, UpdateTime = DateTime.Now };
+PersonEntity p3 = new PersonEntity { PersonName = &quot;Baz&quot;, CreateTime = DateTime.Now, UpdateTime = DateTime.Now };
+
+personDal.Insert(new[] { p1, p2, p3 });
+</code></pre><p>主键获取</p>
+<pre><code>var personDal = new PersonDal();
+
+long personId = 1;
+
+PersonEntity person = personDal.Get(id);
+</code></pre><p>条件获取</p>
+<pre><code>var personDal = new PersonDal();
+
+PersonEntity person = personDal.GetFirst(p =&gt; p.PersonId = 1);
+
+PersonEntity person = personDal.GetFirst(p =&gt; p.IsActive != 1);
+
+PersonEntity person = personDal.GetFirst(p =&gt; UpdateTime &gt;= DateTime.Today);
+
+PersonEntity person = personDal.GetFirst(p =&gt; p.PersonId = 1 &amp;&amp; p.IsActive == 1);
+
+PersonEntity person = personDal.GetFirst(p =&gt; p.PersonId = 1 || p.PersonName = &quot;Foo&quot;);
+
+PersonEntity person = personDal.GetFirst(p =&gt; p.IsActive == 1 &amp;&amp; (p.PersonName == &quot;Foo&quot; || p.CarId == 3));
+
+PersonEntity person = personDal.GetFirst(p =&gt; p.PersonName.Equals(&quot;Foo&quot;));
+PersonEntity person = personDal.GetFirst(p =&gt; p.PersonName.Contains(&quot;a&quot;));
+PersonEntity person = personDal.GetFirst(p =&gt; p.PersonName.StartsWith(&quot;Ba&quot;));
+PersonEntity person = personDal.GetFirst(p =&gt; p.PersonName.EndsWith(&quot;az&quot;));
+
+var carIds = new[] { p2.CarId, 3, 2};
+PersonEntity person = personDal.GetFirst(p =&gt; carIds.Contains(p.CarId));
+</code></pre><p>判断实体是否存在</p>
+<pre><code>var personDal = new PersonDal();
+
+bool isExsit = personDal.Exsit(id: 1);
+bool isExsit = personDal.Exsit(p =&gt; p.PersonId = 1);
+</code></pre><p>更新实体</p>
+<pre><code>var p2 = personDal.Get(id);
+p2.IsActive = 1;
+p2.PersonName = &quot;Baz&quot;;
+
+var result = personDal.Update(p2);
+</code></pre><p>更新指定实体指定属性</p>
+<pre><code>var p2 = personDal.Get(id);
+
+p2.PersonName = &quot;Baz&quot;;
+p2.CarId = 2;
+p2.IsActive = 1;
+bool result = personDal.Update(p2, new[] { &quot;personName&quot;, &quot;CarId&quot;, &quot;CarName&quot; });
+
+bool result = personDal.Update(p2, new { personName = &quot;Baz&quot;, CarId = 2 });
+
+bool result = personDal.Update(p2.PersonId, new { personName = &quot;Baz&quot;, CarId = 2 });
+
+var personName = p2.PersonName;
+bool result = personDal.Update(new { p2.PersonId, personName, p2.CarId, CarName = &quot;CarName&quot; });
+</code></pre><p>根据指定更新条件更新实体指定属性</p>
+<pre><code>var personName = p2.PersonName;
+bool result = personDal.Update(new { personName, p2.CarId, CarName = &quot;CarName&quot; }, p =&gt; p.PersonId == p2.PersonId);
+</code></pre><p>删除实体</p>
+<pre><code>PersonEntity p2 = personDal.Get(id);
+bool result = personDal.Delete(p2);
+
+bool result = personDal.Delete(p2.PersonId);
+
+bool result = personDal.Delete(p =&gt; p.PersonName == &quot;Bar&quot;);
+</code></pre><p>列表查询</p>
+<pre><code>IEnumerable&lt;PersonEntity&gt; persons = personDal.GetList().ToList();
+
+IEnumerable&lt;PersonEntity&gt; persons = personDal.GetList(SortDirection.Descending, p =&gt; p.CarId);
+
+IEnumerable&lt;PersonEntity&gt; persons = personDal.GetList(p.IsActive == 1 &amp;&amp; p.PersonName == &quot;c&quot;);
+
+var predicate = PredicateBuilder.True&lt;PersonEntity&gt;();
+predicate = predicate.And(p =&gt; p.IsActive == 1);
+predicate = predicate.And(p =&gt; p.PersonName == &quot;c&quot;);
+IEnumerable&lt;PersonEntity&gt; persons = personDal.GetList(predicate);
+
+var sort = new List&lt;Sort&gt;() { new Sort { PropertyName = &quot;CarId&quot;, Ascending = false } };
+IEnumerable&lt;PersonEntity&gt; persons = personDal.GetList(p =&gt; p.IsActive == 1, sort).ToList();
+
+IEnumerable&lt;PersonEntity&gt; persons = personDal.GetList(p =&gt; p.IsActive == 1, SortDirection.Descending, p =&gt; p.CarId).ToList();
+</code></pre><p>生成的 SQL</p>
+<pre><code>SELECT [Person].[PersonId], [Person].[PersonName], [Person].[CarId], [Person].[CreateTime], [Person].[UpdateTime], [Person].[IsActive] 
+FROM [Person] WITH (NOLOCK) 
+WHERE ([Person].[IsActive] = @IsActive_0) 
+ORDER BY [Person].[CarId] DESC
+</code></pre><p>获取总条数</p>
+<pre><code>int count = personDal.Count(p =&gt; p.IsActive == 1)
+</code></pre><p>生成的 SQL</p>
+<pre><code>SELECT COUNT(*) AS [Total] FROM [Person] WITH (NOLOCK) 
+WHERE ([Person].[IsActive] = @IsActive_0)
+</code></pre><p>列表分页查询</p>
+<pre><code>IEnumerable&lt;PersonEntity&gt; persons = personDal.GetListPaged(p =&gt; p.IsActive == 1, new { CarId = SortDirection.Descending }, pageNumber: 1, itemsPerPage: 20).ToList()
+</code></pre><p>生成的 SQL</p>
+<pre><code>SELECT TOP(20) [_proj].[PersonId], [_proj].[PersonName], [_proj].[CarId], [_proj].[CreateTime], [_proj].[UpdateTime], [_proj].[IsActive] 
+FROM (
+  SELECT ROW_NUMBER() OVER(ORDER BY [Person].[CarId] DESC) AS [_row_number], 
+  [Person].[PersonId], [Person].[PersonName], [Person].[CarId], [Person].[CreateTime], [Person].[UpdateTime], [Person].[IsActive] 
+  FROM [Person] WITH (NOLOCK) 
+  WHERE ([Person].[IsActive] = @IsActive_0)) [_proj] 
+WHERE [_proj].[_row_number] &gt;= @_pageStartRow 
+ORDER BY [_proj].[_row_number]
+</code></pre><p>执行查询语句</p>
+<pre><code>IEnumerable&lt;PersonModel&gt; list = personDal.Query&lt;PersonModel&gt;(
+    &quot;select PersonName as Name, CarId from Person where CarId = @CarId&quot;, new { CarId = 3 });
+</code></pre><p>执行查询存储过程</p>
+<pre><code>IEnumerable&lt;PersonModel&gt; list = personDal.Query&lt;PersonModel&gt;(
+    &quot;dbo.P_GetPersonModelsByCarId&quot;,
+    new { CarId = 3 }, System.Data.CommandType.StoredProcedure);
+</code></pre><p>执行多结果集查询语句</p>
+<pre><code>Tuple&lt;IEnumerable&lt;PersonEntity&gt;, IEnumerable&lt;PersonModel&gt;&gt; tuple = personDal.QueryMultiple&lt;PersonEntity, PersonModel&gt;(
+    &quot;select * from Person where CarId = @CarId;select PersonName AS [Name], CarId from Person where CarId = @CarId&quot;,
+    new { CarId = 3 });
+</code></pre><p>执行多结果集查询存储过程</p>
+<pre><code>Tuple&lt;IEnumerable&lt;PersonEntity&gt;, IEnumerable&lt;PersonModel&gt;&gt; tuple = personDal.QueryMultiple&lt;PersonEntity, PersonModel&gt;(
+    &quot;P_GetPersonMultipleModelsByCarId&quot;, new { CarId = 3 }, System.Data.CommandType.StoredProcedure);
+</code></pre><p>执行语句</p>
+<pre><code>int affected = personDal.Execute(&quot;update Person set IsActive = 1 where CarId = @CarId&quot;, new { CarId = 3 });
+</code></pre><p>执行存储过程</p>
+<pre><code>int affected = personDal.Execute(&quot;P_SetPersonsByCarId&quot;, new { CarId = 3 }, System.Data.CommandType.StoredProcedure);
+</code></pre><p>执行带返回参数的存储过程</p>
+<pre><code>var parameters = new DynamicParameters(new { CarId = 3 });
+parameters.Add(&quot;TotalCount&quot;, dbType: System.Data.DbType.Int32, direction: System.Data.ParameterDirection.Output);
+
+int affected = personDal.Execute(&quot;P_SetPersonsByCarId_OutputCount&quot;, parameters, System.Data.CommandType.StoredProcedure);
+
+int totalCount = parameters.Get&lt;int&gt;(&quot;TotalCount&quot;);
+</code></pre><p>执行带返回参数的查询存储过程</p>
+<pre><code>var parameters = new DynamicParameters(new { CarId = 3 });
+parameters.Add(&quot;TotalCount&quot;, dbType: System.Data.DbType.Int32, direction: System.Data.ParameterDirection.Output);
+
+IEnumerable&lt;PersonModel&gt; list = personDal.Query&lt;PersonModel&gt;(
+    &quot;dbo.P_GetPersonModelsByCarId_OutputCount&quot;,
+    parameters, System.Data.CommandType.StoredProcedure);
+
+int totalCount = parameters.Get&lt;int&gt;(&quot;TotalCount&quot;);
+</code></pre><p>其他常用方法</p>
+<pre><code>打开新的 IDbConnection
+OpenConnection
+
+执行SQL语句，返回第一行第一列数据
+ExecuteScalar
+
+获取前N条
+GetTop
+
+逻辑删除
+SoftDelete
+
+逻辑删除或激活
+SwitchActive
+</code></pre><p>常见应用</p>
+<pre><code>/// &lt;summary&gt;
+/// 请求分页数据时的参数基类
+/// &lt;/summary&gt;
+public class PagedParam
+{
+    /// &lt;summary&gt;
+    /// 初始化
+    /// &lt;/summary&gt;
+    public PagedParam()
+    {
+        PageIndex = 1;
+        PageSize = 10;
+    }
+
+    /// &lt;summary&gt;
+    /// 当前页索引
+    /// &lt;/summary&gt;
+    public int PageIndex { get; set; }
+
+    /// &lt;summary&gt;
+    /// 每页显示的记录数
+    /// &lt;/summary&gt;
+    public int PageSize { get; set; }
+
+    /// &lt;summary&gt;
+    /// 要分页的数据总数
+    /// &lt;/summary&gt;
+    public int RecordCount { get; set; }
+}
+
+/// &lt;summary&gt;
+/// 获取人员分页列表的查询参数
+/// &lt;/summary&gt;
+public class GetPersonPagedListParam : PagedParam
+{
+    public string PersonName { get; set; }
+
+    public int CarId { get; set; }
+
+    /// &lt;summary&gt;
+    /// 创建起始时间
+    /// &lt;/summary&gt;
+    public DateTime? BeginCreateTime { get; set; }
+
+    /// &lt;summary&gt;
+    /// 创建结束时间
+    /// &lt;/summary&gt;
+    public DateTime? EndCreateTime { get; set; }
+}
+
+/// &lt;summary&gt;
+/// 获取人员分页列表的返回实体
+/// &lt;/summary&gt;
+public class GetPersonPagedListOutputDto // : PersonEntity
+{
+    /// 人员信息
+    /// 其他信息
+}
+
+/// &lt;summary&gt;
+/// 人员信息表数据访问类
+/// &lt;/summary&gt;
+public class PersonDal : DalBase&lt;PersonEntity, long&gt;
+{
+    public PersonDal() : base(ConnectionNames.Default)
+    {
+
+    }
+
+    /// &lt;summary&gt;
+    /// 获取人员分页列表
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;param&quot;&gt;查询参数&lt;/param&gt;
+    /// &lt;returns&gt;人员分页列表&lt;/returns&gt;
+    public PagingList&lt;GetPersonPagedListOutputDto&gt; GetPersonPagedList(GetPersonPagedListParam param)
+    {
+        var parameters = new DynamicParameters(param).Output(param, p =&gt; p.RecordCount);
+
+        var list = Query&lt;GetPersonPagedListOutputDto&gt;(
+                &quot;p_GetReplacementOrderPagedList&quot;,
+                parameters,
+                commandType: CommandType.StoredProcedure)
+            .ToList();
+
+        return PagingList.Create(list, param.RecordCount);
+    }
+}
+</code></pre><h2 id="release-notes">Release Notes</h2>
+<h3 id="1516">1.5.16</h3>
+<ul>
+<li>重构，合并 <code>Dapper-Extensions</code> 到 <code>DapperDal</code>，然后移除 <code>Dapper-Extensions</code></li>
+</ul>
+<h3 id="1515">1.5.15</h3>
+<ul>
+<li>删除方法 <code>QueryFirstOrDefault</code>，可以使用 <code>QueryFirst</code> 替换</li>
+<li>添加重载方法 <code>OpenConnection</code>、<code>Execute</code>、<code>Query</code>, 支持传入其他 DB 连接串</li>
+</ul>
+<h3 id="1514">1.5.14</h3>
+<ul>
+<li>添加逻辑删除或激活方法 <code>SwitchActive</code></li>
+<li>删除方法 <code>GetFirstOrDefault</code>，可以使用 <code>GetFirst</code> 替换</li>
+<li>添加支持主键 ID 的重载方法 <code>Update</code>、<code>Delete</code></li>
+<li>配置项 <code>SoftDeleteProps</code> 迁移到 <code>DapperDal</code> 中，新添加配置项 <code>SoftActiveProps</code></li>
+</ul>
+<h3 id="1513">1.5.13</h3>
+<ul>
+<li>添加谓词表达式组合扩展方法（来自<a href="https://github.com/alexfoxgill/ExpressionTools">alexfoxgill/ExpressionTools</a>）</li>
+</ul>
+<h3 id="1512">1.5.12</h3>
+<ul>
+<li>优化 <code>Exsit</code> 、<code>Count</code> 方法</li>
+</ul>
+<h3 id="1511">1.5.11</h3>
+<ul>
+<li>优化更新方法，支持传递小写字段名</li>
+<li>添加判断实体是否存在方法：<code>Exsit</code> </li>
+</ul>
+<h3 id="1510">1.5.10</h3>
+<ul>
+<li>添加逻辑删除方法：<code>SoftDeleteById</code> </li>
+</ul>
+<h3 id="159">1.5.9</h3>
+<ul>
+<li>添加实体查询方法：<code>GetFirstOrDefault</code> 、<code>QueryFirstOrDefault</code> 、<code>QueryFirst</code></li>
+</ul>
+<h3 id="158">1.5.8</h3>
+<ul>
+<li>添加SQL执行方法：<code>Execute</code> 、<code>ExecuteScalar</code></li>
+</ul>
+<h3 id="157">1.5.7</h3>
+<ul>
+<li>添加实体查询方法：<code>GetFirst</code> 、<code>GetTop</code></li>
+<li>优化实体查询方法，添加实体集合返回前是否要缓冲的设置点</li>
+<li>优化逻辑删除，添加更新属性及值的设置点</li>
+</ul>
+<h3 id="156">1.5.6</h3>
+<ul>
+<li>生成查询 SQL 时，添加 <code>WITH (NOLOCK)</code></li>
+<li>添加设置项：SQL 输出方法</li>
+</ul>
+<h3 id="155">1.5.5</h3>
+<ul>
+<li>添加逻辑删除方法 <code>SoftDelete</code> </li>
+</ul>
+<h3 id="154">1.5.4</h3>
+<ul>
+<li>表达式转换用 <code>QueryBuilder</code> 替换 <code>ExpressionVisitor</code> 实现，以支持多个查询条件（来自<a href="https://github.com/ryanwatson/Dapper.Extensions.Linq/blob/master/Dapper.Extensions.Linq/Builder/QueryBuilder.cs">ryanwatson/Dapper.Extensions.Linq</a>）</li>
+</ul>
+<h3 id="153">1.5.3</h3>
+<ul>
+<li>添加支持多个实体查询的 <code>Query</code> 方法</li>
+</ul>
+<h3 id="152">1.5.2</h3>
+<ul>
+<li>添加更新部分属性的 <code>Update</code> 方法（来自<a href="https://github.com/vilix13/Dapper-Extensions">vilix13/Dapper-Extensions</a>）</li>
+<li>添加使用谓词、匿名对象或 <code>lambda</code> 表达式作条件的 <code>Update</code> 方法</li>
+</ul>
+<h3 id="151">1.5.1</h3>
+<ul>
+<li>整合 <code>Abp.Dapper</code>，为 <code>Dapper-Extensions</code> 添加 <code>lambda</code> 表达式功能（来自<a href="https://github.com/arbing/aspnetboilerplate/tree/master/src/Abp.Dapper">Abp.Dapper</a>）</li>
+</ul>
+<h2 id="license">License</h2>
+<p>Apache License 2.0</p>
+</personentity,></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/arbing/DapperDal/blob/master/README.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2015-2017 Microsoft<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="styles/docfx.js"></script>
+    <script type="text/javascript" src="styles/main.js"></script>
+  </body>
+</html>

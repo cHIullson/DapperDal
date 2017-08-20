@@ -1,0 +1,976 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class SqlGeneratorImpl
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class SqlGeneratorImpl
+   ">
+    <meta name="generator" content="docfx 2.22.3.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="DapperDal.Sql.SqlGeneratorImpl">
+  
+  
+  <h1 id="DapperDal_Sql_SqlGeneratorImpl" data-uid="DapperDal.Sql.SqlGeneratorImpl" class="text-break">Class SqlGeneratorImpl
+  </h1>
+  <div class="markdown level0 summary"><p>SQL生成器类</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">SqlGeneratorImpl</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="DapperDal.Sql.html">DapperDal.Sql</a></h6>
+  <h6><strong>Assembly</strong>: DapperDal.dll</h6>
+  <h5 id="DapperDal_Sql_SqlGeneratorImpl_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class SqlGeneratorImpl : ISqlGenerator</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Sql_SqlGeneratorImpl__ctor_DapperDal_IDalConfiguration_.md&amp;value=---%0Auid%3A%20DapperDal.Sql.SqlGeneratorImpl.%23ctor(DapperDal.IDalConfiguration)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Sql/SqlGenerator.cs/#L139">View Source</a>
+  </span>
+  <a id="DapperDal_Sql_SqlGeneratorImpl__ctor_" data-uid="DapperDal.Sql.SqlGeneratorImpl.#ctor*"></a>
+  <h4 id="DapperDal_Sql_SqlGeneratorImpl__ctor_DapperDal_IDalConfiguration_" data-uid="DapperDal.Sql.SqlGeneratorImpl.#ctor(DapperDal.IDalConfiguration)">SqlGeneratorImpl(IDalConfiguration)</h4>
+  <div class="markdown level1 summary"><p>初始化SQL生成器类</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SqlGeneratorImpl(IDalConfiguration configuration)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DapperDal.IDalConfiguration.html">IDalConfiguration</a></td>
+        <td><span class="parametername">configuration</span></td>
+        <td><p>数据访问配置类实例</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Sql_SqlGeneratorImpl_Configuration.md&amp;value=---%0Auid%3A%20DapperDal.Sql.SqlGeneratorImpl.Configuration%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Sql/SqlGenerator.cs/#L145">View Source</a>
+  </span>
+  <a id="DapperDal_Sql_SqlGeneratorImpl_Configuration_" data-uid="DapperDal.Sql.SqlGeneratorImpl.Configuration*"></a>
+  <h4 id="DapperDal_Sql_SqlGeneratorImpl_Configuration" data-uid="DapperDal.Sql.SqlGeneratorImpl.Configuration">Configuration</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IDalConfiguration Configuration { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DapperDal.IDalConfiguration.html">IDalConfiguration</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="DapperDal.Sql.ISqlGenerator.html#DapperDal_Sql_ISqlGenerator_Configuration">ISqlGenerator.Configuration</a></div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Sql_SqlGeneratorImpl_BuildSelectColumns_DapperDal_Mapper_IClassMapper_.md&amp;value=---%0Auid%3A%20DapperDal.Sql.SqlGeneratorImpl.BuildSelectColumns(DapperDal.Mapper.IClassMapper)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Sql/SqlGenerator.cs/#L454">View Source</a>
+  </span>
+  <a id="DapperDal_Sql_SqlGeneratorImpl_BuildSelectColumns_" data-uid="DapperDal.Sql.SqlGeneratorImpl.BuildSelectColumns*"></a>
+  <h4 id="DapperDal_Sql_SqlGeneratorImpl_BuildSelectColumns_DapperDal_Mapper_IClassMapper_" data-uid="DapperDal.Sql.SqlGeneratorImpl.BuildSelectColumns(DapperDal.Mapper.IClassMapper)">BuildSelectColumns(IClassMapper)</h4>
+  <div class="markdown level1 summary"><p>生成所有字段组合语句</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string BuildSelectColumns(IClassMapper classMap)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DapperDal.Mapper.IClassMapper.html">IClassMapper</a></td>
+        <td><span class="parametername">classMap</span></td>
+        <td><p>实体类型映射</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>字段组合语句</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Sql_SqlGeneratorImpl_Count_DapperDal_Mapper_IClassMapper_DapperDal_Predicate_IPredicate_System_Collections_Generic_IDictionary_System_String_System_Object__.md&amp;value=---%0Auid%3A%20DapperDal.Sql.SqlGeneratorImpl.Count(DapperDal.Mapper.IClassMapper%2CDapperDal.Predicate.IPredicate%2CSystem.Collections.Generic.IDictionary%7BSystem.String%2CSystem.Object%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Sql/SqlGenerator.cs/#L275">View Source</a>
+  </span>
+  <a id="DapperDal_Sql_SqlGeneratorImpl_Count_" data-uid="DapperDal.Sql.SqlGeneratorImpl.Count*"></a>
+  <h4 id="DapperDal_Sql_SqlGeneratorImpl_Count_DapperDal_Mapper_IClassMapper_DapperDal_Predicate_IPredicate_System_Collections_Generic_IDictionary_System_String_System_Object__" data-uid="DapperDal.Sql.SqlGeneratorImpl.Count(DapperDal.Mapper.IClassMapper,DapperDal.Predicate.IPredicate,System.Collections.Generic.IDictionary{System.String,System.Object})">Count(IClassMapper, IPredicate, IDictionary&lt;String, Object&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string Count(IClassMapper classMap, IPredicate predicate, IDictionary&lt;string, object&gt; parameters)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DapperDal.Mapper.IClassMapper.html">IClassMapper</a></td>
+        <td><span class="parametername">classMap</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="DapperDal.Predicate.IPredicate.html">IPredicate</a></td>
+        <td><span class="parametername">predicate</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IDictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Object</span>&gt;</td>
+        <td><span class="parametername">parameters</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="DapperDal.Sql.ISqlGenerator.html#DapperDal_Sql_ISqlGenerator_Count_DapperDal_Mapper_IClassMapper_DapperDal_Predicate_IPredicate_System_Collections_Generic_IDictionary_System_String_System_Object__">ISqlGenerator.Count(IClassMapper, IPredicate, IDictionary&lt;String, Object&gt;)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Sql_SqlGeneratorImpl_Delete_DapperDal_Mapper_IClassMapper_DapperDal_Predicate_IPredicate_System_Collections_Generic_IDictionary_System_String_System_Object__.md&amp;value=---%0Auid%3A%20DapperDal.Sql.SqlGeneratorImpl.Delete(DapperDal.Mapper.IClassMapper%2CDapperDal.Predicate.IPredicate%2CSystem.Collections.Generic.IDictionary%7BSystem.String%2CSystem.Object%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Sql/SqlGenerator.cs/#L382">View Source</a>
+  </span>
+  <a id="DapperDal_Sql_SqlGeneratorImpl_Delete_" data-uid="DapperDal.Sql.SqlGeneratorImpl.Delete*"></a>
+  <h4 id="DapperDal_Sql_SqlGeneratorImpl_Delete_DapperDal_Mapper_IClassMapper_DapperDal_Predicate_IPredicate_System_Collections_Generic_IDictionary_System_String_System_Object__" data-uid="DapperDal.Sql.SqlGeneratorImpl.Delete(DapperDal.Mapper.IClassMapper,DapperDal.Predicate.IPredicate,System.Collections.Generic.IDictionary{System.String,System.Object})">Delete(IClassMapper, IPredicate, IDictionary&lt;String, Object&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string Delete(IClassMapper classMap, IPredicate predicate, IDictionary&lt;string, object&gt; parameters)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DapperDal.Mapper.IClassMapper.html">IClassMapper</a></td>
+        <td><span class="parametername">classMap</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="DapperDal.Predicate.IPredicate.html">IPredicate</a></td>
+        <td><span class="parametername">predicate</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IDictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Object</span>&gt;</td>
+        <td><span class="parametername">parameters</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="DapperDal.Sql.ISqlGenerator.html#DapperDal_Sql_ISqlGenerator_Delete_DapperDal_Mapper_IClassMapper_DapperDal_Predicate_IPredicate_System_Collections_Generic_IDictionary_System_String_System_Object__">ISqlGenerator.Delete(IClassMapper, IPredicate, IDictionary&lt;String, Object&gt;)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Sql_SqlGeneratorImpl_GetColumnName_DapperDal_Mapper_IClassMapper_DapperDal_Mapper_IPropertyMap_System_Boolean_.md&amp;value=---%0Auid%3A%20DapperDal.Sql.SqlGeneratorImpl.GetColumnName(DapperDal.Mapper.IClassMapper%2CDapperDal.Mapper.IPropertyMap%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Sql/SqlGenerator.cs/#L420">View Source</a>
+  </span>
+  <a id="DapperDal_Sql_SqlGeneratorImpl_GetColumnName_" data-uid="DapperDal.Sql.SqlGeneratorImpl.GetColumnName*"></a>
+  <h4 id="DapperDal_Sql_SqlGeneratorImpl_GetColumnName_DapperDal_Mapper_IClassMapper_DapperDal_Mapper_IPropertyMap_System_Boolean_" data-uid="DapperDal.Sql.SqlGeneratorImpl.GetColumnName(DapperDal.Mapper.IClassMapper,DapperDal.Mapper.IPropertyMap,System.Boolean)">GetColumnName(IClassMapper, IPropertyMap, Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string GetColumnName(IClassMapper map, IPropertyMap property, bool includeAlias)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DapperDal.Mapper.IClassMapper.html">IClassMapper</a></td>
+        <td><span class="parametername">map</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="DapperDal.Mapper.IPropertyMap.html">IPropertyMap</a></td>
+        <td><span class="parametername">property</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">includeAlias</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="DapperDal.Sql.ISqlGenerator.html#DapperDal_Sql_ISqlGenerator_GetColumnName_DapperDal_Mapper_IClassMapper_DapperDal_Mapper_IPropertyMap_System_Boolean_">ISqlGenerator.GetColumnName(IClassMapper, IPropertyMap, Boolean)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Sql_SqlGeneratorImpl_GetColumnName_DapperDal_Mapper_IClassMapper_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20DapperDal.Sql.SqlGeneratorImpl.GetColumnName(DapperDal.Mapper.IClassMapper%2CSystem.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Sql/SqlGenerator.cs/#L432">View Source</a>
+  </span>
+  <a id="DapperDal_Sql_SqlGeneratorImpl_GetColumnName_" data-uid="DapperDal.Sql.SqlGeneratorImpl.GetColumnName*"></a>
+  <h4 id="DapperDal_Sql_SqlGeneratorImpl_GetColumnName_DapperDal_Mapper_IClassMapper_System_String_System_Boolean_" data-uid="DapperDal.Sql.SqlGeneratorImpl.GetColumnName(DapperDal.Mapper.IClassMapper,System.String,System.Boolean)">GetColumnName(IClassMapper, String, Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string GetColumnName(IClassMapper map, string propertyName, bool includeAlias)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DapperDal.Mapper.IClassMapper.html">IClassMapper</a></td>
+        <td><span class="parametername">map</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">propertyName</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">includeAlias</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="DapperDal.Sql.ISqlGenerator.html#DapperDal_Sql_ISqlGenerator_GetColumnName_DapperDal_Mapper_IClassMapper_System_String_System_Boolean_">ISqlGenerator.GetColumnName(IClassMapper, String, Boolean)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Sql_SqlGeneratorImpl_GetTableName_DapperDal_Mapper_IClassMapper_.md&amp;value=---%0Auid%3A%20DapperDal.Sql.SqlGeneratorImpl.GetTableName(DapperDal.Mapper.IClassMapper)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Sql/SqlGenerator.cs/#L414">View Source</a>
+  </span>
+  <a id="DapperDal_Sql_SqlGeneratorImpl_GetTableName_" data-uid="DapperDal.Sql.SqlGeneratorImpl.GetTableName*"></a>
+  <h4 id="DapperDal_Sql_SqlGeneratorImpl_GetTableName_DapperDal_Mapper_IClassMapper_" data-uid="DapperDal.Sql.SqlGeneratorImpl.GetTableName(DapperDal.Mapper.IClassMapper)">GetTableName(IClassMapper)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string GetTableName(IClassMapper map)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DapperDal.Mapper.IClassMapper.html">IClassMapper</a></td>
+        <td><span class="parametername">map</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="DapperDal.Sql.ISqlGenerator.html#DapperDal_Sql_ISqlGenerator_GetTableName_DapperDal_Mapper_IClassMapper_">ISqlGenerator.GetTableName(IClassMapper)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Sql_SqlGeneratorImpl_IdentitySql_DapperDal_Mapper_IClassMapper_.md&amp;value=---%0Auid%3A%20DapperDal.Sql.SqlGeneratorImpl.IdentitySql(DapperDal.Mapper.IClassMapper)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Sql/SqlGenerator.cs/#L408">View Source</a>
+  </span>
+  <a id="DapperDal_Sql_SqlGeneratorImpl_IdentitySql_" data-uid="DapperDal.Sql.SqlGeneratorImpl.IdentitySql*"></a>
+  <h4 id="DapperDal_Sql_SqlGeneratorImpl_IdentitySql_DapperDal_Mapper_IClassMapper_" data-uid="DapperDal.Sql.SqlGeneratorImpl.IdentitySql(DapperDal.Mapper.IClassMapper)">IdentitySql(IClassMapper)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string IdentitySql(IClassMapper classMap)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DapperDal.Mapper.IClassMapper.html">IClassMapper</a></td>
+        <td><span class="parametername">classMap</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="DapperDal.Sql.ISqlGenerator.html#DapperDal_Sql_ISqlGenerator_IdentitySql_DapperDal_Mapper_IClassMapper_">ISqlGenerator.IdentitySql(IClassMapper)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Sql_SqlGeneratorImpl_Insert_DapperDal_Mapper_IClassMapper_.md&amp;value=---%0Auid%3A%20DapperDal.Sql.SqlGeneratorImpl.Insert(DapperDal.Mapper.IClassMapper)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Sql/SqlGenerator.cs/#L307">View Source</a>
+  </span>
+  <a id="DapperDal_Sql_SqlGeneratorImpl_Insert_" data-uid="DapperDal.Sql.SqlGeneratorImpl.Insert*"></a>
+  <h4 id="DapperDal_Sql_SqlGeneratorImpl_Insert_DapperDal_Mapper_IClassMapper_" data-uid="DapperDal.Sql.SqlGeneratorImpl.Insert(DapperDal.Mapper.IClassMapper)">Insert(IClassMapper)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string Insert(IClassMapper classMap)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DapperDal.Mapper.IClassMapper.html">IClassMapper</a></td>
+        <td><span class="parametername">classMap</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="DapperDal.Sql.ISqlGenerator.html#DapperDal_Sql_ISqlGenerator_Insert_DapperDal_Mapper_IClassMapper_">ISqlGenerator.Insert(IClassMapper)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Sql_SqlGeneratorImpl_Select_DapperDal_Mapper_IClassMapper_DapperDal_Predicate_IPredicate_System_Collections_Generic_IList_DapperDal_Predicate_ISort__System_Collections_Generic_IDictionary_System_String_System_Object__System_Int32_.md&amp;value=---%0Auid%3A%20DapperDal.Sql.SqlGeneratorImpl.Select(DapperDal.Mapper.IClassMapper%2CDapperDal.Predicate.IPredicate%2CSystem.Collections.Generic.IList%7BDapperDal.Predicate.ISort%7D%2CSystem.Collections.Generic.IDictionary%7BSystem.String%2CSystem.Object%7D%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Sql/SqlGenerator.cs/#L148">View Source</a>
+  </span>
+  <a id="DapperDal_Sql_SqlGeneratorImpl_Select_" data-uid="DapperDal.Sql.SqlGeneratorImpl.Select*"></a>
+  <h4 id="DapperDal_Sql_SqlGeneratorImpl_Select_DapperDal_Mapper_IClassMapper_DapperDal_Predicate_IPredicate_System_Collections_Generic_IList_DapperDal_Predicate_ISort__System_Collections_Generic_IDictionary_System_String_System_Object__System_Int32_" data-uid="DapperDal.Sql.SqlGeneratorImpl.Select(DapperDal.Mapper.IClassMapper,DapperDal.Predicate.IPredicate,System.Collections.Generic.IList{DapperDal.Predicate.ISort},System.Collections.Generic.IDictionary{System.String,System.Object},System.Int32)">Select(IClassMapper, IPredicate, IList&lt;ISort&gt;, IDictionary&lt;String, Object&gt;, Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string Select(IClassMapper classMap, IPredicate predicate, IList&lt;ISort&gt; sort, IDictionary&lt;string, object&gt; parameters, int limit = 0)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DapperDal.Mapper.IClassMapper.html">IClassMapper</a></td>
+        <td><span class="parametername">classMap</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="DapperDal.Predicate.IPredicate.html">IPredicate</a></td>
+        <td><span class="parametername">predicate</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IList</span>&lt;<a class="xref" href="DapperDal.Predicate.ISort.html">ISort</a>&gt;</td>
+        <td><span class="parametername">sort</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IDictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Object</span>&gt;</td>
+        <td><span class="parametername">parameters</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">limit</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="DapperDal.Sql.ISqlGenerator.html#DapperDal_Sql_ISqlGenerator_Select_DapperDal_Mapper_IClassMapper_DapperDal_Predicate_IPredicate_System_Collections_Generic_IList_DapperDal_Predicate_ISort__System_Collections_Generic_IDictionary_System_String_System_Object__System_Int32_">ISqlGenerator.Select(IClassMapper, IPredicate, IList&lt;ISort&gt;, IDictionary&lt;String, Object&gt;, Int32)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Sql_SqlGeneratorImpl_SelectPaged_DapperDal_Mapper_IClassMapper_DapperDal_Predicate_IPredicate_System_Collections_Generic_IList_DapperDal_Predicate_ISort__System_Int32_System_Int32_System_Collections_Generic_IDictionary_System_String_System_Object__.md&amp;value=---%0Auid%3A%20DapperDal.Sql.SqlGeneratorImpl.SelectPaged(DapperDal.Mapper.IClassMapper%2CDapperDal.Predicate.IPredicate%2CSystem.Collections.Generic.IList%7BDapperDal.Predicate.ISort%7D%2CSystem.Int32%2CSystem.Int32%2CSystem.Collections.Generic.IDictionary%7BSystem.String%2CSystem.Object%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Sql/SqlGenerator.cs/#L190">View Source</a>
+  </span>
+  <a id="DapperDal_Sql_SqlGeneratorImpl_SelectPaged_" data-uid="DapperDal.Sql.SqlGeneratorImpl.SelectPaged*"></a>
+  <h4 id="DapperDal_Sql_SqlGeneratorImpl_SelectPaged_DapperDal_Mapper_IClassMapper_DapperDal_Predicate_IPredicate_System_Collections_Generic_IList_DapperDal_Predicate_ISort__System_Int32_System_Int32_System_Collections_Generic_IDictionary_System_String_System_Object__" data-uid="DapperDal.Sql.SqlGeneratorImpl.SelectPaged(DapperDal.Mapper.IClassMapper,DapperDal.Predicate.IPredicate,System.Collections.Generic.IList{DapperDal.Predicate.ISort},System.Int32,System.Int32,System.Collections.Generic.IDictionary{System.String,System.Object})">SelectPaged(IClassMapper, IPredicate, IList&lt;ISort&gt;, Int32, Int32, IDictionary&lt;String, Object&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string SelectPaged(IClassMapper classMap, IPredicate predicate, IList&lt;ISort&gt; sort, int page, int resultsPerPage, IDictionary&lt;string, object&gt; parameters)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DapperDal.Mapper.IClassMapper.html">IClassMapper</a></td>
+        <td><span class="parametername">classMap</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="DapperDal.Predicate.IPredicate.html">IPredicate</a></td>
+        <td><span class="parametername">predicate</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IList</span>&lt;<a class="xref" href="DapperDal.Predicate.ISort.html">ISort</a>&gt;</td>
+        <td><span class="parametername">sort</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">page</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">resultsPerPage</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IDictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Object</span>&gt;</td>
+        <td><span class="parametername">parameters</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="DapperDal.Sql.ISqlGenerator.html#DapperDal_Sql_ISqlGenerator_SelectPaged_DapperDal_Mapper_IClassMapper_DapperDal_Predicate_IPredicate_System_Collections_Generic_IList_DapperDal_Predicate_ISort__System_Int32_System_Int32_System_Collections_Generic_IDictionary_System_String_System_Object__">ISqlGenerator.SelectPaged(IClassMapper, IPredicate, IList&lt;ISort&gt;, Int32, Int32, IDictionary&lt;String, Object&gt;)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Sql_SqlGeneratorImpl_SelectSet_DapperDal_Mapper_IClassMapper_DapperDal_Predicate_IPredicate_System_Collections_Generic_IList_DapperDal_Predicate_ISort__System_Int32_System_Int32_System_Collections_Generic_IDictionary_System_String_System_Object__.md&amp;value=---%0Auid%3A%20DapperDal.Sql.SqlGeneratorImpl.SelectSet(DapperDal.Mapper.IClassMapper%2CDapperDal.Predicate.IPredicate%2CSystem.Collections.Generic.IList%7BDapperDal.Predicate.ISort%7D%2CSystem.Int32%2CSystem.Int32%2CSystem.Collections.Generic.IDictionary%7BSystem.String%2CSystem.Object%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Sql/SqlGenerator.cs/#L232">View Source</a>
+  </span>
+  <a id="DapperDal_Sql_SqlGeneratorImpl_SelectSet_" data-uid="DapperDal.Sql.SqlGeneratorImpl.SelectSet*"></a>
+  <h4 id="DapperDal_Sql_SqlGeneratorImpl_SelectSet_DapperDal_Mapper_IClassMapper_DapperDal_Predicate_IPredicate_System_Collections_Generic_IList_DapperDal_Predicate_ISort__System_Int32_System_Int32_System_Collections_Generic_IDictionary_System_String_System_Object__" data-uid="DapperDal.Sql.SqlGeneratorImpl.SelectSet(DapperDal.Mapper.IClassMapper,DapperDal.Predicate.IPredicate,System.Collections.Generic.IList{DapperDal.Predicate.ISort},System.Int32,System.Int32,System.Collections.Generic.IDictionary{System.String,System.Object})">SelectSet(IClassMapper, IPredicate, IList&lt;ISort&gt;, Int32, Int32, IDictionary&lt;String, Object&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string SelectSet(IClassMapper classMap, IPredicate predicate, IList&lt;ISort&gt; sort, int firstResult, int maxResults, IDictionary&lt;string, object&gt; parameters)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DapperDal.Mapper.IClassMapper.html">IClassMapper</a></td>
+        <td><span class="parametername">classMap</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="DapperDal.Predicate.IPredicate.html">IPredicate</a></td>
+        <td><span class="parametername">predicate</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IList</span>&lt;<a class="xref" href="DapperDal.Predicate.ISort.html">ISort</a>&gt;</td>
+        <td><span class="parametername">sort</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">firstResult</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">maxResults</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IDictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Object</span>&gt;</td>
+        <td><span class="parametername">parameters</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="DapperDal.Sql.ISqlGenerator.html#DapperDal_Sql_ISqlGenerator_SelectSet_DapperDal_Mapper_IClassMapper_DapperDal_Predicate_IPredicate_System_Collections_Generic_IList_DapperDal_Predicate_ISort__System_Int32_System_Int32_System_Collections_Generic_IDictionary_System_String_System_Object__">ISqlGenerator.SelectSet(IClassMapper, IPredicate, IList&lt;ISort&gt;, Int32, Int32, IDictionary&lt;String, Object&gt;)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Sql_SqlGeneratorImpl_SupportsMultipleStatements.md&amp;value=---%0Auid%3A%20DapperDal.Sql.SqlGeneratorImpl.SupportsMultipleStatements%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Sql/SqlGenerator.cs/#L444">View Source</a>
+  </span>
+  <a id="DapperDal_Sql_SqlGeneratorImpl_SupportsMultipleStatements_" data-uid="DapperDal.Sql.SqlGeneratorImpl.SupportsMultipleStatements*"></a>
+  <h4 id="DapperDal_Sql_SqlGeneratorImpl_SupportsMultipleStatements" data-uid="DapperDal.Sql.SqlGeneratorImpl.SupportsMultipleStatements">SupportsMultipleStatements()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool SupportsMultipleStatements()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="DapperDal.Sql.ISqlGenerator.html#DapperDal_Sql_ISqlGenerator_SupportsMultipleStatements">ISqlGenerator.SupportsMultipleStatements()</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Sql_SqlGeneratorImpl_Update_DapperDal_Mapper_IClassMapper_DapperDal_Predicate_IPredicate_System_Collections_Generic_IDictionary_System_String_System_Object__System_Collections_Generic_IList_System_String__.md&amp;value=---%0Auid%3A%20DapperDal.Sql.SqlGeneratorImpl.Update(DapperDal.Mapper.IClassMapper%2CDapperDal.Predicate.IPredicate%2CSystem.Collections.Generic.IDictionary%7BSystem.String%2CSystem.Object%7D%2CSystem.Collections.Generic.IList%7BSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Sql/SqlGenerator.cs/#L342">View Source</a>
+  </span>
+  <a id="DapperDal_Sql_SqlGeneratorImpl_Update_" data-uid="DapperDal.Sql.SqlGeneratorImpl.Update*"></a>
+  <h4 id="DapperDal_Sql_SqlGeneratorImpl_Update_DapperDal_Mapper_IClassMapper_DapperDal_Predicate_IPredicate_System_Collections_Generic_IDictionary_System_String_System_Object__System_Collections_Generic_IList_System_String__" data-uid="DapperDal.Sql.SqlGeneratorImpl.Update(DapperDal.Mapper.IClassMapper,DapperDal.Predicate.IPredicate,System.Collections.Generic.IDictionary{System.String,System.Object},System.Collections.Generic.IList{System.String})">Update(IClassMapper, IPredicate, IDictionary&lt;String, Object&gt;, IList&lt;String&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string Update(IClassMapper classMap, IPredicate predicate, IDictionary&lt;string, object&gt; parameters, IList&lt;string&gt; props = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DapperDal.Mapper.IClassMapper.html">IClassMapper</a></td>
+        <td><span class="parametername">classMap</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="DapperDal.Predicate.IPredicate.html">IPredicate</a></td>
+        <td><span class="parametername">predicate</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IDictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Object</span>&gt;</td>
+        <td><span class="parametername">parameters</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IList</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="parametername">props</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="DapperDal.Sql.ISqlGenerator.html#DapperDal_Sql_ISqlGenerator_Update_DapperDal_Mapper_IClassMapper_DapperDal_Predicate_IPredicate_System_Collections_Generic_IDictionary_System_String_System_Object__System_Collections_Generic_IList_System_String__">ISqlGenerator.Update(IClassMapper, IPredicate, IDictionary&lt;String, Object&gt;, IList&lt;String&gt;)</a></div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="DapperDal.Expressions.SortingExtensions.html#DapperDal_Expressions_SortingExtensions_ToSortable_System_Object_">SortingExtensions.ToSortable(Object)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/arbing/DapperDal/new/master/apiSpec/new?filename=DapperDal_Sql_SqlGeneratorImpl.md&amp;value=---%0Auid%3A%20DapperDal.Sql.SqlGeneratorImpl%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/arbing/DapperDal/blob/master/src/DapperDal/Sql/SqlGenerator.cs/#L133" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2015-2017 Microsoft<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
