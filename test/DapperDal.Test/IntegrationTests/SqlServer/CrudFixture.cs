@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using Dapper;
-using DapperDal;
 using DapperDal.Expressions;
 using DapperDal.Predicate;
+using DapperDal.Test.Dal;
 using DapperDal.Test.Entities;
 using NUnit.Framework;
 
@@ -20,10 +20,10 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void AddsEntityToDatabase_ReturnsKey()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 PersonEntity p = new PersonEntity { PersonName = "Foo", CreateTime = DateTime.Now, UpdateTime = DateTime.Now };
-                int id = personDal.Insert(p);
+                var id = personDal.Insert(p);
                 Assert.AreEqual(1, id);
                 Assert.AreEqual(1, p.PersonId);
             }
@@ -31,7 +31,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void AddsMultipleEntitiesToDatabase()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 PersonEntity p1 = new PersonEntity { PersonName = "Foo", CreateTime = DateTime.Now, UpdateTime = DateTime.Now };
                 PersonEntity p2 = new PersonEntity { PersonName = "Bar", CreateTime = DateTime.Now, UpdateTime = DateTime.Now };
@@ -50,7 +50,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingKey_DeletesFromDatabase()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 PersonEntity p1 = new PersonEntity
                 {
@@ -58,7 +58,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
                     CreateTime = DateTime.Now,
                     UpdateTime = DateTime.Now
                 };
-                int id = personDal.Insert(p1);
+                var id = personDal.Insert(p1);
 
                 PersonEntity p2 = personDal.Get(id);
                 personDal.Delete(p2);
@@ -68,7 +68,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingId_DeletesRows()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 PersonEntity p1 = new PersonEntity { PersonName = "Bar", CreateTime = DateTime.Now, UpdateTime = DateTime.Now };
                 PersonEntity p2 = new PersonEntity { PersonName = "Bar", CreateTime = DateTime.Now, UpdateTime = DateTime.Now };
@@ -92,7 +92,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingPredicate_DeletesRows()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 PersonEntity p1 = new PersonEntity { PersonName = "Bar", CreateTime = DateTime.Now, UpdateTime = DateTime.Now };
                 PersonEntity p2 = new PersonEntity { PersonName = "Bar", CreateTime = DateTime.Now, UpdateTime = DateTime.Now };
@@ -115,7 +115,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingObject_DeletesRows()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 PersonEntity p1 = new PersonEntity { PersonName = "Bar", CreateTime = DateTime.Now, UpdateTime = DateTime.Now };
                 PersonEntity p2 = new PersonEntity { PersonName = "Bar", CreateTime = DateTime.Now, UpdateTime = DateTime.Now };
@@ -137,7 +137,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingExpression_DeletesRows()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 PersonEntity p1 = new PersonEntity { PersonName = "Bar", CreateTime = DateTime.Now, UpdateTime = DateTime.Now };
                 PersonEntity p2 = new PersonEntity { PersonName = "Bar", CreateTime = DateTime.Now, UpdateTime = DateTime.Now };
@@ -192,7 +192,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingEntity_SoftDeletesRows()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 PersonEntity p1 = new PersonEntity
                 {
@@ -201,7 +201,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
                     UpdateTime = DateTime.Now,
                     IsActive = 1
                 };
-                int id = personDal.Insert(p1);
+                var id = personDal.Insert(p1);
 
                 PersonEntity p2 = personDal.Get(id);
                 personDal.SwitchActive(p2, false);
@@ -219,7 +219,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingPredicate_SoftDeletesRows()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 PersonEntity p1 = new PersonEntity { PersonName = "Bar", CreateTime = DateTime.Now, UpdateTime = DateTime.Now, IsActive = 1 };
                 PersonEntity p2 = new PersonEntity { PersonName = "Bar", CreateTime = DateTime.Now, UpdateTime = DateTime.Now, IsActive = 1 };
@@ -251,7 +251,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingObject_SoftDeletesRows()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 PersonEntity p1 = new PersonEntity { PersonName = "Bar", CreateTime = DateTime.Now, UpdateTime = DateTime.Now, IsActive = 1 };
                 PersonEntity p2 = new PersonEntity { PersonName = "Bar", CreateTime = DateTime.Now, UpdateTime = DateTime.Now, IsActive = 1 };
@@ -281,7 +281,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingExpression_SoftDeletesRows()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 PersonEntity p1 = new PersonEntity { PersonName = "Bar", CreateTime = DateTime.Now, UpdateTime = DateTime.Now, IsActive = 1 };
                 PersonEntity p2 = new PersonEntity { PersonName = "Bar", CreateTime = DateTime.Now, UpdateTime = DateTime.Now, IsActive = 1 };
@@ -338,7 +338,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingEntity_SoftDeletesRows()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 PersonEntity p1 = new PersonEntity
                 {
@@ -347,7 +347,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
                     UpdateTime = DateTime.Now,
                     IsActive = 1
                 };
-                int id = personDal.Insert(p1);
+                var id = personDal.Insert(p1);
 
                 PersonEntity p2 = personDal.Get(id);
                 personDal.SoftDelete(p2);
@@ -359,7 +359,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingPredicate_SoftDeletesRows()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 PersonEntity p1 = new PersonEntity { PersonName = "Bar", CreateTime = DateTime.Now, UpdateTime = DateTime.Now, IsActive = 1 };
                 PersonEntity p2 = new PersonEntity { PersonName = "Bar", CreateTime = DateTime.Now, UpdateTime = DateTime.Now, IsActive = 1 };
@@ -383,7 +383,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingObject_SoftDeletesRows()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 PersonEntity p1 = new PersonEntity { PersonName = "Bar", CreateTime = DateTime.Now, UpdateTime = DateTime.Now, IsActive = 1 };
                 PersonEntity p2 = new PersonEntity { PersonName = "Bar", CreateTime = DateTime.Now, UpdateTime = DateTime.Now, IsActive = 1 };
@@ -406,7 +406,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingExpression_SoftDeletesRows()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 PersonEntity p1 = new PersonEntity { PersonName = "Bar", CreateTime = DateTime.Now, UpdateTime = DateTime.Now, IsActive = 1 };
                 PersonEntity p2 = new PersonEntity { PersonName = "Bar", CreateTime = DateTime.Now, UpdateTime = DateTime.Now, IsActive = 1 };
@@ -434,7 +434,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingEntity_UpdatesEntity()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 PersonEntity p1 = new PersonEntity
                 {
@@ -443,7 +443,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
                     UpdateTime = DateTime.Now,
                     IsActive = 0
                 };
-                int id = personDal.Insert(p1);
+                var id = personDal.Insert(p1);
 
                 var p2 = personDal.Get(id);
                 p2.IsActive = 1;
@@ -459,7 +459,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingEntity_UpdatesPartProperties()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 PersonEntity p1 = new PersonEntity
                 {
@@ -469,7 +469,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
                     UpdateTime = DateTime.Now,
                     IsActive = 0
                 };
-                int id = personDal.Insert(p1);
+                var id = personDal.Insert(p1);
 
                 var p2 = personDal.Get(id);
                 p2.PersonName = "Baz";
@@ -487,7 +487,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingEntityProperties_UpdatesPartProperties()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 PersonEntity p1 = new PersonEntity
                 {
@@ -497,7 +497,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
                     UpdateTime = DateTime.Now,
                     IsActive = 0
                 };
-                int id = personDal.Insert(p1);
+                var id = personDal.Insert(p1);
 
                 var p2 = personDal.Get(id);
                 p2.PersonName = "Baz";
@@ -544,7 +544,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingObject_UpdatesPartProperties()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 PersonEntity p1 = new PersonEntity
                 {
@@ -554,7 +554,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
                     UpdateTime = DateTime.Now,
                     IsActive = 0
                 };
-                int id = personDal.Insert(p1);
+                var id = personDal.Insert(p1);
 
                 var p2 = personDal.Get(id);
                 p2.PersonName = "Baz";
@@ -573,7 +573,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingObject_WherePredicateKey_UpdatesPartProperties()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 PersonEntity p1 = new PersonEntity
                 {
@@ -583,7 +583,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
                     UpdateTime = DateTime.Now,
                     IsActive = 0
                 };
-                int id = personDal.Insert(p1);
+                var id = personDal.Insert(p1);
 
                 var p2 = personDal.Get(id);
                 p2.PersonName = "Baz";
@@ -605,7 +605,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingObject_WherePredicateProp_UpdatesPartProperties()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 PersonEntity p1 = new PersonEntity
                 {
@@ -615,7 +615,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
                     UpdateTime = DateTime.Now,
                     IsActive = 0
                 };
-                int id = personDal.Insert(p1);
+                var id = personDal.Insert(p1);
 
                 var p2 = personDal.Get(id);
                 p2.PersonName = "Baz";
@@ -637,7 +637,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingObject_WhereObjectKey_UpdatesPartProperties()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 PersonEntity p1 = new PersonEntity
                 {
@@ -647,7 +647,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
                     UpdateTime = DateTime.Now,
                     IsActive = 0
                 };
-                int id = personDal.Insert(p1);
+                var id = personDal.Insert(p1);
 
                 var p2 = personDal.Get(id);
                 p2.PersonName = "Baz";
@@ -667,7 +667,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingObject_WhereObjectProp_UpdatesPartProperties()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 PersonEntity p1 = new PersonEntity
                 {
@@ -677,7 +677,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
                     UpdateTime = DateTime.Now,
                     IsActive = 0
                 };
-                int id = personDal.Insert(p1);
+                var id = personDal.Insert(p1);
 
                 var p2 = personDal.Get(id);
                 p2.PersonName = "Baz";
@@ -697,7 +697,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingObject_WhereExpressionKey_UpdatesPartProperties()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 PersonEntity p1 = new PersonEntity
                 {
@@ -707,7 +707,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
                     UpdateTime = DateTime.Now,
                     IsActive = 0
                 };
-                int id = personDal.Insert(p1);
+                var id = personDal.Insert(p1);
 
                 var p2 = personDal.Get(id);
                 p2.PersonName = "Baz";
@@ -728,7 +728,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingObject_WhereExpressionProp_UpdatesPartProperties()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 PersonEntity p1 = new PersonEntity
                 {
@@ -738,7 +738,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
                     UpdateTime = DateTime.Now,
                     IsActive = 0
                 };
-                int id = personDal.Insert(p1);
+                var id = personDal.Insert(p1);
 
                 var p2 = personDal.Get(id);
                 p2.PersonName = "Baz";
@@ -763,7 +763,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingKey_ReturnsEntity()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 PersonEntity p1 = new PersonEntity
                 {
@@ -772,7 +772,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
                     UpdateTime = DateTime.Now,
                     IsActive = 0
                 };
-                int id = personDal.Insert(p1);
+                var id = personDal.Insert(p1);
 
                 PersonEntity p2 = personDal.Get(id);
                 Assert.AreEqual(id, p2.PersonId);
@@ -787,7 +787,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingNullPredicate_ReturnsFirst()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -801,7 +801,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingNullPredicate_ByExpression_ReturnsOrderedFirst()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -818,7 +818,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingPredicate_ReturnsMatching()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -834,7 +834,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingNullPredicate_BySort_ReturnsOrderedFirst()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -850,7 +850,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingPredicate_BySort_ReturnsMatchingOrdered()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -868,7 +868,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingPredicate_ByExpression_ReturnsMatchingOrdered()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -886,7 +886,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingObject_ReturnsMatching()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -901,7 +901,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingNullPredicate_ByObject_ReturnsOrdered()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -916,7 +916,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingObject_ByObject_ReturnsMatchingOrdered()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -932,7 +932,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingObject_ByExpression_ReturnsMatchingOrdered()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -949,7 +949,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingExpression_ReturnsMatching()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -958,12 +958,19 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
 
                 PersonEntity p2 = personDal.GetFirst(p => p.IsActive == 1);
                 Assert.AreEqual(1, p2.CarId);
+
+                var carIds = new[] { p2.CarId, 3, 2};
+                PersonEntity p3 = personDal.GetFirst(p => carIds.Contains(p.CarId));
+                Assert.AreEqual(1, p3.CarId);
+
+                PersonEntity p4 = personDal.GetFirst(p => p.PersonName.Contains("d"));
+                Assert.AreEqual(2, p4.CarId);
             }
 
             [Test]
             public void UsingNullPredicate_ByExpression_ReturnsOrdered()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -980,7 +987,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingExpression_BySort_ReturnsMatchingOrdered()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -997,7 +1004,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingExpression_ByObject_ReturnsMatchingOrdered()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1013,7 +1020,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingExpression_ByExpression_ReturnsMatchingOrdered()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1035,7 +1042,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingNullPredicate_ReturnsAll()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1049,7 +1056,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingNullPredicate_ByExpression_ReturnsAllOrdered()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1068,7 +1075,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingPredicate_ReturnsMatching()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1084,7 +1091,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingNullPredicate_BySort_ReturnsOrdered()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1101,7 +1108,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingPredicate_BySort_ReturnsMatchingOrdered()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1119,7 +1126,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingPredicate_ByExpression_ReturnsMatchingOrdered()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1138,7 +1145,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingObject_ReturnsMatching()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1154,7 +1161,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingNullPredicate_ByObject_ReturnsOrdered()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1170,7 +1177,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingObject_ByObject_ReturnsMatchingOrdered()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1187,7 +1194,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingObject_ByExpression_ReturnsMatchingOrdered()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1205,7 +1212,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingExpression_ReturnsMatching()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1251,7 +1258,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingCombineExpression_ReturnsMatching()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1319,7 +1326,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingNullPredicate_ByExpression_ReturnsOrdered()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1338,7 +1345,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingExpression_BySort_ReturnsMatchingOrdered()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1356,7 +1363,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingExpression_ByObject_ReturnsMatchingOrdered()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1373,7 +1380,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingExpression_ByExpression_ReturnsMatchingOrdered()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1396,7 +1403,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingPredicate_BySort_ReturnsMatchingOrdered()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1415,7 +1422,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingPredicate_ByExpression_ReturnsMatchingOrdered()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1434,7 +1441,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingObject_ByObject_ReturnsMatchingOrdered()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1453,7 +1460,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingObject_ByExpression_ReturnsMatchingOrdered()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1472,7 +1479,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingExpression_ByObject_ReturnsMatchingOrdered()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1491,7 +1498,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingExpression_ByExpression_ReturnsMatchingOrdered()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1515,7 +1522,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingPredicate_BySort_ReturnsMatchingOrdered()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1534,7 +1541,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingPredicate_ByExpression_ReturnsMatchingOrdered()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1553,7 +1560,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingObject_ByObject_ReturnsMatchingOrdered()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1572,7 +1579,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingObject_ByExpression_ReturnsMatchingOrdered()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1591,7 +1598,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingExpression_ByObject_ReturnsMatchingOrdered()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1610,7 +1617,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingExpression_ByExpression_ReturnsMatchingOrdered()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1634,7 +1641,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingNullPredicate_ReturnsLimit()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1648,7 +1655,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingNullPredicate_ByExpression_ReturnsLimitOrdered()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1667,7 +1674,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingPredicate_ReturnsMatching()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1683,7 +1690,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingNullPredicate_BySort_ReturnsOrdered()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1701,7 +1708,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingPredicate_BySort_ReturnsMatchingOrdered()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1720,7 +1727,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingPredicate_ByExpression_ReturnsMatchingOrdered()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1740,7 +1747,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingObject_ReturnsMatching()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1756,7 +1763,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingNullPredicate_ByObject_ReturnsOrdered()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1773,7 +1780,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingObject_ByObject_ReturnsMatchingOrdered()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1791,7 +1798,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingObject_ByExpression_ReturnsMatchingOrdered()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1810,7 +1817,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingExpression_ReturnsMatching()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1826,7 +1833,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingNullPredicate_ByExpression_ReturnsOrdered()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1846,7 +1853,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingExpression_BySort_ReturnsMatchingOrdered()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1865,7 +1872,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingExpression_ByObject_ReturnsMatchingOrdered()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1883,7 +1890,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingExpression_ByExpression_ReturnsMatchingOrdered()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1907,7 +1914,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingNull_Returns_NoCount()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
                 Assert.AreEqual(0, personDal.Count(null));
                 Assert.AreEqual(0, personDal.Count());
             }
@@ -1915,7 +1922,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingNull_Returns_Count()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1929,7 +1936,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingPredicate_Returns_Count()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1944,7 +1951,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingObject_Returns_Count()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1958,7 +1965,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingNullExpression_Returns_Count()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1973,7 +1980,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingExpression_Returns_Count()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -1992,7 +1999,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingNull_Returns_Exsit()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
 
@@ -2004,7 +2011,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingNull_Returns_NotExsit()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
 
                 Assert.AreEqual(false, personDal.Exsit());
@@ -2016,7 +2023,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingId_Returns_Exsit()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -2031,7 +2038,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingPredicate_Returns_Exsit()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -2046,7 +2053,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingObject_Returns_Exsit()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -2060,7 +2067,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingNullExpression_Returns_Exsit()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -2075,7 +2082,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingExpression_Returns_Exsit()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -2102,7 +2109,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingNone_ReturnsEntitys()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -2119,7 +2126,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingParameter_ReturnsEntitys()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -2136,7 +2143,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingParameter_WithProcedure_ReturnsEntitys()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -2153,7 +2160,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingNone_ReturnsModels()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -2170,7 +2177,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingParameter_ReturnsModels()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -2187,7 +2194,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingParameter_WithProcedure_ReturnsModels()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -2205,7 +2212,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingDynamicParameter_WithProcedure_ReturnsModels_OutputCount()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -2235,7 +2242,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingTypeParameter_WithProcedure_ReturnsModels_OutputCount()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -2263,7 +2270,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingNone_ReturnsEntitys()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -2280,7 +2287,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingParameter_ReturnsEntitys()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -2297,7 +2304,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingParameter_WithProcedure_ReturnsEntitys()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -2314,7 +2321,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingNone_ReturnsModels()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -2331,7 +2338,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingParameter_ReturnsModels()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -2348,7 +2355,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingParameter_WithProcedure_ReturnsModels()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -2366,7 +2373,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingDynamicParameter_WithProcedure_ReturnsModels_OutputCount()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -2396,7 +2403,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingTypeParameter_WithProcedure_ReturnsModels_OutputCount()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -2424,7 +2431,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingNone()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -2443,7 +2450,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingParameter()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -2462,7 +2469,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingParameter_WithProcedure()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -2481,7 +2488,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingDynamicParameter_WithProcedure_OutputCount()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -2519,7 +2526,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingTypeParameter_WithProcedure_ReturnsModels_OutputCount()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -2547,7 +2554,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingNone()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -2566,7 +2573,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingParameter()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -2585,7 +2592,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingParameter_WithProcedure()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -2604,7 +2611,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingDynamicParameter_WithProcedure_OutputCount()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -2642,7 +2649,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingTypeParameter_WithProcedure_ReturnsModels_OutputCount()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -2670,7 +2677,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingNone_ReturnsMultiples()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -2689,7 +2696,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingParameter_ReturnsMultiples()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -2709,7 +2716,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingParameter_WithProcedure_ReturnsMultiples()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -2732,7 +2739,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingNone_ReturnsMultiples()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -2751,7 +2758,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingParameter_ReturnsMultiples()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
@@ -2771,7 +2778,7 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
             [Test]
             public void UsingParameter_WithProcedure_ReturnsMultiples()
             {
-                var personDal = new DalBase<PersonEntity>();
+                var personDal = new PersonDal();
 
                 personDal.Insert(new PersonEntity { PersonName = "a", CarId = 1, IsActive = 1, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });
                 personDal.Insert(new PersonEntity { PersonName = "b", CarId = 3, IsActive = 0, CreateTime = DateTime.Now, UpdateTime = DateTime.Now });

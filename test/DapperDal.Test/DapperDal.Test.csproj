@@ -65,6 +65,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dal\CarDal.cs" />
+    <Compile Include="Dal\ConnectionNames.cs" />
+    <Compile Include="Dal\PersonDal.cs" />
     <Compile Include="Entities\CarEntity.cs" />
     <Compile Include="Entities\PersonEntity.cs" />
     <Compile Include="Helpers\DatabaseInfo.cs" />
