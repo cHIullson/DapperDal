@@ -48,6 +48,8 @@
   <ItemGroup>
     <Compile Include="DalBaseOfTEntity.Execute.OtherConn.cs" />
     <Compile Include="DalBaseOfTEntity.ExecuteScalar.OtherConn.cs" />
+    <Compile Include="DalBaseOfTEntity.QueryDataSet.OtherConn.cs" />
+    <Compile Include="DalBaseOfTEntity.QueryDataSet.cs" />
     <Compile Include="DalBaseOfTEntity.Exsit.cs" />
     <Compile Include="DalBaseOfTEntity.ExecuteScalar.cs" />
     <Compile Include="DalBaseOfTEntity.GetFirst.cs" />

@@ -388,7 +388,7 @@ public class PersonDal : DalBase<PersonEntity, long>
         var parameters = new DynamicParameters(param).Output(param, p => p.RecordCount);
     
         var list = Query<GetPersonPagedListOutputDto>(
-                "p_GetReplacementOrderPagedList",
+                "p_GetPersonPagedList",
                 parameters,
                 commandType: CommandType.StoredProcedure)
             .ToList();
@@ -401,6 +401,9 @@ public class PersonDal : DalBase<PersonEntity, long>
 
 Release Notes
 -------------
+### 1.5.18
+* 添加返回 DataSet 的查询方法：`QueryDataSet` 
+
 ### 1.5.16
 * 重构，合并 `Dapper-Extensions` 到 `DapperDal`，然后移除 `Dapper-Extensions`
 

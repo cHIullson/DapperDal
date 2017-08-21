@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata schemaVersion="2">
     <id>DapperDal</id>
-    <version>1.5.17</version>
+    <version>1.5.18</version>
     <title>DapperDal</title>
     <authors>arbing</authors>
     <owners>arbing</owners>
@@ -10,9 +10,11 @@
     <projectUrl>https://github.com/arbing/DapperDal</projectUrl>
     <!--<iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>-->
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>简基于 Dapper、Dapper-Extensions 构建的微型 ORM 类库，提供一个包含增、删、改、查等常用方法的数据访问层基类，支持用 Lambda 表达式书写查询和更新条件</description>
+    <description>基于 Dapper、Dapper-Extensions 构建的微型 ORM 类库，提供一个包含增、删、改、查等常用方法的数据访问层基类，支持用 Lambda 表达式书写查询和更新条件</description>
     <summary>基于 Dapper、Dapper-Extensions 构建的微型 ORM 类库，提供一个包含增、删、改、查等常用方法的数据访问层基类，支持用 Lambda 表达式书写查询和更新条件</summary>
     <releaseNotes>
+      1.5.18
+      * 添加返回 DataSet 的查询方法：QueryDataSet
       1.5.16
       * 重构，合并 Dapper-Extensions 到 DapperDal，然后移除 Dapper-Extensions
       1.5.15
