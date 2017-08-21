@@ -846,6 +846,62 @@ references:
   fullName.vb: DapperDal.DalBase(Of TEntity, TPrimaryKey).Query(Of TAny)(System.String, System.String, System.Object, CommandType)
   nameWithType: DalBase<TEntity, TPrimaryKey>.Query<TAny>(String, String, Object, CommandType)
   nameWithType.vb: DalBase(Of TEntity, TPrimaryKey).Query(Of TAny)(String, String, Object, CommandType)
+- uid: DapperDal.DalBase`2.QueryDataSet(System.String)
+  name: QueryDataSet(String)
+  href: api/DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryDataSet_System_String_
+  commentId: M:DapperDal.DalBase`2.QueryDataSet(System.String)
+  fullName: DapperDal.DalBase<TEntity, TPrimaryKey>.QueryDataSet(System.String)
+  fullName.vb: DapperDal.DalBase(Of TEntity, TPrimaryKey).QueryDataSet(System.String)
+  nameWithType: DalBase<TEntity, TPrimaryKey>.QueryDataSet(String)
+  nameWithType.vb: DalBase(Of TEntity, TPrimaryKey).QueryDataSet(String)
+- uid: DapperDal.DalBase`2.QueryDataSet(System.String,System.Object)
+  name: QueryDataSet(String, Object)
+  href: api/DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryDataSet_System_String_System_Object_
+  commentId: M:DapperDal.DalBase`2.QueryDataSet(System.String,System.Object)
+  fullName: DapperDal.DalBase<TEntity, TPrimaryKey>.QueryDataSet(System.String, System.Object)
+  fullName.vb: DapperDal.DalBase(Of TEntity, TPrimaryKey).QueryDataSet(System.String, System.Object)
+  nameWithType: DalBase<TEntity, TPrimaryKey>.QueryDataSet(String, Object)
+  nameWithType.vb: DalBase(Of TEntity, TPrimaryKey).QueryDataSet(String, Object)
+- uid: DapperDal.DalBase`2.QueryDataSet(System.String,System.Object,CommandType)
+  name: QueryDataSet(String, Object, CommandType)
+  href: api/DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryDataSet_System_String_System_Object_CommandType_
+  commentId: M:DapperDal.DalBase`2.QueryDataSet(System.String,System.Object,CommandType)
+  fullName: DapperDal.DalBase<TEntity, TPrimaryKey>.QueryDataSet(System.String, System.Object, CommandType)
+  fullName.vb: DapperDal.DalBase(Of TEntity, TPrimaryKey).QueryDataSet(System.String, System.Object, CommandType)
+  nameWithType: DalBase<TEntity, TPrimaryKey>.QueryDataSet(String, Object, CommandType)
+  nameWithType.vb: DalBase(Of TEntity, TPrimaryKey).QueryDataSet(String, Object, CommandType)
+- uid: DapperDal.DalBase`2.QueryDataSet(System.String,System.String)
+  name: QueryDataSet(String, String)
+  href: api/DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryDataSet_System_String_System_String_
+  commentId: M:DapperDal.DalBase`2.QueryDataSet(System.String,System.String)
+  fullName: DapperDal.DalBase<TEntity, TPrimaryKey>.QueryDataSet(System.String, System.String)
+  fullName.vb: DapperDal.DalBase(Of TEntity, TPrimaryKey).QueryDataSet(System.String, System.String)
+  nameWithType: DalBase<TEntity, TPrimaryKey>.QueryDataSet(String, String)
+  nameWithType.vb: DalBase(Of TEntity, TPrimaryKey).QueryDataSet(String, String)
+- uid: DapperDal.DalBase`2.QueryDataSet(System.String,System.String,System.Object)
+  name: QueryDataSet(String, String, Object)
+  href: api/DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryDataSet_System_String_System_String_System_Object_
+  commentId: M:DapperDal.DalBase`2.QueryDataSet(System.String,System.String,System.Object)
+  fullName: DapperDal.DalBase<TEntity, TPrimaryKey>.QueryDataSet(System.String, System.String, System.Object)
+  fullName.vb: DapperDal.DalBase(Of TEntity, TPrimaryKey).QueryDataSet(System.String, System.String, System.Object)
+  nameWithType: DalBase<TEntity, TPrimaryKey>.QueryDataSet(String, String, Object)
+  nameWithType.vb: DalBase(Of TEntity, TPrimaryKey).QueryDataSet(String, String, Object)
+- uid: DapperDal.DalBase`2.QueryDataSet(System.String,System.String,System.Object,CommandType)
+  name: QueryDataSet(String, String, Object, CommandType)
+  href: api/DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryDataSet_System_String_System_String_System_Object_CommandType_
+  commentId: M:DapperDal.DalBase`2.QueryDataSet(System.String,System.String,System.Object,CommandType)
+  fullName: DapperDal.DalBase<TEntity, TPrimaryKey>.QueryDataSet(System.String, System.String, System.Object, CommandType)
+  fullName.vb: DapperDal.DalBase(Of TEntity, TPrimaryKey).QueryDataSet(System.String, System.String, System.Object, CommandType)
+  nameWithType: DalBase<TEntity, TPrimaryKey>.QueryDataSet(String, String, Object, CommandType)
+  nameWithType.vb: DalBase(Of TEntity, TPrimaryKey).QueryDataSet(String, String, Object, CommandType)
+- uid: DapperDal.DalBase`2.QueryDataSet*
+  name: QueryDataSet
+  href: api/DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryDataSet_
+  commentId: Overload:DapperDal.DalBase`2.QueryDataSet
+  fullName: DapperDal.DalBase<TEntity, TPrimaryKey>.QueryDataSet
+  fullName.vb: DapperDal.DalBase(Of TEntity, TPrimaryKey).QueryDataSet
+  nameWithType: DalBase<TEntity, TPrimaryKey>.QueryDataSet
+  nameWithType.vb: DalBase(Of TEntity, TPrimaryKey).QueryDataSet
 - uid: DapperDal.DalBase`2.QueryFirst(System.String)
   name: QueryFirst(String)
   href: api/DapperDal.DalBase-2.html#DapperDal_DalBase_2_QueryFirst_System_String_

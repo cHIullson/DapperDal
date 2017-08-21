@@ -358,7 +358,7 @@ public class PersonDal : DalBase&lt;PersonEntity, long&gt;
         var parameters = new DynamicParameters(param).Output(param, p =&gt; p.RecordCount);
 
         var list = Query&lt;GetPersonPagedListOutputDto&gt;(
-                &quot;p_GetReplacementOrderPagedList&quot;,
+                &quot;p_GetPersonPagedList&quot;,
                 parameters,
                 commandType: CommandType.StoredProcedure)
             .ToList();
@@ -367,6 +367,10 @@ public class PersonDal : DalBase&lt;PersonEntity, long&gt;
     }
 }
 </code></pre><h2 id="release-notes">Release Notes</h2>
+<h3 id="1518">1.5.18</h3>
+<ul>
+<li>添加返回 DataSet 的查询方法：<code>QueryDataSet</code> </li>
+</ul>
 <h3 id="1516">1.5.16</h3>
 <ul>
 <li>重构，合并 <code>Dapper-Extensions</code> 到 <code>DapperDal</code>，然后移除 <code>Dapper-Extensions</code></li>
