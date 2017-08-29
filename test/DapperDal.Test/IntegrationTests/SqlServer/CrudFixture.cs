@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading;
 using Dapper;
 using DapperDal.Expressions;
 using DapperDal.Predicate;
@@ -176,6 +177,8 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
                 };
                 long id = personDal.Insert(p1);
                 var dt = DateTime.Now;
+
+                Thread.Sleep(1000);
 
                 PersonEntity p2 = personDal.Get(id);
                 personDal.SwitchActive(p2.PersonId, false);
