@@ -367,6 +367,10 @@ public class PersonDal : DalBase&lt;PersonEntity, long&gt;
     }
 }
 </code></pre><h2 id="release-notes">Release Notes</h2>
+<h3 id="1519">1.5.19</h3>
+<ul>
+<li>逻辑删除方法 <code>SoftDelete</code>、<code>SwitchActive</code> 默认更新字段 <code>UpdateTime = DateTime.Now</code></li>
+</ul>
 <h3 id="1518">1.5.18</h3>
 <ul>
 <li>添加返回 DataSet 的查询方法：<code>QueryDataSet</code> </li>
