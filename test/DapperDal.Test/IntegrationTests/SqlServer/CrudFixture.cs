@@ -175,18 +175,22 @@ namespace DapperDal.Test.IntegrationTests.SqlServer
                     IsActive = 1
                 };
                 long id = personDal.Insert(p1);
+                var dt = DateTime.Now;
 
                 PersonEntity p2 = personDal.Get(id);
                 personDal.SwitchActive(p2.PersonId, false);
 
                 var p3 = personDal.Get(id);
                 Assert.AreEqual(0, p3.IsActive);
+                Assert.True(p3.UpdateTime > dt);
 
                 p2 = personDal.Get(id);
                 personDal.SwitchActive(p2.PersonId, true);
+                Assert.True(p2.UpdateTime > dt);
 
                 p3 = personDal.Get(id);
                 Assert.AreEqual(1, p3.IsActive);
+                Assert.True(p3.UpdateTime > dt);
             }
 
 

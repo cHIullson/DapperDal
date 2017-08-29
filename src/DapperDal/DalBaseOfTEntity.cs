@@ -1,13 +1,8 @@
-using Dapper;
-using DapperDal.Mapper;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Reflection;
+using DapperDal.Mapper;
 
 namespace DapperDal
 {
@@ -140,8 +135,8 @@ namespace DapperDal
                 Options = new DalOptions();
             }
 
-            Options.SoftDeletePropsFactory = () => new { IsActive = 0 };
-            Options.SoftActivePropsFactory = () => new { IsActive = 1 };
+            Options.SoftDeletePropsFactory = () => new { IsActive = 0, UpdateTime = DateTime.Now };
+            Options.SoftActivePropsFactory = () => new { IsActive = 1, UpdateTime = DateTime.Now };
         }
 
         /// <summary>

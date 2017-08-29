@@ -401,6 +401,9 @@ public class PersonDal : DalBase<PersonEntity, long>
 
 Release Notes
 -------------
+### 1.5.19
+* 逻辑删除方法 `SoftDelete`、`SwitchActive` 默认更新字段 `UpdateTime = DateTime.Now`
+
 ### 1.5.18
 * 添加返回 DataSet 的查询方法：`QueryDataSet` 
 
