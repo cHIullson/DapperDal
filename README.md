@@ -1,5 +1,5 @@
 # DapperDal - 简单易用的微 ORM 类库，数据访问层基类
-# C.Mei
+
 
 [![NuGet Badge](https://buildstats.info/nuget/DapperDal)](https://www.nuget.org/packages/DapperDal/)
 [![Build status](https://ci.appveyor.com/api/projects/status/rxogkxvhdthd4rf0?svg=true)](https://ci.appveyor.com/project/arbing/dapperdal)
@@ -7,6 +7,8 @@
 Introduction
 -------------
 基于 `Dapper`、`Dapper-Extensions` 构建的微型 ORM 类库，提供一个包含增、删、改、查等常用方法的数据访问层基类，支持用 `Lambda` 表达式书写查询和更新条件。
+
+# C.Mei
 
 Features
 -------------
